@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/parentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/top_curve_bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="334dp">
+
+                    <TextView
+                        android:id="@+id/addProdLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Add Product"
+                        android:textColor="#0191B5"
+                        android:textSize="@dimen/_22sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/skipLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Skip"
+                        android:textColor="#48C260"
+                        app:layout_constraintBottom_toBottomOf="@+id/addProdLb"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/addProdLb" />
+
+                    <TextView
+                        android:id="@+id/productTitleLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Product Title"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/addProdLb" />
+
+                    <TextView
+                        android:id="@+id/priceLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Price"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtproductTitle" />
+
+                    <TextView
+                        android:id="@+id/specialPriceLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Special Price"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtAdvancDetal" />
+
+
+                    <TextView
+                        android:id="@+id/txtAdvancDetal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                        android:drawableTint="@color/primary_bg"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Advance Details"
+                        android:textColor="#0191B5"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPrice"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
+
+                    <TextView
+                        android:id="@+id/specialPriceTypeLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Special Price Type"
+
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPrice" />
+
+                    <TextView
+                        android:id="@+id/specialPriceStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Special Price Start"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/location4" />
+
+                    <TextView
+                        android:id="@+id/specialPriceEndLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Special Price End"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+
+                    <EditText
+                        android:id="@+id/txtproductTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:hint="Enter Title"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/productTitleLb" />
+
+                    <EditText
+                        android:id="@+id/location4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:hint="Fixed"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSpecialPrice"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceTypeLb" />
+
+                    <EditText
+                        android:id="@+id/location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/location4"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceStart" />
+
+                    <EditText
+                        android:id="@+id/txtSpecialPriceEnd"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/location"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceEndLb" />
+
+                    <EditText
+                        android:id="@+id/txtPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:hint="Enter Price"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtproductTitle"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/priceLb" />
+
+                    <EditText
+                        android:id="@+id/txtSpecialPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:padding="@dimen/_6sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPrice"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceLb" />
+
+                    <Button
+                        android:id="@+id/saveBtn"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_margin="@dimen/_20sdp"
+
+                        android:background="@drawable/btn_background"
+                        android:gravity="center"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPriceEnd"
+                        tools:ignore="UnknownIdInLayout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

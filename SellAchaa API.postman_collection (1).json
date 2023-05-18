@@ -1,0 +1,3929 @@
+{
+	"info": {
+		"_postman_id": "9236ed1a-b71c-480f-a04f-99fc7478580c",
+		"name": "SellAchaa API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Static Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/dashboard/static",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"static"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "perfomance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/dashboard/perfomance/15",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"perfomance",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order statics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/dashboard/order_statics/March",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"order_statics",
+								"March"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "visitors analytics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/dashboard/visitors/15",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"visitors",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Get Brand",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_brand",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Brand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Apple_new",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Users/bjrsingh/Desktop/download (2).png"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_brand",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Brand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Apple_new_ed",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Users/bjrsingh/Desktop/download (2).png"
+								},
+								{
+									"key": "id",
+									"value": "186",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_brand",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Brand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "185",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "delete",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_brand",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_category?type=category",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_category"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "category",
+									"description": "Category Type: services/serviceschedule/category"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "category",
+									"description": "Category Type: services/serviceschedule/category",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"description": "0 for No 1 for Yes",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Users/bjrsingh/Desktop/download (2).png"
+								},
+								{
+									"key": "menu_status",
+									"value": "0",
+									"description": "Front Category Menu 0 for No 1 for Yes",
+									"type": "text"
+								},
+								{
+									"key": "weekname",
+									"value": "Monday",
+									"description": "For Type serviceschedule",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "start_time",
+									"value": "12:00 AM",
+									"description": "For Type serviceschedule",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "end_time",
+									"value": "05:00 PM",
+									"description": "For Type serviceschedule",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "For Type serviceschedule",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "category_new",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_category",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "category",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "menu_status",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "weekname",
+									"value": "Monday",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_time",
+									"value": "12:00 AM",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_time",
+									"value": "05:00 PM",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "category_new",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Users/bjrsingh/Desktop/download (2).png"
+								},
+								{
+									"key": "id",
+									"value": "187",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_category",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "185",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "delete",
+									"type": "text"
+								},
+								{
+									"key": "typeu",
+									"value": "category",
+									"description": "Category Type: services/serviceschedule/category",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_brand",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attributes",
+			"item": [
+				{
+					"name": "Get Attribute",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_attribute",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attribute",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Attri_new",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_attribute",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Attribute",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Attri_new",
+									"type": "text"
+								},
+								{
+									"key": "featured",
+									"value": "0",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_attribute",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attribute",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "185",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "delete",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_attribute",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_attribute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coupons",
+			"item": [
+				{
+					"name": "Get Coupon",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_coupon",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Coupon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coupon_code",
+									"value": "mycode",
+									"type": "text"
+								},
+								{
+									"key": "percent",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-01-26",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_coupon",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Coupon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coupon_code",
+									"value": "mycode",
+									"type": "text"
+								},
+								{
+									"key": "percent",
+									"value": "10",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2022-01-26",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "25",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_coupon",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Coupon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "185",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "delete",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_coupon",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_coupon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Get Transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_transaction",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction By Trans Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_transaction?src=gBIGwdAGvO",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_transaction"
+							],
+							"query": [
+								{
+									"key": "src",
+									"value": "gBIGwdAGvO"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_report",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Report By Start End Date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_report?start=2022-01-01&end=2022-12-29",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_report"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2022-01-01"
+								},
+								{
+									"key": "end",
+									"value": "2022-12-29"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Get Location",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_location",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "newlocation",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_location",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "updateloc",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "25",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_location",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "185",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "delete",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_location",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipping Price",
+			"item": [
+				{
+					"name": "Get Shipping",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_shipping",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shipping",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "newshipping",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "locations[]",
+									"value": "170,169",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/create_shipping",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"create_shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Shipping",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "term_id",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "option",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "variation",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "qty",
+								"value": "2",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "newshipping",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"description": "0 for unfeatured 1 for featured",
+									"type": "text"
+								},
+								{
+									"key": "locations[]",
+									"value": "1,2",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/edit_shipping",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"edit_shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shipping",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "188",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "delete",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_shipping",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_shipping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review and Rating",
+			"item": [
+				{
+					"name": "Get Review and rating",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/get_review",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"get_review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy review and rating",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ids",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "method",
+									"value": "delete",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://footwear.thedemostore.in/api/destroy_review",
+							"protocol": "http",
+							"host": [
+								"footwear",
+								"thedemostore",
+								"in"
+							],
+							"path": [
+								"api",
+								"destroy_review"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "abc@gmail.com",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "bea",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "footwear@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rootadmin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/login",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plans",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "email",
+						"value": "abc@gmail.com",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "bea",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/plan",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "abc@gmail.com",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "bea",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "brijjjr",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mfhhh@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Hardwork@121",
+							"type": "text"
+						},
+						{
+							"key": "domain",
+							"value": "subfgname",
+							"type": "text"
+						},
+						{
+							"key": "custom_domain",
+							"value": "abddd.c0m",
+							"type": "text"
+						},
+						{
+							"key": "utype",
+							"value": "product",
+							"type": "text"
+						},
+						{
+							"key": "sertype",
+							"value": "Clothes",
+							"type": "text"
+						},
+						{
+							"key": "refrral",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mob",
+							"value": "65425001254",
+							"type": "text"
+						},
+						{
+							"key": "business_name",
+							"value": "My Buusnss",
+							"type": "text"
+						},
+						{
+							"key": "shop_type",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"type": "file",
+							"src": "hghh.PNG"
+						},
+						{
+							"key": "favicon",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "theme_color",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "url[]",
+							"value": "https://www.facebook.com",
+							"type": "text"
+						},
+						{
+							"key": "icon[]",
+							"value": "fab fa-facebook",
+							"type": "text"
+						},
+						{
+							"key": "cname",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "p_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "featured",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "menu_status",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_price_start",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price_type",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "product",
+							"type": "text"
+						},
+						{
+							"key": "special_price_end",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ga_measurement_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "analytics_view_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "astatus",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "gfile",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "tag_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tstatus",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pixel_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "pstatus",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "shop_page_pretext",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "other_page_pretext",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "wstatus",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/seller_register/1",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"seller_register",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/me",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/all",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/pending",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"pending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Processing Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/processing",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"processing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pickup Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/pickup",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"pickup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completed Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/completed",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"completed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Canceled Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/canceled",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"canceled"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archived Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/archived",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"archived"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Orders i",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/pending",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"pending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show by Order id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "22",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/show",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/get_customer",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"get_customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "name",
+							"type": "text"
+						},
+						{
+							"key": "src",
+							"value": "sy",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/get_scustomer",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"get_scustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer by Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ids",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "delete",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/destroy_customer",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"destroy_customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer By id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ids",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/get_customer_id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"get_customer_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Cutomer by id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ids",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "change_password",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Syed Abub",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sdaleem@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rootadmin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/edit_customer",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"edit_customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/logout",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/all?src=FOOT21",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"all"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "FOOT21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/all?payment_status=1&status=completed&start=2020-01-28&end=2022-07-31",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"all"
+					],
+					"query": [
+						{
+							"key": "payment_status",
+							"value": "1"
+						},
+						{
+							"key": "status",
+							"value": "completed"
+						},
+						{
+							"key": "start",
+							"value": "2020-01-28"
+						},
+						{
+							"key": "end",
+							"value": "2022-07-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/invoice/22",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"invoice",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Api .",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/orders/all?src=FOOT21",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"orders",
+						"all"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "FOOT21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/create_show",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"create_show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					},
+					{
+						"key": "term_id",
+						"value": "30",
+						"disabled": true
+					},
+					{
+						"key": "option",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "variation",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "qty",
+						"value": "2",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "term_id",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "option",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "variation",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "qty",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/create_order",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"create_order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/create_show",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"create_show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/product?type=products",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"product"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publish Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/1?type=products",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Draft Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/2?type=products",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"2"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incomplete Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/3?type=products",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"3"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trash Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/0?type=products",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"0"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in All Product By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/product?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"product"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in All Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/product?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"product"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in All Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/product?src=30&type=id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"product"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "30"
+						},
+						{
+							"key": "type",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in Publish Product By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/1?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in Publish Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/1?src=30&type=id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "30"
+						},
+						{
+							"key": "type",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in draft Product By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/2?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"2"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in draft Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/2?src=30&type=id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"2"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "30"
+						},
+						{
+							"key": "type",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in Incomplete Product By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/3?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"3"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in Incomplete Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/3?src=30&type=id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"3"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "30"
+						},
+						{
+							"key": "type",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in trash Product By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/0?src=hg&type=title",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"0"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "hg"
+						},
+						{
+							"key": "type",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search in trash Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/products/0?src=30&type=id",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"products",
+						"0"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "30"
+						},
+						{
+							"key": "type",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5|MuaOrW4WznVlYnCgjGRcJlopUqd2RJztSKcjorLG"
+					}
+				],
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/product/30/edit",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"product",
+						"30",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 374|TjbJnaTRbqhIVlZ3Tc6HV9BR5hXDB5HblS7UYvqT"
+					},
+					{
+						"key": "type",
+						"value": "product"
+					},
+					{
+						"key": "title",
+						"value": "product name"
+					},
+					{
+						"key": "price",
+						"value": "100"
+					},
+					{
+						"key": "youtube_link",
+						"value": "http://footwear.thedemostore.in"
+					},
+					{
+						"key": "question1",
+						"value": "dsad"
+					},
+					{
+						"key": "question2",
+						"value": "dsad"
+					},
+					{
+						"key": "question3",
+						"value": "dddd"
+					},
+					{
+						"key": "question4",
+						"value": "ddss"
+					},
+					{
+						"key": "question5",
+						"value": "dsdsds"
+					},
+					{
+						"key": "answer1",
+						"value": "asdwqeqw"
+					},
+					{
+						"key": "answer2",
+						"value": "adasdas"
+					},
+					{
+						"key": "answer3",
+						"value": "dsadawe"
+					},
+					{
+						"key": "answer4",
+						"value": "asadase"
+					},
+					{
+						"key": "answer5",
+						"value": "dsadsada"
+					},
+					{
+						"key": "location",
+						"value": "india"
+					},
+					{
+						"key": "duration",
+						"value": "1"
+					},
+					{
+						"key": "price_type",
+						"value": "1"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "product",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "product name",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "youtube_link",
+							"value": "http://footwear.thedemostore.in",
+							"type": "text"
+						},
+						{
+							"key": "question1",
+							"value": "dsad",
+							"type": "text"
+						},
+						{
+							"key": "question2",
+							"value": "dsad",
+							"type": "text"
+						},
+						{
+							"key": "question3",
+							"value": "dddd",
+							"type": "text"
+						},
+						{
+							"key": "question4",
+							"value": "ddss",
+							"type": "text"
+						},
+						{
+							"key": "question5",
+							"value": "dsdsds",
+							"type": "text"
+						},
+						{
+							"key": "answer1",
+							"value": "asdwqeqw",
+							"type": "text"
+						},
+						{
+							"key": "answer2",
+							"value": "adasdas",
+							"type": "text"
+						},
+						{
+							"key": "answer3",
+							"value": "dsadawe",
+							"type": "text"
+						},
+						{
+							"key": "answer4",
+							"value": "asadase",
+							"type": "text"
+						},
+						{
+							"key": "answer5",
+							"value": "dsadsada",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "india",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "price_type",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_price_start",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "special_price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price_type",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "product",
+							"type": "text"
+						},
+						{
+							"key": "special_price_end",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ga_measurement_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "analytics_view_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "gfile",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/store",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_profile_update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 374|TjbJnaTRbqhIVlZ3Tc6HV9BR5hXDB5HblS7UYvqT"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password_current",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/user_profile_update",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"user_profile_update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user/password/reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "footwear@gmail.com",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "footwear@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://footwear.thedemostore.in/api/user/password/reset",
+					"protocol": "http",
+					"host": [
+						"footwear",
+						"thedemostore",
+						"in"
+					],
+					"path": [
+						"api",
+						"user",
+						"password",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

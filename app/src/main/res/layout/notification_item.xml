@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/notificationIcn"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/blue_cirlce_bg"
+            android:padding="@dimen/_8ssp"
+            android:src="@drawable/notification_selected"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/notificationTxt"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:maxLines="2"
+            android:textColor="@color/_324754"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/notificationTime"
+            app:layout_constraintStart_toEndOf="@id/notificationIcn"
+            app:layout_constraintTop_toBottomOf="@+id/orderNUmber" />
+
+        <TextView
+            android:id="@+id/orderNUmber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:maxLines="2"
+            android:text="#1554RFJITJNV"
+            android:textColor="@color/_48C260"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toStartOf="@id/notificationTime"
+            app:layout_constraintStart_toEndOf="@id/notificationIcn"
+            app:layout_constraintTop_toTopOf="@id/notificationIcn" />
+
+        <TextView
+            android:id="@+id/notificationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:textColor="@color/primary_bg"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/notificationTxt" />
+
+        <View
+            android:id="@+id/fView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:alpha=".3"
+            android:background="@color/light_gray"
+            app:layout_constraintStart_toStartOf="@id/notificationTxt"
+            app:layout_constraintTop_toBottomOf="@id/notificationIcn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

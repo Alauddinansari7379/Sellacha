@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/orderDetailLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <RadioButton
+                android:id="@+id/orderRbtn"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="5dp" />
+
+            <ImageView
+                android:id="@+id/orderName"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:src="@drawable/icn_image"
+                app:layout_constraintBottom_toBottomOf="@+id/orderRbtn"
+                app:layout_constraintStart_toEndOf="@+id/orderRbtn"
+                app:layout_constraintTop_toTopOf="@+id/orderRbtn"
+                app:tint="@color/_6E7D86" />
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="start"
+
+                android:inputType="textMultiLine"
+                android:textColor="@color/_324754"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/orderName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/orderName"
+                app:layout_constraintTop_toTopOf="@+id/orderName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/table_titlebg" />
+    </LinearLayout>
+</layout>

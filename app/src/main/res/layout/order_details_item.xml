@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/orderDetailLL"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_7sdp">
+
+            <RadioButton
+                android:id="@+id/orderRbtn"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:backgroundTint="@color/primary_bg"
+                android:buttonTint="@color/light_primary_bg" />
+
+            <TextView
+                android:id="@+id/orderName"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Order "
+
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+
+                android:text="Date"
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/customer"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Customer"
+                android:textColor="@color/semi_title_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/orderTotal"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Order Total"
+                android:textColor="@color/semi_title_font"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10ssp"
+                    android:layout_marginEnd="@dimen/_10ssp"
+                    android:background="@drawable/green_10_bg"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="Payment"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/Fulfillment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10ssp"
+                    android:layout_marginEnd="@dimen/_10ssp"
+                    android:background="@drawable/green_10_bg"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="Fulfillment"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/items"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Item(S)"
+                android:textColor="@color/semi_title_font"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/printInvoice"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10ssp"
+                android:background="@drawable/search_btn_bg"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/invoice"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/table_titlebg" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_bg"
+    tools:context=".activity.SplashActivity">
+
+    <ImageView
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:scaleType="center"
+        android:src="@drawable/backgrou_icn_bg"
+        app:layout_constraintBottom_toTopOf="@id/middleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/middleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:scaleType="center"
+        android:src="@drawable/backgrou_icn_bg"
+        app:layout_constraintTop_toBottomOf="@+id/topView" />
+
+    <ImageView
+        android:id="@+id/fit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:scaleType="center"
+        android:src="@drawable/backgrou_icn_bg"
+        app:layout_constraintBottom_toTopOf="@id/fbottomView"
+        app:layout_constraintTop_toBottomOf="@id/middleView" />
+
+    <ImageView
+        android:id="@+id/fbottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:scaleType="center"
+        android:src="@drawable/backgrou_icn_bg"
+        app:layout_constraintBottom_toTopOf="@id/bottomView" />
+
+    <ImageView
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:scaleType="center"
+        android:src="@drawable/backgrou_icn_bg"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/txtLogo"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:src="@drawable/app_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="1dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="@+id/txtLogo"
+        app:layout_constraintStart_toStartOf="@+id/txtLogo"
+        app:layout_constraintTop_toBottomOf="@+id/txtLogo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

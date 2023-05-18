@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/unselected_item_bg">
+
+        <LinearLayout
+            android:id="@+id/itemNameLl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:padding="@dimen/_7sdp">
+
+            <TextView
+                android:id="@+id/itemNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_regular"
+                android:paddingStart="@dimen/_10sdp"
+                android:text="ALl"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_7sdp"
+                android:background="@drawable/item_count_bg"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="12"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8sdp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

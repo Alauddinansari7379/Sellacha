@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/parentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/colorSchemeLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Color Scheme"
+                        android:textColor="#0191B5"
+                        android:textSize="@dimen/_22sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/themeColorLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Theme Color"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/colorSchemeLb"
+                        app:layout_constraintTop_toBottomOf="@+id/colorSchemeLb" />
+
+                    <TextView
+                        android:id="@+id/logoLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Logo"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtThemeColr" />
+
+
+                    <EditText
+                        android:id="@+id/txtThemeColr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#946A6363"
+                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                        app:layout_constraintTop_toBottomOf="@+id/themeColorLb" />
+
+
+                    <TextView
+                        android:id="@+id/chooseFavicon"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/light_white_10sdp"
+                        android:elevation="1dp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Choose file"
+                        android:textAlignment="center"
+                        android:textColor="#9F757C7C"
+                        android:textSize="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/chooseLogo"
+                        app:layout_constraintStart_toStartOf="@+id/logoLb"
+                        app:layout_constraintTop_toBottomOf="@+id/faviconLb" />
+
+
+                    <TextView
+                        android:id="@+id/faviconLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Favicon"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                        app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
+
+                    <TextView
+                        android:id="@+id/txtNoFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="No file chosen"
+
+                        android:textColor="#9F757C7C"
+
+
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/chooseFavicon"
+                        app:layout_constraintStart_toEndOf="@+id/chooseFavicon"
+                        app:layout_constraintTop_toTopOf="@+id/chooseFavicon" />
+
+                    <TextView
+                        android:id="@+id/chooseLogo"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/light_white_10sdp"
+                        android:elevation="1dp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Choose file"
+                        android:textAlignment="center"
+                        android:textColor="#9F757C7C"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toStartOf="@+id/logoLb"
+                        app:layout_constraintTop_toBottomOf="@+id/logoLb" />
+
+
+                    <TextView
+                        android:id="@+id/logotxtNoFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+
+                        android:text="No file chosen"
+
+
+                        android:textColor="#9F757C7C"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
+                        app:layout_constraintStart_toEndOf="@+id/chooseLogo"
+                        app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
+
+                    <Button
+                        android:id="@+id/saveBtn"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:background="@drawable/btn_background"
+                        android:gravity="center"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.381"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                        tools:ignore="UnknownIdInLayout" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/chooseFavicon">
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/top_curve_heading"
+                            android:fontFamily="@font/noto_sans_semi_bold"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="20dp"
+                            android:text="Social Links"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/urlLB"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/order_cardbg"
+                            android:fontFamily="@font/noto_sans_semi_bold"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="20dp"
+                            android:text="URL"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/status" />
+
+                        <TextView
+                            android:id="@+id/urlLink"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/order_cardbg"
+                            android:fontFamily="@font/noto_sans_regular"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:text="facebook.com"
+                            android:textSize="@dimen/_11sdp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/urlLB" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/table_titlebg"
+                            app:layout_constraintTop_toTopOf="@+id/orderStatus"
+                            tools:layout_editor_absoluteX="30dp" />
+
+                        <TextView
+                            android:id="@+id/icnClassLb"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/order_cardbg"
+                            android:fontFamily="@font/noto_sans_semi_bold"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="20dp"
+                            android:text="ICON CLASS"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/urlLink" />
+
+                        <TextView
+                            android:id="@+id/orderStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/order_cardbg"
+                            android:fontFamily="@font/noto_sans_regular"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:text="fa-fa-facebook"
+                            android:textSize="@dimen/_11sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/icnClassLb" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom_curver_bg"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/orderStatus">
+
+                            <TextView
+                                android:id="@+id/removeBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:background="@drawable/bg_green"
+                                android:backgroundTint="@color/_EE4747"
+                                android:paddingStart="@dimen/_15sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_15sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="Remove"
+                                android:textColor="@color/white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/addNewBtn"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/addNewBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:background="@drawable/bg_green"
+
+                                android:paddingStart="@dimen/_15sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_15sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="Add New"
+                                android:textColor="@color/white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

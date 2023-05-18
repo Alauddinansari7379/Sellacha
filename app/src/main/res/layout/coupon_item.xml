@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <RadioButton
+                android:id="@+id/ratingsRbtn"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/ratingsTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/_6E7D86"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/ratingNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Uncle Sam"
+                android:textColor="@color/_6E7D86"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/table_titlebg" />
+    </LinearLayout>
+</layout>

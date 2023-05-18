@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary_bg">#0191B5</color>
+    <color name="light_primary_bg">#C623ADCF</color>
+    <color name="heading_font">#324754</color>
+    <color name="semi_title_font">#6E7D86</color>
+    <color name="_48C260">#48C260</color>
+    <color name="_FDC103">#FDC103</color>
+    <color name="mid_blue">#2b4a83</color>
+    <color name="light_white">#32ffffff</color>
+    <color name="light_gray">#59C6C2C2</color>
+    <color name="semiGray">#cecfd6</color>
+    <color name="_324754">#324754</color>
+    <color name="order_cardbg">#F8F8F8</color>
+    <color name="table_titlebg">#EBEBEB</color>
+    <color name="green">#48C260</color>
+    <color name="_6E7D86">#6E7D86</color>
+    <color name="_E8E8E8">#EBEBEB</color>
+    <color name="_EE4747">#EE4747</color>
+    <color name="_F8F8F8">#F8F8F8</color>
+    <color name="transprate">#00F8F8F8</color>
+    <color name="light_transprate">#1E000000</color>
+    <color name="unselected_font_color">#324754</color>
+    <color name="_ffc107">#ffc107</color>
+
+</resources>

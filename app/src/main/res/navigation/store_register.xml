@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/storeInfoFragment">
+
+    <fragment
+        android:id="@+id/storeInfoFragment"
+        android:name="com.android.sellacha.fragment.sell_register.StoreInformation"
+        android:label="Store Info Fragment"
+        tools:layout="@layout/fragment_store_information" />
+
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="com.android.sellacha.fragment.sell_register.ThemeFragment"
+        android:label="Theme Fragment"
+        tools:layout="@layout/fragment_theme" />
+
+    <fragment
+        android:id="@+id/uploadLogoFragment"
+        android:name="com.android.sellacha.fragment.sell_register.UploadLogoFragment"
+        android:label="Upload Logo Fragment"
+        tools:layout="@layout/fragment_upload_logo" />
+
+    <fragment
+        android:id="@+id/colorSchemeFragment"
+        android:name="com.android.sellacha.fragment.sell_register.ColorSchemeFragment"
+        android:label="Color Scheme Fragment"
+        tools:layout="@layout/fragment_color_scheme" />
+
+    <fragment
+        android:id="@+id/addCategoryFragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerAddCategoryFragment"
+        android:label="Fragment"
+        tools:layout="@layout/fragment_seller_add_category" />
+
+    <fragment
+        android:id="@+id/addProduct2Fragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerAddProduct2Fragment"
+        android:label="Add Product 2 Fragment"
+        tools:layout="@layout/fragment_seller_add_product2" />
+
+    <fragment
+        android:id="@+id/googleAnalyticsFragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerGoogleAnalyticsFragment"
+        android:label="Google Fragment"
+        tools:layout="@layout/fragment_seller_google_analytics" />
+
+
+    <fragment
+        android:id="@+id/tapManagerFragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerGoogleTagManagerFragment"
+        android:label="Fragment"
+        tools:layout="@layout/fragment_seller_google_tag_manager" />
+
+
+    <fragment
+        android:id="@+id/facebookPixelFragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerFacebookFragment"
+        android:label="Facebook Fragment"
+        tools:layout="@layout/fragment_seller_facebook" />
+
+    <fragment
+        android:id="@+id/whatsappApiFragment"
+        android:name="com.android.sellacha.fragment.sell_register.SellerWhatsappFragment"
+        android:label="Whatsapp Fragment"
+        tools:layout="@layout/fragment_seller_whatsapp" />
+</navigation>

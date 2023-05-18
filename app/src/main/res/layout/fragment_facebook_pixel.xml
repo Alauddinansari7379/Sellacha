@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/top_curve_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="-38dp">
+
+
+            <TextView
+                android:id="@+id/facebookPixelLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Facebook Pixel"
+                android:textColor="#0191B5"
+                android:textSize="@dimen/_22sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/yourPixelIdLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="Your Pixel Id"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/facebookPixelLb"
+                app:layout_constraintTop_toBottomOf="@+id/facebookPixelLb" />
+
+
+            <TextView
+                android:id="@+id/StatusLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="Status"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/facebookPixelLb"
+                app:layout_constraintTop_toBottomOf="@+id/txtYourPixelID" />
+
+            <EditText
+                android:id="@+id/txtYourPixelID"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:backgroundTint="@color/light_gray"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="31064306894650"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_5sdp"
+
+                android:textColor="#946A6363"
+                android:textCursorDrawable="@drawable/search_cursor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/facebookPixelLb"
+                app:layout_constraintTop_toBottomOf="@+id/yourPixelIdLb" />
+
+
+            <EditText
+                android:id="@+id/txtStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:backgroundTint="@color/light_gray"
+                android:drawableEnd="@drawable/icn_drop_arrow"
+                android:ems="10"
+                android:enabled="false"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="Enable"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_5sdp"
+                android:textColor="#946A6363"
+                android:textCursorDrawable="@drawable/search_cursor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txtYourPixelID"
+                app:layout_constraintStart_toStartOf="@+id/facebookPixelLb"
+                app:layout_constraintTop_toBottomOf="@+id/StatusLb" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/btn_background"
+                android:gravity="center"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/txtStatus"
+                tools:ignore="UnknownIdInLayout" />
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="Note:After You Update Settings The Action Will Work
+After 5 Minutes"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txtStatus"
+                app:layout_constraintStart_toStartOf="@+id/txtStatus"
+                app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

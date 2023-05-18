@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name">Sellacha</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home">Home</string>
+    <string name="email">Email</string>
+    <string name="welcome_back">Welcome Back !</string>
+    <string name="tag_line">We make it easy for everyone to ordering food</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_a_account">Already have an account? Login</string>
+    <string name="name">Name</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="login">Login</string>
+    <string name="do_sign_up">Don’t have an account?</string>
+    <string name="dashboard">DashBoard</string>
+    <string name="orders">Orders</string>
+    <string name="products">Products</string>
+    <string name="customers">Customers</string>
+    <string name="transactions">Transactions</string>
+    <string name="reports">Reports</string>
+    <string name="review_ratings"><![CDATA[Review & Ratings]]></string>
+    <string name="offer_ads"><![CDATA[Offer & Ads]]></string>
+    <string name="settings">Settings</string>
+    <string name="marketing_tools">Marketing Tools</string>
+    <string name="order_statistics">Order Statistics</string>
+    <string name="pending">Pending</string>
+    <string name="shipping">Shipping</string>
+    <string name="total_orders">Total Orders</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invocie_details">Invocie Details</string>
+    <string name="order">ORDER</string>
+    <string name="date">DATE</string>
+    <string name="type">TYPE</string>
+    <string name="create_product">Create Product</string>
+    <string name="store_registration">Store Registration</string>
+    <string name="store_information">Store Information</string>
+    <string name="themes">Themes</string>
+
+    <string name="select_action">Select Action</string>
+    <string name="submit">Submit</string>
+    <string name="location">Location</string>
+
+    <string name="general">General</string>
+    <string name="store_description">Store Description</string>
+    <string name="notification_reply_to_email"><![CDATA[Notification & Reply-to-Email]]></string>
+    <string name="currency_postion">Currency Postion</string>
+    <string name="currency_name">Currency Name</string>
+    <string name="currency_icon">Currency Icon</string>
+    <string name="tax">Tax</string>
+    <string name="i_will_sale_shop_type">I will sale (shop type)</string>
+    <string name="order_recieve_method">Order Recieve Method</string>
+    <string name="language">Language</string>
+    <string name="default_language">Default Language</string>
+    <string name="save">Save</string>
+    <string name="create_location">Create Location</string>
+    <string name="pwa_setting">PWA Setting</string>
+    <string name="additional_css">Additional Css</string>
+    <string name="others">Others</string>
+    <string name="shipping_price">Shipping Price</string>
+    <string name="setting">Setting</string>
+
+    <string name="review_and_ratings">Review And Ratings</string>
+    <string name="ratings">RATINGS</string>
+    <string name="names">NAMES</string>
+
+    <string name="attribute">Attribute</string>
+    <string name="create_attribute">Create Attribute</string>
+
+    <string name="variations">VARIATIONS</string>
+    <string name="categories">Categories</string>
+    <string name="create_category">Create Category</string>
+    <string name="inventory">Inventory</string>
+    <string name="product">PRODUCT</string>
+    <string name="sku">SKU</string>
+    <string name="stock_manage">STOCK MANAGE</string>
+    <string name="clear_all">Clear All</string>
+    <string name="notification">Notification</string>
+
+
+    <string name="transactions_id">Transactions id...</string>
+    <string name="amount">AMOUNT</string>
+    <string name="payment">PAYMENT</string>
+    <string name="method">METHOD</string>
+    <string name="order_no">ORDER NO</string>
+    <string name="transaction_id">TRANSACTION ID</string>
+    <string name="featured">FEATURED</string>
+    <string name="created_at">CREATED AT</string>
+    <string name="action">ACTION</string>
+    <string name="brands">Brands</string>
+    <string name="something_wrong">Something went wrong</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="Sign_Up">Sign Up</string>
+</resources>

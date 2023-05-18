@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/top_curve_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="-38dp">
+
+
+            <TextView
+                android:id="@+id/googleAnalyticLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Google Analytics"
+                android:textColor="#0191B5"
+                android:textSize="@dimen/_22sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/skipLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Skip"
+                android:textColor="#48C260"
+                app:layout_constraintBottom_toBottomOf="@+id/googleAnalyticLb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/googleAnalyticLb" />
+
+            <TextView
+                android:id="@+id/measurmentIdLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="GA-MEASURMENT-ID"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/googleAnalyticLb" />
+
+            <TextView
+                android:id="@+id/analyticsIdLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="ANALYTICS VIEW ID"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/txtMeasurmentId" />
+
+
+            <TextView
+                android:id="@+id/servicAccLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="servic-account-credentials.jason"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/txtAnalyticId" />
+
+            <TextView
+                android:id="@+id/statusLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_6sdp"
+                android:text="Status"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/btnchoosefile" />
+
+            <EditText
+                android:id="@+id/txtMeasurmentId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:backgroundTint="@color/light_gray"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="UA-123456789"
+                android:padding="@dimen/_6sdp"
+                android:textColor="#946A6363"
+                android:textCursorDrawable="@drawable/search_cursor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/measurmentIdLb" />
+
+            <EditText
+                android:id="@+id/txtAnalyticId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:backgroundTint="@color/light_gray"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="Enter location name"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_6sdp"
+                android:textColor="#946A6363"
+                android:textCursorDrawable="@drawable/search_cursor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txtMeasurmentId"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/analyticsIdLb" />
+
+
+            <EditText
+                android:id="@+id/txtSatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:backgroundTint="@color/light_gray"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="Enable"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_6sdp"
+
+                android:textColor="#946A6363"
+                android:textCursorDrawable="@drawable/search_cursor"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@+id/txtAnalyticId"
+                app:layout_constraintStart_toStartOf="@+id/googleAnalyticLb"
+                app:layout_constraintTop_toBottomOf="@+id/statusLb" />
+
+
+            <TextView
+                android:id="@+id/btnchoosefile"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/light_white_10sdp"
+                android:elevation="1dp"
+                android:padding="@dimen/_6sdp"
+                android:text="Choose file"
+                android:textAlignment="center"
+                android:textColor="#9F757C7C"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/servicAccLb"
+                app:layout_constraintTop_toBottomOf="@+id/servicAccLb" />
+
+            <TextView
+                android:id="@+id/txtchosefile2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:text="No file chosen"
+                android:textColor="#9F757C7C"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/btn_background"
+                android:gravity="center"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSatus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

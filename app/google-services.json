@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129456516523",
+    "project_id": "sellacha-c0521",
+    "storage_bucket": "sellacha-c0521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129456516523:android:206074426ca86eb60b36ee",
+        "android_client_info": {
+          "package_name": "com.android.sellacha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129456516523-qeqi1qrnisu0t6ofmuo9q04339a5u5hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg2M-godDFL3yS0RxZNr2IwkhSjLSuFFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129456516523-qeqi1qrnisu0t6ofmuo9q04339a5u5hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

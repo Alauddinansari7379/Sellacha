@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/runUILoad"
+        android:name="com.android.sellacha.RunUILoad"
+        android:label="home Fragment"
+        tools:layout="@layout/fragment_run_u_i_load" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.sellacha.fragment.HomeFragment"
+        android:label="home Fragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_secondFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_in"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.android.sellacha.fragment.OrderFragment"
+        android:label="order Fragment"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.android.sellacha.Products.ProductFragment"
+        android:label="Product Fragment"
+        tools:layout="@layout/fragment_product" />
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.android.sellacha.fragment.NotificationFragment"
+        android:label="Notification Fragment"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.android.sellacha.fragment.OrderDetailFragment"
+        android:label="Order Details Fragment"
+        tools:layout="@layout/fragment_order_detail" />
+
+    <fragment
+        android:id="@+id/createProductFragmnet"
+        android:name="com.android.sellacha.fragment.CreateProductFragment"
+        android:label="Create Order Fragment"
+        tools:layout="@layout/fragment_create_product" />
+
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.android.sellacha.fragment.LocationFragment"
+        android:label="Location Fragment"
+        tools:layout="@layout/fragment_location" />
+
+    <fragment
+        android:id="@+id/whatsappApiFragment"
+        android:name="com.android.sellacha.fragment.WhatsAppApiFragment"
+        android:label="Whatsapp Fragment"
+        tools:layout="@layout/fragment_whats_app_api" />
+
+    <fragment
+        android:id="@+id/facebookPixelFragment"
+        android:name="com.android.sellacha.fragment.FacebookPixelFragment"
+        android:label="Facebook Fragment"
+        tools:layout="@layout/fragment_facebook_pixel" />
+
+    <fragment
+        android:id="@+id/googleAnalyticsFragment"
+        android:name="com.android.sellacha.fragment.GoogleAnalyticsFragment"
+        android:label="Google Anl Fragment"
+        tools:layout="@layout/fragment_google_analytics" />
+
+    <fragment
+        android:id="@+id/tapManagerFragment"
+        android:name="com.android.sellacha.fragment.GoogleTapManagerFragment"
+        android:label="Google Tap Fragment"
+        tools:layout="@layout/fragment_google_tap_manager" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.android.sellacha.fragment.SettingFragment"
+        android:label="Setting Fragment"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/generalSettingFragment"
+        android:name="com.android.sellacha.fragment.GeneralSettingFragment"
+        android:label="G Setting Fragment"
+        tools:layout="@layout/fragment_general_setting" />
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.android.sellacha.fragment.RatingAndReviewFragment"
+        android:label="Rating Fragment"
+        tools:layout="@layout/fragment_rating_and_review" />
+
+    <fragment
+        android:id="@+id/inventroyFragment"
+        android:name="com.android.sellacha.Products.Inventory.activity.InventoryFragment"
+        android:label="INv Fragment"
+        tools:layout="@layout/fragment_inventory" />
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.android.sellacha.Products.categories.CategoryFragment"
+        android:label="Category Fragment"
+        tools:layout="@layout/fragment_category" />
+
+
+    <fragment
+        android:id="@+id/attributeFragment"
+        android:name="com.android.sellacha.fragment.AttributeFragment"
+        android:label="Att Fragment"
+        tools:layout="@layout/fragment_attribute" />
+
+
+    <fragment
+        android:id="@+id/brandFragment"
+        android:name="com.android.sellacha.fragment.BrandFragment"
+        android:label="Brand Fragment"
+        tools:layout="@layout/fragment_brand" />
+
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="com.android.sellacha.fragment.CouponsFragment"
+        android:label="Coupon Fragment"
+        tools:layout="@layout/fragment_coupons" />
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.android.sellacha.fragment.CustomerFragment"
+        android:label="C Fragment"
+        tools:layout="@layout/fragment_customer" />
+    <fragment
+        android:id="@+id/createCustomerFragment"
+        android:name="com.android.sellacha.fragment.AddNewCustomerFragment"
+        android:label="C Fragment"
+        tools:layout="@layout/fragment_add_new_customer" />
+
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.android.sellacha.fragment.TransactionFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_transaction" />
+</navigation>

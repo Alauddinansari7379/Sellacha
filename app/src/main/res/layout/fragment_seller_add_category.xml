@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/parentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/top_curve_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:id="@+id/addCatgLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Add Category"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nameLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Name"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                    app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                <TextView
+                    android:id="@+id/parentcategLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Parent Category"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+                <TextView
+                    android:id="@+id/featuredLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Featured"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/txtParentcatg" />
+
+
+                <TextView
+                    android:id="@+id/assignToMenuLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Assign To Menu"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFeatured" />
+
+                <TextView
+                    android:id="@+id/thumbnailLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Thumbnail"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/location4" />
+
+
+                <EditText
+                    android:id="@+id/txtName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:backgroundTint="@color/light_gray"
+                    android:ems="10"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="Enter Title"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textCursorDrawable="@drawable/search_cursor"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/nameLb" />
+
+                <EditText
+                    android:id="@+id/location4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="No"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/txtFeatured"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/assignToMenuLb" />
+
+                <EditText
+                    android:id="@+id/txtParentcatg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="None"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/txtName"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/parentcategLb" />
+
+                <EditText
+                    android:id="@+id/txtFeatured"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="No"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/txtParentcatg"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/featuredLb" />
+
+
+                <TextView
+                    android:id="@+id/btnchoosefile"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/light_white_10sdp"
+                    android:elevation="1dp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Choose file"
+                    android:textAlignment="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:textColor="#9F757C7C"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                    app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                <TextView
+                    android:id="@+id/txtNoFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:text="No file chosen"
+                    android:textColor="#9F757C7C"
+
+                    android:textSize="15dp"
+
+
+                    app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                    app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                    app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:background="@drawable/btn_background"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNoFile"
+                    tools:ignore="UnknownIdInLayout" />
+
+                <TextView
+                    android:id="@+id/skipLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="Skip"
+                    android:textColor="#48C260"
+                    app:layout_constraintBottom_toBottomOf="@+id/addCatgLb"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/addCatgLb" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
