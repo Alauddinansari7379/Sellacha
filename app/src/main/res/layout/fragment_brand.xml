@@ -153,16 +153,24 @@
                                     tools:layout_editor_absoluteY="5dp" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
-
                             <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/reviewRatingRc"
+                                android:id="@+id/recyclerView"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:nestedScrollingEnabled="false"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/bucketBtn"
-                                tools:listitem="@layout/brans_item" />
+                                android:layout_margin="5dp"
+                                android:layout_height="wrap_content"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                            </androidx.recyclerview.widget.RecyclerView>
+
+<!--                            <androidx.recyclerview.widget.RecyclerView-->
+<!--                                android:id="@+id/reviewRatingRc"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_margin="@dimen/_5sdp"-->
+<!--                                android:nestedScrollingEnabled="false"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintTop_toBottomOf="@+id/bucketBtn"-->
+<!--                                tools:listitem="@layout/brans_item" />-->
 
                         </LinearLayout>
 

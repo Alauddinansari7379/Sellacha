@@ -4,12 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.android.sellacha.LogIn.Model.ModelLogin
 import com.android.sellacha.R
 import com.android.sellacha.activity.BaseActivity
 import com.android.sellacha.activity.HomeDashBoard
 import com.android.sellacha.activity.StoreInformationActivity
+import com.android.sellacha.app.SellAchaApplication
 import com.android.sellacha.databinding.ActivityLoginBinding
+import com.android.sellacha.helper.PreferenceManger
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.TextUtils
 import com.android.sellacha.utils.Validations
@@ -76,9 +79,15 @@ private fun apiCallLogin(){
             if (response.code()==200) {
                 // myToast(requireActivity(),"No Data Found")
                 sessionManager.isLogin = true
-                sessionManager.authToken = response.body()!!.data.token
+                sessionManager.authToken = "Bearer "+response.body()!!.data.token
                 sessionManager.email = response.body()!!.data.email
                 sessionManager.customerName = response.body()!!.data.name
+                sessionManager.baseURL ="https://footwear.thedemostore.in/"
+                SellAchaApplication.getPreferenceManger().putString(PreferenceManger.AUTH_TOKEN, "Bearer " +response.body()!!.data.token)
+                Log.e("email",sessionManager.email.toString())
+                Log.e("customerName",sessionManager.customerName.toString())
+                Log.e("authToken",sessionManager.authToken.toString())
+
                 val intent = Intent(applicationContext, HomeDashBoard::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 finish()

@@ -4,57 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/orderDetailLL"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="5dp">
 
             <RadioButton
-                android:id="@+id/orderRbtn"
+                android:id="@+id/categoryRbtn"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="5dp" />
+                android:layout_margin="@dimen/_5sdp" />
 
             <ImageView
-                android:id="@+id/orderName"
-                android:layout_width="100dp"
+                android:id="@+id/categoryImg"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/noto_sans_regular"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:src="@drawable/icn_image"
-                app:layout_constraintBottom_toBottomOf="@+id/orderRbtn"
-                app:layout_constraintStart_toEndOf="@+id/orderRbtn"
-                app:layout_constraintTop_toTopOf="@+id/orderRbtn"
-                app:tint="@color/_6E7D86" />
-
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/icn_image" />
 
             <TextView
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:id="@+id/nameTvBrand"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:fontFamily="@font/noto_sans_regular"
-                android:gravity="start"
+                android:gravity="center"
+                android:text="Singer"
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp" />
 
-                android:inputType="textMultiLine"
-                android:textColor="@color/_324754"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/orderName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/orderName"
-                app:layout_constraintTop_toTopOf="@+id/orderName" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

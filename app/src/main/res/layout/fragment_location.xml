@@ -113,7 +113,8 @@
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/_20sdp"
                         android:nestedScrollingEnabled="false"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/seelctActionView"
                         tools:listitem="@layout/location_item" />
@@ -129,7 +130,6 @@
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
-
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/locationList" />

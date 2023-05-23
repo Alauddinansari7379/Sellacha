@@ -74,7 +74,7 @@
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
-                    app:layout_constraintTop_toBottomOf="@+id/txtParentcatg" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
-                    app:layout_constraintTop_toBottomOf="@+id/txtFeatured" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerFeatured" />
 
                 <TextView
                     android:id="@+id/thumbnailLb"
@@ -99,7 +99,7 @@
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
-                    app:layout_constraintTop_toBottomOf="@+id/location4" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinnerMenu" />
 
 
                 <EditText
@@ -121,7 +121,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/nameLb" />
 
                 <EditText
-                    android:id="@+id/location4"
+                    android:id="@+id/spinnerMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -135,12 +135,12 @@
                     android:padding="@dimen/_5sdp"
                     android:textColor="#946A6363"
                     android:textSize="@dimen/_12sdp"
-                    app:layout_constraintEnd_toEndOf="@+id/txtFeatured"
+                    app:layout_constraintEnd_toEndOf="@+id/spinnerFeatured"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/assignToMenuLb" />
 
                 <EditText
-                    android:id="@+id/txtParentcatg"
+                    android:id="@+id/spinnerCategory"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -159,7 +159,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/parentcategLb" />
 
                 <EditText
-                    android:id="@+id/txtFeatured"
+                    android:id="@+id/spinnerFeatured"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -173,7 +173,7 @@
                     android:padding="@dimen/_5sdp"
                     android:textColor="#946A6363"
                     android:textSize="@dimen/_12sdp"
-                    app:layout_constraintEnd_toEndOf="@+id/txtParentcatg"
+                    app:layout_constraintEnd_toEndOf="@+id/spinnerCategory"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/featuredLb" />
 

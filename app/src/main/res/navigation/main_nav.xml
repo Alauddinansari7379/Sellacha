@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/locationFragment"
-        android:name="com.android.sellacha.fragment.LocationFragment"
+        android:name="com.android.sellacha.Shipping.LocationFragment"
         android:label="Location Fragment"
         tools:layout="@layout/fragment_location" />
 
@@ -96,7 +96,7 @@
         tools:layout="@layout/fragment_general_setting" />
     <fragment
         android:id="@+id/ratingFragment"
-        android:name="com.android.sellacha.fragment.RatingAndReviewFragment"
+        android:name="com.android.sellacha.ReviewAndRating.RatingAndReviewFragment"
         android:label="Rating Fragment"
         tools:layout="@layout/fragment_rating_and_review" />
 
@@ -115,25 +115,25 @@
 
     <fragment
         android:id="@+id/attributeFragment"
-        android:name="com.android.sellacha.fragment.AttributeFragment"
+        android:name="com.android.sellacha.Products.Attributes.activity.AttributeFragment"
         android:label="Att Fragment"
         tools:layout="@layout/fragment_attribute" />
 
 
     <fragment
         android:id="@+id/brandFragment"
-        android:name="com.android.sellacha.fragment.BrandFragment"
+        android:name="com.android.sellacha.Products.Brands.BrandFragment"
         android:label="Brand Fragment"
         tools:layout="@layout/fragment_brand" />
 
     <fragment
         android:id="@+id/couponFragment"
-        android:name="com.android.sellacha.fragment.CouponsFragment"
+        android:name="com.android.sellacha.Products.Coupons.activity.CouponsFragment"
         android:label="Coupon Fragment"
         tools:layout="@layout/fragment_coupons" />
     <fragment
         android:id="@+id/customerFragment"
-        android:name="com.android.sellacha.fragment.CustomerFragment"
+        android:name="com.android.sellacha.Costomer.CustomerFragment"
         android:label="C Fragment"
         tools:layout="@layout/fragment_customer" />
     <fragment
@@ -144,7 +144,39 @@
 
     <fragment
         android:id="@+id/transactionFragment"
-        android:name="com.android.sellacha.fragment.TransactionFragment"
+        android:name="com.android.sellacha.Transaction.activity.TransactionFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_transaction" />
+    <fragment
+        android:id="@+id/createCategoryFragment"
+        android:name="com.android.sellacha.Products.categories.CreateCategory"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_category" />
+    <fragment
+        android:id="@+id/CreateLocationFragment"
+        android:name="com.android.sellacha.Shipping.Location.activity.CreateLocationFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_location" />
+    <fragment
+        android:id="@+id/createAttributeFragment"
+        android:name="com.android.sellacha.Products.Attributes.activity.CreateAttributeFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_location" />
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.android.sellacha.Report.ReportFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/CreateShippingMethodFragment"
+        android:name="com.android.sellacha.Shipping.ShippingPrice.activity.CreateShippingMethod"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/ShippingFragmentFragment"
+        android:name="com.android.sellacha.Shipping.ShippingPrice.activity.ShippingFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_report" />
+
 </navigation>

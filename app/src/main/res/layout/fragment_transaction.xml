@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/primary_bg">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -54,6 +55,7 @@
                                 android:orientation="horizontal">
 
                                 <EditText
+                                    android:id="@+id/edtTransId"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center"
@@ -66,6 +68,7 @@
 
 
                                 <ImageView
+                                    android:id="@+id/imgSearch"
                                     android:layout_width="@dimen/_25sdp"
                                     android:layout_height="@dimen/_25sdp"
                                     android:layout_gravity="center"
@@ -141,14 +144,20 @@
 
 
                                     </LinearLayout>
-
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:id="@+id/transactionsRc"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_margin="5dp"
+                                        android:layout_height="wrap_content"
+                                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
-                                        android:nestedScrollingEnabled="false"
-                                        tools:listitem="@layout/transation_item" />
+                                    </androidx.recyclerview.widget.RecyclerView>
+
+<!--                                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="match_parent"-->
+<!--                                        android:nestedScrollingEnabled="false"-->
+<!--                                        tools:listitem="@layout/transation_item" />-->
                                 </LinearLayout>
                             </HorizontalScrollView>
                         </LinearLayout>
@@ -158,4 +167,3 @@
             </androidx.core.widget.NestedScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

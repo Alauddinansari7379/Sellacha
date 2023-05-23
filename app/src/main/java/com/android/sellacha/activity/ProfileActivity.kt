@@ -2,6 +2,7 @@ package com.android.sellacha.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.android.sellacha.LogIn.LoginActivity
@@ -38,6 +39,8 @@ class ProfileActivity : BaseActivity() {
 
         binding.email.text = sessionManager.email
         binding.name.text = sessionManager.customerName
+        Log.e("tah",sessionManager.email.toString())
+        Log.e("tah",sessionManager.customerName.toString())
 
         binding.backBtn.setOnClickListener { view: View? -> onBackPressed() }
         binding.logOUt.setOnClickListener { view: View? ->
@@ -59,9 +62,10 @@ class ProfileActivity : BaseActivity() {
                 if (response.data !is JsonNull) {
                     if (response.data != null) {
                         successSnackBar(binding!!.root, "Log Out Successfully")
-                        SellAchaApplication.getPreferenceManger()
-                            .putString(PreferenceManger.AUTH_TOKEN, "Bearer " + userDetails!!.token)
-                        SellAchaApplication.getPreferenceManger().putUserDetails(null)
+//                        SellAchaApplication.getPreferenceManger()
+//                            .putString(PreferenceManger.AUTH_TOKEN, "Bearer " + userDetails!!.token)
+//                        SellAchaApplication.getPreferenceManger().putUserDetails(null)
+                        sessionManager.logout()
                         val intent = Intent(this, LoginActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(intent)
@@ -73,8 +77,8 @@ class ProfileActivity : BaseActivity() {
                             getString(R.string.app_name),
                             response.message,
                             "OK",
-                            "",
-                            { obj: AppDialog -> obj.dismiss() })
+                            ""
+                        ) { obj: AppDialog -> obj.dismiss() }
                     }
                 } else {
                     errorSnackBar(binding!!.root, response.message)

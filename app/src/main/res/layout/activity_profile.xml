@@ -111,7 +111,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/noto_sans_bold"
             android:padding="1dp"
-            android:text="Jelina Joy"
+            android:text="Jelina ddJoy"
             android:textColor="@color/heading_font"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold"

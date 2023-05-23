@@ -12,6 +12,7 @@ class SessionManager(context: Context?) {
         private const val BLOOD_GROUP="blood_group"
         private const val CREATED_AT="created_at"
         private const val CUSTOMER_NAME="customer_name"
+        private const val BASE_URL="base_url"
         private const val LATITUDE="latitude"
         private const val LONGITUDE="longitude"
         private const val EMAIL="email"
@@ -84,6 +85,11 @@ class SessionManager(context: Context?) {
         get() = prefs.getString(CUSTOMER_NAME, "")
         set(customerName) {
             prefs.edit().putString(CUSTOMER_NAME, customerName).apply()
+        }
+    var  baseURL: String?
+        get() = prefs.getString(BASE_URL, "")
+        set(baseURL) {
+            prefs.edit().putString(BASE_URL, baseURL).apply()
         }
     var  email: String?
         get() = prefs.getString(EMAIL, "")

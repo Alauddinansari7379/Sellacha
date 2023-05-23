@@ -82,6 +82,7 @@ public class ProductFragment extends BaseFragment {
         binding.addNewBtn.setOnClickListener(view -> {
             Navigation.findNavController(binding.getRoot()).navigate(R.id.createProductFragmnet);
         });
+
         binding.selectFulfillment.setOnClickListener(view -> {
             selectFulfilment(binding.selectFulfillment);
         });

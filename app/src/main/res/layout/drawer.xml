@@ -401,6 +401,7 @@
                             android:textColor="@color/heading_font" />
 
                         <TextView
+                            android:id="@+id/shippingPriceBtn"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_marginStart="@dimen/_63sdp"

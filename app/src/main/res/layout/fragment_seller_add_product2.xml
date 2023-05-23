@@ -130,7 +130,7 @@
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/location4" />
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerMenu" />
 
                     <TextView
                         android:id="@+id/specialPriceEndLb"
@@ -164,7 +164,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/productTitleLb" />
 
                     <EditText
-                        android:id="@+id/location4"
+                        android:id="@+id/spinnerMenu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -192,7 +192,7 @@
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
                         android:textSize="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="@+id/location4"
+                        app:layout_constraintEnd_toEndOf="@+id/spinnerMenu"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceStart" />
 

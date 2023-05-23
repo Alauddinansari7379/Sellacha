@@ -68,21 +68,26 @@ public class HomeDashBoard extends BaseActivity {
         binding.drawerLayout.Settings.setOnClickListener(view ->
                 {
                     drawerLock();
-                    handler.postDelayed(() -> navController.navigate(R.id.settingFragment, null, getNavOptions()), 300);
+                    // handler.postDelayed(() ->
+                    navController.navigate(R.id.settingFragment, null, getNavOptions());
 
                 }
         );
         binding.drawerLayout.ReviewRatingsll.setOnClickListener(view ->
                 {
                     drawerLock();
-                    handler.postDelayed(() -> navController.navigate(R.id.ratingFragment, null, getNavOptions()), 300);
+                    navController.navigate(R.id.ratingFragment);
+
+                    // handler.postDelayed(() ->
+                    navController.navigate(R.id.ratingFragment, null, getNavOptions());
                 }
         );
         binding.drawerLayout.customersll.setOnClickListener(view ->
                 {
                     drawerLock();
                     navController.navigate(R.id.customerFragment);
-                    handler.postDelayed(() -> navController.navigate(R.id.ratingFragment, null, getNavOptions()), 300);
+                    // handler.postDelayed(() ->
+                    navController.navigate(R.id.customerFragment, null, getNavOptions());
                 }
         );
         binding.mainLayout.headerLayout.profileBtn.setOnClickListener(view -> {
@@ -93,90 +98,120 @@ public class HomeDashBoard extends BaseActivity {
         binding.drawerLayout.locationBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.locationFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.locationFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.locationFragment, null, getNavOptions());
+        });
+        binding.drawerLayout.shippingPriceBtn.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.ShippingFragmentFragment);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.ShippingFragmentFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.googleAnlBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.googleAnalyticsFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.googleAnalyticsFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.googleAnalyticsFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.googleTapBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.tapManagerFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.tapManagerFragment, null, getNavOptions()), 300);
+            //handler.postDelayed(() ->
+            navController.navigate(R.id.tapManagerFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.whatsappApiBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.whatsappApiFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.whatsappApiFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.whatsappApiFragment, null, getNavOptions());
         });
         binding.drawerLayout.facebookPixelBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.facebookPixelFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.facebookPixelFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.facebookPixelFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.allOrderBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.orderFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.orderFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.orderFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.cancelOrderBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.orderFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.orderFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.orderFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.allProductBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.productFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.productFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.productFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.invantoryBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.inventroyFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.inventroyFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.inventroyFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.categoryBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.categoryFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.categoryFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.categoryFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.attributesBtn.setOnClickListener(view -> {
+//            drawerLock();
+//            navController.navigate(R.id.attributeFragment);
+//            handler.postDelayed(() -> navController.navigate(R.id.attributeFragment, null, getNavOptions()), 300);
             drawerLock();
             navController.navigate(R.id.attributeFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.attributeFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.attributeFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.brandBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.brandFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.brandFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.brandFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.transactions.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.transactionFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.transactionFragment, null, getNavOptions()), 300);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.transactionFragment, null, getNavOptions());
+        });
+        binding.drawerLayout.reportsll.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.reportFragment);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.reportFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.couponBtn.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.couponFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.couponFragment, null, getNavOptions()), 300);
+            //handler.postDelayed(() ->
+            navController.navigate(R.id.couponFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.dashboardll.setOnClickListener(view -> {
             drawerLock();
             navController.navigate(R.id.homeFragment);
-            handler.postDelayed(() -> navController.navigate(R.id.homeFragment, null, getNavOptions()), 300);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.homeFragment, null, getNavOptions());
         });
 
 
@@ -216,6 +251,9 @@ public class HomeDashBoard extends BaseActivity {
                 binding.mainLayout.headerLayout.txtLogo.setText("Coupons");
             } else if (destination.getId() == R.id.locationFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Location");
+            }
+                else if (destination.getId() == R.id.CreateShippingMethodFragment) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Shipping");
             } else if (destination.getId() == R.id.googleAnalyticsFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Analytics");
             } else if (destination.getId() == R.id.tapManagerFragment) {
@@ -226,6 +264,8 @@ public class HomeDashBoard extends BaseActivity {
                 binding.mainLayout.headerLayout.txtLogo.setText("Whatsapp Api");
             } else if (destination.getId() == R.id.transactionFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Transaction");
+            } else if (destination.getId() == R.id.reportFragment) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Report");
             }
         });
 

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/layout_root"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +68,7 @@
                 android:textColor="@color/heading_font"
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
-                app:layout_constraintTop_toBottomOf="@+id/txtParentcatg" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
 
             <TextView
@@ -79,7 +80,7 @@
                 android:textColor="@color/heading_font"
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
-                app:layout_constraintTop_toBottomOf="@+id/txtFeatured" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerFeatured" />
 
             <TextView
                 android:id="@+id/thumbnailLb"
@@ -90,7 +91,7 @@
                 android:textColor="@color/heading_font"
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
-                app:layout_constraintTop_toBottomOf="@+id/location4" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerMenu" />
 
 
             <EditText
@@ -102,7 +103,7 @@
                 android:backgroundTint="@color/light_gray"
                 android:ems="10"
                 android:fontFamily="@font/noto_sans_regular"
-                android:hint="Enter Title"
+                android:hint="Enter Name"
                 android:inputType="textPersonName"
                 android:padding="@dimen/_5sdp"
                 android:textColor="#946A6363"
@@ -111,10 +112,10 @@
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
                 app:layout_constraintTop_toBottomOf="@+id/nameLb" />
 
-            <EditText
-                android:id="@+id/location4"
+            <Spinner
+                android:id="@+id/spinnerMenu"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_marginTop="6dp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -125,14 +126,14 @@
                 android:padding="@dimen/_5sdp"
                 android:textColor="#946A6363"
                 android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="@+id/txtFeatured"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerFeatured"
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
                 app:layout_constraintTop_toBottomOf="@+id/assignToMenuLb" />
 
-            <EditText
-                android:id="@+id/txtParentcatg"
+            <Spinner
+                android:id="@+id/spinnerCategory"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_marginTop="6dp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -147,10 +148,10 @@
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
                 app:layout_constraintTop_toBottomOf="@+id/parentcategLb" />
 
-            <EditText
-                android:id="@+id/txtFeatured"
+            <Spinner
+                android:id="@+id/spinnerFeatured"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_marginTop="6dp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -161,7 +162,7 @@
                 android:padding="@dimen/_5sdp"
                 android:textColor="#946A6363"
                 android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="@+id/txtParentcatg"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerCategory"
                 app:layout_constraintStart_toStartOf="@+id/nameLb"
                 app:layout_constraintTop_toBottomOf="@+id/featuredLb" />
 
@@ -198,7 +199,7 @@
                 app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
 
             <Button
-                android:id="@+id/SignInBtn"
+                android:id="@+id/btnSave"
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginBottom="48dp"
