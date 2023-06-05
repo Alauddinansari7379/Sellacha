@@ -6,6 +6,7 @@ import android.app.ProgressDialog
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.Products.categories.Model.ModelGender
 import com.android.sellacha.R
@@ -29,7 +31,6 @@ import com.android.sellacha.databinding.FragmentCreateCategoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.Fragment.test.UploadResponse
 import com.example.ehcf.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.android.material.snackbar.Snackbar
@@ -55,9 +56,9 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
     var assignMenuList = ArrayList<ModelFeatured>()
     var imageView: ImageView? = null
     var categoriesArr = ArrayList<categoriesDM>()
-    private var parentCate=""
-    private var featured=""
-    private var assignMenu=""
+    private var type = ""
+    private var featured = ""
+    private var menu_status = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -87,56 +88,80 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 binding.txtName.error = "First Name Required"
                 binding.txtName.requestFocus()
                 return@setOnClickListener
-            } else{
+            } else {
                 uploadImage()
             }
 
         }
         categoryList.add(ModelGender("None", -1))
-        categoryList.add(ModelGender("Services", 0))
-        categoryList.add(ModelGender("ServiceSchedule", 1))
-        categoryList.add(ModelGender("Category", 1))
-        binding.spinnerCategory.adapter = ArrayAdapter<ModelGender>(requireContext(), android.R.layout.simple_list_item_1, categoryList)
+        categoryList.add(ModelGender("services", 0))
+        categoryList.add(ModelGender("serviceSchedule", 1))
+        categoryList.add(ModelGender("category", 1))
+        binding.spinnerCategory.adapter = ArrayAdapter<ModelGender>(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            categoryList
+        )
 
         featuredList.add(ModelFeatured("Yes", "1"))
         featuredList.add(ModelFeatured("No", "0"))
-        binding.spinnerFeatured.adapter = ArrayAdapter<ModelFeatured>(requireContext(), android.R.layout.simple_list_item_1, featuredList)
+        binding.spinnerFeatured.adapter = ArrayAdapter<ModelFeatured>(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            featuredList
+        )
 
         assignMenuList.add(ModelFeatured("None", "-1"))
         assignMenuList.add(ModelFeatured("Yes", "1"))
         assignMenuList.add(ModelFeatured("No", "0"))
-        binding.spinnerMenu.adapter = ArrayAdapter<ModelFeatured>(requireContext(), android.R.layout.simple_list_item_1, assignMenuList)
+        binding.spinnerMenu.adapter = ArrayAdapter<ModelFeatured>(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            assignMenuList
+        )
 
 
-        binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
-                if (categoryList.size > 0) {
-                    parentCate = categoryList[i].value.toString()
-                    Log.e(ContentValues.TAG, "parentCate: $parentCate")
+        binding.spinnerCategory.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>?,
+                    view: View,
+                    i: Int,
+                    l: Long
+                ) {
+                    if (categoryList.size > 0) {
+                        type = categoryList[i].gender.toString()
+                        Log.e(ContentValues.TAG, "parentCate: $type")
+                    }
                 }
+
+                override fun onNothingSelected(adapterView: AdapterView<*>?) {}
             }
+        binding.spinnerFeatured.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>?,
+                    view: View,
+                    i: Int,
+                    l: Long
+                ) {
+                    if (featuredList.size > 0) {
 
-            override fun onNothingSelected(adapterView: AdapterView<*>?) {}
-        }
-        binding.spinnerFeatured.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
-                if (featuredList.size > 0) {
+                        featured = featuredList[i].value
 
-                    featured = featuredList[i].value.toString()
-
-                    Log.e(ContentValues.TAG, "parentCate: $parentCate")
+                        Log.e(ContentValues.TAG, "featured: $featured")
+                    }
                 }
-            }
 
-            override fun onNothingSelected(adapterView: AdapterView<*>?) {}
-        }
+                override fun onNothingSelected(adapterView: AdapterView<*>?) {}
+            }
         binding.spinnerMenu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 if (assignMenuList.size > 0) {
 
-                    assignMenu = assignMenuList[i].value.toString()
+                    menu_status = assignMenuList[i].value.toString()
 
-                    Log.e(ContentValues.TAG, "parentCate: $parentCate")
+                    Log.e(ContentValues.TAG, "assignMenu: $menu_status")
                 }
             }
 
@@ -147,7 +172,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
     private fun uploadImage() {
         if (selectedImageUri == null) {
-            binding.layoutRoot.snackbar("Select an Image First")
+            binding.layoutRoot.snackbar("Select an Thumbnail First")
             return
         }
 
@@ -166,26 +191,33 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
         // binding.progressBar.progress = 0
         val body = UploadRequestBody(file, "image", this)
-        val name = binding.txtName.text.toString().trim()
 
+        val name = binding.txtName.text.toString().trim()
+        Log.e("sessionManager.authToken", sessionManager.authToken.toString())
+        Log.e("name", name)
+        Log.e("type", type)
+        Log.e("featured", featured)
+        Log.e("menu_status", menu_status)
         ApiClient.apiService.createCategory(
-            sessionManager.authToken, name, parentCate, featured,assignMenu , MultipartBody.Part.createFormData("file", file.name, body),
-        ).enqueue(object : Callback<UploadResponse> {
+            sessionManager.authToken,
+            name,
+            type,
+            featured,
+            menu_status, MultipartBody.Part.createFormData("file", file.name, body),
+        ).enqueue(object : Callback<ModelCreCatogoryJava> {
             override fun onResponse(
-                call: Call<UploadResponse>, response: Response<UploadResponse>
+                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
             ) {
-                 if (response.code() == 401) {
-                    myToast(requireActivity(), "Maximum Attribute limit exceeded")
+                if (response.code() == 401) {
+                    myToast(requireActivity(), "Maximum category limit exceeded")
                     AppProgressBar.hideLoaderDialog()
 
-                }
-                 else if (response.code() == 200) {
-
-                    myToast(requireActivity(), response.message())
+                } else if (response.code() == 200) {
+                    myToast(requireActivity(), response.body()!!.data)
                     AppProgressBar.hideLoaderDialog()
 
                 } else {
-                    myToast(requireActivity(), response.message())
+                    myToast(requireActivity(), response.body()!!.message)
                     AppProgressBar.hideLoaderDialog()
 
                 }
@@ -195,7 +227,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
             }
 
-            override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
                 binding.layoutRoot.snackbar(t.message!!)
                 // binding.progressBar.progress = 0
                 AppProgressBar.hideLoaderDialog()
@@ -229,7 +261,8 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
-                    // binding.imageViewNew.visibility = View.VISIBLE
+                     binding.txtNoFile.text="Thumbnail Selected"
+                    binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
                     //   imageView?.setImageURI(selectedImageUri)
                 }
             }

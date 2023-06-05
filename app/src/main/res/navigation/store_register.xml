@@ -7,63 +7,68 @@
 
     <fragment
         android:id="@+id/storeInfoFragment"
-        android:name="com.android.sellacha.fragment.sell_register.StoreInformation"
+        android:name="com.android.sellacha.Registration.StoreInformation"
         android:label="Store Info Fragment"
         tools:layout="@layout/fragment_store_information" />
 
     <fragment
         android:id="@+id/themeFragment"
-        android:name="com.android.sellacha.fragment.sell_register.ThemeFragment"
+        android:name="com.android.sellacha.Registration.ThemeFragment"
         android:label="Theme Fragment"
         tools:layout="@layout/fragment_theme" />
 
     <fragment
         android:id="@+id/uploadLogoFragment"
-        android:name="com.android.sellacha.fragment.sell_register.UploadLogoFragment"
+        android:name="com.android.sellacha.Registration.UploadLogoFragment"
         android:label="Upload Logo Fragment"
         tools:layout="@layout/fragment_upload_logo" />
 
     <fragment
         android:id="@+id/colorSchemeFragment"
-        android:name="com.android.sellacha.fragment.sell_register.ColorSchemeFragment"
+        android:name="com.android.sellacha.Registration.ColorSchemeFragment"
         android:label="Color Scheme Fragment"
         tools:layout="@layout/fragment_color_scheme" />
 
     <fragment
         android:id="@+id/addCategoryFragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerAddCategoryFragment"
+        android:name="com.android.sellacha.Registration.SellerAddCategoryFragment"
         android:label="Fragment"
         tools:layout="@layout/fragment_seller_add_category" />
 
     <fragment
         android:id="@+id/addProduct2Fragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerAddProduct2Fragment"
+        android:name="com.android.sellacha.Registration.SellerAddProduct2Fragment"
         android:label="Add Product 2 Fragment"
         tools:layout="@layout/fragment_seller_add_product2" />
 
     <fragment
         android:id="@+id/googleAnalyticsFragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerGoogleAnalyticsFragment"
+        android:name="com.android.sellacha.Registration.SellerGoogleAnalyticsFragment"
         android:label="Google Fragment"
         tools:layout="@layout/fragment_seller_google_analytics" />
 
 
     <fragment
         android:id="@+id/tapManagerFragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerGoogleTagManagerFragment"
+        android:name="com.android.sellacha.Registration.SellerGoogleTagManagerFragment"
         android:label="Fragment"
         tools:layout="@layout/fragment_seller_google_tag_manager" />
 
 
     <fragment
         android:id="@+id/facebookPixelFragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerFacebookFragment"
+        android:name="com.android.sellacha.Registration.SellerFacebookFragment"
         android:label="Facebook Fragment"
         tools:layout="@layout/fragment_seller_facebook" />
 
     <fragment
         android:id="@+id/whatsappApiFragment"
-        android:name="com.android.sellacha.fragment.sell_register.SellerWhatsappFragment"
+        android:name="com.android.sellacha.Registration.SellerWhatsappFragment"
         android:label="Whatsapp Fragment"
         tools:layout="@layout/fragment_seller_whatsapp" />
+    <fragment
+        android:id="@+id/allImageUploadFragment"
+        android:name="com.android.sellacha.Registration.AllUploadImagesFragment"
+        android:label="Image Fragment"
+        tools:layout="@layout/fragment_all_upload_image" />
 </navigation>

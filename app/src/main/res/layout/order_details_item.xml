@@ -21,14 +21,10 @@
                 android:id="@+id/orderRbtn"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
-                android:backgroundTint="@color/primary_bg"
-                android:buttonTint="@color/light_primary_bg" />
+                android:padding="5dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:enabled="true" />
 
             <TextView
                 android:id="@+id/orderName"
@@ -54,11 +50,11 @@
 
             <TextView
                 android:id="@+id/customer"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-                android:text="Customer"
+                android:inputType="textMultiLine"
                 android:textColor="@color/semi_title_font"
                 android:textSize="14sp" />
 

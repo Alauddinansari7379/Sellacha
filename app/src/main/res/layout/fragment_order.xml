@@ -163,6 +163,7 @@
                                     app:tint="@color/_6E7D86" />
 
                                 <Button
+                                    android:id="@+id/btnSubmit"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -213,7 +214,6 @@
                                                 android:layout_width="@dimen/_20sdp"
                                                 android:layout_height="@dimen/_20sdp"
                                                 android:layout_gravity="center"
-                                                android:layout_margin="@dimen/_5sdp"
                                                 android:enabled="false" />
 
                                             <TextView
@@ -239,7 +239,7 @@
 
                                             <TextView
                                                 android:id="@+id/customer"
-                                                android:layout_width="100dp"
+                                                android:layout_width="150dp"
                                                 android:layout_height="match_parent"
                                                 android:fontFamily="@font/noto_sans_regular"
                                                 android:gravity="center"

@@ -79,7 +79,6 @@ class CreateShippingMethod : Fragment() {
                         binding.txtPrice.text.clear()
                         binding.txtLocation.text.clear()
                         AppProgressBar.hideLoaderDialog()
-                        AppProgressBar.hideLoaderDialog()
 
                     } else {
                         myToast(requireActivity(), response.message())

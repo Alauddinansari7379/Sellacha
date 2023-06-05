@@ -49,6 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_20sdp"
                         android:text="Skip"
+                        android:padding="10dp"
                         android:textColor="#48C260"
                         app:layout_constraintBottom_toBottomOf="@+id/addProdLb"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -163,10 +164,10 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/productTitleLb" />
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/spinnerMenu"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
@@ -180,13 +181,14 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceTypeLb" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/location"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
+                        android:hint="dd//mm/yy"
                         android:fontFamily="@font/noto_sans_regular"
                         android:padding="@dimen/_6sdp"
                         android:textColor="#946A6363"
@@ -196,13 +198,15 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceStart" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/txtSpecialPriceEnd"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
+                        android:hint="dd//mm/yy"
+                        android:padding="@dimen/_6sdp"
                         android:fontFamily="@font/noto_sans_regular"
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
@@ -221,6 +225,7 @@
                         android:fontFamily="@font/noto_sans_regular"
                         android:hint="Enter Price"
                         android:padding="@dimen/_6sdp"
+                        android:inputType="number"
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
                         android:textSize="@dimen/_12sdp"
@@ -238,6 +243,7 @@
                         android:fontFamily="@font/noto_sans_regular"
                         android:padding="@dimen/_6sdp"
                         android:textColor="#946A6363"
+                        android:inputType="number"
                         android:textCursorDrawable="@drawable/search_cursor"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="@+id/txtPrice"

@@ -97,10 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:backgroundTint="@color/light_gray"
-                android:ems="10"
                 android:fontFamily="@font/noto_sans_regular"
-
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:padding="@dimen/_5sdp"
                 android:textColor="#946A6363"
                 android:textSize="@dimen/_12sdp"

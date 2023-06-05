@@ -84,7 +84,8 @@ class ReportFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelReort>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallReport()
                     AppProgressBar.hideLoaderDialog()
 
 

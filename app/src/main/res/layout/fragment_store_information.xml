@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
-                        android:text="Password"
+                        android:text="Select Shop Type"
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintStart_toStartOf="@+id/storeInfoLb"
@@ -108,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
-                        android:text="Select Product Type"
+                        android:text="Password"
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintStart_toStartOf="@+id/storeInfoLb"
@@ -132,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
-                        android:text="Select Shop Type"
+                        android:text="Select Service Type"
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintStart_toStartOf="@+id/PasswordConLb2"
@@ -145,7 +144,6 @@
                         android:layout_marginTop="6dp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:backgroundTint="@color/light_gray"
-                        android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
@@ -178,9 +176,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
-                        android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
@@ -195,13 +192,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:backgroundTint="@color/light_gray"
-                        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                        android:ems="10"
-                        android:enabled="false"
                         android:fontFamily="@font/noto_sans_regular"
-                        android:hint="Product "
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"
@@ -216,30 +208,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
-                        android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
-                        android:inputType="textPersonName"
+                        android:inputType="textPassword"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
-
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="@+id/txtproductTxt"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/PasswordConLb2"
                         app:layout_constraintTop_toBottomOf="@+id/PasswordConLb2" />
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/txtselectshoptp"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
                         android:ems="10"
                         android:enabled="false"
                         android:fontFamily="@font/noto_sans_regular"
-                        android:hint="Clothes"
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
@@ -256,9 +245,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
-                        android:ems="10"
+                        android:ems="12"
                         android:fontFamily="@font/noto_sans_regular"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
@@ -267,16 +256,16 @@
                         app:layout_constraintStart_toStartOf="@+id/storeInfoLb"
                         app:layout_constraintTop_toBottomOf="@+id/mobNoLb" />
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/txtPassword"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
+                        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
                         android:fontFamily="@font/noto_sans_regular"
                         android:inputType="textPersonName"
-
                         android:textColor="#946A6363"
                         android:textCursorDrawable="@drawable/search_cursor"
                         android:padding="@dimen/_5sdp"
@@ -303,7 +292,7 @@
 
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtselectshoptp"
-          />
+                        />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

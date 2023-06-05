@@ -6,7 +6,7 @@ data class GetwayX(
     val id: Int,
     val is_admin: String,
     val menu_status: String,
-    val name: String,
+    val name: String?=null,
     val p_id: Any,
     val slug: String,
     val type: String,

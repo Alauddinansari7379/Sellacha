@@ -120,15 +120,14 @@
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/nameLb" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/spinnerMenu"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_marginTop="6dp"
                     android:backgroundTint="@color/light_gray"
                     android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
                     android:ems="10"
-                    android:enabled="false"
                     android:fontFamily="@font/noto_sans_regular"
                     android:hint="No"
                     android:inputType="textPersonName"
@@ -139,10 +138,10 @@
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/assignToMenuLb" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/spinnerCategory"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_marginTop="6dp"
                     android:backgroundTint="@color/light_gray"
                     android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -158,10 +157,10 @@
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/parentcategLb" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/spinnerFeatured"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_marginTop="6dp"
                     android:backgroundTint="@color/light_gray"
                     android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -201,7 +200,6 @@
                     android:layout_marginStart="@dimen/_15sdp"
                     android:text="No file chosen"
                     android:textColor="#9F757C7C"
-
                     android:textSize="15dp"
 
 
@@ -232,11 +230,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_20sdp"
+                    android:padding="@dimen/_10sdp"
                     android:text="Skip"
                     android:textColor="#48C260"
                     app:layout_constraintBottom_toBottomOf="@+id/addCatgLb"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/addCatgLb" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

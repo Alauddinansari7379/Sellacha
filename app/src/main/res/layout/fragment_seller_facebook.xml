@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -18,6 +18,19 @@
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="-38dp">
 
+
+            <TextView
+                android:id="@+id/skipLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="10dp"
+                android:text="Skip"
+                android:textColor="#48C260"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.705"
+                app:layout_constraintStart_toEndOf="@+id/facebookPixelLb"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/facebookPixelLb"
@@ -77,10 +90,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/yourPixelIdLb" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/txtStatus"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:ems="10"

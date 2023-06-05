@@ -75,7 +75,8 @@ class RatingAndReviewFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallReviewAndRating()
                     AppProgressBar.hideLoaderDialog()
 
 

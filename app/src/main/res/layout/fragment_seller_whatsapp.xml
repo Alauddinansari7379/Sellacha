@@ -41,6 +41,45 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.047" />
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Imageview"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Whatsapp API"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.541"
+                    app:layout_constraintStart_toEndOf="@+id/whatsappApiLb"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Imageview1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="68dp"
+                    android:text="Whatsapp API"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.361"
+                    app:layout_constraintStart_toEndOf="@+id/whatsappApiLb"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Imageview2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Whatsapp API"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.058"
+                    app:layout_constraintStart_toEndOf="@+id/whatsappApiLb"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/whatsappNoLb"
                     android:layout_width="wrap_content"
@@ -84,10 +123,10 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:backgroundTint="@color/light_gray"
-                    android:ems="10"
+                    android:ems="12"
                     android:fontFamily="@font/noto_sans_regular"
                     android:hint="123456789"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:padding="@dimen/_5sdp"
 
                     android:textColor="#946A6363"
@@ -148,10 +187,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/OtherPagePreLb" />
 
 
-                <EditText
+                <Spinner
                     android:id="@+id/txtStatus"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_marginTop="6dp"
                     android:backgroundTint="@color/light_gray"
                     android:ems="10"
@@ -175,7 +214,7 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/btn_background"
                     android:gravity="center"
-                    android:text="Save"
+                    android:text="Registered"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"

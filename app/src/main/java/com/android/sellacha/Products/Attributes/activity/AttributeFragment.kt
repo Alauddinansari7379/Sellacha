@@ -39,6 +39,7 @@ class AttributeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAttributeBinding.bind(view)
+
         sessionManager = SessionManager(requireContext())
         apiCallAttribute()
         binding!!.createAttribute.setOnClickListener { view ->
@@ -81,7 +82,8 @@ class AttributeFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelAttributes>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                    //myToast(requireActivity(), "Something went wrong")
+                    apiCallAttribute()
                     AppProgressBar.hideLoaderDialog()
 
 

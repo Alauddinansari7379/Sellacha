@@ -12,6 +12,7 @@ import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.Transaction.Model.ModelTransaction
 import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 
 
 class AdapterTransaction(val context: Context, private val list: ModelTransaction,) :
@@ -29,7 +30,10 @@ class AdapterTransaction(val context: Context, private val list: ModelTransactio
 
         holder.amt.text = list.data.orders.data[position].total
         holder.paymentStatus.text = list.data.orders.data[position].status
-        holder.payMethod.text = list.data.orders.data[position].getway.name
+        if (list.data.orders.data[position].getway != null) {
+            holder.payMethod.text = list.data.orders.data[position].getway.name
+
+        }
         holder.orderNum.text = list.data.orders.data[position].order_no
         holder.tansNum.text = list.data.orders.data[position].transaction_id
 

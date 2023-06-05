@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_run_u_i_load" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.android.sellacha.fragment.HomeFragment"
+        android:name="com.android.sellacha.Home.HomeFragment"
         android:label="home Fragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -138,7 +138,7 @@
         tools:layout="@layout/fragment_customer" />
     <fragment
         android:id="@+id/createCustomerFragment"
-        android:name="com.android.sellacha.fragment.AddNewCustomerFragment"
+        android:name="com.android.sellacha.Costomer.activity.AddNewCustomerNewFragment"
         android:label="C Fragment"
         tools:layout="@layout/fragment_add_new_customer" />
 
@@ -178,5 +178,15 @@
         android:name="com.android.sellacha.Shipping.ShippingPrice.activity.ShippingFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/BumpAdsFragmentFragment"
+        android:name="com.android.sellacha.OfferAndAds.BumpAdsFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_bump_ads" />
+    <fragment
+        android:id="@+id/BannerAdsFragmentFragment"
+        android:name="com.android.sellacha.OfferAndAds.BannerAdsFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_banner_ads" />
 
 </navigation>

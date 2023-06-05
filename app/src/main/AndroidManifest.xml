@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -21,6 +20,12 @@
         android:theme="@style/Theme.Sellacha"
         tools:targetApi="31">
         <activity
+            android:name=".Profile.activity.UserDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Profile.activity.ChangePassword"
+            android:exported="false" />
+        <activity
             android:name=".activity.CreateForgotPasswordActivity"
             android:exported="false" />
         <activity
@@ -30,13 +35,10 @@
             android:name=".activity.ForgotPassword"
             android:exported="true" />
         <activity
-            android:name=".activity.ChangePassword"
-            android:exported="true" />
-        <activity
             android:name=".activity.CheckOut"
             android:exported="true" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".Profile.activity.ProfileActivity"
             android:exported="true" />
         <activity
             android:name=".activity.RegisterActivity"

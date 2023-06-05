@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:text="Skip"
+                android:padding="10dp"
                 android:textColor="#48C260"
                 app:layout_constraintBottom_toBottomOf="@+id/googleAnalyticLb"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +118,7 @@
                 android:backgroundTint="@color/light_gray"
                 android:ems="10"
                 android:fontFamily="@font/noto_sans_regular"
-                android:hint="Enter location name"
+                android:hint="Analytics View Id"
                 android:inputType="textPersonName"
                 android:padding="@dimen/_6sdp"
                 android:textColor="#946A6363"
@@ -128,10 +129,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/analyticsIdLb" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/txtSatus"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:ems="10"

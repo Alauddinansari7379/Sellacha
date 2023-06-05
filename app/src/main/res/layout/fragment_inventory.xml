@@ -70,6 +70,14 @@
                                 android:layout_margin="25dp"
                                 android:background="@drawable/fields_bg"
                                 android:orientation="horizontal">
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="5"
+                                    android:padding="5sp"
+                                    android:background="@null"
+                                    android:hint="ABC-123" />
 
                                 <ImageView
                                     android:layout_width="@dimen/_25sdp"
@@ -82,14 +90,6 @@
                                     android:src="@drawable/search_btn"
                                     app:tint="@color/_6E7D86" />
 
-                                <EditText
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center"
-                                    android:layout_weight="5"
-                                    android:background="@null"
-                                    android:enabled="false"
-                                    android:hint="ABC-123" />
 
                                 <ImageView
                                     android:layout_width="@dimen/_25sdp"
@@ -98,6 +98,7 @@
                                     android:layout_marginEnd="@dimen/_10sdp"
                                     android:background="@drawable/search_btn_bg"
                                     android:padding="5dp"
+                                    android:visibility="gone"
                                     android:src="@drawable/filter_btn" />
                             </LinearLayout>
 
@@ -150,6 +151,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_margin="@dimen/_5sdp"
                                 android:nestedScrollingEnabled="false"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                                 tools:listitem="@layout/inventory_item" />
 
                         </LinearLayout>

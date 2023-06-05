@@ -1,21 +1,23 @@
 package com.android.sellacha.Products.categories.adapter
 
 import android.content.Context
-import android.util.Log
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.android.sellacha.Products.categories.Model.ModeCategoryJava
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
+import com.android.sellacha.utils.TextUtils
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Picasso
 
 
-class AdapterCategory(val context: Context, private val list: ModelCategory,) :
+class AdapterCategory(val context: Context, private val list: ModelCategory) :
     RecyclerView.Adapter<AdapterCategory.MyViewHolder>() {
 
 
@@ -28,7 +30,10 @@ class AdapterCategory(val context: Context, private val list: ModelCategory,) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
         holder.nameTvCat.text = list.data.posts.data[position].name
-        Picasso.get().load("https://footwear.thedemostore.in/"+list.data.posts.data[position].preview!!.content).into(holder.categoryImg)
+        if (list.data.posts.data[position].preview != null) {
+            Picasso.get().load("https://footwear.thedemostore.in/"+list.data.posts.data[position].preview!!.content).into(holder.categoryImg)
+
+        }
 
         // holder.nameTvCat.text = list.data.posts.data[position].preview.content
       //  val baseUrl=list.data.posts.data[position].preview.content

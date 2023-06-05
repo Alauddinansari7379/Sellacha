@@ -13,6 +13,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
+import com.android.sellacha.Profile.activity.ProfileActivity;
 import com.android.sellacha.R;
 import com.android.sellacha.databinding.ActivityHomeDashBoardBinding;
 import com.android.sellacha.utils.KeyboardListenerUtils;
@@ -142,12 +143,12 @@ public class HomeDashBoard extends BaseActivity {
             navController.navigate(R.id.orderFragment, null, getNavOptions());
         });
 
-        binding.drawerLayout.cancelOrderBtn.setOnClickListener(view -> {
-            drawerLock();
-            navController.navigate(R.id.orderFragment);
-            // handler.postDelayed(() ->
-            navController.navigate(R.id.orderFragment, null, getNavOptions());
-        });
+//        binding.drawerLayout.cancelOrderBtn.setOnClickListener(view -> {
+//            drawerLock();
+//            navController.navigate(R.id.orderFragment);
+//            // handler.postDelayed(() ->
+//            navController.navigate(R.id.orderFragment, null, getNavOptions());
+//        });
 
         binding.drawerLayout.allProductBtn.setOnClickListener(view -> {
             drawerLock();
@@ -185,6 +186,20 @@ public class HomeDashBoard extends BaseActivity {
             navController.navigate(R.id.brandFragment);
             //  handler.postDelayed(() ->
             navController.navigate(R.id.brandFragment, null, getNavOptions());
+        });
+
+        binding.drawerLayout.bumpAdsBtn.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.BumpAdsFragmentFragment);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.BumpAdsFragmentFragment, null, getNavOptions());
+        });
+
+        binding.drawerLayout.bannerAdsBtn.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.BannerAdsFragmentFragment);
+            //  handler.postDelayed(() ->
+            navController.navigate(R.id.BannerAdsFragmentFragment, null, getNavOptions());
         });
 
         binding.drawerLayout.transactions.setOnClickListener(view -> {
@@ -251,8 +266,7 @@ public class HomeDashBoard extends BaseActivity {
                 binding.mainLayout.headerLayout.txtLogo.setText("Coupons");
             } else if (destination.getId() == R.id.locationFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Location");
-            }
-                else if (destination.getId() == R.id.CreateShippingMethodFragment) {
+            } else if (destination.getId() == R.id.CreateShippingMethodFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Shipping");
             } else if (destination.getId() == R.id.googleAnalyticsFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Analytics");
@@ -266,6 +280,12 @@ public class HomeDashBoard extends BaseActivity {
                 binding.mainLayout.headerLayout.txtLogo.setText("Transaction");
             } else if (destination.getId() == R.id.reportFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Report");
+            } else if (destination.getId() == R.id.BumpAdsFragmentFragment) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Bump Ads");
+            } else if (destination.getId() == R.id.BannerAdsFragmentFragment) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Banner Ads");
+
+
             }
         });
 
@@ -315,6 +335,21 @@ public class HomeDashBoard extends BaseActivity {
                 binding.drawerLayout.shippingrl.setBackgroundColor(getResources().getColor(R.color._F8F8F8));
                 binding.drawerLayout.lLocationsll.setBackgroundColor(getResources().getColor(R.color._F8F8F8));
                 binding.drawerLayout.shippingIconArrow.setImageResource(R.drawable.icn_drop_arrow);
+            }
+        });
+        binding.drawerLayout.offerl.setOnClickListener(view -> {
+            if (binding.drawerLayout.layoutAds.getVisibility() == View.VISIBLE) {
+                binding.drawerLayout.layoutAds.setVisibility(View.GONE);
+
+                binding.drawerLayout.layoutAds.setBackgroundColor(getResources().getColor(R.color.white));
+                binding.drawerLayout.offerl.setBackgroundColor(getResources().getColor(R.color.white));
+                binding.drawerLayout.offerIconArrow.setImageResource(R.drawable.icn_next_arrow);
+            } else {
+                binding.drawerLayout.layoutAds.setVisibility(View.VISIBLE);
+
+                binding.drawerLayout.offerl.setBackgroundColor(getResources().getColor(R.color._F8F8F8));
+                binding.drawerLayout.layoutAds.setBackgroundColor(getResources().getColor(R.color._F8F8F8));
+                binding.drawerLayout.offerIconArrow.setImageResource(R.drawable.icn_drop_arrow);
             }
         });
 

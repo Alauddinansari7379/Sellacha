@@ -131,6 +131,7 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:gravity="start|center"
+                        android:visibility="gone"
                         android:text="Canceled"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
@@ -376,13 +377,14 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="@dimen/_25sdp"
                             android:src="@drawable/icn_next_arrow"
-                            android:tint="@color/primary_bg" />
+                            app:tint="@color/primary_bg"
+                            />
 
 
                     </RelativeLayout>
 
                     <LinearLayout
-                        android:id="@+id/lLocationsll"
+                        android:id="@+id/lBumpll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/_F8F8F8"
@@ -391,17 +393,17 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/locationBtn"
+                            android:id="@+id/BumpBtn"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_marginStart="@dimen/_63sdp"
                             android:fontFamily="@font/noto_sans_medium"
                             android:gravity="start|center"
-                            android:text="Location"
+                            android:text="Bump"
                             android:textColor="@color/heading_font" />
 
                         <TextView
-                            android:id="@+id/shippingPriceBtn"
+                            android:id="@+id/bannerBtn"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:layout_marginStart="@dimen/_63sdp"
@@ -409,44 +411,120 @@
                             android:layout_marginBottom="@dimen/_10sdp"
                             android:fontFamily="@font/noto_sans_medium"
                             android:gravity="start|center"
-                            android:text="@string/shipping_price"
+                            android:text="Banner"
                             android:textColor="@color/heading_font" />
                     </LinearLayout>
 
                 </LinearLayout>
-
-                <RelativeLayout
-                    android:id="@+id/OfferAds"
+                <LinearLayout
+                    android:id="@+id/lLocationsll"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:id="@+id/OfferAdsIcon"
-                        android:layout_width="@dimen/_22sdp"
-                        android:layout_height="@dimen/_22sdp"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="@dimen/_25sdp"
-                        android:src="@drawable/icn_offer_ads" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/_F8F8F8"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_toEndOf="@id/OfferAdsIcon"
+                        android:id="@+id/locationBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
                         android:fontFamily="@font/noto_sans_medium"
-                        android:text="@string/offer_ads"
+                        android:gravity="start|center"
+                        android:text="Location"
                         android:textColor="@color/heading_font" />
 
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="@dimen/_25sdp"
-                        android:src="@drawable/icn_next_arrow" />
+                    <TextView
+                        android:id="@+id/shippingPriceBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="@string/shipping_price"
+                        android:textColor="@color/heading_font" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/offerll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/offerl"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/offer_icon"
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/_25sdp"
+                            android:src="@drawable/icn_offer_ads"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_toEndOf="@id/offer_icon"
+                            android:fontFamily="@font/noto_sans_medium"
+                            android:text="@string/offer_ads"
+                            android:textColor="@color/heading_font" />
+
+                        <ImageView
+                            android:id="@+id/offer_icon_arrow"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_25sdp"
+                            android:src="@drawable/icn_next_arrow"
+                            app:tint="@color/primary_bg"
+                            />
 
 
-                </RelativeLayout>
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutAds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/_F8F8F8"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/bumpAdsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Bump Ads"
+                        android:textColor="@color/heading_font" />
+
+                    <TextView
+                        android:id="@+id/bannerAdsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Banner Ads"
+                        android:textColor="@color/heading_font" />
+                </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/Settings"

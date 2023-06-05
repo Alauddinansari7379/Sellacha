@@ -23,14 +23,13 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="5dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/orderName"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:padding="@dimen/_6sdp"
@@ -48,7 +47,7 @@
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="start"
                 android:inputType="textMultiLine"
-                android:text="Edit|Show"
+                android:text=""
                 android:textColor="@color/primary_bg"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/name"

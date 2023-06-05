@@ -50,6 +50,7 @@
                         app:layout_constraintStart_toStartOf="@+id/colorSchemeLb"
                         app:layout_constraintTop_toBottomOf="@+id/colorSchemeLb" />
 
+
                     <TextView
                         android:id="@+id/logoLb"
                         android:layout_width="wrap_content"
@@ -213,6 +214,21 @@
                             app:layout_constraintTop_toBottomOf="@+id/status" />
 
                         <TextView
+                            android:id="@+id/tvCountURL"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:background="@color/order_cardbg"
+                            android:fontFamily="@font/noto_sans_semi_bold"
+                            android:gravity="left|center"
+                            android:padding="8dp"
+                            android:paddingStart="20dp"
+                            android:text=""
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/status" />
+
+                        <EditText
                             android:id="@+id/urlLink"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -221,7 +237,7 @@
                             android:gravity="left|center"
                             android:padding="8dp"
                             android:paddingStart="@dimen/_15sdp"
-                            android:text="facebook.com"
+                            android:hint="facebook.com"
                             android:textSize="@dimen/_11sdp"
 
                             app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +268,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/urlLink" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/orderStatus"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -261,7 +277,7 @@
                             android:gravity="left|center"
                             android:padding="8dp"
                             android:paddingStart="@dimen/_15sdp"
-                            android:text="fa-fa-facebook"
+                            android:hint="fa-fa-facebook"
                             android:textSize="@dimen/_11sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

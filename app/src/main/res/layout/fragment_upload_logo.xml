@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -85,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_13sdp"
+                android:visibility="gone"
                 android:text="Search Icon"
                 android:textColor="@color/heading_font"
                 android:textSize="@dimen/_12sdp"
@@ -119,7 +120,8 @@
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
-                android:ems="10"
+                android:hint="TagLine"
+                android:inputType="text"
                 android:fontFamily="@font/noto_sans_regular"
                 android:textColor="#946A6363"
                 android:textCursorDrawable="@drawable/search_cursor"
@@ -138,6 +140,7 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:ems="10"
+                android:visibility="gone"
                 android:fontFamily="@font/noto_sans_regular"
                 android:textColor="#946A6363"
                 android:textCursorDrawable="@drawable/search_cursor"
@@ -164,7 +167,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txttagline2"
-                app:layout_constraintVertical_bias="0.376"
+                app:layout_constraintVertical_bias="0.16"
                 tools:ignore="UnknownIdInLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

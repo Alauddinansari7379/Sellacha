@@ -50,7 +50,7 @@ class CustomerFragment : Fragment() {
 
 
         binding!!.createAttribute.setOnClickListener { view ->
-            Navigation.findNavController(binding!!.root).navigate(R.id.createCustomerFragment)
+            findNavController(binding!!.root).navigate(R.id.createCustomerFragment)
         }
 
 
@@ -72,7 +72,7 @@ class CustomerFragment : Fragment() {
                         binding!!.attributeRc.adapter =
                             activity?.let { AdapterCustomer(it, response.body()!!) }
                         binding!!.attributeRc.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Location Found")
+                        myToast(requireActivity(), "No Data Found")
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
@@ -85,7 +85,9 @@ class CustomerFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallCustomer()
+
                     AppProgressBar.hideLoaderDialog()
 
 

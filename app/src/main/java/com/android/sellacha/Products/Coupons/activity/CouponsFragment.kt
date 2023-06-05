@@ -55,6 +55,7 @@ class CouponsFragment : Fragment() {
                 ) {
                     if (response.code() == 500) {
                         myToast(requireActivity(), "Server Error")
+                        AppProgressBar.hideLoaderDialog()
 
                     } else if (response.body()!!.data.posts.data.isEmpty()) {
                         binding!!.reviewRatingRc.adapter =
@@ -72,7 +73,9 @@ class CouponsFragment : Fragment() {
 
                 override fun onFailure(call: Call<ModelCoupons>, t: Throwable) {
                    // myToast(requireActivity(),t.message.toString())
-                    myToast(requireActivity(), "Something went wrong")
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallCoupons()
+
                     AppProgressBar.hideLoaderDialog()
 
 

@@ -91,7 +91,9 @@ class TransactionFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelTransaction>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallTransaction()
+
                     AppProgressBar.hideLoaderDialog()
 
 
