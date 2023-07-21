@@ -53,6 +53,21 @@ class CustomerFragment : Fragment() {
             findNavController(binding!!.root).navigate(R.id.createCustomerFragment)
         }
 
+        binding!!.imgRefresh.setOnClickListener { view ->
+            binding!!.edtSearch.text.clear()
+            apiCallCustomer()
+        }
+
+        binding!!.imgSearch.setOnClickListener { view ->
+            if (binding!!.edtSearch.text.isEmpty()){
+                binding!!.edtSearch.error="Enter Customer Name"
+                binding!!.edtSearch.requestFocus()
+                return@setOnClickListener
+            }
+
+            apiCallSearchCustomer(binding!!.edtSearch.text.toString())
+         }
+
 
     }
 
@@ -87,6 +102,45 @@ class CustomerFragment : Fragment() {
                 override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
                    // myToast(requireActivity(), "Something went wrong")
                     apiCallCustomer()
+
+                    AppProgressBar.hideLoaderDialog()
+
+
+                }
+
+            })
+    }
+    private fun apiCallSearchCustomer(customerName:String) {
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.searchCustomer(sessionManager.authToken,"name",customerName)
+            .enqueue(object : Callback<ModelCategory> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelCategory>, response: Response<ModelCategory>
+                ) {
+                    if (response.code() == 500) {
+                        myToast(requireActivity(), "Server Error")
+
+                    } else if (response.body()!!.data.posts.data.isEmpty()) {
+                        binding!!.attributeRc.adapter =
+                            activity?.let { AdapterCustomer(it, response.body()!!) }
+                        binding!!.attributeRc.adapter!!.notifyDataSetChanged()
+                        myToast(requireActivity(), "No Data Found")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else {
+                        binding!!.attributeRc.adapter =
+                            activity?.let { AdapterCustomer(it, response.body()!!) }
+                        AppProgressBar.hideLoaderDialog()
+
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
+                   // myToast(requireActivity(), "Something went wrong")
+                    apiCallSearchCustomer(binding!!.edtSearch.text.toString())
 
                     AppProgressBar.hideLoaderDialog()
 

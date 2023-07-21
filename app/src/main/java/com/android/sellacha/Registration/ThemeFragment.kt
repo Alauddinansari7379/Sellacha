@@ -21,13 +21,7 @@ class ThemeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_theme, container, false)
         binding!!.saveBtn.setOnClickListener { view: View? ->
 
-
-
-            findNavController(binding!!.getRoot()).navigate(
-                R.id.uploadLogoFragment
-            )
-
-
+            findNavController(binding!!.getRoot()).navigate(R.id.uploadLogoFragment)
         }
         Log.e("businessName",StoreInformation.RegistrationData.business_name)
         Log.e("mob",StoreInformation.RegistrationData.mob)

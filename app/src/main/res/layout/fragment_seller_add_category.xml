@@ -201,8 +201,6 @@
                     android:text="No file chosen"
                     android:textColor="#9F757C7C"
                     android:textSize="15dp"
-
-
                     app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
                     app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
                     app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
@@ -214,7 +212,7 @@
                     android:layout_margin="@dimen/_20sdp"
                     android:background="@drawable/btn_background"
                     android:gravity="center"
-                    android:text="Save"
+                    android:text="Save &amp; Next"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"
@@ -232,6 +230,7 @@
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:padding="@dimen/_10sdp"
                     android:text="Skip"
+                    android:visibility="gone"
                     android:textColor="#48C260"
                     app:layout_constraintBottom_toBottomOf="@+id/addCatgLb"
                     app:layout_constraintEnd_toEndOf="parent"

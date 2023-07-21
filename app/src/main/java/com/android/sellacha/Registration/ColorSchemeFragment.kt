@@ -46,6 +46,19 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
             DataBindingUtil.inflate(inflater, com.android.sellacha.R.layout.fragment_color_scheme, container, false)
 
 
+
+
+        if (StoreInformation.RegistrationData.logo!=null){
+            binding!!.logotxtNoFile.text="Logo Selected"
+            binding!!.logotxtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
+            binding!!.txtThemeColr.setText(StoreInformation.RegistrationData.theme_color)
+            binding!!.tvCountURL.text = urlList.size.toString()
+            binding!!.txtNoFile.text="Favicon Selected"
+            binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
+        }
+
+
+
         binding!!.saveBtn.setOnClickListener { view: View? ->
 
             if (binding!!.txtThemeColr.text.isEmpty()) {

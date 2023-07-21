@@ -41,8 +41,8 @@ class CreateAttributeFragment : Fragment() {
         binding = FragmentCreateAttributeBinding.bind(view)
 
         sessionManager = SessionManager(requireContext())
-        featuredList.add(ModelFeatured("Featured", "1"))
-        featuredList.add(ModelFeatured("Unfeatured", "0"))
+        featuredList.add(ModelFeatured("Yes", "1"))
+        featuredList.add(ModelFeatured("No", "0"))
         binding.spinnerFeature.adapter = ArrayAdapter<ModelFeatured>(
             requireContext(),
             android.R.layout.simple_list_item_1,

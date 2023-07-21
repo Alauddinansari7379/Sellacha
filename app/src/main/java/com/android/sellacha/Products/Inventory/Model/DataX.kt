@@ -1,4 +1,4 @@
-package com.android.sellacha.Products.Inventory.activity.model
+package com.android.sellacha.Products.Inventory.Model
 
 data class DataX(
     val id: Int,

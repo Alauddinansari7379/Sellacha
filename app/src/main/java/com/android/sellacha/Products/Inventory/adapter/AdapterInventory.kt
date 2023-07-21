@@ -1,4 +1,4 @@
-package com.android.sellacha.Products.Inventory.activity.adapter
+package com.android.sellacha.Products.Inventory.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
-import com.android.sellacha.Products.Coupons.MOdel.ModelCoupons
-import com.android.sellacha.Products.Inventory.activity.model.Modelinventory
-import com.android.sellacha.Products.categories.Model.ModelCategory
+import com.android.sellacha.Products.Inventory.Model.Modelinventory
 import com.android.sellacha.R
 
 

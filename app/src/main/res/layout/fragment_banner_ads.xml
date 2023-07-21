@@ -44,6 +44,21 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <Button
+
+                        android:id="@+id/btnCreateNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15ssp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/seleceted_item_bg"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Create New"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
 
 
                     <LinearLayout
@@ -94,7 +109,7 @@
                             </LinearLayout>
 
                             <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/attributeRc"
+                                android:id="@+id/recyclerView"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="@dimen/_5sdp"
@@ -105,20 +120,6 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                    <Button
-                        android:id="@+id/CreateMethod"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_45sdp"
-                        android:layout_margin="@dimen/_20sdp"
-                        android:background="@drawable/btn_bacground"
-                        android:fontFamily="@font/noto_sans_medium"
-                        android:text="Create Method"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/locationList" />
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

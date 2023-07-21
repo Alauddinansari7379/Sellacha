@@ -3,6 +3,7 @@ package com.android.sellacha.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +17,6 @@ import com.android.sellacha.databinding.LoadMoreItemBinding
 import com.android.sellacha.databinding.ProductItemBinding
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.TextUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.squareup.picasso.Picasso
 
 class ProductAdapter(
@@ -116,9 +115,8 @@ class ProductAdapter(
     ) {
         if (holder is ProductHolder) {
             if (productList[position] != null) {
-                val productHolder = holder
-                productHolder.setDataBind(productList[position], position)
-                productHolder.binding.mainLayout.setOnClickListener { view: View? -> }
+                holder.setDataBind(productList[position], position)
+                holder.binding.mainLayout.setOnClickListener { view: View? -> }
             }
         } else if (holder is ViewHolderLoading) {
             val loadingViewHolder = holder
@@ -164,9 +162,8 @@ class ProductAdapter(
         fun setDataBind(name: DataItem?, position: Int) {
             binding.name.text = TextUtils.getString(name!!.title.toString())
             if (name.preview != null) {
-                Picasso.get().load("https://footwear.thedemostore.in/"+name.preview.media.url).into(binding.orderName)
-
-            }
+                Picasso.get().load("https:"+name.preview.media.url).into(binding.orderName)
+             }
 //            if (name.preview != null) {
 //                Glide.with(context).load(TextUtils.getString(name.preview.media.url)).placeholder(R.drawable.app_logo).error(R.drawable.ic_baseline_no_photography_24)
 //                    .diskCacheStrategy(DiskCacheStrategy.ALL).into(binding.orderName)

@@ -23,8 +23,18 @@ class SellerFacebookFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_seller_facebook, container, false)
-        binding!!.saveBtn.setOnClickListener { view: View? ->
 
+
+
+        binding!!.txtYourPixelID.setText(StoreInformation.RegistrationData.pixel_id)
+        binding!!.txtStatus.setSelection(StoreInformation.RegistrationData.pstatusValue )
+
+        binding!!.saveBtn.setOnClickListener { view: View? ->
+            if (binding!!.txtYourPixelID.text.isEmpty()) {
+                binding!!.txtYourPixelID.error = "Enter Pixel ID"
+                binding!!.txtYourPixelID.requestFocus()
+                return@setOnClickListener
+            }
             StoreInformation.RegistrationData.pixel_id=binding!!.txtYourPixelID.text.toString()
 
             findNavController(binding!!.root).navigate(R.id.whatsappApiFragment)
@@ -32,9 +42,7 @@ class SellerFacebookFragment : Fragment() {
         }
 
         binding!!.skipLb.setOnClickListener { view: View? ->
-
             StoreInformation.RegistrationData.pixel_id=binding!!.txtYourPixelID.text.toString()
-
             findNavController(binding!!.root).navigate(R.id.whatsappApiFragment)
 
         }
@@ -54,12 +62,13 @@ class SellerFacebookFragment : Fragment() {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (statuseList.size > 0) {
                         StoreInformation.RegistrationData.pstatus = statuseList[i].text
+                        StoreInformation.RegistrationData.pstatusValue = statuseList[i].value
 
 
                         //  Log.e(ContentValues.TAG, "statuse: $statuse")

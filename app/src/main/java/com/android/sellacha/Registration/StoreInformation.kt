@@ -1,6 +1,5 @@
 package com.android.sellacha.Registration
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentResolver
 import android.content.ContentValues
@@ -22,28 +21,66 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation.findNavController
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
-import com.android.sellacha.Registration.Model.ModelRegistration
-import com.android.sellacha.activity.HomeDashBoard
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.analytics_view_id
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.astatus
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.astatusValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.business_name
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.cname
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.cnameValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.custom_domain
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.domain
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.email
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.favicon
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.featured
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.featuredValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.file
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.ga_measurement_id
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.icon
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.logo
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.menu_status
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.menu_statusValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.mob
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.name
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.number
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.other_page_pretext
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.p_id
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.password
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.pixel_id
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.price
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.price_type
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.price_typeValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.productTitle
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.pstatus
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.pstatusValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.refrral
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.sertype
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.shop_page_pretext
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.special_price
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.special_price_end
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.special_price_start
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.tag_id
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.tag_idName
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.theme_color
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.thumbnail
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.title
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.tstatus
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.tstatusValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.type
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.url
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.utype
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.utypeValue
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.wstatus
+import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.wstatusValue
 import com.android.sellacha.databinding.FragmentStoreInformationBinding
 import com.android.sellacha.fragment.BaseFragment
-import com.android.sellacha.helper.myToast
-import com.android.sellacha.utils.AppProgressBar
 import com.example.ehcf.Fragment.test.UploadRequestBody
 import com.example.ehcf.sharedpreferences.SessionManager
-import com.example.myrecyview.apiclient.ApiClient
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody.Companion.toRequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.util.*
 import kotlin.collections.ArrayList
 
 class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
     var binding: FragmentStoreInformationBinding? = null
     private lateinit var sessionManager: SessionManager
     var bussness = ""
-    private var logo: Uri? = null
 
     var productType = ""
     var serviceType = ""
@@ -54,7 +91,7 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_store_information, container, false)
 
@@ -65,6 +102,19 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
         binding!!.storeInfoLb.setOnClickListener {
             //apiCallRegistration()
         }
+
+        binding!!.txtBusinessName.setText(RegistrationData.business_name)
+        binding!!.txtMobNo.setText(RegistrationData.mob)
+        binding!!.txtPassword.setSelection(RegistrationData.utypeValue)
+        binding!!.txtReferralNo.setText(RegistrationData.refrral)
+        binding!!.txtEmail.setText(RegistrationData.email)
+        binding!!.txtPasswordCon.setText(RegistrationData.password)
+        binding!!.txtproductTxt.setText(RegistrationData.password)
+
+
+        // binding.spinnerState.setSelection(items.indexOf(sessionManager.state.toString()));
+
+
         binding!!.txtproductTxt.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -89,7 +139,7 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
                 } else {
                     binding!!.txtproductTxt.setTextColor(Color.parseColor("#FFF44336"));
 
-                  //  binding!!.txtproductTxt.setBackgroundResource(R.drawable.corner_red);
+                    //  binding!!.txtproductTxt.setBackgroundResource(R.drawable.corner_red);
 
 
                 }
@@ -103,6 +153,11 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
             }
             if (binding!!.txtMobNo.text.isEmpty()) {
                 binding!!.txtMobNo.error = "Enter Mobile Number"
+                binding!!.txtMobNo.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.txtMobNo.text.toString().length < 10) {
+                binding!!.txtMobNo.error = "Enter Valid Mobile Number"
                 binding!!.txtMobNo.requestFocus()
                 return@setOnClickListener
             }
@@ -124,7 +179,7 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
             val password = binding!!.txtproductTxt.text.toString().trim()
             val confirmPassword = binding!!.txtPasswordCon.text.toString().trim()
 
-            if (password.length != 8) {
+            if (password.length < 8) {
                 binding!!.txtproductTxt.error = "Enter 8 Digit Password"
                 binding!!.txtproductTxt.requestFocus()
                 return@setOnClickListener
@@ -138,7 +193,6 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
 
             RegistrationData.business_name = binding!!.txtBusinessName.text.toString().trim()
             RegistrationData.mob = binding!!.txtMobNo.text.toString()
-            RegistrationData.type = productType
             RegistrationData.refrral = binding!!.txtReferralNo.text.toString()
             RegistrationData.email = binding!!.txtEmail.text.toString()
             RegistrationData.password = binding!!.txtPasswordCon.text.toString()
@@ -146,7 +200,7 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
             findNavController(binding!!.root).navigate(R.id.themeFragment)
         }
 
-        productList.add(ModelProductType("Product", 0))
+        productList.add(ModelProductType("product", 0))
         productList.add(ModelProductType("Service", 1))
         productList.add(ModelProductType("Both", 2))
 
@@ -159,8 +213,19 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
         serviceList1.add("New")
         serviceList1.add("New1")
 
+
         serviceList.add(ModelProductType("Clothes", 0))
         serviceList.add(ModelProductType("Shoes", 1))
+        serviceList.add(ModelProductType("Dairy", 1))
+        serviceList.add(ModelProductType("Health", 1))
+        serviceList.add(ModelProductType("Fruit", 1))
+        serviceList.add(ModelProductType("Vegetable", 1))
+        serviceList.add(ModelProductType("Clothing", 1))
+        serviceList.add(ModelProductType("Hand Bags", 1))
+        serviceList.add(ModelProductType("Hijab Wear", 1))
+        serviceList.add(ModelProductType("Purses", 1))
+        serviceList.add(ModelProductType("Shoes", 1))
+        serviceList.add(ModelProductType("Cosmetics", 1))
         binding!!.txtselectshoptp.adapter = ArrayAdapter<ModelProductType>(
             requireContext(),
             R.layout.simple_list_item_1,
@@ -174,12 +239,14 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (productList.size > 0) {
+                        RegistrationData.type= productList[i].text.toString()
                         RegistrationData.utype = productList[i].text.toString()
+                        RegistrationData.utypeValue = productList[i].value
 
                         Log.e(ContentValues.TAG, "productType: $productType")
                     }
@@ -187,12 +254,11 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
 
                 override fun onNothingSelected(adapterView: AdapterView<*>?) {}
             }
-
         binding!!.txtselectshoptp.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
@@ -235,48 +301,116 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
             var domain = ""
             var custom_domain = ""
             var utype = ""
+            var utypeValue = 0
             var sertype = ""
             var refrral = ""
             var mob = ""
             var business_name = ""
-            const val shop_type = ""
-             var logo: Uri? = null
+             var shop_type = "yes"
+            var logo: Uri? = null
             var favicon: Uri? = null
-             var thumbnail: Uri? = null
+            var thumbnail: Uri? = null
             var theme_color = ""
             var url = ArrayList<String>()
             var icon = ArrayList<String>()
 
-//            var url = ""
+            //            var url = ""
 //            var icon = ""
             var cname = ""
-            const val p_id = ""
+            var cnameValue = 0
+            var p_id = "p_id"
             var file = ""
             var featured = ""
+            var featuredValue = 0
             var menu_status = ""
+            var menu_statusValue = 0
             var title = ""
+            var productTitle = ""
             var special_price_start = ""
             var special_price = ""
             var price_type = ""
+            var price_typeValue = 0
             var price = ""
             var type = ""
             var special_price_end = ""
             var ga_measurement_id = ""
             var analytics_view_id = ""
             var astatus = ""
+            var astatusValue = 0
             const val gfile = ""
             var tag_id = ""
+            var tag_idName = ""
             var tstatus = ""
+            var tstatusValue = 0
             var pixel_id = ""
             var pstatus = ""
+            var pstatusValue = 0
             var number = ""
             var shop_page_pretext = ""
             var other_page_pretext = ""
             var wstatus = ""
+            var wstatusValue = 0
 
         }
+
+
     }
 
+    fun reset() {
+        name = ""
+        email = ""
+        password = ""
+        domain = ""
+        custom_domain = ""
+        utype = ""
+        utypeValue = 0
+        sertype = ""
+        refrral = ""
+        mob = ""
+        business_name = ""
+        logo = null
+        favicon = null
+        thumbnail = null
+          theme_color = ""
+          url = ArrayList<String>()
+          icon = ArrayList<String>()
+
+//            var url = ""
+//            var icon = ""
+          cname = ""
+          cnameValue = 0
+            p_id = ""
+          file = ""
+          featured = ""
+          featuredValue = 0
+          menu_status = ""
+          menu_statusValue = 0
+          title = ""
+          productTitle = ""
+          special_price_start = ""
+          special_price = ""
+          price_type = ""
+          price_typeValue = 0
+          price = ""
+          type = ""
+          special_price_end = ""
+          ga_measurement_id = ""
+          analytics_view_id = ""
+          astatus = ""
+          astatusValue = 0
+           tag_id = ""
+          tag_idName = ""
+          tstatus = ""
+          tstatusValue = 0
+          pixel_id = ""
+          pstatus = ""
+          pstatusValue = 0
+          number = ""
+          shop_page_pretext = ""
+          other_page_pretext = ""
+          wstatus = ""
+          wstatusValue = 0
+    }
 /*
     private fun apiCallRegistration() {
 

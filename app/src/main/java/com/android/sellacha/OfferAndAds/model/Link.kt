@@ -1,4 +1,4 @@
-package com.android.sellacha.Products.Inventory.activity.model
+package com.android.sellacha.OfferAndAds.model
 
 data class Link(
     val active: Boolean,

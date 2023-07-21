@@ -29,9 +29,19 @@ class SellerGoogleTagManagerFragment : Fragment() {
             container,
             false
         )
-        binding!!.saveBtn.setOnClickListener { view: View? ->
-            StoreInformation.RegistrationData.tag_id=binding!!.txtGoogleManId.text.toString()
 
+
+
+        binding!!.txtGoogleManId.setText(StoreInformation.RegistrationData.tag_id)
+        binding!!.txtSatus.setSelection(StoreInformation.RegistrationData.astatusValue )
+
+        binding!!.saveBtn.setOnClickListener { view: View? ->
+            if (binding!!.txtGoogleManId.text.isEmpty()) {
+                binding!!.txtGoogleManId.error = "Enter Google Tag Manager ID"
+                binding!!.txtGoogleManId.requestFocus()
+                return@setOnClickListener
+            }
+            StoreInformation.RegistrationData.tag_id = binding!!.txtGoogleManId.text.toString()
             findNavController(binding!!.root).navigate(R.id.facebookPixelFragment)
         }
 
@@ -40,7 +50,6 @@ class SellerGoogleTagManagerFragment : Fragment() {
 
             findNavController(binding!!.root).navigate(R.id.facebookPixelFragment)
         }
-
 
 
         statuseList.add(ModelProductType("Enable", 1))
@@ -57,15 +66,16 @@ class SellerGoogleTagManagerFragment : Fragment() {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (statuseList.size > 0) {
-                        StoreInformation.RegistrationData.astatus= statuseList[i].text
+                        StoreInformation.RegistrationData.astatus = statuseList[i].text
+                        StoreInformation.RegistrationData.astatusValue = statuseList[i].value
 
 
-                      //  Log.e(ContentValues.TAG, "statuse: $statuse")
+                        //  Log.e(ContentValues.TAG, "statuse: $statuse")
                     }
                 }
 

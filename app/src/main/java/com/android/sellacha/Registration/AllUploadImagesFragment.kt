@@ -1,13 +1,9 @@
 package com.android.sellacha.Registration
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentResolver
-import android.content.ContentValues.TAG
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.media.MediaPlayer.create
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,24 +14,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.android.sellacha.R
-import com.android.sellacha.Registration.Model.ModelRegistration
-import com.android.sellacha.activity.HomeDashBoard
 import com.android.sellacha.databinding.FragmentAllUploadImageBinding
-import com.android.sellacha.helper.myToast
-import com.android.sellacha.utils.AppProgressBar
 import com.example.ehcf.Fragment.test.UploadRequestBody
 import com.example.ehcf.sharedpreferences.SessionManager
-import com.example.myrecyview.apiclient.ApiClient
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.http.Part
-import java.io.File
 
 
 class AllUploadImagesFragment : Fragment(),UploadRequestBody.UploadCallback {

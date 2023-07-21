@@ -13,7 +13,8 @@
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            tools:ignore="MissingConstraints">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/headerLayout"
@@ -49,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_20sdp"
                         android:text="Skip"
+                        android:visibility="gone"
                         android:padding="10dp"
                         android:textColor="#48C260"
                         app:layout_constraintBottom_toBottomOf="@+id/addProdLb"
@@ -258,7 +260,7 @@
 
                         android:background="@drawable/btn_background"
                         android:gravity="center"
-                        android:text="Save"
+                        android:text="Save &amp; Next"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14sdp"

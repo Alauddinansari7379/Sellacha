@@ -36,7 +36,9 @@ public class HomeDashBoard extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_dash_board);
         StatusBarUtils.transparentStatusAndNavigation(this);
+
         navController = Navigation.findNavController(this, R.id.nav_host_main);
+
         cbnMenuItems.add(new CbnMenuItem(R.drawable.icn_home, R.drawable.selected_home, R.id.homeFragment));
         cbnMenuItems.add(new CbnMenuItem(R.drawable.icn_note, R.drawable.selected_note, R.id.orderFragment));
         cbnMenuItems.add(new CbnMenuItem(R.drawable.icn_product, R.drawable.product_selected, R.id.productFragment));
@@ -143,12 +145,12 @@ public class HomeDashBoard extends BaseActivity {
             navController.navigate(R.id.orderFragment, null, getNavOptions());
         });
 
-//        binding.drawerLayout.cancelOrderBtn.setOnClickListener(view -> {
-//            drawerLock();
-//            navController.navigate(R.id.orderFragment);
-//            // handler.postDelayed(() ->
-//            navController.navigate(R.id.orderFragment, null, getNavOptions());
-//        });
+        binding.drawerLayout.cancelOrderBtn.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.orderFragment);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.orderFragment, null, getNavOptions());
+        });
 
         binding.drawerLayout.allProductBtn.setOnClickListener(view -> {
             drawerLock();
@@ -284,6 +286,8 @@ public class HomeDashBoard extends BaseActivity {
                 binding.mainLayout.headerLayout.txtLogo.setText("Bump Ads");
             } else if (destination.getId() == R.id.BannerAdsFragmentFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Banner Ads");
+            } else if (destination.getId() == R.id.CreateOrderShow) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Product List");
 
 
             }

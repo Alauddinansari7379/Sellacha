@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/createProductFragmnet"
-        android:name="com.android.sellacha.fragment.CreateProductFragment"
+        android:name="com.android.sellacha.Products.CreateProductFragment"
         android:label="Create Order Fragment"
         tools:layout="@layout/fragment_create_product" />
 
@@ -180,13 +180,29 @@
         tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/BumpAdsFragmentFragment"
-        android:name="com.android.sellacha.OfferAndAds.BumpAdsFragment"
+        android:name="com.android.sellacha.OfferAndAds.activity.BumpAdsFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_bump_ads" />
     <fragment
         android:id="@+id/BannerAdsFragmentFragment"
-        android:name="com.android.sellacha.OfferAndAds.BannerAdsFragment"
+        android:name="com.android.sellacha.OfferAndAds.activity.BannerAdsFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_banner_ads" />
+    <fragment
+        android:id="@+id/CreateOrderShow"
+        android:name="com.android.sellacha.Order.activity.CreateOrderShowFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_product" />
+    <fragment
+        android:id="@+id/CreateBumpAd"
+        android:name="com.android.sellacha.OfferAndAds.activity.CreateBumpAdFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_bump_ad" />
+
+    <fragment
+        android:id="@+id/CreateBaanerAd"
+        android:name="com.android.sellacha.OfferAndAds.activity.CreateBumpAdFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_banner_ad" />
 
 </navigation>

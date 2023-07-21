@@ -3,6 +3,7 @@ package com.android.sellacha.helper
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
+import android.graphics.Color
 import android.media.AudioManager
 import android.media.ToneGenerator
 import android.net.ConnectivityManager
@@ -12,11 +13,14 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.android.sellacha.R
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.SnackbarLayout
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.text.DateFormat
@@ -258,6 +262,7 @@ fun covertTimeToText(dataDate: String): String {
         Log.e("ConvTimeE", e.toString())
     }
     return convTime
+
 
 
 }

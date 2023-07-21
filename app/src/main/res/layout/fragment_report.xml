@@ -1,119 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/primary_bg"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_bg">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/top_curve_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/top_curve_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:paddingTop="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="parent">
 
-
-            <androidx.core.widget.NestedScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:fillViewport="true"
-                android:paddingTop="@dimen/_15sdp"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:layout_margin="@dimen/_12sdp"
                     android:orientation="vertical">
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="@dimen/_12sdp"
+
+                        android:background="@drawable/card_bg"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="@dimen/_15ssp"
+                            android:layout_marginRight="25dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/fields_bg"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                 android:layout_weight="1"
+                                android:gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:id="@+id/tvStartDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:background="?actionBarItemBackground"
+                                    android:gravity="center"
+                                    android:text="20-06-2020"
+                                    android:textSize="@dimen/_12sdp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                      android:text="To"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="5dp"
+                                    android:textColor="@color/_324754"
+                                    android:textSize="@dimen/_12sdp" />
+                                <TextView
+                                    android:id="@+id/tvEndDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                     android:gravity="center"
+                                    android:background="?actionBarItemBackground"
+                                    android:layout_marginStart="5dp"
+                                    android:text="20-06-2023"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+                            <ImageView
+                                android:id="@+id/imgSearch"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:background="@drawable/search_btn_bg"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/search_btn" />
+                            <ImageView
+                                android:id="@+id/imgRefresh"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_gravity="center"
+                                 android:layout_marginEnd="@dimen/_10sdp"
+                                android:background="@drawable/search_btn_bg"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/ic_baseline_refresh_24"
+                                app:tint="@color/white" />
+
+                        </LinearLayout>
+
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:scrollbars="none">
 
-                            android:background="@drawable/card_bg"
-                            android:orientation="vertical">
-
-
-
-                            <HorizontalScrollView
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="@dimen/_15sdp"
-                                android:padding="@dimen/_10sdp"
-                                android:scrollbars="none">
+                                android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="70dp"
+                                    android:background="@drawable/top_curve_heading"
+                                    android:orientation="horizontal">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="70dp"
-                                        android:background="@drawable/top_curve_heading"
-                                        android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/noto_sans_bold"
+                                        android:gravity="center"
+                                        android:text="Order No"
+                                        android:textColor="@color/_324754"
+                                        android:textSize="14sp" />
 
-                                        <TextView
-                                            android:layout_width="@dimen/_100sdp"
-                                            android:layout_height="match_parent"
-                                            android:fontFamily="@font/noto_sans_bold"
-                                            android:gravity="center"
-                                            android:text="Order No"
-                                            android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/noto_sans_bold"
+                                        android:gravity="center"
+                                        android:text="Status"
+                                        android:textColor="@color/_324754"
+                                        android:textSize="14sp" />
 
-                                        <TextView
-                                            android:layout_width="@dimen/_100sdp"
-                                            android:layout_height="match_parent"
-                                            android:fontFamily="@font/noto_sans_bold"
-                                            android:gravity="center"
-                                            android:text="Status"
-                                            android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
-
-                                        <TextView
-                                            android:layout_width="@dimen/_100sdp"
-                                            android:layout_height="match_parent"
-                                            android:fontFamily="@font/noto_sans_bold"
-                                            android:gravity="center"
-                                            android:text="Amount"
-                                            android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                    <TextView
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/noto_sans_bold"
+                                        android:gravity="center"
+                                        android:text="Amount"
+                                        android:textColor="@color/_324754"
+                                        android:textSize="14sp" />
 
 
-
-                                    </LinearLayout>
-                                    <androidx.recyclerview.widget.RecyclerView
-                                        android:id="@+id/transactionsRc"
-                                        android:layout_width="match_parent"
-                                        android:layout_margin="5dp"
-                                        android:layout_height="wrap_content"
-                                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
-                                    </androidx.recyclerview.widget.RecyclerView>
-
-<!--                                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                                        android:layout_width="match_parent"-->
-<!--                                        android:layout_height="match_parent"-->
-<!--                                        android:nestedScrollingEnabled="false"-->
-<!--                                        tools:listitem="@layout/transation_item" />-->
                                 </LinearLayout>
-                            </HorizontalScrollView>
-                        </LinearLayout>
 
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/transactionsRc"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                                </androidx.recyclerview.widget.RecyclerView>
+
+                                <!--                                    <androidx.recyclerview.widget.RecyclerView-->
+                                <!--                                        android:layout_width="match_parent"-->
+                                <!--                                        android:layout_height="match_parent"-->
+                                <!--                                        android:nestedScrollingEnabled="false"-->
+                                <!--                                        tools:listitem="@layout/transation_item" />-->
+                            </LinearLayout>
+                        </HorizontalScrollView>
                     </LinearLayout>
+
                 </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

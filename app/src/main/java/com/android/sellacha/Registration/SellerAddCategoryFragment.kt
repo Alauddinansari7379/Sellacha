@@ -55,21 +55,38 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
             false
         )
 
+        if(StoreInformation.RegistrationData.thumbnail!=null){
+            binding!!.txtNoFile.text = "Thumbnail Selected"
+            binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
+            binding!!.txtName.setText(StoreInformation.RegistrationData.title)
+            binding!!.spinnerCategory.setSelection(StoreInformation.RegistrationData.cnameValue)
+            binding!!.spinnerFeatured.setSelection(StoreInformation.RegistrationData.featuredValue)
+            binding!!.spinnerMenu.setSelection(StoreInformation.RegistrationData.menu_statusValue)
+        }
+
+
 
         binding!!.saveBtn.setOnClickListener { view: View? ->
+            if (binding!!.txtName.text.isEmpty()) {
+                binding!!.txtName.error = "Enter Title"
+                binding!!.txtName.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.spinnerCategory.selectedItemPosition==0) {
+                myToast(requireActivity(),"Select Parent Category")
+                return@setOnClickListener
+            }
 
             StoreInformation.RegistrationData.title = binding!!.txtName.text.toString()
-            StoreInformation.RegistrationData.cname = parentCategory
-            StoreInformation.RegistrationData.featured = feature
             uploadImage()
            // findNavController(binding!!.root).navigate(R.id.addProduct2Fragment)
 
         }
-
-        binding!!.skipLb.setOnClickListener {
-            findNavController(binding!!.root).navigate(R.id.addProduct2Fragment)
-
-        }
+//
+//        binding!!.skipLb.setOnClickListener {
+//            findNavController(binding!!.root).navigate(R.id.addProduct2Fragment)
+//
+//        }
         binding!!.btnchoosefile.setOnClickListener {
             opeinImageChooser()
 
@@ -80,10 +97,12 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
         parentCategoryList.add(ModelProductType("Health", 1))
         parentCategoryList.add(ModelProductType("Fruit", 1))
         parentCategoryList.add(ModelProductType("Vegetable", 1))
-        parentCategoryList.add(ModelProductType("Cloths", 1))
-        parentCategoryList.add(ModelProductType("Hand Bag", 1))
-        parentCategoryList.add(ModelProductType("Hijab", 1))
-        parentCategoryList.add(ModelProductType("Purse", 1))
+        parentCategoryList.add(ModelProductType("Clothing", 1))
+        parentCategoryList.add(ModelProductType("Hand Bags", 1))
+        parentCategoryList.add(ModelProductType("Hijab Wear", 1))
+        parentCategoryList.add(ModelProductType("Purses", 1))
+        parentCategoryList.add(ModelProductType("Shoes", 1))
+        parentCategoryList.add(ModelProductType("Cosmetics", 1))
 
         binding!!.spinnerCategory.adapter = ArrayAdapter<ModelProductType>(
             requireContext(),
@@ -94,12 +113,13 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (parentCategoryList.size > 0) {
-                        parentCategory = parentCategoryList[i].text
+                        StoreInformation.RegistrationData.cname = parentCategoryList[i].text
+                        StoreInformation.RegistrationData.cnameValue = parentCategoryList[i].value
 
                         Log.e(ContentValues.TAG, "parentCategory: $parentCategory")
                     }
@@ -129,12 +149,13 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (featureList.size > 0) {
-                        feature = featureList[i].text
+                        StoreInformation.RegistrationData.featured = featureList[i].text
+                        StoreInformation.RegistrationData.featuredValue = featureList[i].value
 
                         Log.e(ContentValues.TAG, "feature: $feature")
                     }
@@ -143,9 +164,10 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
                 override fun onNothingSelected(adapterView: AdapterView<*>?) {}
             }
         binding!!.spinnerMenu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                 if (assignMenuList.size > 0) {
                     StoreInformation.RegistrationData.menu_status = assignMenuList[i].text
+                    StoreInformation.RegistrationData.menu_statusValue = assignMenuList[i].value
 
                     Log.e(ContentValues.TAG, "menu_status: ${StoreInformation.RegistrationData.menu_status}")
                 }

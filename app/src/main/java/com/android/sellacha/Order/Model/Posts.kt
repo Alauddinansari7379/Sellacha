@@ -1,4 +1,4 @@
-package com.android.sellacha.Products.Inventory.activity.model
+package com.android.sellacha.Order.Model
 
 data class Posts(
     val current_page: Int,

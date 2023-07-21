@@ -86,6 +86,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/WelcomTv" />
 
 
+
                     <TextView
                         android:id="@+id/emailTv"
                         android:layout_width="wrap_content"
@@ -129,7 +130,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/emailEdt" />
 
-                    <EditText
+                     <EditText
                         android:id="@+id/passwordEdt"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
@@ -137,7 +138,7 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:background="@drawable/edit_text_selector"
                         android:drawablePadding="1dp"
-                        android:fontFamily="@font/noto_sans_regular"
+                          android:fontFamily="@font/noto_sans_regular"
                         android:hint="@string/enter_your_password"
                         android:padding="@dimen/_5sdp"
                         android:inputType="textPassword"
@@ -152,7 +153,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_3sdp"
+                        android:visibility="gone"
                         android:src="@drawable/ic_baseline_visibility_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/passwordEdt"
+                        app:layout_constraintEnd_toEndOf="@+id/passwordEdt"
+                        app:layout_constraintTop_toTopOf="@+id/passwordEdt"
+                        app:tint="@color/heading_font" />
+                    <ImageView
+                        android:id="@+id/password_toggleOff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_3sdp"
+                        android:background="?actionBarItemBackground"
+                         android:src="@drawable/ic_baseline_visibility_off_24"
                         app:layout_constraintBottom_toBottomOf="@+id/passwordEdt"
                         app:layout_constraintEnd_toEndOf="@+id/passwordEdt"
                         app:layout_constraintTop_toTopOf="@+id/passwordEdt"
@@ -173,6 +186,27 @@
                         app:layout_constraintStart_toStartOf="@+id/passwordEdt"
                         app:layout_constraintTop_toBottomOf="@+id/passwordEdt" />
 
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        android:id="@+id/inputPassword"-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        app:counterMaxLength="12"-->
+<!--                        android:layout_marginHorizontal="10dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:hint="Password"-->
+<!--                        app:startIconDrawable="@drawable/ic_baseline_keyboard_arrow_down_24"-->
+<!--                        app:passwordToggleEnabled="true"-->
+<!--                        tools:ignore="MissingConstraints">-->
+
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/edtPassword"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:inputType="textPassword" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+
                     <TextView
                         android:id="@+id/forgotPsTxt"
                         android:layout_width="wrap_content"
@@ -187,34 +221,51 @@
                         app:layout_constraintStart_toStartOf="@+id/SignInBtn"
                         app:layout_constraintTop_toBottomOf="@+id/SignInBtn" />
 
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_20sdp"
-                        android:padding="@dimen/_1sdp"
-                        android:text="@string/do_sign_up"
-                        android:textColor="@color/semi_title_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/SignInBtn"
-                        app:layout_constraintStart_toStartOf="@+id/SignInBtn"
-                        app:layout_constraintTop_toBottomOf="@+id/forgotPsTxt" />
+                        android:orientation="horizontal"
+                        android:gravity="center"
 
-                    <TextView
-                        android:id="@+id/tvSignUp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="12dp"
-                        android:padding="@dimen/_1sdp"
-                        android:textStyle="bold"
-                        android:text="@string/Sign_Up"
-                        android:textColor="@color/primary_bg"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toEndOf="@+id/textView20"
-                        app:layout_constraintTop_toBottomOf="@+id/forgotPsTxt" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/forgotPsTxt">
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:padding="@dimen/_1sdp"
+                            android:text="@string/do_sign_up"
+                            android:textColor="@color/semi_title_font"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/tvSignUp"
+                            app:layout_constraintStart_toStartOf="@+id/SignInBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/forgotPsTxt"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/tvSignUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_1sdp"
+                            android:paddingStart="10dp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:text="@string/Sign_Up"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:textColor="@color/primary_bg"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView20"
+                            app:layout_constraintEnd_toEndOf="@+id/SignInBtn"
+                            app:layout_constraintTop_toBottomOf="@+id/forgotPsTxt" />
+                    </LinearLayout>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

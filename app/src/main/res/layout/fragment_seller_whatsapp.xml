@@ -86,11 +86,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:padding="@dimen/_6sdp"
-                    android:text="Whatsapp Number"
+                    android:text="Whatsapp Number (Optional)"
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/whatsappApiLb"
                     app:layout_constraintTop_toBottomOf="@+id/whatsappApiLb" />
+
 
                 <TextView
                     android:id="@+id/pretextForProdLb"
@@ -98,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:padding="@dimen/_6sdp"
-                    android:text="Pretext For Product Page"
+                    android:text="Pretext For Product Page (Optional)"
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/whatsappApiLb"
@@ -110,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:padding="@dimen/_6sdp"
-                    android:text="Other Page Pretext"
+                    android:text="Other Page Pretext (Optional)"
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="@+id/whatsappApiLb"

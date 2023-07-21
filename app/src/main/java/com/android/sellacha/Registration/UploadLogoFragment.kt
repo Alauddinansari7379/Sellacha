@@ -18,6 +18,10 @@ class UploadLogoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_upload_logo, container, false)
+
+        binding!!.txtTagline.setText(StoreInformation.RegistrationData.tag_idName)
+        binding!!.txtName.setText(StoreInformation.RegistrationData.name)
+
         binding!!.saveBtn.setOnClickListener { view: View? ->
 
             if (binding!!.txtName.text.isEmpty()) {
@@ -31,13 +35,13 @@ class UploadLogoFragment : Fragment() {
                 binding!!.txtTagline.requestFocus()
                 return@setOnClickListener
             }
-            StoreInformation.RegistrationData.tag_id = binding!!.txtTagline.text.toString()
+            StoreInformation.RegistrationData.tag_idName = binding!!.txtTagline.text.toString()
             StoreInformation.RegistrationData.name = binding!!.txtName.text.toString().trim()
             findNavController(binding!!.getRoot()).navigate(R.id.colorSchemeFragment)
         }
 
 
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
 }

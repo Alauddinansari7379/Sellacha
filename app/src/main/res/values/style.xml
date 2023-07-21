@@ -5,6 +5,8 @@
         <item name="android:windowMinWidthMinor">60%</item>
         <item name="android:windowMinWidthMajor">60%</item>
         <item name="android:background">@android:color/transparent</item>
+
     </style>
+
 
 </resources>

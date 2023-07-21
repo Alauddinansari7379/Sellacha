@@ -41,19 +41,45 @@ class SellerAddProduct2Fragment : Fragment() {
             false
         )
 
+        binding!!.txtproductTitle.setText(StoreInformation.RegistrationData.productTitle)
+        binding!!.txtPrice.setText(StoreInformation.RegistrationData.price)
+        binding!!.txtSpecialPrice.setText(StoreInformation.RegistrationData.special_price)
+        binding!!.location.setText(StoreInformation.RegistrationData.special_price_start)
+        binding!!.txtSpecialPriceEnd.setText(StoreInformation.RegistrationData.special_price_end)
+        binding!!.spinnerMenu.setSelection(StoreInformation.RegistrationData.price_typeValue )
+
 
         binding!!.saveBtn.setOnClickListener { view: View? ->
-            StoreInformation.RegistrationData.title = binding!!.txtproductTitle.text.toString()
+            if (binding!!.txtproductTitle.text.isEmpty()) {
+                binding!!.txtproductTitle.error = "Enter Product Title"
+                binding!!.txtproductTitle.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.txtSpecialPrice.text.isEmpty()) {
+                binding!!.txtSpecialPrice.error = "Enter Special Price"
+                binding!!.txtSpecialPrice.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.location.text.isEmpty()) {
+                binding!!.location.error = "Select Special Price Start Date"
+                binding!!.location.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.txtSpecialPriceEnd.text.isEmpty()) {
+                binding!!.txtSpecialPriceEnd.error = "Select Special Price End Date"
+                binding!!.txtSpecialPriceEnd.requestFocus()
+                return@setOnClickListener
+            }
+            StoreInformation.RegistrationData.productTitle = binding!!.txtproductTitle.text.toString()
             StoreInformation.RegistrationData.price = binding!!.txtPrice.text.toString()
             StoreInformation.RegistrationData.special_price = binding!!.txtSpecialPrice.text.toString()
-            StoreInformation.RegistrationData.price_type =priceType
             findNavController(binding!!.root).navigate(R.id.googleAnalyticsFragment)
 
         }
 
-        binding!!.skipLb.setOnClickListener { view: View? ->
-            findNavController(binding!!.root).navigate(R.id.googleAnalyticsFragment)
-        }
+//        binding!!.skipLb.setOnClickListener { view: View? ->
+//            findNavController(binding!!.root).navigate(R.id.googleAnalyticsFragment)
+//        }
         priceTypeList.add(ModelProductType("Fixed", 1))
         priceTypeList.add(ModelProductType("Percentage", 2))
 
@@ -72,12 +98,13 @@ class SellerAddProduct2Fragment : Fragment() {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (priceTypeList.size > 0) {
-                        priceType = priceTypeList[i].text
+                        StoreInformation.RegistrationData.price_type = priceTypeList[i].text
+                        StoreInformation.RegistrationData.price_typeValue = priceTypeList[i].value
 
                         Log.e(ContentValues.TAG, "priceType: $priceType")
                     }
@@ -100,10 +127,8 @@ class SellerAddProduct2Fragment : Fragment() {
                 // val Date = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
                 startdate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
                 val selectedDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
-
                 binding!!.location.text = startdate
                 StoreInformation.RegistrationData.special_price_start =startdate
-
                 Log.e(ContentValues.TAG, "selectedate:>>$startdate")
             },
             newCalendar[Calendar.YEAR],
@@ -138,7 +163,7 @@ class SellerAddProduct2Fragment : Fragment() {
             newCalendar1[Calendar.MONTH],
             newCalendar1[Calendar.DAY_OF_MONTH]
         )
-        datePicker.datePicker.minDate = System.currentTimeMillis() - 1000;
+        datePicker1.datePicker.minDate = System.currentTimeMillis() - 1000;
 
         binding!!.txtSpecialPriceEnd.setOnClickListener {
             datePicker1.show()

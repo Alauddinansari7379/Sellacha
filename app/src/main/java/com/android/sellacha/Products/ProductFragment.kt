@@ -43,6 +43,7 @@ class ProductFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
+
         binding!!.orderList.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         productAdapter = context?.let { ProductAdapter(it, productList, 0, binding!!.orderList) }

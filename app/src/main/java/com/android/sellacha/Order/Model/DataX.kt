@@ -1,16 +1,19 @@
-package com.android.sellacha.Products.Inventory.activity.model
+package com.android.sellacha.Order.Model
 
-data class Term(
+data class DataX(
     val answer1: Any,
     val answer2: Any,
     val answer3: Any,
     val answer4: Any,
     val answer5: Any,
+    val attributes: List<Any>,
     val created_at: String,
     val featured: String,
     val id: Int,
     val is_admin: String,
-    val preview: Any,
+    val options: List<Any>,
+    val preview: Preview,
+    val price: Price,
     val question1: Any,
     val question2: Any,
     val question3: Any,
@@ -20,6 +23,7 @@ data class Term(
     val service_type: Any,
     val slug: String,
     val status: String,
+    val stock: Stock,
     val title: String,
     val type: String,
     val updated_at: String,

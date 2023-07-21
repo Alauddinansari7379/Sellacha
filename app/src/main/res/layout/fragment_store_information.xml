@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -86,6 +87,18 @@
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintStart_toStartOf="@+id/storeInfoLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+                    <TextView
+                        android:id="@+id/referralNoLbn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:padding="@dimen/_5sdp"
+                        android:text="(Optional)"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toEndOf="@+id/referralNoLb"
                         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
                     <TextView
@@ -283,7 +296,7 @@
                         android:layout_marginBottom="@dimen/_15sdp"
                         android:background="@drawable/btn_background"
                         android:gravity="center"
-                        android:text="Save"
+                        android:text="Save &amp; Next"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14sdp"

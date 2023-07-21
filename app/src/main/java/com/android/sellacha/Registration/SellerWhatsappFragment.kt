@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentResolver
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
@@ -17,21 +15,18 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.android.sellacha.LogIn.LoginActivity
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
-import com.android.sellacha.Registration.Model.ModelRegistration
-import com.android.sellacha.activity.HomeDashBoard
+import com.android.sellacha.Registration.Model.ModelRegJava
+import com.android.sellacha.Registration.Model.ModelRegetration
 import com.android.sellacha.databinding.FragmentSellerWhatsappBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.example.ehcf.Fragment.test.UploadRequestBody
 import com.example.ehcf.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,7 +34,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
-class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
+class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
     var binding: FragmentSellerWhatsappBinding? = null
     private lateinit var sessionManager: SessionManager
     var logoString = ""
@@ -48,7 +43,7 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
     private var logo: Uri? = null
     private var favicon: Uri? = null
     private var thumbnail: Uri? = null
-    private var image=0
+    private var image = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +52,12 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_seller_whatsapp, container, false)
         sessionManager = SessionManager(requireContext())
+
+
+        binding!!.txtWhatsappNo.setText(StoreInformation.RegistrationData.number)
+        binding!!.txtPretextForProd.setText(StoreInformation.RegistrationData.shop_page_pretext)
+        binding!!.txtOtherPagePre.setText(StoreInformation.RegistrationData.other_page_pretext)
+        binding!!.txtStatus.setSelection(StoreInformation.RegistrationData.wstatusValue)
 
 
 //        val bitmapLogo =
@@ -73,18 +74,39 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
 
 
         binding!!.saveBtn.setOnClickListener { view: View? ->
+
+//            if (binding!!.txtWhatsappNo.text.isEmpty()) {
+//                binding!!.txtWhatsappNo.error = "Enter WhatsApp Number"
+//                binding!!.txtWhatsappNo.requestFocus()
+//                return@setOnClickListener
+//            }
+//            if (binding!!.txtPretextForProd.text.isEmpty()) {
+//                binding!!.txtPretextForProd.error = "Enter Pretext For Product Page"
+//                binding!!.txtPretextForProd.requestFocus()
+//                return@setOnClickListener
+//            }
+//
+//            if (binding!!.txtOtherPagePre.text.isEmpty()) {
+//                binding!!.txtOtherPagePre.error = "Enter Other Page Pretext"
+//                binding!!.txtOtherPagePre.requestFocus()
+//                return@setOnClickListener
+//            }
+
             StoreInformation.RegistrationData.number = binding!!.txtWhatsappNo.text.toString()
             StoreInformation.RegistrationData.shop_page_pretext =
                 binding!!.txtPretextForProd.text.toString()
             StoreInformation.RegistrationData.other_page_pretext =
                 binding!!.txtOtherPagePre.text.toString()
 
-            Log.e("StoreInformation.RegistrationData.name",StoreInformation.RegistrationData.business_name.replace(" ",""))
+            Log.e(
+                "StoreInformation.RegistrationData.name",
+                StoreInformation.RegistrationData.business_name.replace(" ", "")
+            )
             apiCallRegistration()
 //custom domain
- //shop_type
- //p_id
- // astutes
+            //shop_type
+            //p_id
+            // astutes
 
 
 //            Log.e("StoreInformation.RegistrationData.name",StoreInformation.RegistrationData.name,)
@@ -124,9 +146,9 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
 //            Log.e("StoreInformation.RegistrationData.other_page_pretext",StoreInformation.RegistrationData.other_page_pretext,)
 //            Log.e("StoreInformation.RegistrationData.wstatus",StoreInformation.RegistrationData.wstatus,)
 
-           // apiCallRegistration()
+            // apiCallRegistration()
 
-         //   Navigation.findNavController(binding!!.root).navigate(com.android.sellacha.R.id.allImageUploadFragment)
+            //   Navigation.findNavController(binding!!.root).navigate(com.android.sellacha.R.id.allImageUploadFragment)
 
         }
         statuseList.add(ModelProductType("Enable", 1))
@@ -143,12 +165,13 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (statuseList.size > 0) {
-                        StoreInformation.RegistrationData.wstatus    = statuseList[i].text
+                        StoreInformation.RegistrationData.wstatus = statuseList[i].text
+                        StoreInformation.RegistrationData.wstatusValue = statuseList[i].value
 
 
                         //  Log.e(ContentValues.TAG, "statuse: $statuse")
@@ -159,14 +182,10 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
             }
 
 
+        // apiCallRegistration()
 
 
-
-               // apiCallRegistration()
-
-
-
-       // }
+        // }
         return binding!!.root
     }
 
@@ -177,27 +196,48 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
 
 
         if (StoreInformation.RegistrationData.thumbnail == null) {
-            StoreInformation.RegistrationData.thumbnail= StoreInformation.RegistrationData.logo
+            StoreInformation.RegistrationData.thumbnail = StoreInformation.RegistrationData.logo
         }
         val parcelFileDescriptorLogo =
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.logo!!, "r", null)
+            activity?.contentResolver?.openFileDescriptor(
+                StoreInformation.RegistrationData.logo!!,
+                "r",
+                null
+            )
                 ?: return
 
         val parcelFileDescriptorFavicon =
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.favicon!!, "r", null)
+            activity?.contentResolver?.openFileDescriptor(
+                StoreInformation.RegistrationData.favicon!!,
+                "r",
+                null
+            )
                 ?: return
-        val parcelFileDescriptorThumbnail=
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.thumbnail!!, "r", null)
+        val parcelFileDescriptorThumbnail =
+            activity?.contentResolver?.openFileDescriptor(
+                StoreInformation.RegistrationData.thumbnail!!,
+                "r",
+                null
+            )
                 ?: return
 
         val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
-        var logo = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!))
+        var logo = File(
+            requireActivity().cacheDir,
+            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!)
+        )
 
         val inputStreamFavicon = FileInputStream(parcelFileDescriptorFavicon.fileDescriptor)
-        var logoFavicon = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!))
+        var logoFavicon = File(
+            requireActivity().cacheDir,
+            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!)
+        )
 
         val inputStreamThumbnail = FileInputStream(parcelFileDescriptorThumbnail.fileDescriptor)
-        var thumbnail = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!!!))
+        var thumbnail = File(
+            requireActivity().cacheDir,
+            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!!!)
+        )
 
         val outputStreamLogo = FileOutputStream(logo)
         inputStreamLogo.copyTo(outputStreamLogo)
@@ -206,14 +246,14 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
         val outputStreamFavicon = FileOutputStream(logoFavicon)
         inputStreamFavicon.copyTo(outputStreamFavicon)
 
-        val outputStreamThumbnail= FileOutputStream(thumbnail)
+        val outputStreamThumbnail = FileOutputStream(thumbnail)
         inputStreamThumbnail.copyTo(outputStreamThumbnail)
 
 //
 //          = logo.toString()
 //        StoreInformation.RegistrationData.favicon= logoFavicon.toString()
 
-       // Navigation.findNavController(binding!!.root).navigate(com.android.sellacha.R.id.addCategoryFragment)
+        // Navigation.findNavController(binding!!.root).navigate(com.android.sellacha.R.id.addCategoryFragment)
 
 
         val bodyLogo = UploadRequestBody(logo, "image", this)
@@ -224,143 +264,210 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
 //        MultipartBody.Part.createFormData("image", logoFavicon.name, bodyFavicon)
 //        MultipartBody.Part.createFormData("image", thumbnail.name, bodyThumbnail)
 
-     //   "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
+        //   "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
 
 
-
-            Log.e("StoreInformation.RegistrationData.name",StoreInformation.RegistrationData.name,)
-            Log.e("StoreInformation.RegistrationData.password",StoreInformation.RegistrationData.password,)
-            Log.e("StoreInformation.RegistrationData.name",StoreInformation.RegistrationData.name,)
-            Log.e("StoreInformation.RegistrationData.custom_domain",StoreInformation.RegistrationData.custom_domain,)
-            Log.e("StoreInformation.RegistrationData.utype",StoreInformation.RegistrationData.utype,)
-            Log.e("StoreInformation.RegistrationData.sertype",StoreInformation.RegistrationData.sertype,)
-            Log.e("StoreInformation.RegistrationData.refrral",StoreInformation.RegistrationData.refrral,)
-            Log.e("StoreInformation.RegistrationData.mob",StoreInformation.RegistrationData.mob,)
-            Log.e("StoreInformation.RegistrationData.business_name",StoreInformation.RegistrationData.business_name,)
-            Log.e("StoreInformation.RegistrationData.shop_type",StoreInformation.RegistrationData.shop_type,)
-            Log.e("StoreInformation.RegistrationData.theme_color",StoreInformation.RegistrationData.theme_color,)
-            Log.e("StoreInformation.RegistrationData.url",
-                StoreInformation.RegistrationData.url.toString(),)
-            Log.e("StoreInformation.RegistrationData.cname",StoreInformation.RegistrationData.cname,)
-            Log.e("StoreInformation.RegistrationData.p_id",StoreInformation.RegistrationData.p_id,)
-            Log.e("StoreInformation.RegistrationData.featured",StoreInformation.RegistrationData.featured,)
-            Log.e("StoreInformation.RegistrationData.menu_status",StoreInformation.RegistrationData.menu_status,)
-            Log.e("StoreInformation.RegistrationData.title",StoreInformation.RegistrationData.title,)
-            Log.e("StoreInformation.RegistrationData.special_price_start",StoreInformation.RegistrationData.special_price_start,)
-            Log.e("StoreInformation.RegistrationData.special_price",StoreInformation.RegistrationData.special_price,)
-            Log.e("StoreInformation.RegistrationData.price_type",StoreInformation.RegistrationData.price_type,)
-            Log.e("StoreInformation.RegistrationData.price",StoreInformation.RegistrationData.price,)
-            Log.e("StoreInformation.RegistrationData.type",StoreInformation.RegistrationData.type,)
-            Log.e("StoreInformation.RegistrationData.special_price_end",StoreInformation.RegistrationData.special_price_end,)
-            Log.e("StoreInformation.RegistrationData.ga_measurement_id",StoreInformation.RegistrationData.ga_measurement_id,)
-            Log.e("StoreInformation.RegistrationData.analytics_view_id",StoreInformation.RegistrationData.analytics_view_id,)
-            Log.e("StoreInformation.RegistrationData.astatus",StoreInformation.RegistrationData.astatus,)
-            Log.e("StoreInformation.RegistrationData.gfile",StoreInformation.RegistrationData.gfile,)
-            Log.e("StoreInformation.RegistrationData.tag_id",StoreInformation.RegistrationData.tag_id,)
-            Log.e("StoreInformation.RegistrationData.tstatus",StoreInformation.RegistrationData.tstatus,)
-            Log.e("StoreInformation.RegistrationData.pixel_id",StoreInformation.RegistrationData.pixel_id,)
-            Log.e("StoreInformation.RegistrationData.pstatus",StoreInformation.RegistrationData.pstatus,)
-            Log.e("StoreInformation.RegistrationData.number",StoreInformation.RegistrationData.number,)
-            Log.e("StoreInformation.RegistrationData.shop_page_pretext",StoreInformation.RegistrationData.shop_page_pretext,)
-            Log.e("StoreInformation.RegistrationData.other_page_pretext",StoreInformation.RegistrationData.other_page_pretext,)
-            Log.e("StoreInformation.RegistrationData.wstatus",StoreInformation.RegistrationData.wstatus,)
+        Log.e("StoreInformation.RegistrationData.name", StoreInformation.RegistrationData.name)
+        Log.e(
+            "StoreInformation.RegistrationData.password",
+            StoreInformation.RegistrationData.password,
+        )
+        Log.e("StoreInformation.RegistrationData.name", StoreInformation.RegistrationData.name)
+        Log.e(
+            "StoreInformation.RegistrationData.custom_domain",
+            StoreInformation.RegistrationData.custom_domain,
+        )
+        Log.e("StoreInformation.RegistrationData.utype", StoreInformation.RegistrationData.utype)
+        Log.e(
+            "StoreInformation.RegistrationData.sertype",
+            StoreInformation.RegistrationData.sertype,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.refrral",
+            StoreInformation.RegistrationData.refrral,
+        )
+        Log.e("StoreInformation.RegistrationData.mob", StoreInformation.RegistrationData.mob)
+        Log.e(
+            "StoreInformation.RegistrationData.business_name",
+            StoreInformation.RegistrationData.business_name,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.shop_type",
+            StoreInformation.RegistrationData.shop_type,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.theme_color",
+            StoreInformation.RegistrationData.theme_color,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.url",
+            StoreInformation.RegistrationData.url.toString(),
+        )
+        Log.e("StoreInformation.RegistrationData.cname", StoreInformation.RegistrationData.cname)
+        Log.e("StoreInformation.RegistrationData.p_id", StoreInformation.RegistrationData.p_id)
+        Log.e(
+            "StoreInformation.RegistrationData.featured",
+            StoreInformation.RegistrationData.featured,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.menu_status",
+            StoreInformation.RegistrationData.menu_status,
+        )
+        Log.e("StoreInformation.RegistrationData.title", StoreInformation.RegistrationData.title)
+        Log.e(
+            "StoreInformation.RegistrationData.special_price_start",
+            StoreInformation.RegistrationData.special_price_start,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.special_price",
+            StoreInformation.RegistrationData.special_price,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.price_type",
+            StoreInformation.RegistrationData.price_type,
+        )
+        Log.e("StoreInformation.RegistrationData.price", StoreInformation.RegistrationData.price)
+        Log.e("StoreInformation.RegistrationData.type", StoreInformation.RegistrationData.type)
+        Log.e(
+            "StoreInformation.RegistrationData.special_price_end",
+            StoreInformation.RegistrationData.special_price_end,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.ga_measurement_id",
+            StoreInformation.RegistrationData.ga_measurement_id,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.analytics_view_id",
+            StoreInformation.RegistrationData.analytics_view_id,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.astatus",
+            StoreInformation.RegistrationData.astatus,
+        )
+        Log.e("StoreInformation.RegistrationData.gfile", StoreInformation.RegistrationData.gfile)
+        Log.e("StoreInformation.RegistrationData.tag_id", StoreInformation.RegistrationData.tag_id)
+        Log.e(
+            "StoreInformation.RegistrationData.tstatus",
+            StoreInformation.RegistrationData.tstatus,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.pixel_id",
+            StoreInformation.RegistrationData.pixel_id,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.pstatus",
+            StoreInformation.RegistrationData.pstatus,
+        )
+        Log.e("StoreInformation.RegistrationData.number", StoreInformation.RegistrationData.number)
+        Log.e(
+            "StoreInformation.RegistrationData.shop_page_pretext",
+            StoreInformation.RegistrationData.shop_page_pretext,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.other_page_pretext",
+            StoreInformation.RegistrationData.other_page_pretext,
+        )
+        Log.e(
+            "StoreInformation.RegistrationData.wstatus",
+            StoreInformation.RegistrationData.wstatus,
+        )
 
 
         if (StoreInformation.RegistrationData.title.isEmpty()) {
-            StoreInformation.RegistrationData.title="null"
+            StoreInformation.RegistrationData.title = "null"
 
         }
         if (StoreInformation.RegistrationData.price_type.isEmpty()) {
-            StoreInformation.RegistrationData.price_type="null"
+            StoreInformation.RegistrationData.price_type = "null"
 
         }
         if (StoreInformation.RegistrationData.cname.isEmpty()) {
-            StoreInformation.RegistrationData.cname="null"
+            StoreInformation.RegistrationData.cname = "null"
 
         }
 
         if (StoreInformation.RegistrationData.featured.isEmpty()) {
-            StoreInformation.RegistrationData.featured="null"
+            StoreInformation.RegistrationData.featured = "null"
 
         }
         if (StoreInformation.RegistrationData.menu_status.isEmpty()) {
-            StoreInformation.RegistrationData.menu_status="null"
+            StoreInformation.RegistrationData.menu_status = "null"
 
         }
         if (StoreInformation.RegistrationData.special_price_start.isEmpty()) {
-            StoreInformation.RegistrationData.special_price_start="null"
+            StoreInformation.RegistrationData.special_price_start = "null"
 
         }
         if (StoreInformation.RegistrationData.special_price.isEmpty()) {
-            StoreInformation.RegistrationData.special_price="null"
+            StoreInformation.RegistrationData.special_price = "null"
 
         }
         if (StoreInformation.RegistrationData.price_type.isEmpty()) {
-            StoreInformation.RegistrationData.price_type="null"
+            StoreInformation.RegistrationData.price_type = "null"
 
         }
         if (StoreInformation.RegistrationData.price.isEmpty()) {
-            StoreInformation.RegistrationData.price="null"
+            StoreInformation.RegistrationData.price = "null"
 
         }
         if (StoreInformation.RegistrationData.type.isEmpty()) {
-            StoreInformation.RegistrationData.type="null"
+            StoreInformation.RegistrationData.type = "null"
 
         }
-        if (StoreInformation.RegistrationData.special_price_end.isEmpty()) {
-            StoreInformation.RegistrationData.special_price_end="null"
-
-        }
-        if (StoreInformation.RegistrationData.ga_measurement_id.isEmpty()) {
-            StoreInformation.RegistrationData.ga_measurement_id="null"
-
-        }
-        if (StoreInformation.RegistrationData.analytics_view_id.isEmpty()) {
-            StoreInformation.RegistrationData.analytics_view_id="null"
-
-        }
-        if (StoreInformation.RegistrationData.astatus.isEmpty()) {
-            StoreInformation.RegistrationData.astatus="null"
-
-        }
-        if (StoreInformation.RegistrationData.tag_id.isEmpty()) {
-            StoreInformation.RegistrationData.tag_id="null"
-
-        }
-        if (StoreInformation.RegistrationData.tstatus.isEmpty()) {
-            StoreInformation.RegistrationData.tstatus="null"
-
-        }
-        if (StoreInformation.RegistrationData.pixel_id.isEmpty()) {
-            StoreInformation.RegistrationData.pixel_id="null"
-
-        }
-        if (StoreInformation.RegistrationData.pstatus.isEmpty()) {
-            StoreInformation.RegistrationData.pstatus="null"
-
-        }
-        if (StoreInformation.RegistrationData.number.isEmpty()) {
-            StoreInformation.RegistrationData.number="null"
-
-        }
-        if (StoreInformation.RegistrationData.shop_page_pretext.isEmpty()) {
-            StoreInformation.RegistrationData.shop_page_pretext="null"
-
-        }
-        if (StoreInformation.RegistrationData.other_page_pretext.isEmpty()) {
-            StoreInformation.RegistrationData.other_page_pretext="null"
-
-        }
-        if (StoreInformation.RegistrationData.wstatus.isEmpty()) {
-            StoreInformation.RegistrationData.wstatus="null"
-
-        }
+//        if (StoreInformation.RegistrationData.special_price_end.isEmpty()) {
+//            StoreInformation.RegistrationData.special_price_end="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.ga_measurement_id.isEmpty()) {
+//            StoreInformation.RegistrationData.ga_measurement_id="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.analytics_view_id.isEmpty()) {
+//            StoreInformation.RegistrationData.analytics_view_id="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.astatus.isEmpty()) {
+//            StoreInformation.RegistrationData.astatus="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.tag_id.isEmpty()) {
+//            StoreInformation.RegistrationData.tag_id="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.tstatus.isEmpty()) {
+//            StoreInformation.RegistrationData.tstatus="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.pixel_id.isEmpty()) {
+//            StoreInformation.RegistrationData.pixel_id="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.pstatus.isEmpty()) {
+//            StoreInformation.RegistrationData.pstatus="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.number.isEmpty()) {
+//            StoreInformation.RegistrationData.number="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.shop_page_pretext.isEmpty()) {
+//            StoreInformation.RegistrationData.shop_page_pretext="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.other_page_pretext.isEmpty()) {
+//            StoreInformation.RegistrationData.other_page_pretext="null"
+//
+//        }
+//        if (StoreInformation.RegistrationData.wstatus.isEmpty()) {
+//            StoreInformation.RegistrationData.wstatus="null"
+//
+//        }
 
         ApiClient.apiService.registration(
             StoreInformation.RegistrationData.business_name,
             StoreInformation.RegistrationData.email,
             StoreInformation.RegistrationData.password,
-            StoreInformation.RegistrationData.business_name.replace(" ","") ,
+            StoreInformation.RegistrationData.business_name.replace(" ", ""),
             StoreInformation.RegistrationData.business_name,
             StoreInformation.RegistrationData.utype,
             StoreInformation.RegistrationData.sertype,
@@ -397,35 +504,51 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
             StoreInformation.RegistrationData.other_page_pretext,
             StoreInformation.RegistrationData.wstatus,
         )
-            .enqueue(object : Callback<ModelRegistration> {
+            .enqueue(object : Callback<ModelRegetration> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelRegistration>, response: Response<ModelRegistration>
+                    call: Call<ModelRegetration>, response: Response<ModelRegetration>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+                    try {
 
-                    } else if (response.code() == 401) {
-                        myToast(requireActivity(), response.body()!!.data.msg)
-                        AppProgressBar.hideLoaderDialog()
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.success.toString() == "false") {
-                        myToast(requireActivity(), response.body()!!.message)
-                        AppProgressBar.hideLoaderDialog()
+                        }
+                        else if (response.code() == 404) {
+                            myToast(requireActivity(), "Something went wrong")
+                          //  Log.e("sds", response.body()!!.data.errors)
+                           //  myToast(requireActivity(), response.body()!!.data.errors)
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.success.toString() == "true") {
-                        myToast(requireActivity(), "Registered Successfully")
-                        startActivity(Intent(context, LoginActivity::class.java))
-                        activity!!.overridePendingTransition(R.anim.bottom_anim, R.anim.bottom_out_anim)
+                        } else if (response.code() == 200) {
+                            //  myToast(requireActivity(), response.body()!!.message)
+                            //myToast(requireActivity(), "Registered Successfully")
+                            myToast(requireActivity(), response.body()!!.data.msg)
+                            startActivity(Intent(context, LoginActivity::class.java))
+                            activity!!.overridePendingTransition(
+                                R.anim.bottom_anim,
+                                R.anim.bottom_out_anim
+                            )
+                            AppProgressBar.hideLoaderDialog()
+                        } else {
+                            myToast(requireActivity(), "Something went wrong")
+                            // myToast(requireActivity(), response.body()!!.data.errors!!)
+                            AppProgressBar.hideLoaderDialog()
+
+                        }
+                    }
+
+                    catch (e: Exception) {
                         AppProgressBar.hideLoaderDialog()
-                    } else {
-                        myToast(requireActivity(), response.body()!!.data.msg)
+                        myToast(requireActivity(), "Something went wrong")
+                        e.printStackTrace()
                     }
                 }
 
-                override fun onFailure(call: Call<ModelRegistration>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                override fun onFailure(call: Call<ModelRegetration>, t: Throwable) {
+                     myToast(requireActivity(), "Something went wrong")
                     AppProgressBar.hideLoaderDialog()
 
 
@@ -458,6 +581,7 @@ class SellerWhatsappFragment : Fragment() , UploadRequestBody.UploadCallback {
             }
         }
     }
+
     private fun ContentResolver.getFileName(selectedImageUri: Uri): String {
         var name = ""
         val returnCursor = this.query(selectedImageUri, null, null, null, null)

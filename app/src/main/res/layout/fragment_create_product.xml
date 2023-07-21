@@ -162,10 +162,10 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/productTitleLb" />
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/spinnerMenu"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
@@ -180,15 +180,15 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceTypeLb" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/location"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
+                        android:hint="dd/mm/yyyy"
                         android:fontFamily="@font/noto_sans_regular"
-
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
 
@@ -198,7 +198,7 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceStart" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/txtSpecialPriceEnd"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -206,6 +206,7 @@
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
+                        android:hint="dd/mm/yyyy"
 
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
@@ -241,6 +242,7 @@
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
+
                         android:fontFamily="@font/noto_sans_regular"
                         android:hint="#ABC-123"
                         android:inputType="textPersonName"
@@ -261,7 +263,7 @@
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
                         android:hint="Enter Price"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"
@@ -278,7 +280,7 @@
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
 
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:padding="@dimen/_5sdp"
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"

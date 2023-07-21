@@ -3,19 +3,25 @@ package com.example.ehcf.retrofit
 import com.android.sellacha.Costomer.model.ModelCreateCus
 import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.LogIn.Model.ModelLogin
+import com.android.sellacha.OfferAndAds.model.ModelBumpAd
+import com.android.sellacha.OfferAndAds.model.ModelCreateAd
+import com.android.sellacha.Order.Model.ModelCreateShow
 import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
 import com.android.sellacha.Products.Coupons.MOdel.ModelCoupons
-import com.android.sellacha.Products.Inventory.activity.model.Modelinventory
+import com.android.sellacha.Products.Inventory.Model.Modelinventory
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
+import com.android.sellacha.Products.createProduct.Model.ModelCreatePro
 import com.android.sellacha.Profile.model.ModelChangePass
 import com.android.sellacha.Profile.model.ModelUserDetial
-import com.android.sellacha.Registration.Model.ModelRegistration
+import com.android.sellacha.Registration.Model.ModelRegJava
+import com.android.sellacha.Registration.Model.ModelRegetration
 import com.android.sellacha.Report.model.ModelReort
 import com.android.sellacha.Shipping.Location.ModelCreateLocation
 import com.android.sellacha.Shipping.ShippingPrice.model.ModelCreateShipping
 import com.android.sellacha.Transaction.Model.ModelTransaction
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -56,6 +62,14 @@ interface ApiInterface {
     ): Call<ModelCategory>
 
     @Headers("content-type: application/json")
+    @POST("get_scustomer")
+    fun searchCustomer(
+        @Header("Authorization") authHeader: String?,
+        @Query("type") type: String,
+        @Query("src") src: String,
+    ): Call<ModelCategory>
+
+    @Headers("content-type: application/json")
     @GET("me")
     fun me(
         @Header("Authorization") authHeader: String?,
@@ -66,6 +80,18 @@ interface ApiInterface {
     fun getCoupon(
         @Header("Authorization") authHeader: String?,
     ): Call<ModelCoupons>
+
+    @Headers("content-type: application/json")
+    @GET("ads")
+    fun bumpAds(
+        @Header("Authorization") authHeader: String?,
+    ): Call<ModelBumpAd>
+
+    @Headers("content-type: application/json")
+    @GET("banner_ads")
+    fun bannerAds(
+        @Header("Authorization") authHeader: String?,
+    ): Call<ModelBumpAd>
 
     @Headers("content-type: application/json")
     @GET("order_statics")
@@ -105,6 +131,7 @@ interface ApiInterface {
         @Query("title") title: String?,
         @Query("featured") featured: String?
     ): Call<ModelAttributes>
+
 
     @Headers("content-type: application/json")
     @Multipart
@@ -151,8 +178,7 @@ interface ApiInterface {
         @Query("shop_page_pretext") shop_page_pretext: String?,
         @Query("other_page_pretext") other_page_pretext: String?,
         @Query("wstatus") wstatus: String?,
-
-        ): Call<ModelRegistration>
+    ): Call<ModelRegetration>
 
 //    @FormUrlEncoded
 //    @POST("service_name")
@@ -177,6 +203,20 @@ interface ApiInterface {
     ): Call<Modelinventory>
 
     @Headers("content-type: application/json")
+    @GET("create_show")
+    fun createShow(
+        @Header("Authorization") authHeader: String?,
+    ): Call<ModelCreateShow>
+
+    @Headers("content-type: application/json")
+    @GET("product")
+    fun productSearch(
+        @Header("Authorization") authHeader: String?,
+        @Query("src") src: String?,
+        @Query("type") type: String?
+    ): Call<ModelCreateShow>
+
+    @Headers("content-type: application/json")
     @POST("create_shipping")
     fun createShipping(
         @Header("Authorization") authHeader: String?,
@@ -196,6 +236,22 @@ interface ApiInterface {
     fun getAttribute(
         @Header("Authorization") authHeader: String?,
     ): Call<ModelAttributes>
+
+    @Multipart
+    @POST("ads_store")
+    fun createBumpAdd(
+        @Header("Authorization") authHeader: String?,
+        @Query("url") url: String?,
+        @Part file: MultipartBody.Part,
+    ): Call<ModelCreateAd>
+
+    @Multipart
+    @POST("banner_store")
+    fun createBannerAdd(
+        @Header("Authorization") authHeader: String?,
+        @Query("url") url: String?,
+        @Part file: MultipartBody.Part,
+    ): Call<ModelCreateAd>
 
     @Headers("content-type: application/json")
     @GET("get_brand")
@@ -228,11 +284,33 @@ interface ApiInterface {
     ): Call<ModelReort>
 
     @Headers("content-type: application/json")
+    @GET("get_report")
+    fun getFilterReport(
+        @Header("Authorization") authHeader: String?,
+        @Query("start") start: String,
+        @Query("end") end: String,
+    ): Call<ModelReort>
+
+    @Headers("content-type: application/json")
     @GET("get_transaction")
     fun getTransactionByTransId(
         @Header("Authorization") authHeader: String?,
         @Query("src") src: String?,
     ): Call<ModelTransaction>
+
+    @Headers("content-type: application/json")
+    @POST("store")
+    fun createProduct(
+        @Header("Authorization") authHeader: String?,
+        @Query("title") title: String?,
+        @Query("price") price: String?,
+        @Query("special_price") special_price: String?,
+        @Query("price_type") price_type: String?,
+        @Query("special_price_start") special_price_start: String?,
+        @Query("special_price_end") special_price_end: String?,
+        @Query("type") type: String,
+    ): Call<ModelCreatePro>
+
 
 //    @FormUrlEncoded
 //    @POST("register")

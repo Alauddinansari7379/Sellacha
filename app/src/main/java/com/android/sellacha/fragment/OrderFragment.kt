@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.sellacha.R
 import com.android.sellacha.activity.CheckOut
@@ -57,8 +58,7 @@ class OrderFragment : BaseFragment() {
             //   getFilterList();
             filterDialog = Dialog(mContext)
             binding!!.orderList.layoutManager = LinearLayoutManager(
-                activity, LinearLayoutManager.VERTICAL, false
-            )
+                activity, LinearLayoutManager.VERTICAL, false)
             binding!!.searchTxt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     charSequence: CharSequence,
@@ -82,7 +82,8 @@ class OrderFragment : BaseFragment() {
                 binding!!.searchTxt.setText("")
             }
             binding!!.createOrder.setOnClickListener {
-                startActivity(Intent(mContext, CheckOut::class.java))
+                Navigation.findNavController(binding!!.root).navigate(R.id.CreateOrderShow)
+              //  startActivity(Intent(mContext, CheckOut::class.java))
             }
             binding!!.selectFulfillment.setOnClickListener {
                 filterDialog(binding!!.selectFulfillment)
@@ -116,9 +117,6 @@ class OrderFragment : BaseFragment() {
                 }
             }
 
-
-
-
             binding!!.filterBtn.setOnClickListener { filterDialog() }
         }
         return binding!!.root
@@ -150,15 +148,11 @@ class OrderFragment : BaseFragment() {
                                 orderList.clear()
                                 orderList.addAll(orderResponse.orders.data)
                                 getFilterList(orderResponse)
-                                orderAdapter = context?.let { OrderAdapter(it, orderList, 0) }
+                                orderAdapter = context?.let { OrderAdapter(it, orderList, 0)
+                                }
                                 binding!!.orderList.adapter = orderAdapter
                             } else {
-                                showAlertDialog(
-                                    getString(R.string.app_name),
-                                    response.message,
-                                    "OK",
-                                    ""
-                                ) { obj: AppDialog -> obj.dismiss() }
+                                showAlertDialog(getString(R.string.app_name), response.message, "OK", "") { obj: AppDialog -> obj.dismiss() }
                             }
                         } else {
                             errorSnackBar(binding!!.root, response.message)

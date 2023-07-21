@@ -1,27 +1,15 @@
 package com.android.sellacha.Products.Inventory.activity
 
 import android.annotation.SuppressLint
-import android.content.ContentValues
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.sellacha.Products.Coupons.MOdel.ModelCoupons
-import com.android.sellacha.Products.Coupons.adapter.AdapterCoupons
-import com.android.sellacha.Products.Inventory.activity.adapter.AdapterInventory
-import com.android.sellacha.Products.Inventory.activity.model.Modelinventory
-import com.android.sellacha.Products.Inventory.activity.model.Term
+import com.android.sellacha.Products.Inventory.adapter.AdapterInventory
+import com.android.sellacha.Products.Inventory.Model.Modelinventory
+import com.android.sellacha.Products.Inventory.Model.Term
 import com.android.sellacha.R
-import com.android.sellacha.adapter.InventoryAdapter
-import com.android.sellacha.adapter.OrderFilterSelector
-import com.android.sellacha.api.model.filterItemsDM
-import com.android.sellacha.api.model.inventoryDM
-import com.android.sellacha.api.model.inventoryTypeDM
-import com.android.sellacha.databinding.FragmentCouponsBinding
 import com.android.sellacha.databinding.FragmentInventoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
@@ -30,7 +18,6 @@ import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
 
 class InventoryFragment : Fragment() {
     var binding: FragmentInventoryBinding? = null

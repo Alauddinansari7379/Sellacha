@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
+import android.view.View
 import com.android.sellacha.LogIn.Model.ModelLogin
 import com.android.sellacha.R
+import com.android.sellacha.Registration.StoreInformation
 import com.android.sellacha.activity.BaseActivity
 import com.android.sellacha.activity.HomeDashBoard
 import com.android.sellacha.activity.StoreInformationActivity
@@ -22,6 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sessionManager: SessionManager
@@ -33,6 +37,24 @@ class LoginActivity : BaseActivity() {
         setContentView(binding.root)
         sessionManager = SessionManager(this)
 
+
+
+        binding.passwordToggle.setOnClickListener {
+            binding.passwordToggleOff.visibility= View.VISIBLE
+            binding.passwordToggle.visibility= View.GONE
+            binding.passwordEdt.transformationMethod = PasswordTransformationMethod()
+        }
+        binding.passwordToggleOff.setOnClickListener {
+            binding.passwordToggleOff.visibility= View.GONE
+            binding.passwordToggle.visibility= View.VISIBLE
+            binding.passwordEdt.transformationMethod =null
+            //binding.passwordEdt.transformationMethod =PasswordTransformationMethod(false)
+            //binding.passwordToggle.sw
+        }
+
+
+
+        (StoreInformation()).reset()
         if (sessionManager.isLogin) {
             startActivity(Intent(context, HomeDashBoard::class.java))
             finish()

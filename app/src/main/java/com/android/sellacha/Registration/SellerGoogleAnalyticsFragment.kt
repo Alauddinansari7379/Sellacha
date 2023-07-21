@@ -30,11 +30,26 @@ class SellerGoogleAnalyticsFragment : Fragment() {
             container,
             false
         )
-        binding!!.saveBtn.setOnClickListener { view: View? ->
+        binding!!.txtMeasurmentId.setText(StoreInformation.RegistrationData.ga_measurement_id)
+        binding!!.txtAnalyticId.setText(StoreInformation.RegistrationData.analytics_view_id)
+        binding!!.txtSatus.setSelection(StoreInformation.RegistrationData.tstatusValue)
 
+
+
+
+        binding!!.saveBtn.setOnClickListener { view: View? ->
+            if (binding!!.txtMeasurmentId.text.isEmpty()) {
+                binding!!.txtMeasurmentId.error = "Enter GA Measurement-ID"
+                binding!!.txtMeasurmentId.requestFocus()
+                return@setOnClickListener
+            }
+            if (binding!!.txtAnalyticId.text.isEmpty()) {
+                binding!!.txtAnalyticId.error = "Enter Analytics View ID"
+                binding!!.txtAnalyticId.requestFocus()
+                return@setOnClickListener
+            }
             StoreInformation.RegistrationData.ga_measurement_id=binding!!.txtMeasurmentId.text.toString()
             StoreInformation.RegistrationData.analytics_view_id=binding!!.txtAnalyticId.text.toString()
-
             findNavController(binding!!.root).navigate(R.id.tapManagerFragment)
         }
 
@@ -57,12 +72,13 @@ class SellerGoogleAnalyticsFragment : Fragment() {
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?,
-                    view: View,
+                    view: View?,
                     i: Int,
                     l: Long
                 ) {
                     if (statuseList.size > 0) {
                         StoreInformation.RegistrationData.tstatus = statuseList[i].text
+                        StoreInformation.RegistrationData.tstatusValue = statuseList[i].value
 
 
                         Log.e(ContentValues.TAG, "statuse: $statuse")
