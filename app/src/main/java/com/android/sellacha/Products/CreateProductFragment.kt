@@ -218,6 +218,7 @@ class CreateProductFragment : Fragment() {
 //                                AppProgressBar.hideLoaderDialog()
 //
 //                            }
+                            if (response.body()!!.data.product_id!=null){
                                 myToast(requireActivity(), "Product Created")
                                 binding!!.txtproductTitle.text.clear()
                                 binding!!.txtPrice.text.clear()
@@ -227,6 +228,12 @@ class CreateProductFragment : Fragment() {
                                 binding!!.txtSpecialPriceEnd.text = ""
                                 binding!!.location.text = ""
                                 AppProgressBar.hideLoaderDialog()
+                            }
+                            else{
+                                myToast(requireActivity(), response.body()!!.message)
+                                AppProgressBar.hideLoaderDialog()
+
+                            }
 
                         } else {
                             myToast(requireActivity(), response.body()!!.message)
@@ -236,6 +243,8 @@ class CreateProductFragment : Fragment() {
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
+                        myToast(requireActivity(), "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
                     }
                 }
 

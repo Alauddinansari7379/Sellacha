@@ -3,77 +3,75 @@ package com.android.sellacha.Registration.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ModelRegJava {
+ public class ModelRegJava {
 
-     public class Data {
+     @SerializedName("errors")
+     @Expose
+     private String errors;
+     @SerializedName("domain")
+     @Expose
+     private String domain;
+     @SerializedName("redirect")
+     @Expose
+     private Boolean redirect;
+     @SerializedName("msg")
+     @Expose
+     private String msg;
 
-        @SerializedName("domain")
-        @Expose
-        private String domain;
-        @SerializedName("redirect")
-        @Expose
-        private Boolean redirect;
-        @SerializedName("msg")
-        @Expose
-        private String msg;
-        @SerializedName("errors")
-        @Expose
-        private String errors;
+     public String getErrors() {
+         return errors;
+     }
 
-        public String getDomain() {
-            return domain;
-        }
+     public void setErrors(String errors) {
+         this.errors = errors;
+     }
 
-        public void setDomain(String domain) {
-            this.domain = domain;
-        }
+     public String getDomain() {
+         return domain;
+     }
 
-        public Boolean getRedirect() {
-            return redirect;
-        }
+     public void setDomain(String domain) {
+         this.domain = domain;
+     }
 
-        public void setRedirect(Boolean redirect) {
-            this.redirect = redirect;
-        }
+     public Boolean getRedirect() {
+         return redirect;
+     }
 
-        public String getMsg() {
-            return msg;
-        }
+     public void setRedirect(Boolean redirect) {
+         this.redirect = redirect;
+     }
 
-        public void setMsg(String msg) {
-            this.msg = msg;
-        }
+     public String getMsg() {
+         return msg;
+     }
 
-        public String getErrors() {
-            return errors;
-        }
+     public void setMsg(String msg) {
+         this.msg = msg;
+     }
 
-        public void setErrors(String errors) {
-            this.errors = errors;
-        }
 
-    }
-        @SerializedName("success")
-        @Expose
-        private Boolean success;
-        @SerializedName("data")
-        @Expose
-        private Data data;
+     @SerializedName("success")
+     @Expose
+     private Boolean success;
+     @SerializedName("data")
+     @Expose
+     private DataNew data;
 
-        public Boolean getSuccess() {
-            return success;
-        }
+     public Boolean getSuccess() {
+         return success;
+     }
 
-        public void setSuccess(Boolean success) {
-            this.success = success;
-        }
+     public void setSuccess(Boolean success) {
+         this.success = success;
+     }
 
-        public Data getData() {
-            return data;
-        }
+     public DataNew getData() {
+         return data;
+     }
 
-        public void setData(Data data) {
-            this.data = data;
-        }
+     public void setData(DataNew data) {
+         this.data = data;
+     }
 
-    }
+}

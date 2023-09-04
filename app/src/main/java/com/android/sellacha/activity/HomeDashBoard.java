@@ -231,6 +231,13 @@ public class HomeDashBoard extends BaseActivity {
             navController.navigate(R.id.homeFragment, null, getNavOptions());
         });
 
+        binding.drawerLayout.UpgradePlan.setOnClickListener(view -> {
+            drawerLock();
+            navController.navigate(R.id.UpgradePlan);
+            // handler.postDelayed(() ->
+            navController.navigate(R.id.UpgradePlan, null, getNavOptions());
+        });
+
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.homeFragment) {
@@ -287,7 +294,9 @@ public class HomeDashBoard extends BaseActivity {
             } else if (destination.getId() == R.id.BannerAdsFragmentFragment) {
                 binding.mainLayout.headerLayout.txtLogo.setText("Banner Ads");
             } else if (destination.getId() == R.id.CreateOrderShow) {
-                binding.mainLayout.headerLayout.txtLogo.setText("Product List");
+                binding.mainLayout.headerLayout.txtLogo.setText("Product List");}
+            else if (destination.getId() == R.id.UpgradePlan) {
+                binding.mainLayout.headerLayout.txtLogo.setText("Upgrade Your Plan ");
 
 
             }

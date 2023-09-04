@@ -69,7 +69,7 @@ class LoginActivity : BaseActivity() {
       //  showHidePass(binding.root)
         binding.SignInBtn.setOnClickListener {
             if (binding.emailEdt.text!!.isEmpty()) {
-                binding.emailEdt.error = "Email Email Number"
+                binding.emailEdt.error = "Enter Email"
                 errorSnackBar(binding.root, "Please Enter Your Email")
                 binding.emailEdt.requestFocus()
                 return@setOnClickListener

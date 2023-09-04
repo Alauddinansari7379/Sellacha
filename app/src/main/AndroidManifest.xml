@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Sellacha"
         tools:targetApi="31">
         <activity
+            android:name=".Registration.RegistrationSucess"
+            android:exported="false" />
+        <activity
             android:name=".Profile.activity.UserDetails"
             android:exported="false" />
         <activity
@@ -49,7 +52,7 @@
             android:name=".LogIn.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-             android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.HomeDashBoard"
             android:exported="true" />

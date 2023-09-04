@@ -15,14 +15,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.android.sellacha.LogIn.LoginActivity
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.Registration.Model.ModelRegJava
-import com.android.sellacha.Registration.Model.ModelRegetration
+import com.android.sellacha.Registration.Model.ModelRegistration
 import com.android.sellacha.databinding.FragmentSellerWhatsappBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
+import com.bumptech.glide.load.engine.Resource
 import com.example.ehcf.Fragment.test.UploadRequestBody
 import com.example.ehcf.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
@@ -504,57 +504,107 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
             StoreInformation.RegistrationData.other_page_pretext,
             StoreInformation.RegistrationData.wstatus,
         )
-            .enqueue(object : Callback<ModelRegetration> {
+            .enqueue(object : Callback<ModelRegJava> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelRegetration>, response: Response<ModelRegetration>
+                    call: Call<ModelRegJava>, response: Response<ModelRegJava>
                 ) {
                     try {
-
                         if (response.code() == 500) {
                             myToast(requireActivity(), "Server Error")
                             AppProgressBar.hideLoaderDialog()
-
                         }
-                        else if (response.code() == 404) {
-                            myToast(requireActivity(), "Something went wrong")
-                          //  Log.e("sds", response.body()!!.data.errors)
-                           //  myToast(requireActivity(), response.body()!!.data.errors)
+                        else if (!response.body()!!.success) {
+                            //   var jsonObject: JSONObject? = null
+//                            Log.e("response", response.body()!!.toString())
+//                            Log.e("success", response.body()!!.success.toString())
+//                            Log.e("data", response.body()!!.data.toString())
+                       //     myToast(requireActivity(), response.body()!!.data.errors)
+                            Log.e("Error",response.body()!!.data.errors)
+                            Log.e("Error",response.body()!!.data.errors)
+                            myToast(requireActivity(), response.body()!!.data.errors)
+                         //   Resource.ErrorResponse(Constant.getErrorResponse(response.errorBody()!!.string()))
+
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.code() == 200) {
+//                            jsonObject =  JSONObject(response.body().toString());
+//                            val result = jsonObject.getString("success")
+                            //    val errors = jsonObject.getString("errors")
+// ruko hit nhi hu abhi data filll kr raha hun
+
+                            //  print("error"+errors);
+                            //  Log.e("errors", result.toString())
+                            //  myToast(requireActivity(),errors)
+                            //run kro ok run krna run kro run  kro run kro
+
+                            //   myToast(requireActivity(), "Something went wrong")
+                            //  Log.e("sds", response.body()!!.data.errors)
+//           run kro ok bahut data form hi fill karne me time la                  myToast(requireActivity(), response.body()!!.data!!.errors!!)
+//                           // response.body()!!.data!!.errors?.let { myToast(requireActivity(), it) }
+//                            AppProgressBar.hideLoaderDialog()
+//
+//
+//                            var map1: Map<String?, ModelRegetration?> = HashMap<String?, ModelRegetration?>()
+//                            map1 = response.body()!!.data.errors as Map<String?, ModelRegetration?>
+//
+//                            for (keys in map1.keys) {
+//
+//                                // myCode;
+//                            }
+//
+//                            var map: Map<String, String> = HashMap<String, String>()
+//                            map = response.body()!!.data!!.errors!!;
+
+
+                            // println("First name is " + response.body()!!.("booking")["firstname"])
+
+                            //val jsonMap: Map<String, dynamic> = json.decode(response.body)
+                            //  val status = jsonMap["routes"].get(0).get("legs").get(0).get("distance").get("text")
+                            // print(status)
+
+
+                            //           }
+
+//                        else if (response.body()!!.success.toString()=="false") {
+//                            myToast(requireActivity(), response.body()!!.data.errors)
+
+//{"success":true,"data":{"errors":"","domain":"http:\/\/dchcy.thedemostore.in\/login","redirect":true,"msg":"Successfully Registered"}}
+//{"success":false,"data":{"errors":"The email has already been taken.","domain":"","redirect":false,"msg":"Faild"}}
+
+                        } else if (response.body()!!.success) {
                             //  myToast(requireActivity(), response.body()!!.message)
                             //myToast(requireActivity(), "Registered Successfully")
                             myToast(requireActivity(), response.body()!!.data.msg)
-                            startActivity(Intent(context, LoginActivity::class.java))
-                            activity!!.overridePendingTransition(
-                                R.anim.bottom_anim,
-                                R.anim.bottom_out_anim
-                            )
-                            AppProgressBar.hideLoaderDialog()
-                        } else {
-                            myToast(requireActivity(), "Something went wrong")
-                            // myToast(requireActivity(), response.body()!!.data.errors!!)
+                            Log.e("Error",response.body()!!.data.errors)
+
+                            Domain=response.body()!!.data.domain
+
+                            val intent = Intent(context as Activity, RegistrationSucess::class.java)
+                                .putExtra("domain", response.body()!!.data.domain)
+                            (context as Activity).startActivity(intent)
+                             activity!!.overridePendingTransition(R.anim.bottom_anim, R.anim.bottom_out_anim)
                             AppProgressBar.hideLoaderDialog()
 
                         }
-                    }
-
-                    catch (e: Exception) {
+                    } catch (e: Exception) {
                         AppProgressBar.hideLoaderDialog()
                         myToast(requireActivity(), "Something went wrong")
                         e.printStackTrace()
                     }
                 }
 
-                override fun onFailure(call: Call<ModelRegetration>, t: Throwable) {
-                     myToast(requireActivity(), "Something went wrong")
+                override fun onFailure(call: Call<ModelRegJava>, t: Throwable) {
+                    myToast(requireActivity(), "Something went wrong")
                     AppProgressBar.hideLoaderDialog()
 
 
                 }
 
             })
+    }
+
+    companion object {
+        var Domain = ""
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

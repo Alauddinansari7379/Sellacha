@@ -1,6 +1,6 @@
 package com.android.sellacha.Registration.Model
 
-data class ModelRegetration(
-    val `data`: Data,
+data class ModelRegistration(
+    val `data`: DataNew,
     val success: Boolean
 )

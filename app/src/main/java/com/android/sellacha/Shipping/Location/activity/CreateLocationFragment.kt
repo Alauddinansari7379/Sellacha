@@ -65,25 +65,38 @@ class CreateLocationFragment : Fragment() {
                     call: Call<ModelCreateLocation>, response: Response<ModelCreateLocation>
                 )
                 {
-                    if (response.code() == 200) {
-                        myToast(requireActivity(), "Location Created")
-                        binding.txtTitle.text.clear()
+                    try {
+                        if (response.code() == 500) {
+                            myToast(requireContext() as Activity, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                        if (response.body()!!.success) {
+                            myToast(requireActivity(), response.body()!!.data)
+                            binding.txtTitle.text.clear()
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 401) {
+                            myToast(
+                                requireContext() as Activity,
+                                "Maximum Location Exceeded Please Update Your Plan"
+                            )
+                            AppProgressBar.hideLoaderDialog()
+                        } else {
+                            myToast(requireActivity(), response.body()!!.data)
+                            //  myToast(requireActivity(), response.message())
+                            AppProgressBar.hideLoaderDialog()
+
+                        }
+                        // apiCallGetPrePending1()
+
+                        //  binding.prog[
+                    //  e.ressBar.progress = 100
+                    }catch (e:Exception)
+                    {
+                        e.printStackTrace()
+                        myToast(requireActivity(), "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
-
                     }
-                    else if (response.code() == 401) {
-                        myToast(requireContext() as Activity, "Maximum Location Exceeded Please Update Your Plan")
-                        AppProgressBar.hideLoaderDialog()
-                    }
-                    else {
-                        myToast(requireActivity(), response.message())
-                        AppProgressBar.hideLoaderDialog()
-
-                    }
-                    // apiCallGetPrePending1()
-
-                    //  binding.progressBar.progress = 100
-
                 }
 
                 override fun onFailure(call: Call<ModelCreateLocation>, t: Throwable) {

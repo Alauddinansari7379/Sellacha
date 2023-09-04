@@ -204,5 +204,10 @@
         android:name="com.android.sellacha.OfferAndAds.activity.CreateBumpAdFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_create_banner_ad" />
+    <fragment
+        android:id="@+id/UpgradePlan"
+        android:name="com.android.sellacha.Upgrade.UpgradePlanFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_upgrade_plan" />
 
 </navigation>

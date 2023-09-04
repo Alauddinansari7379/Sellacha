@@ -77,10 +77,7 @@ class AddNewCustomerNewFragment : Fragment() {
                         AppProgressBar.hideLoaderDialog()
 
                     } else if (response.code() == 401) {
-                        myToast(
-                            requireContext() as Activity,
-                            "Maximum Location Exceeded Please Update Your Plan"
-                        )
+                        myToast(requireContext() as Activity, "Maximum Location Exceeded Please Update Your Plan")
                         AppProgressBar.hideLoaderDialog()
                     } else {
                         myToast(requireActivity(), response.message())

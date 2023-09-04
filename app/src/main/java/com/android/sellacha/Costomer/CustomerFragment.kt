@@ -72,7 +72,7 @@ class CustomerFragment : Fragment() {
     }
 
     private fun apiCallCustomer() {
-        AppProgressBar.showLoaderDialog(requireContext())
+        AppProgressBar.showLoaderDialog(activity)
 
         ApiClient.apiService.getCustomer(sessionManager.authToken)
             .enqueue(object : Callback<ModelCategory> {

@@ -642,6 +642,28 @@
                         android:text="Whatsapp Api"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
+                <LinearLayout
+
+                    android:id="@+id/UpgradePlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:src="@drawable/upgrade"
+                        app:tint="@color/heading_font" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:text="Upgrade your Plan"
+                        android:textColor="@color/heading_font" />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

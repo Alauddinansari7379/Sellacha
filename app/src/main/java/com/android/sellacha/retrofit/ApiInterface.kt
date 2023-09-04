@@ -15,13 +15,12 @@ import com.android.sellacha.Products.createProduct.Model.ModelCreatePro
 import com.android.sellacha.Profile.model.ModelChangePass
 import com.android.sellacha.Profile.model.ModelUserDetial
 import com.android.sellacha.Registration.Model.ModelRegJava
-import com.android.sellacha.Registration.Model.ModelRegetration
+import com.android.sellacha.Registration.Model.ModelRegistration
 import com.android.sellacha.Report.model.ModelReort
 import com.android.sellacha.Shipping.Location.ModelCreateLocation
 import com.android.sellacha.Shipping.ShippingPrice.model.ModelCreateShipping
 import com.android.sellacha.Transaction.Model.ModelTransaction
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -178,7 +177,7 @@ interface ApiInterface {
         @Query("shop_page_pretext") shop_page_pretext: String?,
         @Query("other_page_pretext") other_page_pretext: String?,
         @Query("wstatus") wstatus: String?,
-    ): Call<ModelRegetration>
+    ): Call<ModelRegJava>
 
 //    @FormUrlEncoded
 //    @POST("service_name")

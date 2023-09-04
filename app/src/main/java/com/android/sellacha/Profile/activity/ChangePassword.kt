@@ -70,19 +70,25 @@ Log.e("againPass",againPass)
                 override fun onResponse(
                     call: Call<ModelChangePass>, response: Response<ModelChangePass>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(this@ChangePassword, "Server Error")
+                    try {
+                        if (response.code() == 500) {
+                            myToast(this@ChangePassword, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.body()!!.success) {
+                            myToast(this@ChangePassword, response.body()!!.data)
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(this@ChangePassword, response.body()!!.data)
+                            AppProgressBar.hideLoaderDialog()
+
+
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                        myToast(this@ChangePassword, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
-
-                    } else if (response.body()!!.data.errors.password.isNotEmpty()) {
-                        myToast(this@ChangePassword,response.body()!!.data.message)
-                        AppProgressBar.hideLoaderDialog()
-
-                    } else {
-                        myToast(this@ChangePassword, response.body()!!.data.toString())
-                        AppProgressBar.hideLoaderDialog()
-
-
                     }
                 }
 
