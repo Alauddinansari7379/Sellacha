@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.bumptech.glide.Glide
@@ -15,7 +16,7 @@ import com.example.ehcf.sharedpreferences.SessionManager
 import com.squareup.picasso.Picasso
 
 
-class AdapterBrand(val context: Context, private val list: ModelCategory) :
+class AdapterBrand(val context: Context, private val list: ArrayList<DataX>,val delete: Delete) :
     RecyclerView.Adapter<AdapterBrand.MyViewHolder>() {
 
     lateinit var sessionManager: SessionManager
@@ -30,26 +31,36 @@ class AdapterBrand(val context: Context, private val list: ModelCategory) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
         sessionManager = SessionManager(context)
-        holder.nameBrand.text = list.data.posts.data[position].name
-        Picasso.get().load("https://footwear.thedemostore.in/"+list.data.posts.data[position].preview!!.content).into(holder.categoryImg)
+        holder.nameBrand.text = list[position].name
+        Picasso.get().load("https://thedemostore.in/"+list[position].preview!!.content)
+            .placeholder(R.drawable.placeholder_n)
+            .error(R.drawable.error_placeholder)
+            .into(holder.categoryImg)
 
-      //  Picasso.with(this).load("https://footwear.thedemostore.in/uploads/21/22/12/1672393071.png").into(holder.categoryImg);
-      //  Picasso.get().load("https://footwear.thedemostore.in/uploads/21/22/12/1672393071.png").into(holder.categoryImg)
-       // Glide.with(holder.categoryImg).load("https://footwear.thedemostore.in/uploads/21/22/12/1672393071.png").into(holder.categoryImg)
-
-
+        holder.imgDeleteBrand.setOnClickListener {
+            delete.delete(list[position].id.toString())
+        }
+        holder.imgEditBrand.setOnClickListener {
+            delete.edit(list[position].id.toString(),list[position].name)
+        }
     }
 
 
     override fun getItemCount(): Int {
-        return list.data.posts.data.size
+        return list.size
 
     }
 
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameBrand: TextView = itemView.findViewById(R.id.nameTvBrand)
         val categoryImg: ImageView = itemView.findViewById(R.id.categoryImg)
+        val imgDeleteBrand: ImageView = itemView.findViewById(R.id.imgDeleteBrand)
+        val imgEditBrand: ImageView = itemView.findViewById(R.id.imgEditBrand)
 
 
+    }
+    interface Delete {
+        fun delete(id: String)
+        fun edit(id: String,name: String,)
     }
 }

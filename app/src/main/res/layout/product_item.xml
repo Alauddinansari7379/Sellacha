@@ -16,28 +16,18 @@
             android:orientation="horizontal"
             android:padding="5dp">
 
-            <RadioButton
-                android:id="@+id/orderRbtn"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/orderName"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:layout_marginStart="@dimen/_15sdp"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_baseline_no_photography_24"
-                app:layout_constraintBottom_toBottomOf="@+id/orderRbtn"
-                app:layout_constraintStart_toEndOf="@+id/orderRbtn"
-                app:layout_constraintTop_toTopOf="@+id/orderRbtn"
-               />
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/editBtn"

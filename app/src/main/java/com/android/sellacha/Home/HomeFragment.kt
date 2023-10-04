@@ -12,41 +12,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.SpinnerAdapter
+import android.widget.Spinner
 import com.android.sellacha.Home.model.ModelMonth
 import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.R
-import com.android.sellacha.SpinnerItem
 import com.android.sellacha.databinding.FragmentHomeBinding
 import com.android.sellacha.fragment.BaseFragment
 import com.android.sellacha.helper.currentMonth
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.helper.view.LineView
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.retrofit.ApiInterface
 import com.example.ehcf.sharedpreferences.SessionManager
+import com.example.myrecyview.apiclient.ApiClient
 import com.faskn.lib.Arc
 import com.faskn.lib.PieChart
 import com.faskn.lib.Slice
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     var floatArrayOf = FloatArray(10)
     var list = ArrayList<String>()
     var slices = ArrayList<Slice>()
-    var randomint = 9
-    var monthName = ""
+    private var randomint = 9
+     var monthName = ""
     private lateinit var sessionManager: SessionManager
-    private var mCountryList=ArrayList<ModelMonth>()
+    private var mCountryList = ArrayList<ModelMonth>()
 
 
     override fun onCreateView(
@@ -65,53 +62,54 @@ class HomeFragment : BaseFragment() {
 
 
 
+
         when (currentMonth) {
             1 -> {
                 monthName = "January"
             }
             2 -> {
-                monthName =  "February"
+                monthName = "February"
             }
             3 -> {
-                monthName =  "March"
+                monthName = "March"
             }
             4 -> {
-                monthName =   "April"
+                monthName = "April"
             }
             5 -> {
-                monthName =   "May"
+                monthName = "May"
             }
             6 -> {
-                monthName =   "June"
+                monthName = "June"
             }
             7 -> {
-                monthName =   "July"
+                monthName = "July"
             }
             8 -> {
-                monthName =   "August"
+                monthName = "August"
             }
             9 -> {
-                monthName =   "September"
+                monthName = "September"
             }
             10 -> {
-                monthName =   "October"
+                monthName = "October"
             }
             11 -> {
-                monthName =   "November"
+                monthName = "November"
             }
             12 -> {
-                monthName =    "December"
+                monthName = "December"
             }
             else -> ""
         }
+
         Log.e("CurrentMont", monthName)
 
-         apiCallGetorderCount(monthName)
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(
             {
-                slices.add(Slice(0f, R.color._48C260, "fdsfds", Arc(90f, 280f), 20f, 20))
+                slices.add(Slice(0f, R.color._48C260, "fdsfds", Arc(00f, 280f), 20f, 20))
                 slices.add(Slice(40f, R.color.primary_bg, "dasfsaf", Arc(260f, 360f), 20f, 20))
                 slices.add(Slice(40f, R.color._FDC103, "fdsfds", Arc(0f, 90f), 20f, 20))
                 val pieChart = PieChart(slices, null, 0f, 35f)
@@ -135,12 +133,18 @@ class HomeFragment : BaseFragment() {
                 mCountryList!!.add(ModelMonth("December", 0))
 
                 binding.monthSelect.adapter =
-                    ArrayAdapter<ModelMonth>(requireContext(), android.R.layout.simple_list_item_1,
-                        mCountryList!!
-                    )
+                    ArrayAdapter<ModelMonth>(requireContext(), android.R.layout.simple_list_item_1, mCountryList!!)
+                binding.monthSelect.setSelection(currentMonth.toString().toInt()-1);
 
             }, 500
         )
+
+
+        spinnerMonth()
+
+        apiCallGetorderCount(monthName)
+
+
         //binding.chart.sho(binding.action0);
 //
 //
@@ -172,50 +176,68 @@ class HomeFragment : BaseFragment() {
 ////        binding.lineChart.setList(graphList);
 
 
-        binding.monthSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
-                if (mCountryList!!.size > 0) {
-                    monthName = mCountryList!![i].month
-                    apiCallGetorderCount(monthName)
-                    Log.e(ContentValues.TAG, "monthName: $monthName")
+
+    }
+
+    private fun spinnerMonth() {
+
+        binding.monthSelect.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>?,
+                    view: View,
+                    i: Int,
+                    l: Long
+                ) {
+                    if (mCountryList!!.size > 0) {
+                        monthName = mCountryList!![i].month
+                        apiCallGetorderCount(monthName)
+                        Log.e(ContentValues.TAG, "monthName: $monthName")
+                    }
+
                 }
+
+                override fun onNothingSelected(adapterView: AdapterView<*>?) {}
             }
 
-            override fun onNothingSelected(adapterView: AdapterView<*>?) {}
-        }
     }
 
     private fun apiCallGetorderCount(monthName: String) {
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("http://footwear.thedemostore.in/api/dashboard/")
-            .build()
-            .create(ApiInterface::class.java)
-        AppProgressBar.showLoaderDialog(requireContext())
-        val retrofitData = retrofitBuilder.orderStatics(sessionManager.authToken, monthName)
-        retrofitData.enqueue(
-            object : Callback<ModelOrderCount> {
+
+        // AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.orderStatics(sessionManager.authToken, monthName)
+            .enqueue(object : Callback<ModelOrderCount> {
+                @SuppressLint("LogNotTimber")
                 override fun onResponse(
                     call: Call<ModelOrderCount>, response: Response<ModelOrderCount>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+                    try {
+                        if (response.code() == 404) {
+                            myToast(requireActivity(), "Server Error")
+                            //   AppProgressBar.hideLoaderDialog()
 
-                    } else {
+                        } else if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            //   AppProgressBar.hideLoaderDialog()
 
-                        binding.textView.text = response.body()!!.data.total_pending
-                        binding.greenTxt.text = response.body()!!.data.total_completed
-                        binding.yellowTxt.text = response.body()!!.data.total_processing
-                        binding.circleCount.text = response.body()!!.data.total_orders
-
-                        Log.e("total_pending", response.body()!!.data.total_pending)
-                        Log.e("total_completed", response.body()!!.data.total_completed)
-                        Log.e("total_processing", response.body()!!.data.total_processing)
-                        Log.e("total_orders", response.body()!!.data.total_orders)
+                        } else {
+                            binding.textView.text = response.body()!!.data.total_pending
+                            binding.greenTxt.text = response.body()!!.data.total_completed
+                            binding.yellowTxt.text = response.body()!!.data.total_processing
+                            binding.circleCount.text = response.body()!!.data.total_orders
+                            binding.sellCount.text = response.body()!!.data.total_earnings
+                            binding.sellCount2.text = response.body()!!.data.total_orders
+                             Log.e("total_pending", response.body()!!.data.total_orders)
+                            Log.e("total_completed", response.body()!!.data.total_completed)
+                            Log.e("total_processing", response.body()!!.data.total_processing)
+                            Log.e("total_orders", response.body()!!.data.total_orders)
 //                        Log.e("df",response.body()!!.data.total_processing)
-                        AppProgressBar.hideLoaderDialog()
+                            //   AppProgressBar.hideLoaderDialog()
 
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
                 }
 
@@ -256,9 +278,7 @@ class HomeFragment : BaseFragment() {
         lineView.setShowPopup(LineView.SHOW_POPUPS_NONE)
         binding!!.lineView2.setBottomTextList(test)
         binding!!.lineView2.setColorArray(
-            intArrayOf(
-                Color.parseColor("#0191B5")
-            )
+            intArrayOf(Color.parseColor("#0191B5"))
         )
         // lineView.setDrawDotLine(false);
         binding!!.lineView2.setShowPopup(LineView.SHOW_POPUPS_NONE)
@@ -267,13 +287,13 @@ class HomeFragment : BaseFragment() {
     private fun randomSet(lineView: LineView, lineViewFloat: LineView) {
         val dataList = ArrayList<Int>()
         dataList.add(0)
-        dataList.add(54)
-        dataList.add(65)
-        dataList.add(84)
+        dataList.add(0)
+        dataList.add(0)
+        dataList.add(0)
         dataList.add(24)
-        dataList.add(64)
-        dataList.add(74)
-        dataList.add(74)
+        dataList.add(0)
+        dataList.add(0)
+        dataList.add(0)
         dataList.add(24)
         dataList.add(64)
         dataList.add(104)

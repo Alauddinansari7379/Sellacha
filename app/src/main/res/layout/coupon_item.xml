@@ -9,38 +9,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:padding="5dp">
+             android:orientation="horizontal"
+           >
 
-            <RadioButton
-                android:id="@+id/ratingsRbtn"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp" />
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/nameCoupon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-                android:text="5"
-                android:textColor="@color/_6E7D86"
-                android:textSize="14sp" />
+                android:text="coupon"
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp"/>
 
             <TextView
-                android:layout_weight="1"
-                android:id="@+id/dateCoupon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/dateCoupon"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-                android:text="Uncle Sam"
-                android:textColor="@color/_6E7D86"
-                android:textSize="14sp" />
+                android:text="expiry date"
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.1">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgDeleteC"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_delete_"
+                    android:tint="@color/_EE4747"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.1">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgEditCoupon"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/edit"
+                    android:tint="@color/primary_bg"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

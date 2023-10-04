@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -75,6 +75,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="84dp"
+                android:background="@drawable/btn_background_new"
+                android:text="Save"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.appcompat.widget.AppCompatButton>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -103,14 +118,14 @@
             app:layout_constraintTop_toBottomOf="@+id/userProfile"
             app:tint="@color/_324754" />
 
-
-        <TextView
+    <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:fontFamily="@font/noto_sans_bold"
             android:padding="1dp"
+
             android:text="Jelina ddJoy"
             android:textColor="@color/heading_font"
             android:textSize="@dimen/_18sdp"
@@ -171,6 +186,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/layoutProfileSetting"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:gravity="center_vertical">

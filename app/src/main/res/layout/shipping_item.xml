@@ -5,13 +5,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:orientation="horizontal"
-            android:padding="5dp">
-
+            >
 
 
             <TextView
@@ -21,34 +19,55 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-                android:text="Singer"
+                android:text="coupon"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/priceShipping"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:fontFamily="@font/noto_sans_regular"
+                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-                android:text="Yes"
+                android:text="N/A"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp">
+                android:textSize="14sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.2">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgDeleteShi"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_delete_"
+                    android:tint="@color/_EE4747"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
 
-                <TextView
-                    android:id="@+id/priceShipping"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_regular"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:text="Yes"
-                    android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.2">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgEditShi"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/edit"
+                    android:tint="@color/primary_bg"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
+
             </LinearLayout>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

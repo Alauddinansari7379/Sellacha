@@ -4,15 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
-import com.android.sellacha.Products.Coupons.MOdel.ModelCoupons
-import com.android.sellacha.Products.categories.Model.ModelCategory
+import com.android.sellacha.Products.Coupons.MOdel.DataX
 import com.android.sellacha.R
 
 
-class AdapterCoupons(val context: Context, private val list: ModelCoupons,) :
+class AdapterCoupons(val context: Context, private val list: ArrayList<DataX>, val delete: Delete) :
     RecyclerView.Adapter<AdapterCoupons.MyViewHolder>() {
 
 
@@ -25,24 +24,36 @@ class AdapterCoupons(val context: Context, private val list: ModelCoupons,) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
 
-        holder.name.text = list.data.posts.data[position].name
-        holder.dateCoupon.text = list.data.posts.data[position].slug
-       // holder.varitionsTv.text = list.data.posts[position].v
+        holder.name.text = list[position].name
+        holder.dateCoupon.text = list[position].slug
 
-        // Glide.with(holder.categoryImg).load(list.data.posts.data[position].preview.content).into(holder.categoryImg)
+        holder.imgDeleteC.setOnClickListener {
+            delete.delete(list[position].id.toString())
+        }
+        holder.imgEditCoupon.setOnClickListener {
+            delete.edit(list[position].name,list[position].slug,list[position].id.toString())
+        }
+
 
     }
 
 
     override fun getItemCount(): Int {
-        return list.data.posts.data.size
+        return list.size
 
     }
 
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-          val name: TextView = itemView.findViewById(R.id.nameCoupon)
-          val dateCoupon: TextView = itemView.findViewById(R.id.dateCoupon)
+        val name: TextView = itemView.findViewById(R.id.nameCoupon)
+        val dateCoupon: TextView = itemView.findViewById(R.id.dateCoupon)
+        val imgDeleteC: ImageView = itemView.findViewById(R.id.imgDeleteC)
+        val imgEditCoupon: ImageView = itemView.findViewById(R.id.imgEditCoupon)
 
 
+    }
+
+    interface Delete {
+        fun delete(id: String)
+        fun edit( code: String, exDate: String,id: String,)
     }
 }

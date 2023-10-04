@@ -9,8 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.sellacha.Products.categories.Model.ModelCategory
-import com.android.sellacha.Products.categories.adapter.AdapterCategory
-import com.android.sellacha.R
+ import com.android.sellacha.R
 import com.android.sellacha.Report.model.ModelReort
 import com.android.sellacha.ReviewAndRating.adapter.AdapterReviewAndRating
 import com.android.sellacha.Transaction.adapter.AdapterReport

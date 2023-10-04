@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.sellacha.R;
 import com.android.sellacha.api.model.filterItemsDM;
 import com.android.sellacha.databinding.FilterNamesItemviewBinding;
-import com.android.sellacha.fragment.OrderFragment;
+import com.android.sellacha.Order.activity.OrderFragment;
 
 public class OrderFilterSelector extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context context;

@@ -1,5 +1,7 @@
 package com.android.sellacha.Registration
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,7 +42,11 @@ class UploadLogoFragment : Fragment() {
             findNavController(binding!!.getRoot()).navigate(R.id.colorSchemeFragment)
         }
 
-
+        binding!!.linearLayout4.setOnClickListener {
+            val httpIntent = Intent(Intent.ACTION_VIEW)
+            httpIntent.data = Uri.parse("http://thedemostore.in/logo.html")
+            startActivity(httpIntent)
+        }
 
         return binding!!.root
     }

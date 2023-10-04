@@ -95,21 +95,26 @@ class CreateBannerAdFragment : Fragment(), UploadRequestBody.UploadCallback {
             override fun onResponse(
                 call: Call<ModelCreateAd>, response: Response<ModelCreateAd>
             ) {
-                if (response.code()==200) {
-                    myToast(requireActivity(), response.body()!!.data)
-                    Navigation.findNavController(binding!!.root).navigate(R.id.CreateBumpAd)
-                    AppProgressBar.hideLoaderDialog()
-                } else{
-                    AppProgressBar.hideLoaderDialog()
-                    myToast(requireActivity(),"Something went Wrong")
+                try {
+                    if (response.code() == 200) {
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.CreateBumpAd)
+                        AppProgressBar.hideLoaderDialog()
+                    } else {
+                        AppProgressBar.hideLoaderDialog()
+                        myToast(requireActivity(), "Something went Wrong")
+                    }
+                }catch (e:Exception){
+                    e.printStackTrace()
                 }
-
 
             }
 
             override fun onFailure(call: Call<ModelCreateAd>, t: Throwable) {
                 myToast(requireActivity(),"Something went Wrong")
-              //  uploadImage()
+                AppProgressBar.hideLoaderDialog()
+
+                //  uploadImage()
                // AppProgressBar.hideLoaderDialog()
 
 

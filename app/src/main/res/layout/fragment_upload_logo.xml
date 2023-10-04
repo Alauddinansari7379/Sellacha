@@ -20,166 +20,167 @@
             android:layout_height="match_parent"
             android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/parentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <TextView
-                android:id="@+id/create_uploadLb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:text="Create/Upload Logo"
-                android:textColor="#0191B5"
-                android:textSize="@dimen/_22sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:src="@drawable/icn_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_uploadLb" />
-
-            <TextView
-                android:id="@+id/logoName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="Sellbetta Logo Maker"
-                android:textColor="@color/_324754"
-                android:textSize="@dimen/_18sdp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <TextView
-                android:id="@+id/nameLb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:text="Name"
-                android:textColor="@color/heading_font"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_5sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logoName" />
-
-            <TextView
-                android:id="@+id/taglineLb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:text="Tagline"
-                android:textColor="@color/heading_font"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_5sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtName" />
-
-            <TextView
-                android:id="@+id/searchiconLb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:visibility="gone"
-                android:text="Search Icon"
-                android:textColor="@color/heading_font"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_5sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTagline" />
-
-            <EditText
-                android:id="@+id/txtName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:backgroundTint="@color/light_gray"
-                android:fontFamily="@font/noto_sans_regular"
-                android:hint="Your Brand"
-                android:inputType="text"
-                android:textColor="#946A6363"
-                android:textCursorDrawable="@drawable/search_cursor"
-                android:padding="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameLb" />
-
-            <EditText
-                android:id="@+id/txtTagline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:backgroundTint="@color/light_gray"
-                android:hint="TagLine"
-                android:inputType="text"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/noto_sans_regular"
-                android:textColor="#946A6363"
-                android:textCursorDrawable="@drawable/search_cursor"
-                android:padding="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="@+id/txtName"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taglineLb" />
-
-            <EditText
-                android:id="@+id/txttagline2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:backgroundTint="@color/light_gray"
-                android:ems="10"
-                android:visibility="gone"
-                android:fontFamily="@font/noto_sans_regular"
-                android:textColor="#946A6363"
-                android:textCursorDrawable="@drawable/search_cursor"
-                android:padding="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintEnd_toEndOf="@+id/txtTagline"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchiconLb" />
-
-            <Button
-                android:id="@+id/saveBtn"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginBottom="28dp"
-                android:background="@drawable/btn_background"
-                android:gravity="center"
-                android:text="Save &amp; Next"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/parentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txttagline2"
-                app:layout_constraintVertical_bias="0.275"
-                tools:ignore="UnknownIdInLayout" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/create_uploadLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Create/Upload Logo"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/create_uploadLb">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:src="@drawable/logo_maker"
+                        tools:layout_editor_absoluteX="346dp"
+                        tools:layout_editor_absoluteY="90dp" />
+
+                    <TextView
+                        android:id="@+id/logoName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sellbetta Logo Maker"
+                        android:textColor="@color/_324754"
+                        android:textSize="@dimen/_18sdp"
+                        tools:layout_editor_absoluteX="192dp"
+                        tools:layout_editor_absoluteY="168dp" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/nameLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:text="Name"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+                <TextView
+                    android:id="@+id/taglineLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Tagline"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/txtName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+                <TextView
+                    android:id="@+id/searchiconLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_13sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Search Icon"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTagline" />
+
+                <EditText
+                    android:id="@+id/txtName"
+                    android:layout_width="378dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:backgroundTint="@color/light_gray"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="Your Brand"
+                    android:inputType="text"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textCursorDrawable="@drawable/search_cursor"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/nameLb"
+                    app:layout_constraintTop_toBottomOf="@+id/nameLb" />
+
+                <EditText
+                    android:id="@+id/txtTagline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:backgroundTint="@color/light_gray"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:hint="TagLine"
+                    app:layout_goneMarginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:inputType="text"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textCursorDrawable="@drawable/search_cursor"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/txtName"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/taglineLb" />
+
+                <EditText
+                    android:id="@+id/txttagline2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:backgroundTint="@color/light_gray"
+                    android:ems="10"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="#946A6363"
+                    android:textCursorDrawable="@drawable/search_cursor"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/txtTagline"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchiconLb" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginBottom="28dp"
+                    android:background="@drawable/btn_background"
+                    android:gravity="center"
+                    android:text="Save &amp; Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txttagline2"
+                    app:layout_constraintVertical_bias="0.275"
+                    tools:ignore="UnknownIdInLayout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

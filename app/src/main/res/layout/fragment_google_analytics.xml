@@ -87,10 +87,11 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:backgroundTint="@color/light_gray"
-                android:ems="10"
-                android:fontFamily="@font/noto_sans_regular"
+                 android:fontFamily="@font/noto_sans_regular"
                 android:hint="UA-123456789"
                 android:padding="@dimen/_6sdp"
+                android:inputType="text"
+                android:lines="1"
                 android:textColor="#946A6363"
                 android:textCursorDrawable="@drawable/search_cursor"
                 android:textSize="@dimen/_12sdp"
@@ -107,8 +108,9 @@
                 android:ems="10"
                 android:fontFamily="@font/noto_sans_regular"
                 android:hint="Enter location name"
-                android:inputType="textPersonName"
-                android:padding="@dimen/_6sdp"
+                 android:padding="@dimen/_6sdp"
+                android:inputType="text"
+                android:lines="1"
                 android:textColor="#946A6363"
                 android:textCursorDrawable="@drawable/search_cursor"
                 android:textSize="@dimen/_12sdp"
@@ -117,10 +119,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/analyticsIdLb" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/txtSatus"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/icn_drop_arrow"

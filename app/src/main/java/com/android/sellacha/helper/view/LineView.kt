@@ -340,31 +340,36 @@ class LineView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?
      * 0 1 2 3 4 5
      */
     private fun drawPopup(canvas: Canvas, num: Float, point: Point, PopupColor: Int) {
-        val numStr = if (showFloatNumInPopup) num.toString() else Math.round(num).toString()
-        val singularNum = numStr.length == 1
-        val sidePadding = MyUtils.dip2px(context, (if (singularNum) 8 else 5.toFloat()) as Float)
-        val x = point.x
-        val y = point.y - MyUtils.dip2px(context, 5f)
-        val popupTextRect = Rect()
-        popupTextPaint.getTextBounds(numStr, 0, numStr.length, popupTextRect)
-        val r = Rect(
-            x - popupTextRect.width() / 2 - sidePadding,
-            (y
-                    - popupTextRect.height()
-                    - bottomTriangleHeight) - popupTopPadding * 2 - popupBottomMargin,
-            x + popupTextRect.width() / 2 + sidePadding,
-            y + popupTopPadding - popupBottomMargin + popupBottomPadding
-        )
-        val popup = resources.getDrawable(R.drawable.popup_white) as NinePatchDrawable
-        popup.colorFilter = PorterDuffColorFilter(PopupColor, PorterDuff.Mode.MULTIPLY)
-        popup.bounds = r
-        popup.draw(canvas)
-        canvas.drawText(
-            numStr,
-            x.toFloat(),
-            (y - bottomTriangleHeight - popupBottomMargin).toFloat(),
-            popupTextPaint
-        )
+        try {
+            val numStr = if (showFloatNumInPopup) num.toString() else Math.round(num).toString()
+            val singularNum = numStr.length == 1
+            val sidePadding =
+                MyUtils.dip2px(context, (if (singularNum) 8 else 5.toFloat()) as Float)
+            val x = point.x
+            val y = point.y - MyUtils.dip2px(context, 5f)
+            val popupTextRect = Rect()
+            popupTextPaint.getTextBounds(numStr, 0, numStr.length, popupTextRect)
+            val r = Rect(
+                x - popupTextRect.width() / 2 - sidePadding,
+                (y
+                        - popupTextRect.height()
+                        - bottomTriangleHeight) - popupTopPadding * 2 - popupBottomMargin,
+                x + popupTextRect.width() / 2 + sidePadding,
+                y + popupTopPadding - popupBottomMargin + popupBottomPadding
+            )
+            val popup = resources.getDrawable(R.drawable.popup_white) as NinePatchDrawable
+            popup.colorFilter = PorterDuffColorFilter(PopupColor, PorterDuff.Mode.MULTIPLY)
+            popup.bounds = r
+            popup.draw(canvas)
+            canvas.drawText(
+                numStr,
+                x.toFloat(),
+                (y - bottomTriangleHeight - popupBottomMargin).toFloat(),
+                popupTextPaint
+            )
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     private val popupHeight: Int
@@ -382,84 +387,93 @@ class LineView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?
         }
 
     private fun drawDots(canvas: Canvas) {
-        val bigCirPaint = Paint()
-        bigCirPaint.isAntiAlias = true
-        val smallCirPaint = Paint(bigCirPaint)
-        smallCirPaint.color = Color.parseColor("#FFFFFF")
-        if (drawDotLists != null && drawDotLists.isNotEmpty()) {
-            for (k in drawDotLists.indices) {
-                bigCirPaint.color = colorArray[k % colorArray.size]
-                for (dot in drawDotLists[k]) {
-                    canvas.drawCircle(
-                        dot.x.toFloat(),
-                        dot.y,
-                        DOT_OUTER_CIR_RADIUS.toFloat(),
-                        bigCirPaint
-                    )
-                    canvas.drawCircle(
-                        dot.x.toFloat(),
-                        dot.y,
-                        DOT_INNER_CIR_RADIUS.toFloat(),
-                        smallCirPaint
-                    )
+        try {
+            val bigCirPaint = Paint()
+            bigCirPaint.isAntiAlias = true
+            val smallCirPaint = Paint(bigCirPaint)
+            smallCirPaint.color = Color.parseColor("#FFFFFF")
+            if (drawDotLists != null && drawDotLists.isNotEmpty()) {
+                for (k in drawDotLists.indices) {
+                    bigCirPaint.color = colorArray[k % colorArray.size]
+                    for (dot in drawDotLists[k]) {
+                        canvas.drawCircle(
+                            dot.x.toFloat(),
+                            dot.y,
+                            DOT_OUTER_CIR_RADIUS.toFloat(),
+                            bigCirPaint
+                        )
+                        canvas.drawCircle(
+                            dot.x.toFloat(),
+                            dot.y,
+                            DOT_INNER_CIR_RADIUS.toFloat(),
+                            smallCirPaint
+                        )
+                    }
                 }
             }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
     }
 
     private fun drawLines(canvas: Canvas) {
-        val linePaint = Paint()
-        linePaint.isAntiAlias = true
-        linePaint.strokeWidth = 7f
-        for (k in drawDotLists!!.indices) {
-            linePaint.color = colorArray[k % colorArray.size]
-            for (i in 0 until drawDotLists[k].size - 1) {
-                canvas.drawLine(
-                    drawDotLists[k][i].x.toFloat(), drawDotLists[k][i].y,
-                    drawDotLists[k][i + 1].x.toFloat(), drawDotLists[k][i + 1].y,
-                    linePaint
-                )
+        try {
+            val linePaint = Paint()
+            linePaint.isAntiAlias = true
+            linePaint.strokeWidth = 7f
+            for (k in drawDotLists!!.indices) {
+                linePaint.color = colorArray[k % colorArray.size]
+                for (i in 0 until drawDotLists[k].size - 1) {
+                    canvas.drawLine(
+                        drawDotLists[k][i].x.toFloat(), drawDotLists[k][i].y,
+                        drawDotLists[k][i + 1].x.toFloat(), drawDotLists[k][i + 1].y,
+                        linePaint
+                    )
+                }
             }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
     }
 
     private fun drawBackgroundLines(canvas: Canvas) {
-        val paint = Paint()
-        paint.style = Paint.Style.STROKE
-        paint.strokeWidth = MyUtils.dip2px(context, 1f).toFloat()
-        paint.color = BACKGROUND_LINE_COLOR
-        val effects: PathEffect = DashPathEffect(floatArrayOf(10f, 5f, 10f, 5f), 1f)
+        try {
+            val paint = Paint()
+            paint.style = Paint.Style.STROKE
+            paint.strokeWidth = MyUtils.dip2px(context, 1f).toFloat()
+            paint.color = BACKGROUND_LINE_COLOR
+            val effects: PathEffect = DashPathEffect(floatArrayOf(10f, 5f, 10f, 5f), 1f)
 
-        //draw vertical lines
-        for (i in xCoordinateList.indices) {
-            canvas.drawLine(
-                xCoordinateList[i].toFloat(), 0f, xCoordinateList[i].toFloat(),
-                (
-                        mViewHeight - bottomTextTopMargin - bottomTextHeight - bottomTextDescent).toFloat(),
-                paint
-            )
-        }
-
-        //draw dotted lines
-        paint.pathEffect = effects
-        val dottedPath = Path()
-        for (i in yCoordinateList.indices) {
-            if ((yCoordinateList.size - 1 - i) % dataOfAGird == 0) {
-                dottedPath.moveTo(0f, yCoordinateList[i].toFloat())
-                dottedPath.lineTo(width.toFloat(), yCoordinateList[i].toFloat())
-                canvas.drawPath(dottedPath, paint)
-            }
-        }
-        //draw bottom text
-        if (bottomTextList != null) {
-            for (i in bottomTextList!!.indices) {
-                canvas.drawText(
-                    bottomTextList!![i], (sideLineLength + backgroundGridWidth * i).toFloat(),
+            //draw vertical lines
+            for (i in xCoordinateList.indices) {
+                canvas.drawLine(
+                    xCoordinateList[i].toFloat(), 0f, xCoordinateList[i].toFloat(),
                     (
-                            mViewHeight - bottomTextDescent).toFloat(), bottomTextPaint
+                            mViewHeight - bottomTextTopMargin - bottomTextHeight - bottomTextDescent).toFloat(),
+                    paint
                 )
             }
-        }
+
+            //draw dotted lines
+            paint.pathEffect = effects
+            val dottedPath = Path()
+            for (i in yCoordinateList.indices) {
+                if ((yCoordinateList.size - 1 - i) % dataOfAGird == 0) {
+                    dottedPath.moveTo(0f, yCoordinateList[i].toFloat())
+                    dottedPath.lineTo(width.toFloat(), yCoordinateList[i].toFloat())
+                    canvas.drawPath(dottedPath, paint)
+                }
+            }
+            //draw bottom text
+            if (bottomTextList != null) {
+                for (i in bottomTextList!!.indices) {
+                    canvas.drawText(
+                        bottomTextList!![i], (sideLineLength + backgroundGridWidth * i).toFloat(),
+                        (
+                                mViewHeight - bottomTextDescent).toFloat(), bottomTextPaint
+                    )
+                }
+            }
 
 //        if (!drawDotLine) {
 //            //draw solid lines
@@ -470,6 +484,9 @@ class LineView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?
 //                }
 //            }
 //        }
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

@@ -77,10 +77,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/yourPixelIdLb" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/txtStatus"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/icn_drop_arrow"

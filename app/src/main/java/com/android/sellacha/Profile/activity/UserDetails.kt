@@ -41,25 +41,28 @@ class UserDetails : AppCompatActivity() {
                 override fun onResponse(
                     call: Call<ModelUserDetial>, response: Response<ModelUserDetial>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(this@UserDetails, "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+                    try {
+                        if (response.code() == 500) {
+                            myToast(this@UserDetails, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.success) {
-                        binding.edtFirstName.text = response.body()!!.data.first_name.toString()
-                        binding.edtLastName.text = response.body()!!.data.last_name.toString()
-                        binding.edtName.text = response.body()!!.data.name
-                        binding.edtEmail.text = response.body()!!.data.email
-                        binding.edtMobileNumber.text = response.body()!!.data.mob
-                        binding.edtCity.text = response.body()!!.data.city.toString()
-                        AppProgressBar.hideLoaderDialog()
+                        } else if (response.body()!!.success) {
+                             binding.edtName.text = response.body()!!.data.name
+                            binding.edtEmail.text = response.body()!!.data.email
+                            binding.edtMobileNumber.text = response.body()!!.data.mob
+                             AppProgressBar.hideLoaderDialog()
 
 
-                    } else {
-                        myToast(this@UserDetails, "Something went wrong")
+                        } else {
+                            myToast(this@UserDetails, "Something went wrong")
 
-                        AppProgressBar.hideLoaderDialog()
+                            AppProgressBar.hideLoaderDialog()
 
+
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                        myToast(this@UserDetails, "Something Went Wrong")
 
                     }
                 }

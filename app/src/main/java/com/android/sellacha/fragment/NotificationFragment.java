@@ -37,9 +37,9 @@ public class NotificationFragment extends Fragment {
         notificationResponses.add(new NotificationResponse("Your Order Delivered", "01 Jul 2022"));
 
 
-        binding.notificationList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        notificationAdapter = new NotificationAdapter(getContext(), notificationResponses);
-        binding.notificationList.setAdapter(notificationAdapter);
+//        binding.notificationList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+//        notificationAdapter = new NotificationAdapter(getContext(), notificationResponses);
+//        binding.notificationList.setAdapter(notificationAdapter);
         ;
         return binding.getRoot();
     }

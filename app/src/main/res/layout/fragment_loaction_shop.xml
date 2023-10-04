@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <LinearLayout
+                android:id="@+id/parentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_curve_bg"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="0dp">
+
+
+                <TextView
+                    android:id="@+id/addCatgLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Location"
+                    android:textColor="#0191B5"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Company"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/Company"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner"
+                        android:hint="Company"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:hint="Address"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="City"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/City"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner"
+                        android:hint="City"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="State"
+                                android:layout_weight="1"
+                                android:textColor="@color/heading_font"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                                app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Postal / Zip Code"
+                                android:layout_weight="1"
+                                android:textColor="@color/heading_font"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                                app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/_5sdp"
+         >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/State"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+             android:background="@drawable/corner"
+            android:hint="State"
+            android:maxLines="1"
+            android:inputType="text"
+            android:maxLength="6"
+             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_12sdp">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/ZipCode"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/corner"
+        android:hint="123456"
+        android:maxLines="1"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_weight="1"
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_12sdp">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+</LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/Email"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner"
+                        android:hint="Email"
+                        android:maxLines="1"
+                         android:inputType="textEmailAddress"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/Phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/corner"
+                        android:hint="234234243"
+                        android:maxLength="10"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Invoice Description"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/addCatgLb"
+                        app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/InvoiceDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_55sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="start"
+                        android:maxLines="4"
+                        android:inputType="textMultiLine"
+                        android:background="@drawable/corner"
+                        android:hint="Invoice Description"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/saveBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@drawable/btn_background"
+                        android:gravity="center"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtNoFile"
+                        app:layout_constraintVertical_bias="0.083"
+                        tools:ignore="UnknownIdInLayout" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -20,8 +20,12 @@ public class SettingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false);
-        binding.genrelConstrint.setOnClickListener(view -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.generalSettingFragment);
+//        binding.genrelConstrint.setOnClickListener(view -> {
+//            Navigation.findNavController(binding.getRoot()).navigate(R.id.generalSettingFragment);
+//        });
+
+        binding.locationTv1.setOnClickListener(view -> {
+            Navigation.findNavController(binding.getRoot()).navigate(R.id.locationFragment);
         });
         return binding.getRoot();
     }

@@ -1,52 +1,36 @@
 package com.android.sellacha.Order.activity
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.sellacha.Order.Model.DataX
+import com.android.sellacha.Order.Model.ModelAddToCart
 import com.android.sellacha.Order.Model.ModelCreateShow
-import com.android.sellacha.Order.adapter.AdapterCrreateShow
-import com.android.sellacha.Products.Inventory.Model.Modelinventory
-import com.android.sellacha.Products.Inventory.adapter.AdapterInventory
 import com.android.sellacha.R
-import com.android.sellacha.activity.CheckOut
-import com.android.sellacha.adapter.ProductAdapter
-import com.android.sellacha.adapter.ProductFilterSelector
-import com.android.sellacha.api.ApiResponse
-import com.android.sellacha.api.model.filterItemsDM
-import com.android.sellacha.api.response.Product.DataItem
-import com.android.sellacha.api.response.Product.GetAllProduct
-import com.android.sellacha.api.service.MainService
+import com.android.sellacha.Order.adapter.AdapterCrreateShow
 import com.android.sellacha.databinding.FragmentCreateOrderShowBinding
-import com.android.sellacha.databinding.FragmentProductBinding
-import com.android.sellacha.dialog.AppDialog
 import com.android.sellacha.fragment.BaseFragment
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.example.ehcf.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
-import com.google.gson.Gson
-import com.google.gson.JsonNull
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class CreateOrderShowFragment : BaseFragment(),AdapterCrreateShow.AddProduct {
+
+class CreateOrderShowFragment : BaseFragment(), AdapterCrreateShow.AddProduct {
     var binding: FragmentCreateOrderShowBinding? = null
     lateinit var sessionManager: SessionManager
+
+    private var mainData = ArrayList<DataX>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,21 +41,26 @@ class CreateOrderShowFragment : BaseFragment(),AdapterCrreateShow.AddProduct {
         apiCallOrderShow()
 
 
-        binding!!.imRefresh.setOnClickListener {
-            apiCallOrderShow()
-        }
         binding!!.Proceed.setOnClickListener {
              startActivity(Intent(mContext, CheckOut::class.java))
-
         }
-        binding!!.imgSearch.setOnClickListener {
+
+        binding!!.searchTxt.addTextChangedListener { str ->
+            setRecyclerViewAdapter(mainData.filter {
+                it!!.title!!.contains(
+                    str.toString(),
+                    ignoreCase = true
+                )
+            } as java.util.ArrayList<DataX>)
+        }
+     /*   binding!!.imgSearch.setOnClickListener {
             if (binding!!.edtId.text.isEmpty()){
-                binding!!.edtId.error="Enter Product Id"
+                binding!!.edtId.error="Enter Product Name"
                 binding!!.edtId.requestFocus()
                 return@setOnClickListener
             }
             apiCallOrderShowSearch()
-        }
+        }*/
         return binding!!.root
 
 
@@ -86,27 +75,45 @@ class CreateOrderShowFragment : BaseFragment(),AdapterCrreateShow.AddProduct {
                 override fun onResponse(
                     call: Call<ModelCreateShow>, response: Response<ModelCreateShow>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
+                    try {
+                        if (response.code() == 200) {
+                            mainData = response.body()!!.data.posts.data
+                            AppProgressBar.hideLoaderDialog()
+
+                        }
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.body()!!.data.posts.data.isEmpty()) {
+                            binding!!.inventoryRv.adapter =
+                                activity?.let {
+
+                                    AdapterCrreateShow(
+                                        it,
+                                        response.body()!!.data.posts.data,
+                                        this@CreateOrderShowFragment
+                                    )
+                                }
+                             myToast(requireActivity(), "No Data Found")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            binding!!.inventoryRv.adapter =
+                                activity?.let {
+                                    AdapterCrreateShow(
+                                        it,
+                                        response.body()!!.data.posts.data,
+                                        this@CreateOrderShowFragment
+                                    )
+
+                                }
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
                         AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.data.posts.data.isEmpty()) {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let {
-
-                                AdapterCrreateShow(it, response.body()!!,this@CreateOrderShowFragment)
-                            }
-                        binding!!.inventoryRv.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Data Found")
-                        AppProgressBar.hideLoaderDialog()
-
-                    } else {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let {
-                                AdapterCrreateShow(it, response.body()!!,this@CreateOrderShowFragment)
-
-                            }
-                        AppProgressBar.hideLoaderDialog()
                     }
                 }
 
@@ -114,63 +121,55 @@ class CreateOrderShowFragment : BaseFragment(),AdapterCrreateShow.AddProduct {
                     // myToast(requireActivity(),t.message.toString())
                     // myToast(requireActivity(), "Something went wrong")
                     apiCallOrderShow()
-
-                    AppProgressBar.hideLoaderDialog()
-
-
                 }
 
             })
     }
-    private fun apiCallOrderShowSearch() {
-        AppProgressBar.showLoaderDialog(requireContext())
 
-        ApiClient.apiService.productSearch(sessionManager.authToken,binding!!.edtId.text.toString(),"title")
-            .enqueue(object : Callback<ModelCreateShow> {
+    private fun setRecyclerViewAdapter(data: java.util.ArrayList<DataX>) {
+        binding!!.inventoryRv.apply {
+            adapter = context?.let { AdapterCrreateShow(requireContext(), data,this@CreateOrderShowFragment) }
+        }
+    }
+
+
+    override fun addItem(termId: String, qty: String) {
+        AppProgressBar.showLoaderDialog(requireContext())
+        ApiClient.apiService.addToCart(sessionManager.authToken,termId,qty)
+            .enqueue(object : Callback<ModelAddToCart> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelCreateShow>, response: Response<ModelCreateShow>
+                    call: Call<ModelAddToCart>, response: Response<ModelAddToCart>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+                    try {
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.data.posts.data.isEmpty()) {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let {
+                        }  else if (response.code() == 404) {
+                             myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
 
-                                AdapterCrreateShow(it, response.body()!!,this@CreateOrderShowFragment)
-                            }
-                        binding!!.inventoryRv.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Data Found")
-                        AppProgressBar.hideLoaderDialog()
-
-                    } else {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let {
-                                AdapterCrreateShow(it, response.body()!!,this@CreateOrderShowFragment)
-
-                            }
-                        AppProgressBar.hideLoaderDialog()
+                        } else {
+                            myToast(requireActivity(), "Item Added In Cart")
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
                     }
                 }
 
-                override fun onFailure(call: Call<ModelCreateShow>, t: Throwable) {
+                override fun onFailure(call: Call<ModelAddToCart>, t: Throwable) {
                     // myToast(requireActivity(),t.message.toString())
                     // myToast(requireActivity(), "Something went wrong")
-                    apiCallOrderShowSearch()
-
+                    //apiCallOrderShowSearch()
+                    addItem(termId,qty)
                     AppProgressBar.hideLoaderDialog()
 
 
                 }
 
-            })
-    }
-
-    override fun addItem() {
-        TODO("Not yet implemented")
-    }
+            })    }
 
 
 }

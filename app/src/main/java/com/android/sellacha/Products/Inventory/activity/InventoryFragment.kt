@@ -5,11 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import com.android.sellacha.Products.Inventory.Model.DataInverntor
 import com.android.sellacha.Products.Inventory.adapter.AdapterInventory
 import com.android.sellacha.Products.Inventory.Model.Modelinventory
+import com.android.sellacha.Products.Inventory.Model.Posts
 import com.android.sellacha.Products.Inventory.Model.Term
 import com.android.sellacha.R
+import com.android.sellacha.api.response.Product.DataItem
 import com.android.sellacha.databinding.FragmentInventoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
@@ -18,11 +22,16 @@ import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
+import androidx.core.widget.addTextChangedListener
+
+
 
 class InventoryFragment : Fragment() {
     var binding: FragmentInventoryBinding? = null
     private lateinit var sessionManager: SessionManager
     private lateinit var inventoryList: Array<Term>
+    private var mainData =ArrayList<DataInverntor>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +46,14 @@ class InventoryFragment : Fragment() {
         binding = FragmentInventoryBinding.bind(view)
         sessionManager= SessionManager(requireContext())
 
+        binding!!.searchTxt.addTextChangedListener { str ->
+            setRecyclerViewAdapter(mainData.filter {
+                it!!.term.title!!.contains(
+                    str.toString(),
+                    ignoreCase = true
+                )
+            } as ArrayList<DataInverntor>)
+        }
 
         apiCallInventory()
 
@@ -52,26 +69,36 @@ class InventoryFragment : Fragment() {
                 override fun onResponse(
                     call: Call<Modelinventory>, response: Response<Modelinventory>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+                    try {
+                        if (response.code() == 200) {
+                            mainData = response.body()!!.data.posts.data
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.data.posts.data.isEmpty()) {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let {
+                        }
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
 
-                                AdapterInventory(it, response.body()!!)
-                            }
-                        binding!!.inventoryRv.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Data Found")
-                        AppProgressBar.hideLoaderDialog()
+                        } else if (response.body()!!.data.posts.data.isEmpty()) {
+                            binding!!.inventoryRv.adapter =
+                                activity?.let {
 
-                    } else {
-                        binding!!.inventoryRv.adapter =
-                            activity?.let { AdapterInventory(it, response.body()!!)
+                                    AdapterInventory(it, response.body()!!.data.posts.data)
+                                }
+                            binding!!.inventoryRv.adapter!!.notifyDataSetChanged()
+                            myToast(requireActivity(), "No Data Found")
+                            AppProgressBar.hideLoaderDialog()
 
-                            }
-                        AppProgressBar.hideLoaderDialog()
+                        } else {
+                            binding!!.inventoryRv.adapter =
+                                activity?.let {
+                                    AdapterInventory(it, response.body()!!.data.posts.data)
+
+                                }
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
                     }
                 }
 
@@ -87,6 +114,13 @@ class InventoryFragment : Fragment() {
 
             })
     }
+
+    private fun setRecyclerViewAdapter(data: ArrayList<DataInverntor>) {
+        binding!!.inventoryRv.apply {
+            adapter = context?.let { AdapterInventory(requireContext(), data) }
+         }
+    }
+
 //    private fun filter(text: String) {
 //        // creating a new array list to filter our data.
 //        val filteredlist = ArrayList<Term>()

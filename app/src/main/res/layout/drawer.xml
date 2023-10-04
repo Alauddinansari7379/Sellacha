@@ -549,12 +549,141 @@
                         android:textColor="@color/heading_font" />
 
                     <ImageView
+                        android:id="@+id/setting_icon_arrow"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="@dimen/_25sdp"
                         android:src="@drawable/icn_next_arrow" />
                 </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/layoutSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/_F8F8F8"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/PaymentOBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Payment Options"
+                        android:textColor="@color/heading_font" />
+
+                    <TextView
+                        android:id="@+id/SubscriptionsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Subscriptions"
+                        android:textColor="@color/heading_font" />
+                    <TextView
+                        android:id="@+id/DomainSBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Domain Setting"
+                        android:textColor="@color/heading_font" />
+                    <TextView
+                        android:id="@+id/ThemesAndApk"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Themes &amp; apk"
+                        android:textColor="@color/heading_font" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ShopSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/ShopSettingsIcons"
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:src="@drawable/icn_settings" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_toEndOf="@id/ShopSettingsIcons"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:text="Shop Settings"
+                        android:textColor="@color/heading_font" />
+
+                    <ImageView
+                        android:id="@+id/ShopSettingIconArrow"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_25sdp"
+                        android:src="@drawable/icn_next_arrow" />
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/layoutShopSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/_F8F8F8"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/GeneralShop"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="General"
+                        android:textColor="@color/heading_font" />
+
+                    <TextView
+                        android:id="@+id/LocationShop"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Location"
+                        android:textColor="@color/heading_font" />
+                    <TextView
+                        android:id="@+id/OtherShop"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Other"
+                        android:visibility="gone"
+                        android:textColor="@color/heading_font" />
+                 </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/marketingTools"
@@ -662,6 +791,28 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="Upgrade your Plan"
+                        android:textColor="@color/heading_font" />
+                </LinearLayout>
+                <LinearLayout
+
+                    android:id="@+id/CustomerSupport"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:src="@drawable/customer_support"
+                        app:tint="@color/heading_font" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:text="Customer Support"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 

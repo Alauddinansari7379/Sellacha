@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/orderDetailLL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_3sdp">
+
+
+        <TextView
+            android:id="@+id/orderNameS"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+             android:gravity="center"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:text="ORDER "
+             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/nameS"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+
+            android:text="NAME"
+             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/PURCHASE"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:text="PURCHASE DATE"
+             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/EXPIRY"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:text="EXPIRY DATE"
+             android:textSize="14sp" />
+        <TextView
+            android:id="@+id/totalSub"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:text="TOTAL"
+             android:textSize="14sp" />
+        <TextView
+            android:id="@+id/TAX"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:text="TAX"
+             android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/PAYMENTM"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:text="PAYMENT METHOD"
+             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/PAYMENTS"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:text="PAYMENT STATUS"
+             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/FULFILLMENT"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/noto_sans_regular"
+            android:textColor="@color/semi_title_font"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="FULFILLMENT"
+             android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

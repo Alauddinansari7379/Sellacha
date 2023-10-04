@@ -33,6 +33,7 @@ class SessionManager(context: Context?) {
         private const val WALLET="wallet"
         private const val BOOKING_TYPE="bookingType"
         private const val PRICE="pricing"
+
         private const val SELECTED_DATE="selected_date"
     }
 
@@ -124,6 +125,10 @@ class SessionManager(context: Context?) {
         set(selectedDate) {
             prefs.edit().putString(SELECTED_DATE, selectedDate).apply()
         }
-
+    var profilePic: String?
+        get() = prefs.getString(PROFILE_PICTURE, "")
+        set(profilePic) {
+            prefs.edit().putString(PROFILE_PICTURE, profilePic).apply()
+        }
 
 }

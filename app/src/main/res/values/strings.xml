@@ -4,7 +4,7 @@
     <string name="home">Home</string>
     <string name="email">Email</string>
     <string name="welcome_back">Welcome Back !</string>
-    <string name="tag_line">We make it easy for everyone to ordering food</string>
+    <string name="tag_line">We make it easy for everyone to manage order</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="password">Password</string>
@@ -72,6 +72,7 @@
     <string name="variations">VARIATIONS</string>
     <string name="categories">Categories</string>
     <string name="create_category">Create Category</string>
+    <string name="create_brand">Create Brand</string>
     <string name="inventory">Inventory</string>
     <string name="product">PRODUCT</string>
     <string name="sku">SKU</string>

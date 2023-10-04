@@ -18,7 +18,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sellacha"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity
+            android:name=".support.CustomerSupport"
+            android:exported="false" />
+        <activity
+            android:name=".Profile.activity.UpdateProfile"
+            android:exported="false" />
         <activity
             android:name=".Registration.RegistrationSucess"
             android:exported="false" />
@@ -35,10 +43,11 @@
             android:name=".activity.OtpActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ForgotPassword"
+            android:name=".LogIn.ForgotPassword"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true" />
         <activity
-            android:name=".activity.CheckOut"
+            android:name=".Order.activity.CheckOut"
             android:exported="true" />
         <activity
             android:name=".Profile.activity.ProfileActivity"

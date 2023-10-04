@@ -81,79 +81,197 @@
                         app:layout_constraintTop_toBottomOf="@+id/themeColorLb" />
 
 
-                    <TextView
-                        android:id="@+id/chooseFavicon"
-                        android:layout_width="@dimen/_80sdp"
+                    <LinearLayout
+                        android:id="@+id/linearLayoutFav"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/light_white_10sdp"
-                        android:elevation="1dp"
-                        android:padding="@dimen/_6sdp"
-                        android:text="Choose file"
-                        android:textAlignment="center"
-                        android:textColor="#9F757C7C"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toEndOf="@+id/chooseLogo"
-                        app:layout_constraintStart_toStartOf="@+id/logoLb"
-                        app:layout_constraintTop_toBottomOf="@+id/faviconLb" />
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/faviconLb">
 
+                        <LinearLayout
+                            android:id="@+id/layoutCameraFav"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/primary_bg"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@drawable/camera"
+                                    android:backgroundTint="@color/white" />
+
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Camera">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutGalleryFav"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/primary_bg"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@drawable/ic_menu_gallery"
+                                    android:backgroundTint="@color/white" />
+
+                            </LinearLayout>
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gallery">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/logotxtNoFileFav"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="15dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/faviconLb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:text="Favicon"
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
-                        app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
+                        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
-                    <TextView
-                        android:id="@+id/txtNoFile"
-                        android:layout_width="wrap_content"
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout6"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:text="No file chosen"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/logoLb">
 
-                        android:textColor="#9F757C7C"
+                        <LinearLayout
+                            android:id="@+id/layoutCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/primary_bg"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@drawable/camera"
+                                    android:backgroundTint="@color/white" />
+
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Camera">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/primary_bg"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:background="@drawable/ic_menu_gallery"
+                                    android:backgroundTint="@color/white" />
+
+                            </LinearLayout>
 
 
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/chooseFavicon"
-                        app:layout_constraintStart_toEndOf="@+id/chooseFavicon"
-                        app:layout_constraintTop_toTopOf="@+id/chooseFavicon" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gallery">
 
-                    <TextView
-                        android:id="@+id/chooseLogo"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/light_white_10sdp"
-                        android:elevation="1dp"
-                        android:padding="@dimen/_6sdp"
-                        android:text="Choose file"
-                        android:textAlignment="center"
-                        android:textColor="#9F757C7C"
-                        android:textSize="12dp"
-                        app:layout_constraintStart_toStartOf="@+id/logoLb"
-                        app:layout_constraintTop_toBottomOf="@+id/logoLb" />
+                            </androidx.appcompat.widget.AppCompatTextView>
 
+                        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/logotxtNoFile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
+                        <TextView
+                            android:id="@+id/logotxtNoFile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="15dp" />
 
-                        android:text="No file chosen"
+                    </LinearLayout>
 
-
-                        android:textColor="#9F757C7C"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
-                        app:layout_constraintStart_toEndOf="@+id/chooseLogo"
-                        app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
 
                     <Button
                         android:id="@+id/saveBtn"
@@ -177,9 +295,8 @@
                         android:id="@+id/constraintLayout4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_10sdp"
-                        app:layout_constraintTop_toBottomOf="@+id/chooseFavicon">
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayoutFav">
 
                         <TextView
                             android:id="@+id/status"
@@ -235,9 +352,9 @@
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_regular"
                             android:gravity="left|center"
+                            android:hint="facebook.com"
                             android:padding="8dp"
                             android:paddingStart="@dimen/_15sdp"
-                            android:hint="facebook.com"
                             android:textSize="@dimen/_11sdp"
 
                             app:layout_constraintEnd_toEndOf="parent"
@@ -275,9 +392,9 @@
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_regular"
                             android:gravity="left|center"
+                            android:hint="fa-fa-facebook"
                             android:padding="8dp"
                             android:paddingStart="@dimen/_15sdp"
-                            android:hint="fa-fa-facebook"
                             android:textSize="@dimen/_11sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

@@ -51,10 +51,14 @@ class LoginActivity : BaseActivity() {
             //binding.passwordEdt.transformationMethod =PasswordTransformationMethod(false)
             //binding.passwordToggle.sw
         }
+        binding.forgotPsTxt.setOnClickListener {
+            startActivity(Intent(context, ForgotPassword::class.java))
+        }
 
 
 
         (StoreInformation()).reset()
+
         if (sessionManager.isLogin) {
             startActivity(Intent(context, HomeDashBoard::class.java))
             finish()

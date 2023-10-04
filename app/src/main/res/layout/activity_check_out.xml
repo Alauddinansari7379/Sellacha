@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primary_bg"
-        tools:context=".activity.CheckOut">
+        tools:context=".Order.activity.CheckOut">
 
 
         <TextView
@@ -64,11 +64,12 @@
                     android:paddingStart="@dimen/_15sdp"
                     android:paddingEnd="@dimen/_15sdp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:id="@+id/cardView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_40sdp"
+                        android:orientation="vertical"
+                         android:layout_marginTop="@dimen/_40sdp"
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -89,105 +90,132 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/taxTxt"
-                            android:layout_width="0dp"
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerViewCart"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#F8F8F8"
-                            android:padding="@dimen/_11sdp"
-                            android:paddingStart="@dimen/_14sdp"
-                            android:paddingTop="@dimen/_10sdp"
-                            android:text="Tax"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintEnd_toStartOf="@+id/taxPriceTxt"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/cartItemsTxt" />
-
-                        <TextView
-                            android:id="@+id/taxPriceTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:background="#F8F8F8"
-                            android:fontFamily="@font/noto_sans_semi_bold"
-                            android:padding="@dimen/_10sdp"
-                            android:gravity="center_vertical|end"
-                            android:paddingEnd="@dimen/_20sdp"
-                            android:text="100 Rs"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/taxTxt"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/totalTxt"
-                            app:layout_constraintTop_toTopOf="@+id/taxTxt" />
-
-                        <TextView
-                            android:id="@+id/totalTxt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#F8F8F8"
-                            android:padding="@dimen/_10sdp"
-                            android:paddingStart="@dimen/_14sdp"
-                            android:paddingTop="@dimen/_10sdp"
-                            android:text="Total"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/taxTxt" />
-
-                        <TextView
-                            android:id="@+id/totalPriceTxt"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:background="#F8F8F8"
-                            android:fontFamily="@font/noto_sans_semi_bold"
-                            android:gravity="center_vertical|end"
-                            android:padding="@dimen/_10sdp"
-                            android:paddingEnd="@dimen/_20sdp"
-                            android:text="100 Rs"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/totalTxt"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/totalTxt"
-                            app:layout_constraintTop_toTopOf="@+id/totalTxt" />
-
-                        <TextView
-                            android:id="@+id/textView19"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:elevation="1dp"
-                            android:background="@drawable/fields_bg"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/_15sdp"
-                            android:paddingStart="@dimen/_15sdp"
-                            android:text="Promo Code"
-                            android:textColor="@color/heading_font"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:nestedScrollingEnabled="false"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/totalTxt" />
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                            />
 
-                        <Button
-                            android:id="@+id/redeenBtn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:background="@drawable/custom_btn"
-                            android:text="Redeem"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView19"
-                            app:layout_constraintEnd_toEndOf="@+id/textView19"
-                            app:layout_constraintTop_toTopOf="@+id/textView19" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:orientation="horizontal">
+    <TextView
+        android:id="@+id/taxTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:layout_weight="1"
+        android:padding="@dimen/_11sdp"
+        android:paddingStart="@dimen/_14sdp"
+         android:text="Tax"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/taxPriceTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartItemsTxt" />
+
+    <TextView
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:layout_weight="1"
+        android:padding="@dimen/_11sdp"
+        android:paddingStart="@dimen/_14sdp"
+        android:gravity="end"
+        android:text="00"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/taxPriceTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartItemsTxt" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:layout_weight="1"
+        android:padding="@dimen/_11sdp"
+        android:paddingStart="@dimen/_14sdp"
+         android:text="Total"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/taxPriceTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartItemsTxt" />
+
+    <TextView
+        android:id="@+id/finleTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:layout_weight="1"
+        android:padding="@dimen/_11sdp"
+        android:paddingStart="@dimen/_14sdp"
+        android:gravity="end"
+        android:text="00"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toStartOf="@+id/taxPriceTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartItemsTxt" />
+</LinearLayout>
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/textView19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:elevation="1dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/fields_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_15sdp"
+        android:paddingStart="@dimen/_15sdp"
+        android:hint="Promo Code"
+        android:textColor="@color/heading_font"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalTxt" />
+
+    <Button
+        android:id="@+id/redeenBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/custom_btn"
+        android:text="Redeem"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="@+id/textView19"
+        app:layout_constraintTop_toTopOf="@+id/textView19" />
+</LinearLayout>
+
+
+                    </LinearLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/billiingLT"
@@ -201,8 +229,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/top_curve_heading"
                             android:fontFamily="@font/noto_sans_semi_bold"
-                            android:paddingStart="@dimen/_14sdp"
                             android:padding="@dimen/_10sdp"
+                            android:paddingStart="@dimen/_14sdp"
                             android:paddingTop="@dimen/_10sdp"
                             android:text="Billing Address"
                             android:textColor="@color/black"
@@ -211,13 +239,15 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/customerNameLb"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:background="@drawable/edit_text_selector"
                             android:fontFamily="@font/noto_sans_regular"
+                            android:inputType="text"
+                            android:lines="1"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -259,6 +289,8 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@drawable/edit_text_selector"
                             android:fontFamily="@font/noto_sans_regular"
+                            android:inputType="textEmailAddress"
+                            android:lines="1"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -289,6 +321,10 @@
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/edit_text_selector"
                             android:fontFamily="@font/noto_sans_regular"
+                            android:inputType="number"
+                            app:layout_goneMarginStart="@dimen/_10sdp"
+                            android:lines="1"
+                            android:maxLength="10"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -305,21 +341,18 @@
                             android:text="Customer Type"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
-
                             app:layout_constraintStart_toStartOf="@+id/customerNameLb"
                             app:layout_constraintTop_toBottomOf="@+id/customerPhoneLb" />
 
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/customerTypeLb"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:background="@drawable/edit_text_selector"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="@font/noto_sans_regular"
-                            android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
-                            android:textSize="@dimen/_12sdp"
+                            android:textSize="@dimen/_10sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/customerPhoneLb"
                             app:layout_constraintTop_toBottomOf="@id/customerTypeTxt" />
@@ -333,22 +366,20 @@
                             android:text="Delivery Type"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
-
                             app:layout_constraintStart_toStartOf="@+id/customerNameLb"
                             app:layout_constraintTop_toBottomOf="@+id/customerTypeLb" />
 
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/deliveryTypeLb"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:background="@drawable/edit_text_selector"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="@dimen/_13sdp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="@font/noto_sans_regular"
-                            android:padding="@dimen/_10sdp"
+                            android:textColor="#946A6363"
                             android:textCursorDrawable="@drawable/search_cursor"
-                            android:textSize="@dimen/_12sdp"
+                            android:textSize="@dimen/_10sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/deliveryTypeTxt" />
@@ -358,7 +389,7 @@
                             android:id="@+id/addressTxt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:text="Address"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
@@ -373,6 +404,8 @@
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/edit_text_selector"
                             android:fontFamily="@font/noto_sans_regular"
+                            android:inputType="text"
+                            android:lines="1"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -393,31 +426,80 @@
                             app:layout_constraintTop_toBottomOf="@+id/addressLb" />
 
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/locationLb"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:background="@drawable/edit_text_selector"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:fontFamily="@font/noto_sans_regular"
-                            android:padding="@dimen/_10sdp"
+                            android:inputType="text"
+                            android:lines="1"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
-                            app:layout_constraintEnd_toEndOf="@+id/customerEmailLb"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/locationTxt"
                             app:layout_constraintTop_toBottomOf="@id/locationTxt" />
 
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toBottomOf="@+id/locationLb"
+                            tools:layout_editor_absoluteX="-13dp">
+
+                            <TextView
+                                android:id="@+id/shippingMethodTxt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:background="@drawable/top_curve_heading"
+                                android:fontFamily="@font/noto_sans_semi_bold"
+                                android:padding="@dimen/_10sdp"
+                                android:paddingStart="@dimen/_14sdp"
+                                android:paddingTop="@dimen/_10sdp"
+                                android:text="Shipping"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/orderNoteLb" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="#F8F8F8">
+                                <Spinner
+                                    android:id="@+id/shippingSpinner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:clickable="false"
+                                     android:fontFamily="@font/noto_sans_regular"
+                                    android:textCursorDrawable="@drawable/search_cursor"
+                                    android:textSize="@dimen/_12sdp"
+                                    app:layout_constraintTop_toBottomOf="parent"
+                                    tools:layout_editor_absoluteX="156dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/zipTxt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
                             android:text="Zip"
+                            android:layout_marginStart="@dimen/_20sdp"
                             android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:textSize="@dimen/_12sdp"
-                            app:layout_constraintStart_toStartOf="@+id/customerNameLb"
-                            app:layout_constraintTop_toBottomOf="@+id/locationLb" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
 
                         <EditText
@@ -427,6 +509,9 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/edit_text_selector"
+                            android:inputType="number"
+                            android:lines="1"
+                            android:maxLength="6"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -452,54 +537,44 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/zipLb" />
 
-                        <RadioButton
-                            android:id="@+id/radioCompleteButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:scaleX="1.2"
-                            android:scaleY="1.2"
-                            android:textSize="@dimen/_10sdp"
-                            app:layout_constraintStart_toStartOf="@+id/paymentStatusTxt"
-                            app:layout_constraintTop_toBottomOf="@+id/paymentStatusTxt" />
 
-                        <TextView
-                            android:id="@+id/radioCompleteTxt"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/layoutPaymentS"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:text="Complete"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/radioCompleteButton"
-                            app:layout_constraintStart_toEndOf="@+id/radioCompleteButton"
-                            app:layout_constraintTop_toTopOf="@+id/radioCompleteButton" />
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/paymentStatusTxt">
 
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#F8F8F8"
+                                android:orientation="horizontal">
 
-                        <RadioButton
-                            android:id="@+id/radioPendingButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:scaleX="1.2"
-                            android:scaleY="1.2"
-                            android:textSize="@dimen/_10sdp"
-                            app:layout_constraintStart_toStartOf="@+id/paymentStatusTxt"
-                            app:layout_constraintTop_toBottomOf="@+id/radioCompleteButton" />
+                                <RadioButton
+                                    android:id="@+id/radioPaySCom"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:checked="true"
+                                    android:text="Pending">
 
-                        <TextView
-                            android:id="@+id/radioPendingTxt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:text="Pending"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/radioPendingButton"
-                            app:layout_constraintStart_toEndOf="@+id/radioPendingButton"
-                            app:layout_constraintTop_toTopOf="@+id/radioPendingButton" />
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/radioPaySPen"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Complete">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                        </LinearLayout>
 
 
                         <TextView
@@ -517,32 +592,45 @@
                             android:textSize="@dimen/_13sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/radioPendingButton" />
+                            app:layout_constraintTop_toBottomOf="@+id/layoutPaymentS" />
 
-
-                        <RadioButton
-                            android:id="@+id/radioMobileButton"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/layoutRadio"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:scaleX="1.2"
-                            android:scaleY="1.2"
-                            android:textSize="@dimen/_10sdp"
-                            app:layout_constraintStart_toStartOf="@+id/paymentStatusTxt"
-                            app:layout_constraintTop_toBottomOf="@+id/paymentMethodTxt" />
+                             android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/paymentMethodTxt">
 
-                        <TextView
-                            android:id="@+id/radioMobileTxt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:text="Mobile"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintBottom_toBottomOf="@+id/radioMobileButton"
-                            app:layout_constraintStart_toEndOf="@+id/radioMobileButton"
-                            app:layout_constraintTop_toTopOf="@+id/radioMobileButton" />
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#F8F8F8"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radioMobileButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:checked="true"
+                                    android:text="Mobile">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/radioCashButton"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Cash On Delivery (COD)">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                        </LinearLayout>
+
 
                         <TextView
                             android:id="@+id/paymentIdTxt"
@@ -550,10 +638,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:text="Payment Id"
+                            android:layout_marginStart="@dimen/_10sdp"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
-                            app:layout_constraintStart_toStartOf="@+id/radioMobileButton"
-                            app:layout_constraintTop_toBottomOf="@+id/radioMobileButton" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/layoutRadio" />
 
 
                         <EditText
@@ -563,6 +652,8 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/edit_text_selector"
+                            android:inputType="text"
+                            android:lines="1"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -573,13 +664,14 @@
 
                         <TextView
                             android:id="@+id/orderNoteTxt"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
                             android:text="Order Note"
                             android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
                             android:textSize="@dimen/_12sdp"
-                            app:layout_constraintStart_toStartOf="@+id/paymentIdTxt"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/paymentIdLb" />
 
 
@@ -587,9 +679,11 @@
                             android:id="@+id/orderNoteLb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/edit_text_selector"
+                            android:inputType="text"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:lines="1"
                             android:padding="@dimen/_10sdp"
                             android:textCursorDrawable="@drawable/search_cursor"
                             android:textSize="@dimen/_12sdp"
@@ -600,22 +694,28 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/_30sdp"
+      android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/makeOrderBtn"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/btn_background"
+        android:gravity="center"
+        android:text="Make Order"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
 
-                    <Button
-                        android:id="@+id/makeOrderBtn"
-                        android:layout_width="@dimen/_250sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_margin="@dimen/_20sdp"
-                        android:background="@drawable/btn_background"
-                        android:gravity="center"
-                        android:text="Make Order"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/orderNoteLb"
-                        tools:ignore="UnknownIdInLayout" />
+        tools:ignore="UnknownIdInLayout" />
+
+</LinearLayout>
 
 
                 </LinearLayout>

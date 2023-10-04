@@ -79,10 +79,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/googleManagerIdLb" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/txtStatus"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:backgroundTint="@color/light_gray"

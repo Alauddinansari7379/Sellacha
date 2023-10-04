@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.utils.TextUtils
@@ -17,7 +18,7 @@ import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Picasso
 
 
-class AdapterCategory(val context: Context, private val list: ModelCategory) :
+class AdapterCategory(val context: Context, private val list: ArrayList<DataX>,val delete: Delete) :
     RecyclerView.Adapter<AdapterCategory.MyViewHolder>() {
 
 
@@ -25,34 +26,44 @@ class AdapterCategory(val context: Context, private val list: ModelCategory) :
         return MyViewHolder(
             LayoutInflater.from(context).inflate(R.layout.categories_item, parent, false)
         )
+
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
-        holder.nameTvCat.text = list.data.posts.data[position].name
-        if (list.data.posts.data[position].preview != null) {
-            Picasso.get().load("https://footwear.thedemostore.in/"+list.data.posts.data[position].preview!!.content).into(holder.categoryImg)
+        holder.nameTvCat.text = list[position].name
+        if (list[position].preview != null) {
+            Picasso.get().load("https://thedemostore.in/"+list[position].preview!!.content)
+                .placeholder(R.drawable.placeholder_n).error(R.drawable.error_placeholder)
+                .into(holder.categoryImg)
+
 
         }
 
-        // holder.nameTvCat.text = list.data.posts.data[position].preview.content
-      //  val baseUrl=list.data.posts.data[position].preview.content
-       // Log.e("BAse",baseUrl)
+        holder.imgDeleteC.setOnClickListener {
+            delete.delete(list[position].id.toString())
+        }
 
-       // Glide.with(holder.categoryImg).load(baseUrl).into(holder.categoryImg)
+        holder.imgEditCat.setOnClickListener {
+            delete.edit(list[position].id.toString(),list[position].name)
+        }
 
     }
 
 
     override fun getItemCount(): Int {
-        return list.data.posts.data.size
+        return list.size
 
     }
 
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
           val nameTvCat: TextView = itemView.findViewById(R.id.nameTvCat)
           val categoryImg: ImageView = itemView.findViewById(R.id.categoryImg)
-
-
+          val imgDeleteC: ImageView = itemView.findViewById(R.id.imgDeleteCat)
+          val imgEditCat: ImageView = itemView.findViewById(R.id.imgEditCat)
+    }
+    interface Delete {
+        fun delete(id: String)
+        fun edit(id: String,name: String,)
     }
 }

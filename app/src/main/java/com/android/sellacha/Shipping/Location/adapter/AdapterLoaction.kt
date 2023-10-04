@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.bumptech.glide.Glide
 
 
-class AdapterLoaction(val context: Context, private val list: ModelCategory,) :
+class AdapterLoaction(val context: Context,  val list: ArrayList<DataX>) :
     RecyclerView.Adapter<AdapterLoaction.MyViewHolder>() {
 
 
@@ -25,7 +26,7 @@ class AdapterLoaction(val context: Context, private val list: ModelCategory,) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
 
-        holder.nameTvCat.text = list.data.posts.data[position].name
+        holder.nameTvCat.text = list[position].name
 
       //   Glide.with(holder.categoryImg).load(list.data.posts.data[position].preview).into(holder.categoryImg)
 
@@ -33,7 +34,7 @@ class AdapterLoaction(val context: Context, private val list: ModelCategory,) :
 
 
     override fun getItemCount(): Int {
-        return list.data.posts.data.size
+        return list.size
 
     }
 

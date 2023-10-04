@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.sellacha.Products.Inventory.Model.DataInverntor
 import com.android.sellacha.Products.Inventory.Model.Modelinventory
 import com.android.sellacha.R
 
 
-class AdapterInventory(val context: Context, private val list: Modelinventory) :
+class AdapterInventory(val context: Context, private val list: ArrayList<DataInverntor>) :
     RecyclerView.Adapter<AdapterInventory.MyViewHolder>() {
 
 
@@ -23,15 +24,15 @@ class AdapterInventory(val context: Context, private val list: Modelinventory) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // holder.SrNo.text= "${position+1}"
 
-        if (list.data.posts.data[position].sku == "null"){
+        if (list[position].sku == "null"){
 
         }else{
-            holder.skuTv.text = list.data.posts.data[position].sku
+            holder.skuTv.text = list[position].sku
 
         }
-        holder.categoryTv.text = list.data.posts.data[position].term.title
+        holder.categoryTv.text = list[position].term.title
         // holder.varitionsTv.text = list.data.posts[position].v
-        when (list.data.posts.data[position].stock_manage) {
+        when (list[position].stock_manage) {
             "0" -> {
                 holder.stockManageTv.text = "No"
                 holder.stockManageTv.setBackgroundResource(R.drawable.bg_red);
@@ -50,7 +51,7 @@ class AdapterInventory(val context: Context, private val list: Modelinventory) :
 
 
     override fun getItemCount(): Int {
-        return list.data.posts.data.size
+        return list.size
 
     }
 

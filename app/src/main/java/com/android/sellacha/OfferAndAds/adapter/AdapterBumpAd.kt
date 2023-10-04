@@ -18,7 +18,7 @@ import com.bumptech.glide.request.target.Target
 import com.squareup.picasso.Picasso
 
 
-class AdapterBumpAd(val context: Context, private val list: ModelBumpAd) :
+class AdapterBumpAd(val context: Context, private val list: ModelBumpAd,val delete: Delete) :
     RecyclerView.Adapter<AdapterBumpAd.MyViewHolder>() {
 
 
@@ -32,15 +32,18 @@ class AdapterBumpAd(val context: Context, private val list: ModelBumpAd) :
         // holder.SrNo.text= "${position+1}"
         holder.urlBump.text = list.data.data[position].slug
         if (list.data.data[position].name != null) {
-            Picasso.get().load("https://footwear.thedemostore.in/"+list.data.data[position].name).into(holder.img)
+            Picasso.get().load("https://thedemostore.in/"+list.data.data[position].name)
+                .placeholder(R.drawable.placeholder_n)
+                .error(R.drawable.error_placeholder)
+                .into(holder.img)
 
         }
+        holder.imgDeleteBum.setOnClickListener {
+             delete.delete(list.data.data[position].id.toString())
+        }
 
-        // holder.nameTvCat.text = list.data.posts.data[position].preview.content
-      //  val baseUrl=list.data.posts.data[position].preview.content
-       // Log.e("BAse",baseUrl)
 
-       // Glide.with(holder.categoryImg).load(baseUrl).into(holder.categoryImg)
+
 
     }
 
@@ -53,7 +56,12 @@ class AdapterBumpAd(val context: Context, private val list: ModelBumpAd) :
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
           val urlBump: TextView = itemView.findViewById(R.id.urlBump)
           val img: ImageView = itemView.findViewById(R.id.bumpImg)
+          val imgDeleteBum: ImageView = itemView.findViewById(R.id.imgDeleteBum)
 
+
+    }
+    interface Delete{
+        fun delete(id:String)
 
     }
 }

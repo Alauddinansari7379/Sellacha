@@ -25,6 +25,9 @@ public class OrderItemItem{
 	@SerializedName("info")
 	private String info;
 
+	@SerializedName("shipping")
+	private String shipping;
+
 	public String getAmount(){
 		return amount;
 	}
@@ -51,5 +54,8 @@ public class OrderItemItem{
 
 	public String getInfo(){
 		return info;
+	}
+	public String getShipping(){
+		return shipping;
 	}
 }

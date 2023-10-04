@@ -5,7 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/primary_bg">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,11 +73,67 @@
                             android:layout_marginTop="@dimen/_15sdp"
                             android:background="@drawable/card_bg"
                             android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_margin="25dp"
+                                android:background="@drawable/fields_bg"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/_5sdp"
+                                    android:layout_marginStart="@dimen/_5sdp"
+
+                                    android:padding="@dimen/_5sdp"
+                                    android:src="@drawable/search_btn"
+                                    app:tint="@color/_6E7D86" />
+
+                                <EditText
+                                    android:id="@+id/searchTxt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="5"
+                                    android:background="@null"
+                                    android:ellipsize="end"
+                                    android:hint="ABC-123"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textCursorDrawable="@drawable/search_cursor"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <ImageView
+                                    android:id="@+id/filterBtn"
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:background="@drawable/search_btn_bg"
+                                    android:padding="5dp"
+                                    android:src="@drawable/filter_btn"
+                                    android:visibility="gone" />
+
+                                <ImageView
+                                    android:id="@+id/searchCloseBtn"
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:padding="5dp"
+                                    android:src="@drawable/met_ic_close"
+                                    android:visibility="gone"
+                                    app:tint="@color/_6E7D86" />
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:layout_margin="25dp"
+                                android:visibility="gone"
                                 android:background="@drawable/fields_bg"
                                 android:orientation="horizontal">
 
@@ -88,10 +144,11 @@
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center"
                                     android:layout_weight="5"
+                                    android:lines="1"
                                     android:padding="5dp"
-                                    android:textSize="@dimen/_12sdp"
-                                    android:background="@null"
-                                    android:hint="Search by Name" />
+                                    android:inputType="text"
+                                       android:textSize="@dimen/_12sdp"
+                                     android:hint="Search by Name" />
                                 <ImageView
                                     android:id="@+id/imgSearch"
                                     android:layout_width="@dimen/_25sdp"
@@ -171,29 +228,22 @@
                                     android:textColor="@color/white" />
 
                             </LinearLayout>
-
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp"
+                                android:layout_height="70dp"
                                 android:layout_marginTop="@dimen/_15sdp"
                                 android:background="#BFEBEBEB"
                                 android:orientation="horizontal"
-                                android:padding="@dimen/_10sdp">
+                                >
 
-                                <RadioButton
-                                    android:layout_width="@dimen/_20sdp"
-                                    android:layout_height="@dimen/_20sdp"
-                                    android:layout_gravity="center"
-                                    android:layout_margin="@dimen/_5sdp"
-                                    android:enabled="false" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.4"
                                     android:fontFamily="@font/noto_sans_bold"
                                     android:gravity="center"
-                                    android:text="Names"
+                                    android:text="Name"
                                     android:textColor="@color/_324754"
                                     android:textSize="14sp" />
 
@@ -206,13 +256,32 @@
                                     android:text="Email"
                                     android:textColor="@color/_324754"
                                     android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.5"
+                                    android:fontFamily="@font/noto_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Delete"
+                                    android:textColor="@color/_324754"
+                                    android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.5"
+                                    android:fontFamily="@font/noto_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Edit"
+                                    android:textColor="@color/_324754"
+                                    android:textSize="14sp" />
 
                             </LinearLayout>
+
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/attributeRc"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/_5sdp"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                                 app:layout_constraintBottom_toBottomOf="parent"

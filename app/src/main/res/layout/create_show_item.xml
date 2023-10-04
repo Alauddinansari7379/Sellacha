@@ -68,11 +68,12 @@
                      android:fontFamily="@font/noto_sans_regular"
                     android:gravity="center"
                     android:inputType="number"
-                     android:hint="00"
+                     android:text="1"
                     android:textColorHint="@color/_6E7D86"
                     android:textColor="@color/primary_bg"
                     android:textSize="14sp" />
                 <TextView
+                    android:id="@+id/tvAddToCart"
                      android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/cart"

@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
+import com.android.sellacha.Products.Inventory.Model.DataInverntor
+import com.android.sellacha.Products.Inventory.adapter.AdapterInventory
 import com.android.sellacha.Products.categories.Model.ModeCategoryJava
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.adapter.AdapterCategory
@@ -23,14 +25,22 @@ import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import androidx.core.widget.addTextChangedListener
+import androidx.navigation.Navigation
+import cn.pedant.SweetAlert.SweetAlertDialog
+import com.android.sellacha.Products.Attributes.activity.AttributeFragment
+import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
+import com.android.sellacha.Products.categories.Model.DataX
 
-class CategoryFragment : Fragment() {
+
+class CategoryFragment : Fragment() ,AdapterCategory.Delete{
     private lateinit var binding: FragmentCategoryBinding
     private lateinit var sessionManager: SessionManager
     var navController: NavController? = null
     val handler = Handler(Looper.getMainLooper())
-
+    private var mainData = java.util.ArrayList<DataX>()
     var categoriesArr = ArrayList<categoriesDM>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,9 +55,22 @@ class CategoryFragment : Fragment() {
 
         apiCallCategory()
 
+        binding!!.searchTxt.addTextChangedListener { str ->
+            setRecyclerViewAdapter(mainData.filter {
+                it!!.name!!.contains(
+                    str.toString(),
+                    ignoreCase = true
+                )
+            } as java.util.ArrayList<DataX>)
+        }
+
+
+            apiCallCategory()
 
         binding.createCategories.setOnClickListener {
-                view -> findNavController(binding.root).navigate(R.id.createCategoryFragment) }
+            CategoryFragment.edit ="1"
+            findNavController(binding.root).navigate(R.id.createCategoryFragment)
+        }
     }
 //    protected fun getNavOptions(): NavOptions? {
 //        return Builder()
@@ -68,25 +91,31 @@ class CategoryFragment : Fragment() {
                 override fun onResponse(
                     call: Call<ModelCategory>, response: Response<ModelCategory>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
+                    try {
+                        if (response.code() == 200) {
+                            mainData = response.body()!!.data.posts.data
+                            AppProgressBar.hideLoaderDialog()
 
-                    }
+                        }
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
 
-                    else if (response.body()!!.data.posts.data.isEmpty()) {
-                        binding.recyclerView.adapter =
-                            activity?.let { AdapterCategory(it, response.body()!!) }
-                        binding.recyclerView.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Category Found")
-                        AppProgressBar.hideLoaderDialog()
+                        } else if (response.body()!!.data.posts.data.isEmpty()) {
+                            binding.recyclerView.adapter =
+                                activity?.let { AdapterCategory(it, response.body()!!.data.posts.data,this@CategoryFragment) }
+                            binding.recyclerView.adapter!!.notifyDataSetChanged()
+                            myToast(requireActivity(), "No Category Found")
+                            AppProgressBar.hideLoaderDialog()
 
-                    }
-                    else {
-                        binding.recyclerView.adapter =
-                            activity?.let { AdapterCategory(it, response.body()!!) }
-                        AppProgressBar.hideLoaderDialog()
+                        } else {
+                            binding.recyclerView.adapter =
+                                activity?.let { AdapterCategory(it,response.body()!!.data.posts.data,this@CategoryFragment) }
+                            AppProgressBar.hideLoaderDialog()
 
 
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
                     }
                 }
 
@@ -100,5 +129,99 @@ class CategoryFragment : Fragment() {
 
             })
     }
+    private fun setRecyclerViewAdapter(data: java.util.ArrayList<DataX>) {
+        binding!!.recyclerView.apply {
+            adapter = context?.let { AdapterCategory(requireContext(), data,this@CategoryFragment) }
+        }
+    }
+
+    override fun delete(id: String) {
+        SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Are you sure want to Delete?")
+            .setCancelText("No")
+            .setConfirmText("Yes")
+            .showCancelButton(true)
+            .setConfirmClickListener { sDialog ->
+                sDialog.cancel()
+                apiCallDelete(id)
+            }
+            .setCancelClickListener { sDialog ->
+                sDialog.cancel()
+            }
+            .show()
+    }
+    private fun apiCallDelete(id: String) {
+
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.deleteAttribute(sessionManager.authToken, id, "delete")
+            .enqueue(object : Callback<ModelCreateCoupon> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelCreateCoupon>, response: Response<ModelCreateCoupon>
+                ) {
+                    try {
+
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 401) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(requireActivity(), response.body()!!.data)
+                            apiCallCategory()
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelCreateCoupon>, t: Throwable) {
+                    // myToast(requireActivity(),t.message.toString())
+                    // myToast(requireActivity(), "Something went wrong")
+                    apiCallDelete(id)
+                }
+
+            })
+
+    }
+
+
+    override fun edit(id: String, name: String) {
+        SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Are you sure want to edit?")
+            .setCancelText("No")
+            .setConfirmText("Yes")
+            .showCancelButton(true)
+            .setConfirmClickListener { sDialog ->
+                sDialog.cancel()
+                // apiCallDelete(id)
+                cateogoryName =name
+                idNew =id
+                edit ="2"
+                findNavController(binding!!.root).navigate(R.id.createCategoryFragment)
+
+            }
+            .setCancelClickListener { sDialog ->
+                sDialog.cancel()
+            }
+            .show()
+    }
+    companion object {
+         var edit="1"
+        var cateogoryName=""
+        var idNew=""
+    }
+
 
 }

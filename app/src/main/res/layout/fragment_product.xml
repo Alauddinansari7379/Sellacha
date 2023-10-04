@@ -125,7 +125,6 @@
                                     android:background="@null"
                                     android:ellipsize="end"
                                     android:hint="ABC-123"
-                                    android:imeOptions="actionSearch"
                                     android:inputType="text"
                                     android:maxLines="1"
                                     android:singleLine="true"
@@ -232,28 +231,18 @@
                                             android:orientation="horizontal"
                                             android:padding="5dp">
 
-                                            <RadioButton
-                                                android:id="@+id/orderRbtn"
-                                                android:layout_width="@dimen/_20sdp"
-                                                android:layout_height="@dimen/_20sdp"
-                                                android:layout_gravity="center"
-                                                android:layout_margin="@dimen/_5sdp"
-                                                app:layout_constraintBottom_toBottomOf="parent"
-                                                app:layout_constraintTop_toTopOf="parent"
-                                                tools:layout_editor_absoluteX="5dp" />
 
                                             <ImageView
                                                 android:id="@+id/orderName"
                                                 android:layout_width="100dp"
                                                 android:layout_height="match_parent"
-                                                android:layout_marginStart="@dimen/_15sdp"
                                                 android:fontFamily="@font/noto_sans_regular"
                                                 android:gravity="center"
                                                 android:padding="@dimen/_10sdp"
                                                 android:src="@drawable/icn_image"
-                                                app:layout_constraintBottom_toBottomOf="@+id/orderRbtn"
-                                                app:layout_constraintStart_toEndOf="@+id/orderRbtn"
-                                                app:layout_constraintTop_toTopOf="@+id/orderRbtn"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent"
                                                 app:tint="@color/_6E7D86" />
 
                                             <TextView

@@ -10,7 +10,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
+import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
+import com.android.sellacha.Products.Coupons.activity.CouponsFragment
+import com.android.sellacha.Products.categories.CategoryFragment
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.R
 import com.android.sellacha.databinding.FragmentCreateAttributeBinding
@@ -40,6 +45,11 @@ class CreateAttributeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateAttributeBinding.bind(view)
 
+        if (AttributeFragment.edit =="2"){
+            binding!!.btnSave.text="Update"
+            binding!!.editTextTextPersonName.setText(AttributeFragment.presonName)
+         }
+
         sessionManager = SessionManager(requireContext())
         featuredList.add(ModelFeatured("Yes", "1"))
         featuredList.add(ModelFeatured("No", "0"))
@@ -50,6 +60,7 @@ class CreateAttributeFragment : Fragment() {
         )
 
         Log.e("sessionManager.authToken,", sessionManager.authToken.toString())
+
         binding.btnSave.setOnClickListener {
             if (binding.editTextTextPersonName.text.isEmpty()) {
                 binding.editTextTextPersonName.error = "Title Required"
@@ -57,7 +68,12 @@ class CreateAttributeFragment : Fragment() {
                 return@setOnClickListener
             } else {
                 var title = binding.editTextTextPersonName.text.toString().trim()
-                apiCallCreateAttribute(title)
+                if (AttributeFragment.edit =="2"){
+                    apiCallEdit()
+                }else{
+                    apiCallCreateAttribute(title)
+
+                }
             }
         }
 
@@ -87,10 +103,10 @@ class CreateAttributeFragment : Fragment() {
             title,
             featured
         )
-            .enqueue(object : Callback<ModelAttributes> {
+            .enqueue(object : Callback<ModelCoupon> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelAttributes>, response: Response<ModelAttributes>
+                    call: Call<ModelCoupon>, response: Response<ModelCoupon>
                 ) {
                     if (response.code() == 500) {
                         myToast(requireActivity(), "Server Error")
@@ -100,6 +116,8 @@ class CreateAttributeFragment : Fragment() {
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.attributeFragment)
 
                         AppProgressBar.hideLoaderDialog()
 
@@ -107,7 +125,7 @@ class CreateAttributeFragment : Fragment() {
                     }
                 }
 
-                override fun onFailure(call: Call<ModelAttributes>, t: Throwable) {
+                override fun onFailure(call: Call<ModelCoupon>, t: Throwable) {
                     myToast(requireActivity(), "Something went wrong")
                     AppProgressBar.hideLoaderDialog()
 
@@ -116,5 +134,58 @@ class CreateAttributeFragment : Fragment() {
 
             })
     }
+    private fun apiCallEdit() {
 
+        AppProgressBar.showLoaderDialog(requireContext())
+        ApiClient.apiService.editAttribute(sessionManager.authToken,
+            binding!!.editTextTextPersonName.text.toString().trim(),
+            featured,
+             AttributeFragment.idNew
+        )
+            .enqueue(object : Callback<ModelCreateCoupon> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelCreateCoupon>, response: Response<ModelCreateCoupon>
+                ) {
+                    try {
+
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 401) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(requireActivity(), response.body()!!.data)
+                            AttributeFragment.edit ="1"
+                            Navigation.findNavController(binding!!.root).navigate(R.id.attributeFragment)
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelCreateCoupon>, t: Throwable) {
+                    // myToast(requireActivity(),t.message.toString())
+                    // myToast(requireActivity(), "Try Again")
+                    AppProgressBar.hideLoaderDialog()
+                    apiCallEdit()
+                }
+
+            })
+
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        AttributeFragment.edit ="1"
+    }
 }

@@ -61,6 +61,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/titleTv" />
 
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -73,8 +74,6 @@
                             android:layout_marginTop="@dimen/_15sdp"
                             android:background="@drawable/card_bg"
                             android:orientation="vertical">
-
-
 
 
                             <LinearLayout
@@ -105,6 +104,24 @@
                                     android:text="URL"
                                     android:textColor="@color/_324754"
                                     android:textSize="14sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.1"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/imgDeleteBum"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="@dimen/_5sdp"
+                                        android:background="?actionBarItemBackground"
+                                        android:src="@drawable/ic_delete_"
+                                        android:tint="@color/_EE4747" />
+
+                                </LinearLayout>
 
                             </LinearLayout>
 

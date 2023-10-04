@@ -23,7 +23,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BannerAdsFragment : Fragment() {
+class BannerAdsFragment : Fragment(),AdapterBumpAd.Delete {
     var binding: FragmentBannerAdsBinding? = null
     private lateinit var sessionManager: SessionManager
 
@@ -65,14 +65,14 @@ class BannerAdsFragment : Fragment() {
 
                     } else if (response.body()!!.data.data.isEmpty()) {
                         binding!!.recyclerView.adapter =
-                            activity?.let { AdapterBumpAd(it, response.body()!!) }
+                            activity?.let { AdapterBumpAd(it, response.body()!!,this@BannerAdsFragment) }
                         binding!!.recyclerView.adapter!!.notifyDataSetChanged()
                         myToast(requireActivity(), "No Ad Found")
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
                         binding!!.recyclerView.adapter =
-                            activity?.let { AdapterBumpAd(it, response.body()!!) }
+                            activity?.let { AdapterBumpAd(it, response.body()!!,this@BannerAdsFragment) }
                         AppProgressBar.hideLoaderDialog()
                     }
                 }
@@ -89,6 +89,9 @@ class BannerAdsFragment : Fragment() {
 
             })
     }
+
+    override fun delete(id: String) {
+     }
 
 
 }

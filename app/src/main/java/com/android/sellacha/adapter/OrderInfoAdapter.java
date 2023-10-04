@@ -78,9 +78,9 @@ public class OrderInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         @SuppressLint("NotifyDataSetChanged")
         @RequiresApi(api = Build.VERSION_CODES.M)
         void setDataBind(@NonNull OrderItemItem orders, int position) {
-            binding.productName.setText(TextUtils.getString(orders.getInfo().toString()));
-            binding.total.setText(TextUtils.getString(orders.getAmount()));
-            binding.amount.setText(TextUtils.getString(orders.getAmount().toString() + "*" + orders.getQty().toString()));
+            binding.productName.setText(TextUtils.getString(orders.getTerm().getTitle()));
+            binding.amount.setText(TextUtils.getString(orders.getAmount()));
+              binding.total.setText(TextUtils.getString(orders.getAmount().toString() + " * " + orders.getQty().toString()));
         }
     }
 }

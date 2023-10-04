@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.android.sellacha.Costomer.adapter.AdapterCustomer
+import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.Shipping.Location.adapter.AdapterLoaction
@@ -22,6 +25,7 @@ import retrofit2.Response
 class LocationFragment : Fragment() {
     lateinit var binding: FragmentLocationBinding
     private lateinit var sessionManager: SessionManager
+    private var mainData = ArrayList<DataX>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +41,14 @@ class LocationFragment : Fragment() {
         sessionManager = SessionManager(requireContext())
         apiCallLocation()
 
-
+        binding!!.searchTxt.addTextChangedListener { str ->
+            setRecyclerViewAdapter(mainData.filter {
+                it!!.name!!.contains(
+                    str.toString(),
+                    ignoreCase = true
+                )
+            } as java.util.ArrayList<DataX>)
+        }
 
         binding!!.CreateLocation.setOnClickListener { view ->
             Navigation.findNavController(binding!!.root).navigate(R.id.CreateLocationFragment)
@@ -55,22 +66,31 @@ class LocationFragment : Fragment() {
                 override fun onResponse(
                     call: Call<ModelCategory>, response: Response<ModelCategory>
                 ) {
-                    if (response.code() == 500) {
-                        myToast(requireActivity(), "Server Error")
+                    try {
+                        if (response.code() == 200) {
+                            mainData = response.body()!!.data.posts.data
+                            AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.data.posts.data.isEmpty()) {
-                        binding!!.locationList.adapter =
-                            activity?.let { AdapterLoaction(it, response.body()!!) }
-                        binding!!.locationList.adapter!!.notifyDataSetChanged()
-                        myToast(requireActivity(), "No Location Found")
-                        AppProgressBar.hideLoaderDialog()
+                        }
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
 
-                    } else {
-                        binding!!.locationList.adapter =
-                            activity?.let { AdapterLoaction(it, response.body()!!) }
-                        AppProgressBar.hideLoaderDialog()
+                        } else if (response.body()!!.data.posts.data.isEmpty()) {
+                            binding!!.locationList.adapter =
+                                activity?.let { AdapterLoaction(it,response.body()!!.data.posts.data) }
+                            binding!!.locationList.adapter!!.notifyDataSetChanged()
+                            myToast(requireActivity(), "No Location Found")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            binding!!.locationList.adapter =
+                                activity?.let { AdapterLoaction(it, response.body()!!.data.posts.data) }
+                            AppProgressBar.hideLoaderDialog()
 
 
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
                     }
                 }
 
@@ -84,5 +104,10 @@ class LocationFragment : Fragment() {
                 }
 
             })
+    }
+    private fun setRecyclerViewAdapter(data: java.util.ArrayList<DataX>) {
+        binding!!.locationList.apply {
+            adapter = context?.let { AdapterLoaction(requireContext(), data) }
+        }
     }
 }

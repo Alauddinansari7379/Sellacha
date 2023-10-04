@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.android.sellacha.Products.Attributes.activity.AttributeFragment
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.Products.categories.Model.ModelGender
@@ -70,11 +72,12 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateCategoryBinding.bind(view)
-
         sessionManager = SessionManager(requireContext())
 
-
-        sessionManager = SessionManager(requireContext())
+        if (CategoryFragment.edit =="2"){
+            binding!!.btnSave.text="Update"
+            binding!!.txtName.setText(CategoryFragment.cateogoryName)
+        }
 //        binding.btnSelectImage.setOnClickListener {
 //            startActivity(Intent(requireContext(), ImageUpload::class.java))
 //        }
@@ -88,8 +91,12 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 binding.txtName.error = "First Name Required"
                 binding.txtName.requestFocus()
                 return@setOnClickListener
-            } else {
+            }
+            if(CategoryFragment.edit =="2") {
+                uploadImageEdit()
+            } else{
                 uploadImage()
+
             }
 
         }
@@ -208,23 +215,106 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
             override fun onResponse(
                 call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
             ) {
-                if (response.code() == 401) {
-                    myToast(requireActivity(), "Maximum category limit exceeded")
-                    AppProgressBar.hideLoaderDialog()
+                try {
+                    if (response.code() == 401) {
+                        myToast(requireActivity(), "Maximum category limit exceeded")
+                        AppProgressBar.hideLoaderDialog()
 
-                } else if (response.code() == 200) {
-                    myToast(requireActivity(), response.body()!!.data)
-                    AppProgressBar.hideLoaderDialog()
+                    } else if (response.code() == 200) {
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.categoryFragment)
+                        AppProgressBar.hideLoaderDialog()
 
-                } else {
-                    myToast(requireActivity(), response.body()!!.message)
+                    } else {
+                        myToast(requireActivity(), response.body()!!.message)
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                    // apiCallGetPrePending1()
+
+                    //  binding.progressBar.progress = 100
+
+                }catch (e:java.lang.Exception){
+                    e.printStackTrace()
                     AppProgressBar.hideLoaderDialog()
 
                 }
-                // apiCallGetPrePending1()
+            }
 
-                //  binding.progressBar.progress = 100
+            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
+               // binding.layoutRoot.snackbar(t.message!!)
+                // binding.progressBar.progress = 0
+                myToast(requireActivity(), "Something went wrong")
+                AppProgressBar.hideLoaderDialog()
 
+            }
+
+        })
+    }
+    private fun uploadImageEdit() {
+        if (selectedImageUri == null) {
+            binding.layoutRoot.snackbar("Select an Thumbnail First")
+            return
+        }
+
+        val parcelFileDescriptor = activity?.contentResolver?.openFileDescriptor(
+            selectedImageUri!!, "r", null
+
+        ) ?: return
+
+        val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
+        var file = File(
+            requireActivity().cacheDir, activity?.contentResolver!!.getFileName(selectedImageUri!!),
+        )
+        val outputStream = FileOutputStream(file)
+        inputStream.copyTo(outputStream)
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        // binding.progressBar.progress = 0
+        val body = UploadRequestBody(file, "image", this)
+
+        val name = binding.txtName.text.toString().trim()
+        Log.e("sessionManager.authToken", sessionManager.authToken.toString())
+        Log.e("name", name)
+        Log.e("type", type)
+        Log.e("featured", featured)
+        Log.e("menu_status", menu_status)
+        ApiClient.apiService.editCategory(
+            sessionManager.authToken,
+            name,
+           MultipartBody.Part.createFormData("file", file.name, body),CategoryFragment.idNew
+        ).enqueue(object : Callback<ModelCreCatogoryJava> {
+            override fun onResponse(
+                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+            ) {
+                try {
+                    if (response.code() == 401) {
+                        myToast(requireActivity(), "Maximum category limit exceeded")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 200) {
+                        CategoryFragment.edit ="1"
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.categoryFragment)
+
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else {
+                        myToast(requireActivity(), response.body()!!.message)
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                    // apiCallGetPrePending1()
+
+                    //  binding.progressBar.progress = 100
+
+                }catch (e:java.lang.Exception){
+                    e.printStackTrace()
+                    myToast(requireActivity(), "Something went wrong")
+
+                    AppProgressBar.hideLoaderDialog()
+
+                }
             }
 
             override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
@@ -298,6 +388,11 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
             }
         }.show()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        CategoryFragment.edit ="1"
     }
 
 }

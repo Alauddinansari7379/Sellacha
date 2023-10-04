@@ -2,7 +2,7 @@ package com.android.sellacha.Products.Inventory.Model
 
 data class Posts(
     val current_page: Int,
-    val `data`: List<DataX>,
+    val `data`: ArrayList<DataInverntor>,
     val first_page_url: String,
     val from: Int,
     val last_page: Int,

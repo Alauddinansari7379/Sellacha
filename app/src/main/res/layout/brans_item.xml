@@ -7,42 +7,69 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_60sdp"
             android:orientation="horizontal"
-            android:padding="5dp">
+            >
 
-            <RadioButton
-                android:id="@+id/categoryRbtn"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp" />
 
             <ImageView
                 android:id="@+id/categoryImg"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_weight="1.1"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:padding="@dimen/_2sdp"
                 android:src="@drawable/icn_image" />
 
             <TextView
                 android:id="@+id/nameTvBrand"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="Singer"
                 android:textColor="@color/primary_bg"
                 android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.1">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgDeleteBrand"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_delete_"
+                    android:tint="@color/_EE4747"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1.1">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgEditBrand"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/edit"
+                    android:tint="@color/primary_bg"
+                    android:background="?actionBarItemBackground"
+                    android:layout_margin="@dimen/_5sdp" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

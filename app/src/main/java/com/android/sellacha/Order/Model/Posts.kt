@@ -2,7 +2,7 @@ package com.android.sellacha.Order.Model
 
 data class Posts(
     val current_page: Int,
-    val `data`: List<DataX>,
+    val `data`: ArrayList<DataX>,
     val first_page_url: String,
     val from: Int,
     val last_page: Int,

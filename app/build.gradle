@@ -191,4 +191,8 @@ dependencies {
     implementation 'com.github.Spikeysanju:MotionToast:1.4'
 
     implementation "com.github.skydoves:powerspinner:1.2.3"
+    //SweetAlert
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+    // Image Picker From Camera
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
 }

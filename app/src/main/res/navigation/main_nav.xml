@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/orderFragment"
-        android:name="com.android.sellacha.fragment.OrderFragment"
+        android:name="com.android.sellacha.Order.activity.OrderFragment"
         android:label="order Fragment"
         tools:layout="@layout/fragment_order" />
 
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/orderDetailsFragment"
-        android:name="com.android.sellacha.fragment.OrderDetailFragment"
+        android:name="com.android.sellacha.Order.activity.OrderDetailFragment"
         android:label="Order Details Fragment"
         tools:layout="@layout/fragment_order_detail" />
 
@@ -61,25 +61,25 @@
 
     <fragment
         android:id="@+id/whatsappApiFragment"
-        android:name="com.android.sellacha.fragment.WhatsAppApiFragment"
+        android:name="com.android.sellacha.marketingTools.WhatsAppApiFragment"
         android:label="Whatsapp Fragment"
         tools:layout="@layout/fragment_whats_app_api" />
 
     <fragment
         android:id="@+id/facebookPixelFragment"
-        android:name="com.android.sellacha.fragment.FacebookPixelFragment"
+        android:name="com.android.sellacha.marketingTools.FacebookPixelFragment"
         android:label="Facebook Fragment"
         tools:layout="@layout/fragment_facebook_pixel" />
 
     <fragment
         android:id="@+id/googleAnalyticsFragment"
-        android:name="com.android.sellacha.fragment.GoogleAnalyticsFragment"
+        android:name="com.android.sellacha.marketingTools.GoogleAnalyticsFragment"
         android:label="Google Anl Fragment"
         tools:layout="@layout/fragment_google_analytics" />
 
     <fragment
         android:id="@+id/tapManagerFragment"
-        android:name="com.android.sellacha.fragment.GoogleTapManagerFragment"
+        android:name="com.android.sellacha.marketingTools.GoogleTapManagerFragment"
         android:label="Google Tap Fragment"
         tools:layout="@layout/fragment_google_tap_manager" />
 
@@ -122,7 +122,7 @@
 
     <fragment
         android:id="@+id/brandFragment"
-        android:name="com.android.sellacha.Products.Brands.BrandFragment"
+        android:name="com.android.sellacha.Products.Brands.activity.BrandFragment"
         android:label="Brand Fragment"
         tools:layout="@layout/fragment_brand" />
 
@@ -133,7 +133,7 @@
         tools:layout="@layout/fragment_coupons" />
     <fragment
         android:id="@+id/customerFragment"
-        android:name="com.android.sellacha.Costomer.CustomerFragment"
+        android:name="com.android.sellacha.Costomer.activity.CustomerFragment"
         android:label="C Fragment"
         tools:layout="@layout/fragment_customer" />
     <fragment
@@ -201,7 +201,7 @@
 
     <fragment
         android:id="@+id/CreateBaanerAd"
-        android:name="com.android.sellacha.OfferAndAds.activity.CreateBumpAdFragment"
+        android:name="com.android.sellacha.OfferAndAds.activity.CreateBannerAdFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_create_banner_ad" />
     <fragment
@@ -209,5 +209,69 @@
         android:name="com.android.sellacha.Upgrade.UpgradePlanFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_upgrade_plan" />
+
+    <fragment
+        android:id="@+id/PaymentOption"
+        android:name="com.android.sellacha.setting.PaymentOptionsFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_payment_options" />
+
+    <fragment
+        android:id="@+id/Subscriptions"
+        android:name="com.android.sellacha.setting.SubscriptionsFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_payment_options" />
+
+    <fragment
+        android:id="@+id/DomainSetting"
+        android:name="com.android.sellacha.setting.DomainSettingFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_domain_setting" />
+
+    <fragment
+        android:id="@+id/Instamojo"
+        android:name="com.android.sellacha.setting.InstamojoFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_instamojo" />
+
+    <fragment
+        android:id="@+id/Paypal"
+        android:name="com.android.sellacha.setting.PaypalFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_paypal" />
+    <fragment
+        android:id="@+id/Razorpay"
+        android:name="com.android.sellacha.setting.RazorpayFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_razorpay" />
+
+    <fragment
+        android:id="@+id/CreateCouponFragment"
+        android:name="com.android.sellacha.Products.Coupons.activity.CreateCouponFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_coupon" />
+
+    <fragment
+        android:id="@+id/CreateBrand"
+        android:name="com.android.sellacha.Products.Brands.activity.CreateBrand"
+
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_coupon" />
+    <fragment
+        android:id="@+id/ThemesAndAPK"
+        android:name="com.android.sellacha.setting.ThemesAndAPKFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_create_coupon" />
+    <fragment
+        android:id="@+id/GeneralFragment"
+        android:name="com.android.sellacha.shopSetting.activity.GeneralFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_general" />
+
+    <fragment
+        android:id="@+id/LocationShopFragment"
+        android:name="com.android.sellacha.shopSetting.activity.LocationShopFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_loaction_shop" />
 
 </navigation>

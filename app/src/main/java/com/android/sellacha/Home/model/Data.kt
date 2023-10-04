@@ -4,5 +4,6 @@ data class Data(
     val total_completed: String,
     val total_orders: String,
     val total_pending: String,
-    val total_processing: String
+    val total_processing: String,
+    val total_earnings: String
 )

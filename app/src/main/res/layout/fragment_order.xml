@@ -89,7 +89,7 @@
                                     android:layout_gravity="center"
                                     android:layout_margin="@dimen/_5sdp"
                                     android:layout_marginStart="@dimen/_5sdp"
-
+                                    android:visibility="gone"
                                     android:padding="@dimen/_5sdp"
                                     android:src="@drawable/search_btn"
                                     app:tint="@color/_6E7D86" />
@@ -101,10 +101,10 @@
                                     android:layout_gravity="center"
                                     android:layout_weight="5"
                                     android:background="@null"
+                                    android:padding="5dp"
                                     android:ellipsize="end"
                                     android:hint="ABC-123"
-                                    android:imeOptions="actionSearch"
-                                    android:inputType="text"
+                                     android:inputType="text"
                                     android:maxLines="1"
                                     android:singleLine="true"
                                     android:textCursorDrawable="@drawable/search_cursor"
@@ -271,7 +271,7 @@
 
                                             <TextView
                                                 android:id="@+id/Fulfillment"
-                                                android:layout_width="@dimen/_100sdp"
+                                                android:layout_width="@dimen/_110sdp"
                                                 android:layout_height="match_parent"
                                                 android:fontFamily="@font/noto_sans_regular"
                                                 android:gravity="center"

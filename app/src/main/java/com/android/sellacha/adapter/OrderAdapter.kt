@@ -129,7 +129,7 @@ class OrderAdapter(var context: Context, orderList: List<OrderItem>, selected: I
         @RequiresApi(api = Build.VERSION_CODES.M)
         fun setDataBind(orders: OrderItem, position: Int) {
             binding.orderName.text = TextUtils.getString(orders.orderNo.toString())
-            binding.date.text = TextUtils.getString(orders.sDate)
+            binding.date.text = TextUtils.getString(orders.createdAt).substringBefore("T")
 
             if (orders.customer != null) {
                 binding.customer.text = TextUtils.getString(orders.customer.name)
@@ -138,8 +138,22 @@ class OrderAdapter(var context: Context, orderList: List<OrderItem>, selected: I
                 binding.Fulfillment.text = "Competed"
                 binding.Fulfillment.setBackgroundResource(R.drawable.green_10_bg)
             } else if (TextUtils.getString(orders.status) == "pending") {
-                binding.Fulfillment.text = "Pending"
+                binding.Fulfillment.text = "Awaiting processing"
                 binding.Fulfillment.setBackgroundResource(R.drawable.yellow_10_bg)
+
+            }  else if (TextUtils.getString(orders.status) == "archived") {
+                binding.Fulfillment.text = "Archived"
+                binding.Fulfillment.setBackgroundResource(R.drawable.yellow_10_bg)
+
+            } else if (TextUtils.getString(orders.status) == "canceled") {
+                binding.Fulfillment.text = "Canceled"
+                binding.Fulfillment.setBackgroundResource(R.drawable.red_10_bg)
+            }else if (TextUtils.getString(orders.status) == "ready-for-pickup") {
+                binding.Fulfillment.text = "Ready for pickup"
+                binding.Fulfillment.setBackgroundResource(R.drawable.sky_10_bg)
+            }else if (TextUtils.getString(orders.status) == "processing") {
+                binding.Fulfillment.text = "Processing"
+                binding.Fulfillment.setBackgroundResource(R.drawable.blue_10_bg)
             }
 
 //            } else if (TextUtils.getString(orders.getStatus()).equals("3")) {

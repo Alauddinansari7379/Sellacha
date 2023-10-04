@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
@@ -19,6 +20,7 @@ import androidx.navigation.Navigation.findNavController
 import com.android.sellacha.databinding.FragmentColorSchemeBinding
 import com.android.sellacha.helper.myToast
 import com.example.ehcf.Fragment.test.UploadRequestBody
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -53,8 +55,8 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
             binding!!.logotxtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
             binding!!.txtThemeColr.setText(StoreInformation.RegistrationData.theme_color)
             binding!!.tvCountURL.text = urlList.size.toString()
-            binding!!.txtNoFile.text="Favicon Selected"
-            binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
+            binding!!.logotxtNoFileFav.text="Favicon Selected"
+            binding!!.logotxtNoFileFav.setTextColor(Color.parseColor("#FF4CAF50"));
         }
 
 
@@ -97,15 +99,36 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
 
         }
 
-        binding!!.chooseLogo.setOnClickListener {
+        binding!!.layoutGallery.setOnClickListener {
             image = 1
             opeinImageChooser()
 
         }
-        binding!!.chooseFavicon.setOnClickListener {
+
+        binding!!.layoutCamera.setOnClickListener {
+            image = 1
+            ImagePicker.with(this).cameraOnly()
+//                                            .createIntent { intent ->
+//                                startForProfileImageResult.launch(intent)
+//                            }
+                .start(REQUEST_CODE_IMAGE)
+
+        }
+
+
+        binding!!.layoutGalleryFav.setOnClickListener {
             image = 2
             opeinImageChooser()
 
+        }
+
+        binding!!.layoutCameraFav.setOnClickListener {
+            image = 2
+            ImagePicker.with(this).cameraOnly()
+//                                            .createIntent { intent ->
+//                                startForProfileImageResult.launch(intent)
+//                            }
+                .start(REQUEST_CODE_IMAGE)
         }
 
         binding!!.colorSchemeLb.setOnClickListener {
@@ -131,6 +154,14 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
             myToast(requireActivity(),"Select Favicon")
             return
         }
+        val file: File = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                .absolutePath + "/myAppImages/")
+        if (!file.exists()) {
+            file.mkdirs()
+        }
+
+
         val parcelFileDescriptorLogo =
             activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.logo!!, "r", null)
                 ?: return
@@ -198,8 +229,8 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
                         }
                         2->{
                             StoreInformation.RegistrationData.favicon=data?.data
-                            binding!!.txtNoFile.text="Favicon Selected"
-                            binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
+                            binding!!.logotxtNoFileFav.text="Favicon Selected"
+                            binding!!.logotxtNoFileFav.setTextColor(Color.parseColor("#FF4CAF50"));
 
                         }
                     }

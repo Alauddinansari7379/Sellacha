@@ -1,5 +1,6 @@
 package com.android.sellacha.Products
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
@@ -14,6 +15,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.sellacha.Costomer.adapter.AdapterCustomer
+import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.adapter.ProductAdapter
 import com.android.sellacha.adapter.ProductFilterSelector
@@ -25,16 +28,25 @@ import com.android.sellacha.api.service.MainService
 import com.android.sellacha.databinding.FragmentProductBinding
 import com.android.sellacha.dialog.AppDialog
 import com.android.sellacha.fragment.BaseFragment
+import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
+import com.example.ehcf.sharedpreferences.SessionManager
+import com.example.myrecyview.apiclient.ApiClient
 import com.google.gson.Gson
 import com.google.gson.JsonNull
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import androidx.core.widget.addTextChangedListener
+
 import java.util.*
 
 class ProductFragment : BaseFragment() {
     var binding: FragmentProductBinding? = null
     var filterNameAdapter: ProductFilterSelector? = null
     var productAdapter: ProductAdapter? = null
-    var productList: MutableList<DataItem?> = ArrayList()
+    private var productList: MutableList<DataItem?> = ArrayList()
+    lateinit var sessionManager:SessionManager
     var filterSelector = 0
     var selectedPosition = 0
     override fun onCreateView(
@@ -43,6 +55,8 @@ class ProductFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
+
+        sessionManager=SessionManager(requireContext())
 
         binding!!.orderList.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -67,6 +81,16 @@ class ProductFragment : BaseFragment() {
                 Toast.makeText(mContext, "Loading data completed", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding!!.searchTxt.addTextChangedListener { str ->
+            setRecyclerViewAdapter(productList.filter {
+                it!!.title!!.contains(
+                    str.toString(),
+                    ignoreCase = true
+                )
+            } as ArrayList<DataItem>)
+        }
+
         publish
         binding!!.addNewBtn.setOnClickListener { view: View? ->
             findNavController(binding!!.getRoot()).navigate(
@@ -113,6 +137,7 @@ class ProductFragment : BaseFragment() {
         return binding!!.root
     }
 
+
     private fun filterPlaces(title: String) {
         val filteredPlaces = ArrayList<DataItem>()
         for (bookModel in productList) {
@@ -141,8 +166,7 @@ class ProductFragment : BaseFragment() {
                                 productList.clear()
                                 productList.addAll(orderResponse.posts.data)
                                 getFilterList(orderResponse)
-                                productAdapter =
-                                    context?.let { ProductAdapter(it, productList, 0, binding!!.orderList) }
+                                productAdapter = context?.let { ProductAdapter(it, productList, 0, binding!!.orderList) }
                                 binding!!.orderList.adapter = productAdapter
                             } else {
                                 showAlertDialog(
@@ -191,6 +215,13 @@ class ProductFragment : BaseFragment() {
                     AppProgressBar.hideLoaderDialog()
                 }
         }
+    private fun setRecyclerViewAdapter(data: ArrayList<DataItem>) {
+        binding!!.orderList.apply {
+            productAdapter =
+                context?.let { ProductAdapter(it, data, 0, binding!!.orderList) }
+            binding!!.orderList.adapter = productAdapter
+         }
+    }
     private val incomplete: Unit
         get() {
             AppProgressBar.showLoaderDialog(mContext)
@@ -239,6 +270,37 @@ class ProductFragment : BaseFragment() {
                             productList.addAll(orderResponse.posts.data)
                             productAdapter =
                                 context?.let { ProductAdapter(it, productList, 0, binding!!.orderList) }
+                            binding!!.orderList.adapter = productAdapter
+                        } else {
+                            showAlertDialog(
+                                getString(R.string.app_name),
+                                response.message,
+                                "OK",
+                                ""
+                            ) { obj: AppDialog -> obj.dismiss() }
+                        }
+                    } else {
+                        errorSnackBar(binding!!.root, response.message)
+                    }
+                }
+                AppProgressBar.hideLoaderDialog()
+            }
+        }
+
+    private val searchProduct: Unit
+        get() {
+            AppProgressBar.showLoaderDialog(mContext)
+            MainService.getTrash(mContext).observe(viewLifecycleOwner) { response: ApiResponse? ->
+                if (response == null) {
+                    errorSnackBar(binding!!.root, getString(R.string.something_wrong))
+                } else {
+                    if (response.data !is JsonNull) {
+                        if (response.data != null) {
+                            val orderResponse =
+                                Gson().fromJson(response.data, GetAllProduct::class.java)
+                            productList.clear()
+                            productList.addAll(orderResponse.posts.data)
+                            productAdapter = context?.let { ProductAdapter(it, productList, 0, binding!!.orderList) }
                             binding!!.orderList.adapter = productAdapter
                         } else {
                             showAlertDialog(

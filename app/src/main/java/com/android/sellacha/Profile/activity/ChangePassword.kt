@@ -15,14 +15,14 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ChangePassword : AppCompatActivity() {
-    private lateinit var binding:ActivityChangePasswordBinding
+    private lateinit var binding: ActivityChangePasswordBinding
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityChangePasswordBinding.inflate(layoutInflater)
+        binding = ActivityChangePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        sessionManager= SessionManager(this)
+        sessionManager = SessionManager(this)
 
 
         binding.backBtn.setOnClickListener {
@@ -30,41 +30,41 @@ class ChangePassword : AppCompatActivity() {
         }
         binding.btnChangePassword.setOnClickListener {
 
-            if (binding.oldAddresLb.text.toString().isEmpty()){
-                binding.oldAddresLb.error="Enter Old Password"
+            if (binding.oldAddresLb.text.toString().isEmpty()) {
+                binding.oldAddresLb.error = "Enter Old Password"
                 binding.oldAddresLb.requestFocus()
                 return@setOnClickListener
             }
-            if (binding.newPasswordLb.text.toString().isEmpty()){
-                binding.newPasswordLb.error="Enter New Password"
+            if (binding.newPasswordLb.text.toString().isEmpty()) {
+                binding.newPasswordLb.error = "Enter New Password"
                 binding.newPasswordLb.requestFocus()
                 return@setOnClickListener
             }
-            if (binding.customerTypeLb.text.toString().isEmpty()){
-                binding.customerTypeLb.error="Reenter Password"
+            if (binding.customerTypeLb.text.toString().isEmpty()) {
+                binding.customerTypeLb.error = "Reenter Password"
                 binding.customerTypeLb.requestFocus()
                 return@setOnClickListener
             }
-            val oldPass=binding.oldAddresLb.text.toString()
-            val newPass=binding.newPasswordLb.text.toString()
-            val againPass=binding.customerTypeLb.text.toString()
+            val oldPass = binding.oldAddresLb.text.toString()
+            val newPass = binding.newPasswordLb.text.toString()
+            val againPass = binding.customerTypeLb.text.toString()
             if (newPass != againPass) {
                 binding.customerTypeLb.error = "Password Miss Match"
                 binding.customerTypeLb.requestFocus()
                 return@setOnClickListener
-            }else{
-                apiCallChangePassword(oldPass,againPass)
+            } else {
+                apiCallChangePassword(oldPass, againPass)
             }
 
-            }
+        }
     }
 
 
     private fun apiCallChangePassword(oldPass: String, againPass: String) {
         AppProgressBar.showLoaderDialog(this@ChangePassword)
-Log.e("Old",oldPass)
-Log.e("againPass",againPass)
-        ApiClient.apiService.userProfileUpdate(sessionManager.authToken,oldPass,againPass)
+        Log.e("Old", oldPass)
+        Log.e("againPass", againPass)
+        ApiClient.apiService.userProfileUpdatePass(sessionManager.authToken, oldPass, againPass)
             .enqueue(object : Callback<ModelChangePass> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
@@ -85,7 +85,7 @@ Log.e("againPass",againPass)
 
 
                         }
-                    }catch (e:Exception){
+                    } catch (e: Exception) {
                         e.printStackTrace()
                         myToast(this@ChangePassword, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()

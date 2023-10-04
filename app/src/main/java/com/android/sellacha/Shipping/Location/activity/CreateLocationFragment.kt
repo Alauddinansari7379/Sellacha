@@ -10,8 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.Shipping.Location.ModelCreateLocation
+import com.android.sellacha.Shipping.Location.adapter.AdapterLoaction
 import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateLocationBinding
 import com.android.sellacha.helper.myToast
@@ -42,6 +45,8 @@ class CreateLocationFragment : Fragment() {
         binding = FragmentCreateLocationBinding.bind(view)
         sessionManager = SessionManager(requireContext())
 
+
+        apiCallLocation()
         binding.btnSave.setOnClickListener {
             if (binding.txtTitle.text.toString().isEmpty()){
                 binding.txtTitle.error="Enter Location"
@@ -54,6 +59,60 @@ class CreateLocationFragment : Fragment() {
 
 
     }
+    private fun apiCallLocation() {
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.getLocation(sessionManager.authToken)
+            .enqueue(object : Callback<ModelCategory> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelCategory>, response: Response<ModelCategory>
+                ) {
+                    try {
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+
+                        } else if (response.body()!!.data.posts.data.isEmpty()) {
+                            binding!!.locationList.adapter =
+                                activity?.let {
+                                    AdapterLoaction(
+                                        it,
+                                        response.body()!!.data.posts.data
+                                    )
+                                }
+                            binding!!.locationList.adapter!!.notifyDataSetChanged()
+                            myToast(requireActivity(), "No Location Found")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            binding!!.locationList.adapter =
+                                activity?.let {
+                                    AdapterLoaction(
+                                        it,
+                                        response.body()!!.data.posts.data
+                                    )
+                                }
+                            AppProgressBar.hideLoaderDialog()
+
+
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
+                    // myToast(requireActivity(), "Something went wrong")
+                    apiCallLocation()
+
+                    AppProgressBar.hideLoaderDialog()
+
+
+                }
+
+            })
+    }
+
 
     private fun apiCallCategory(location: String) {
         AppProgressBar.showLoaderDialog(requireContext())
@@ -70,9 +129,12 @@ class CreateLocationFragment : Fragment() {
                             myToast(requireContext() as Activity, "Server Error")
                             AppProgressBar.hideLoaderDialog()
                         }
-                        if (response.body()!!.success) {
+                        else if (response.code() == 200) {
                             myToast(requireActivity(), response.body()!!.data)
                             binding.txtTitle.text.clear()
+                            apiCallLocation()
+                            Navigation.findNavController(binding!!.root).navigate(R.id.locationFragment)
+
                             AppProgressBar.hideLoaderDialog()
 
                         } else if (response.code() == 401) {
@@ -100,7 +162,7 @@ class CreateLocationFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ModelCreateLocation>, t: Throwable) {
-                    myToast(requireActivity(), "Something went wrong")
+                     apiCallCategory(location)
                     AppProgressBar.hideLoaderDialog()
 
 
