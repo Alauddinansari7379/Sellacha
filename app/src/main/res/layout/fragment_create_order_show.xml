@@ -169,12 +169,13 @@
                             <Button
                                 android:id="@+id/Proceed"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="@dimen/_25sdp"
                                 android:background="@drawable/corner"
                                 android:textAllCaps="false"
                                 android:layout_marginStart="20dp"
                                 android:textColor="@color/white"
                                 android:layout_marginEnd="20dp"
+                                android:textSize="@dimen/_11sdp"
                                 android:backgroundTint="@color/primary_bg"
                                 android:text="Proceed to Checokut"
                                 >
@@ -182,11 +183,10 @@
                             </Button>
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
+                                android:layout_height="@dimen/_50sdp"
                                 android:layout_marginTop="10dp"
                                 android:orientation="horizontal"
                                 android:background="#BFEBEBEB"
-
                                 android:padding="5dp">
 
                                 <LinearLayout
@@ -206,7 +206,7 @@
                                         android:gravity="center"
                                         android:text="@string/product"
                                         android:textColor="@color/black"
-                                        android:textSize="14sp" />
+                                        android:textSize="@dimen/_11sdp" />
                                 </LinearLayout>
 
 
@@ -219,7 +219,7 @@
                                     android:gravity="center"
                                     android:text="Price"
                                     android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -239,7 +239,7 @@
                                         android:gravity="center"
                                         android:text="Cart"
                                         android:textColor="@color/black"
-                                        android:textSize="14sp" />
+                                        android:textSize="@dimen/_11sdp" />
                                  </LinearLayout>
 
                             </LinearLayout>

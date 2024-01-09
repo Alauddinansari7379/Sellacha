@@ -184,6 +184,8 @@ class ProductAdapter(
                 //  binding.payment.setPadding(0, 0, 0, 0);"
                 binding.payment.text = "Trash"
             }
+
+
             binding.totalSale.text = TextUtils.getString(name.orderCount.toString())
             //            String date = new SimpleDateFormat().format(name.getUpdatedAt());
             binding.lastUpdate.text = name.formate_date

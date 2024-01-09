@@ -3,14 +3,12 @@ package com.android.sellacha.Profile.activity
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.android.sellacha.Costomer.adapter.AdapterCustomer
-import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Profile.model.ModelUserDetial
 import com.android.sellacha.databinding.ActivityUserDetailsBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.StatusBarUtils
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

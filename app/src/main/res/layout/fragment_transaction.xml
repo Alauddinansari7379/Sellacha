@@ -104,7 +104,7 @@
                                             android:gravity="center"
                                             android:text="@string/amount"
                                             android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                            android:textSize="@dimen/_11sdp" />
 
                                         <TextView
                                             android:layout_width="@dimen/_100sdp"
@@ -113,7 +113,7 @@
                                             android:gravity="center"
                                             android:text="@string/payment"
                                             android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                            android:textSize="@dimen/_11sdp" />
 
                                         <TextView
                                             android:layout_width="@dimen/_100sdp"
@@ -122,7 +122,7 @@
                                             android:gravity="center"
                                             android:text="@string/method"
                                             android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                            android:textSize="@dimen/_11sdp" />
 
                                         <TextView
                                             android:layout_width="@dimen/_100sdp"
@@ -131,7 +131,7 @@
                                             android:gravity="center"
                                             android:text="@string/order_no"
                                             android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                            android:textSize="@dimen/_11sdp" />
 
                                         <TextView
                                             android:layout_width="@dimen/_150sdp"
@@ -140,7 +140,7 @@
                                             android:gravity="center"
                                             android:text="@string/transaction_id"
                                             android:textColor="@color/_324754"
-                                            android:textSize="14sp" />
+                                            android:textSize="@dimen/_11sdp" />
 
 
                                     </LinearLayout>

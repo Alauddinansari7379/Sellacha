@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 
 
-class AdapterTransaction(val context: Context, private val list: ModelTransaction,) :
+class AdapterTransaction(val context: Context, private val list: ModelTransaction) :
     RecyclerView.Adapter<AdapterTransaction.MyViewHolder>() {
 
 
@@ -35,10 +35,15 @@ class AdapterTransaction(val context: Context, private val list: ModelTransactio
 
         }
         holder.orderNum.text = list.data.orders.data[position].order_no
-        holder.tansNum.text = list.data.orders.data[position].transaction_id
+        if (list.data.orders.data[position].transaction_id != null) holder.tansNum.text =
+            list.data.orders.data[position].transaction_id else holder.tansNum.text =
+            "Not Available"
 
 
-        when(list.data.orders.data[position].status) {
+
+
+
+        when (list.data.orders.data[position].status) {
             "completed" -> {
                 holder.paymentStatus.setBackgroundResource(R.drawable.bg_green);
 
@@ -60,11 +65,11 @@ class AdapterTransaction(val context: Context, private val list: ModelTransactio
     }
 
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-          val amt: TextView = itemView.findViewById(R.id.amt)
-          val paymentStatus: TextView = itemView.findViewById(R.id.paymentStatus)
-          val payMethod: TextView = itemView.findViewById(R.id.payMethod)
-          val orderNum: TextView = itemView.findViewById(R.id.orderNum)
-          val tansNum: TextView = itemView.findViewById(R.id.tansNum)
+        val amt: TextView = itemView.findViewById(R.id.amt)
+        val paymentStatus: TextView = itemView.findViewById(R.id.paymentStatus)
+        val payMethod: TextView = itemView.findViewById(R.id.payMethod)
+        val orderNum: TextView = itemView.findViewById(R.id.orderNum)
+        val tansNum: TextView = itemView.findViewById(R.id.tansNum)
 
 
     }

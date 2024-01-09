@@ -21,7 +21,7 @@
                 <ImageView
                     android:id="@+id/ImgShow"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
@@ -31,25 +31,26 @@
 
                     android:id="@+id/nameShow"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_regular"
                     android:gravity="center"
                     android:text="Singer"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp"/>
             </LinearLayout>
 
 
             <TextView
                 android:id="@+id/priceShow"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="00"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,20 +72,19 @@
                      android:text="1"
                     android:textColorHint="@color/_6E7D86"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
                 <TextView
                     android:id="@+id/tvAddToCart"
-                     android:layout_width="35dp"
-                    android:layout_height="35dp"
+                     android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:background="@drawable/cart"
                     android:fontFamily="@font/noto_sans_regular"
                     android:gravity="center"
                     android:layout_marginStart="10sp"
                     android:paddingStart="@dimen/_10sdp"
                     android:paddingEnd="@dimen/_10sdp"
-                    android:text="Yes"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+                     android:textColor="@color/white"
+                   />
             </LinearLayout>
 
         </LinearLayout>

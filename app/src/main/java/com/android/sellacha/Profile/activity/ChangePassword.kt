@@ -8,7 +8,7 @@ import com.android.sellacha.Profile.model.ModelChangePass
 import com.android.sellacha.databinding.ActivityChangePasswordBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

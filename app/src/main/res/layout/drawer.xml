@@ -67,6 +67,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/dashboard"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -89,6 +90,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_toEndOf="@id/orderIcon"
+                        android:textSize="@dimen/_11sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/orders"
                         android:textColor="@color/heading_font" />
@@ -98,6 +100,7 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentEnd="true"
+
                         android:layout_marginEnd="@dimen/_25sdp"
                         android:src="@drawable/icn_next_arrow" />
 
@@ -131,7 +134,7 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:gravity="start|center"
-                         android:text="Canceled"
+                        android:text="Canceled"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -156,6 +159,7 @@
                         android:layout_toEndOf="@id/productsIcon"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/products"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
 
                     <ImageView
@@ -175,9 +179,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/_F8F8F8"
                     android:gravity="center_vertical"
-                    android:visibility="gone"
                     android:orientation="vertical"
-                  >
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/allProductBtn"
@@ -269,6 +272,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/customers"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -291,6 +295,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/transactions"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -313,6 +318,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/reports"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -335,6 +341,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/review_ratings"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 
@@ -367,6 +374,7 @@
                             android:layout_toEndOf="@id/shipping_icon"
                             android:fontFamily="@font/noto_sans_medium"
                             android:text="@string/shipping"
+                            android:textSize="@dimen/_11sdp"
                             android:textColor="@color/heading_font" />
 
                         <ImageView
@@ -376,8 +384,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="@dimen/_25sdp"
                             android:src="@drawable/icn_next_arrow"
-                            app:tint="@color/primary_bg"
-                            />
+                            app:tint="@color/primary_bg" />
 
 
                     </RelativeLayout>
@@ -415,6 +422,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/lLocationsll"
                     android:layout_width="match_parent"
@@ -424,6 +432,15 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
+                    <TextView
+                        android:id="@+id/Nimbus"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Nimbus Shipping"
+                        android:textColor="@color/heading_font" />
                     <TextView
                         android:id="@+id/locationBtn"
                         android:layout_width="match_parent"
@@ -466,7 +483,7 @@
                             android:layout_height="@dimen/_22sdp"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="@dimen/_25sdp"
-                            android:src="@drawable/icn_offer_ads"/>
+                            android:src="@drawable/icn_offer_ads" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -475,6 +492,7 @@
                             android:layout_toEndOf="@id/offer_icon"
                             android:fontFamily="@font/noto_sans_medium"
                             android:text="@string/offer_ads"
+                            android:textSize="@dimen/_11sdp"
                             android:textColor="@color/heading_font" />
 
                         <ImageView
@@ -484,8 +502,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="@dimen/_25sdp"
                             android:src="@drawable/icn_next_arrow"
-                            app:tint="@color/primary_bg"
-                            />
+                            app:tint="@color/primary_bg" />
 
 
                     </RelativeLayout>
@@ -546,6 +563,7 @@
                         android:layout_toEndOf="@id/SettingsIcons"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/settings"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
 
                     <ImageView
@@ -556,6 +574,7 @@
                         android:layout_marginEnd="@dimen/_25sdp"
                         android:src="@drawable/icn_next_arrow" />
                 </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/layoutSetting"
                     android:layout_width="match_parent"
@@ -586,6 +605,7 @@
                         android:gravity="start|center"
                         android:text="Subscriptions"
                         android:textColor="@color/heading_font" />
+
                     <TextView
                         android:id="@+id/DomainSBtn"
                         android:layout_width="match_parent"
@@ -597,6 +617,7 @@
                         android:gravity="start|center"
                         android:text="Domain Setting"
                         android:textColor="@color/heading_font" />
+
                     <TextView
                         android:id="@+id/ThemesAndApk"
                         android:layout_width="match_parent"
@@ -631,6 +652,7 @@
                         android:layout_toEndOf="@id/ShopSettingsIcons"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="Shop Settings"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
 
                     <ImageView
@@ -641,6 +663,7 @@
                         android:layout_marginEnd="@dimen/_25sdp"
                         android:src="@drawable/icn_next_arrow" />
                 </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/layoutShopSetting"
                     android:layout_width="match_parent"
@@ -665,12 +688,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginStart="@dimen/_63sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:gravity="start|center"
                         android:text="Location"
                         android:textColor="@color/heading_font" />
+
+                    <TextView
+                        android:id="@+id/Slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_63sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:gravity="start|center"
+                        android:text="Slider"
+                        android:textColor="@color/heading_font" />
+
                     <TextView
                         android:id="@+id/OtherShop"
                         android:layout_width="match_parent"
@@ -681,9 +716,9 @@
                         android:fontFamily="@font/noto_sans_medium"
                         android:gravity="start|center"
                         android:text="Other"
-                        android:visibility="gone"
-                        android:textColor="@color/heading_font" />
-                 </LinearLayout>
+                        android:textColor="@color/heading_font"
+                        android:visibility="gone" />
+                </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/marketingTools"
@@ -706,6 +741,7 @@
                         android:layout_toEndOf="@id/MarketingToolsIcon"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="@string/marketing_tools"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
 
                     <ImageView
@@ -771,6 +807,7 @@
                         android:text="Whatsapp Api"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
+
                 <LinearLayout
 
                     android:id="@+id/UpgradePlan"
@@ -791,8 +828,10 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="Upgrade your Plan"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
+
                 <LinearLayout
 
                     android:id="@+id/CustomerSupport"
@@ -813,6 +852,7 @@
                         android:layout_marginStart="@dimen/_15sdp"
                         android:fontFamily="@font/noto_sans_medium"
                         android:text="Customer Support"
+                        android:textSize="@dimen/_11sdp"
                         android:textColor="@color/heading_font" />
                 </LinearLayout>
 

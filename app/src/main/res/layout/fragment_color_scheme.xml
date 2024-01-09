@@ -136,15 +136,15 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="@color/primary_bg"
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
                                     android:background="@drawable/ic_menu_gallery"
                                     android:backgroundTint="@color/white" />
 
@@ -154,6 +154,7 @@
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="@dimen/_10sdp"
                                 android:text="Gallery">
 
                             </androidx.appcompat.widget.AppCompatTextView>
@@ -167,7 +168,8 @@
                             android:gravity="center"
                             android:text="No file chosen"
                             android:textColor="#9F757C7C"
-                            android:textSize="15dp" />
+                            android:textSize="@dimen/_10sdp"
+                            />
 
                     </LinearLayout>
 
@@ -237,15 +239,15 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="@color/primary_bg"
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
                                     android:background="@drawable/ic_menu_gallery"
                                     android:backgroundTint="@color/white" />
 
@@ -255,6 +257,7 @@
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textSize="@dimen/_10sdp"
                                 android:text="Gallery">
 
                             </androidx.appcompat.widget.AppCompatTextView>
@@ -268,7 +271,8 @@
                             android:gravity="center"
                             android:text="No file chosen"
                             android:textColor="#9F757C7C"
-                            android:textSize="15dp" />
+                            android:textSize="@dimen/_10sdp"
+                            />
 
                     </LinearLayout>
 
@@ -301,14 +305,14 @@
                         <TextView
                             android:id="@+id/status"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_45sdp"
                             android:background="@drawable/top_curve_heading"
                             android:fontFamily="@font/noto_sans_semi_bold"
                             android:gravity="left|center"
                             android:padding="8dp"
                             android:paddingStart="20dp"
                             android:text="Social Links"
-                            android:textSize="17sp"
+                            android:textSize="@dimen/_13sdp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -317,14 +321,14 @@
                         <TextView
                             android:id="@+id/urlLB"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_40sdp"
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_semi_bold"
                             android:gravity="left|center"
                             android:padding="8dp"
                             android:paddingStart="20dp"
                             android:text="URL"
-                            android:textSize="17sp"
+                            android:textSize="@dimen/_12sdp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -348,7 +352,7 @@
                         <EditText
                             android:id="@+id/urlLink"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_40sdp"
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_regular"
                             android:gravity="left|center"
@@ -356,7 +360,6 @@
                             android:padding="8dp"
                             android:paddingStart="@dimen/_15sdp"
                             android:textSize="@dimen/_11sdp"
-
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/urlLB" />
@@ -372,14 +375,14 @@
                         <TextView
                             android:id="@+id/icnClassLb"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_40sdp"
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_semi_bold"
                             android:gravity="left|center"
                             android:padding="8dp"
                             android:paddingStart="20dp"
                             android:text="ICON CLASS"
-                            android:textSize="17sp"
+                            android:textSize="@dimen/_12sdp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -388,7 +391,7 @@
                         <EditText
                             android:id="@+id/orderStatus"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="@dimen/_40sdp"
                             android:background="@color/order_cardbg"
                             android:fontFamily="@font/noto_sans_regular"
                             android:gravity="left|center"
@@ -411,8 +414,8 @@
 
                             <TextView
                                 android:id="@+id/removeBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_25sdp"
                                 android:layout_margin="@dimen/_10sdp"
                                 android:background="@drawable/bg_green"
                                 android:backgroundTint="@color/_EE4747"
@@ -421,6 +424,7 @@
                                 android:paddingEnd="@dimen/_15sdp"
                                 android:paddingBottom="@dimen/_5sdp"
                                 android:text="Remove"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/white"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/addNewBtn"
@@ -428,8 +432,8 @@
 
                             <TextView
                                 android:id="@+id/addNewBtn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_25sdp"
                                 android:layout_margin="@dimen/_10sdp"
                                 android:background="@drawable/bg_green"
 
@@ -438,6 +442,7 @@
                                 android:paddingEnd="@dimen/_15sdp"
                                 android:paddingBottom="@dimen/_5sdp"
                                 android:text="Add New"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/white"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"

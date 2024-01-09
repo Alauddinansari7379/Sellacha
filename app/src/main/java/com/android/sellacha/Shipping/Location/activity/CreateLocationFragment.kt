@@ -11,21 +11,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.android.sellacha.Products.categories.Model.ModelCategory
+import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.R
 import com.android.sellacha.Shipping.Location.ModelCreateLocation
 import com.android.sellacha.Shipping.Location.adapter.AdapterLoaction
+import com.android.sellacha.Shipping.LocationFragment
 import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateLocationBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreateLocationFragment : Fragment() {
+class CreateLocationFragment : Fragment() ,AdapterLoaction.Delete{
     private lateinit var binding: FragmentCreateLocationBinding
     private lateinit var sessionManager: SessionManager
     var navController: NavController? = null
@@ -45,72 +46,27 @@ class CreateLocationFragment : Fragment() {
         binding = FragmentCreateLocationBinding.bind(view)
         sessionManager = SessionManager(requireContext())
 
+        if (LocationFragment.edit =="2"){
+            binding!!.btnSave.text="Update"
+            binding!!.txtTitle.setText(LocationFragment.title)
+        }
 
-        apiCallLocation()
-        binding.btnSave.setOnClickListener {
+         binding.btnSave.setOnClickListener {
             if (binding.txtTitle.text.toString().isEmpty()){
                 binding.txtTitle.error="Enter Location"
                 binding.txtTitle.requestFocus()
                 return@setOnClickListener
             }
             val location= binding.txtTitle.text.toString().trim()
-            apiCallCategory(location)
+             if(LocationFragment.edit =="2") {
+                 editLocation(LocationFragment.idNew,binding.txtTitle.text.toString().trim())
+             } else{
+                 apiCallCategory(location)
+
+             }
         }
 
 
-    }
-    private fun apiCallLocation() {
-        AppProgressBar.showLoaderDialog(requireContext())
-
-        ApiClient.apiService.getLocation(sessionManager.authToken)
-            .enqueue(object : Callback<ModelCategory> {
-                @SuppressLint("LogNotTimber")
-                override fun onResponse(
-                    call: Call<ModelCategory>, response: Response<ModelCategory>
-                ) {
-                    try {
-                        if (response.code() == 500) {
-                            myToast(requireActivity(), "Server Error")
-
-                        } else if (response.body()!!.data.posts.data.isEmpty()) {
-                            binding!!.locationList.adapter =
-                                activity?.let {
-                                    AdapterLoaction(
-                                        it,
-                                        response.body()!!.data.posts.data
-                                    )
-                                }
-                            binding!!.locationList.adapter!!.notifyDataSetChanged()
-                            myToast(requireActivity(), "No Location Found")
-                            AppProgressBar.hideLoaderDialog()
-
-                        } else {
-                            binding!!.locationList.adapter =
-                                activity?.let {
-                                    AdapterLoaction(
-                                        it,
-                                        response.body()!!.data.posts.data
-                                    )
-                                }
-                            AppProgressBar.hideLoaderDialog()
-
-
-                        }
-                    }catch (e:Exception){
-                        e.printStackTrace()
-                    }
-                }
-
-                override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
-                    // myToast(requireActivity(), "Something went wrong")
-                    apiCallLocation()
-
-                    AppProgressBar.hideLoaderDialog()
-
-
-                }
-
-            })
     }
 
 
@@ -132,8 +88,7 @@ class CreateLocationFragment : Fragment() {
                         else if (response.code() == 200) {
                             myToast(requireActivity(), response.body()!!.data)
                             binding.txtTitle.text.clear()
-                            apiCallLocation()
-                            Navigation.findNavController(binding!!.root).navigate(R.id.locationFragment)
+                             Navigation.findNavController(binding!!.root).navigate(R.id.locationFragment)
 
                             AppProgressBar.hideLoaderDialog()
 
@@ -170,5 +125,66 @@ class CreateLocationFragment : Fragment() {
 
             })
     }
+
+    override fun delete(id: String) {
+
+
+    }
+
+    override fun edit(id: String, title: String) {
+        editLocation(id,title)
+
+    }
+
+
+
+    private fun editLocation(id: String,title: String) {
+
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.editLocation(sessionManager.authToken, id, title)
+            .enqueue(object : Callback<ModelCreCatogoryJava> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+                ) {
+                    try {
+
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 401) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(requireActivity(), response.body()!!.data)
+                            LocationFragment.edit =="1"
+                            Navigation.findNavController(binding!!.root).navigate(R.id.locationFragment)
+
+                            AppProgressBar.hideLoaderDialog()
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
+                    // myToast(requireActivity(),t.message.toString())
+                    // myToast(requireActivity(), "Something went wrong")
+                    editLocation(id,title)
+                }
+
+            })
+
+    }
+
 
 }

@@ -18,11 +18,10 @@ import androidx.navigation.Navigation
 import com.android.sellacha.OfferAndAds.model.ModelCreateAd
 import com.android.sellacha.R
 import com.android.sellacha.databinding.FragmentCreateBannerAdBinding
-import com.android.sellacha.databinding.FragmentCreateBumpAdBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import okhttp3.MultipartBody
 import retrofit2.Call

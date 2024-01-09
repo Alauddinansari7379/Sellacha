@@ -23,10 +23,11 @@
                 android:fillViewport="true"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/parentLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="334dp">
 
@@ -54,102 +55,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/addProdLb" />
 
-                    <TextView
-                        android:id="@+id/priceLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Price"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/txtproductTitle" />
-
-                    <TextView
-                        android:id="@+id/specialPriceLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Special Price"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
-
-
-                    <TextView
-                        android:id="@+id/specialPriceTypeLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Special Price Type"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPrice" />
-
-                    <TextView
-                        android:id="@+id/specialPriceStart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Special Price Start"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/spinnerMenu" />
-
-                    <TextView
-                        android:id="@+id/specialPriceEndLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Special Price End"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/location" />
-
-
-                    <TextView
-                        android:id="@+id/skuLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="SKU"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPriceEnd" />
-
-                    <TextView
-                        android:id="@+id/manageStockLb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Manage Stock"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/txtSku" />
-
-                    <TextView
-                        android:id="@+id/StockQuantityLB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Stock Quantity"
-                        android:textColor="@color/heading_font"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/switch1" />
-
                     <EditText
                         android:id="@+id/txtproductTitle"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+
                         android:layout_marginTop="6dp"
-                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
@@ -162,11 +75,91 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/productTitleLb" />
 
+                    <TextView
+                        android:id="@+id/priceLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Price"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtproductTitle" />
+
+                    <EditText
+                        android:id="@+id/txtPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:hint="Enter Price"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#946A6363"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtproductTitle"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/priceLb" />
+
+
+                    <TextView
+                        android:id="@+id/specialPriceLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Special Price"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
+
+                    <EditText
+                        android:id="@+id/txtSpecialPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#946A6363"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPrice"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceLb" />
+
+                    <TextView
+                        android:id="@+id/specialPriceTypeLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Special Price Type"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPrice" />
+
                     <Spinner
                         android:id="@+id/spinnerMenu"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
@@ -180,142 +173,269 @@
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceTypeLb" />
 
+                    <TextView
+                        android:id="@+id/specialPriceStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Special Price Start"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerMenu" />
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/location"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
-                        android:hint="dd/mm/yyyy"
                         android:fontFamily="@font/noto_sans_regular"
+                        android:hint="dd/mm/yyyy"
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
-
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="@+id/spinnerMenu"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceStart" />
 
+                    <TextView
+                        android:id="@+id/specialPriceEndLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Special Price End"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/location" />
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/txtSpecialPriceEnd"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
                         android:fontFamily="@font/noto_sans_regular"
                         android:hint="dd/mm/yyyy"
-
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
-
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="@+id/location"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/specialPriceEndLb" />
 
-                    <EditText
-                        android:id="@+id/txtStockQuantity"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="@color/light_gray"
-                        android:ems="10"
-                        android:fontFamily="@font/noto_sans_regular"
-                        android:hint="Enter Quantity"
-                        android:inputType="textPersonName"
-                        android:padding="@dimen/_5sdp"
 
-                        android:textColor="#946A6363"
+                    <TextView
+                        android:id="@+id/skuLb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="SKU"
+                        android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="@+id/txtSku"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/StockQuantityLB" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtSpecialPriceEnd" />
 
                     <EditText
                         android:id="@+id/txtSku"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"
-
                         android:fontFamily="@font/noto_sans_regular"
                         android:hint="#ABC-123"
                         android:inputType="textPersonName"
                         android:padding="@dimen/_5sdp"
-
                         android:textColor="#946A6363"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="@+id/txtSpecialPriceEnd"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/skuLb" />
 
-                    <EditText
-                        android:id="@+id/txtPrice"
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/manageStockLb"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="@color/light_gray"
-                        android:ems="10"
-                        android:fontFamily="@font/noto_sans_regular"
-                        android:hint="Enter Price"
-                        android:inputType="number"
-                        android:padding="@dimen/_5sdp"
-                        android:textColor="#946A6363"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Manage Stock"
+                        android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="@+id/txtproductTitle"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/priceLb" />
-
-                    <EditText
-                        android:id="@+id/txtSpecialPrice"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:backgroundTint="@color/light_gray"
-                        android:ems="10"
-                        android:fontFamily="@font/noto_sans_regular"
-
-                        android:inputType="number"
-                        android:padding="@dimen/_5sdp"
-                        android:textColor="#946A6363"
-                        android:textSize="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="@+id/txtPrice"
-                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
-                        app:layout_constraintTop_toBottomOf="@+id/specialPriceLb" />
-
-                    <Button
-                        android:id="@+id/SignInBtn"
-                        android:layout_width="@dimen/_250sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_margin="@dimen/_20sdp"
-
-                        android:background="@drawable/btn_background"
-                        android:gravity="center"
-                        android:text="Save"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_14sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.381"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtStockQuantity"
-                        tools:ignore="UnknownIdInLayout" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtSku" />
 
                     <Switch
                         android:id="@+id/switch1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="@+id/productTitleLb"
                         app:layout_constraintTop_toBottomOf="@+id/manageStockLb"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/StockQuantityLB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Stock Quantity"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+
+                    <EditText
+                        android:id="@+id/txtStockQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:hint="Enter Quantity"
+                        android:inputType="number"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#946A6363"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSku"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/StockQuantityLB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Stock Status"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+                    <Spinner
+                        android:id="@+id/spinnerStoctstuate"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:backgroundTint="@color/light_gray"
+                        android:ems="10"
+                        android:fontFamily="@font/noto_sans_regular"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#946A6363"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSpecialPrice"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/specialPriceTypeLb" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Product Image"
+                        android:textColor="@color/heading_font"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/productTitleLb"
+                        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgView"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:background="@drawable/icn_image">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <TextView
+                            android:id="@+id/btnchoosefile"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:background="@drawable/light_white_10sdp"
+                            android:elevation="1dp"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Choose file"
+                            android:textAlignment="center"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                            app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                        <TextView
+                            android:id="@+id/txtNoFile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_11sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                            app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                            app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/SignInBtn"
+                            android:layout_width="@dimen/_250sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:background="@drawable/btn_background"
+                            android:gravity="center"
+                            android:text="Save"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </LinearLayout>
 
             </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>

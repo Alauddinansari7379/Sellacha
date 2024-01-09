@@ -8,13 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.android.sellacha.OfferAndAds.adapter.AdapterBumpAd
 import com.android.sellacha.OfferAndAds.model.ModelBumpAd
 import com.android.sellacha.R
 import com.android.sellacha.databinding.FragmentBannerAdsBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -80,7 +81,7 @@ class BannerAdsFragment : Fragment(),AdapterBumpAd.Delete {
                 override fun onFailure(call: Call<ModelBumpAd>, t: Throwable) {
                     // myToast(requireActivity(),t.message.toString())
                     // myToast(requireActivity(), "Something went wrong")
-                    apiCallBannerAd()
+                  //  apiCallBannerAd()
 
                    // AppProgressBar.hideLoaderDialog()
 
@@ -90,8 +91,62 @@ class BannerAdsFragment : Fragment(),AdapterBumpAd.Delete {
             })
     }
 
+    private fun apiCallDelete(id: String) {
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.deleteBumpAds(sessionManager.authToken,id)
+            .enqueue(object : Callback<ModelBumpAd> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelBumpAd>, response: Response<ModelBumpAd>
+                ) {
+                    if (response.code() == 500) {
+                        myToast(requireActivity(), "Server Error")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.body()!!.data.data.isEmpty()) {
+                        binding!!.recyclerView.adapter =
+                            activity?.let { AdapterBumpAd(it, response.body()!!,this@BannerAdsFragment) }
+                        binding!!.recyclerView.adapter!!.notifyDataSetChanged()
+                        myToast(requireActivity(), "No Ad Found")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else {
+                        binding!!.recyclerView.adapter =
+                            activity?.let { AdapterBumpAd(it, response.body()!!,this@BannerAdsFragment) }
+                        AppProgressBar.hideLoaderDialog()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelBumpAd>, t: Throwable) {
+                    // myToast(requireActivity(),t.message.toString())
+                    // myToast(requireActivity(), "Something went wrong")
+                    apiCallBannerAd()
+
+                    AppProgressBar.hideLoaderDialog()
+
+
+                }
+
+            })
+    }
+
+
     override fun delete(id: String) {
-     }
+        SweetAlertDialog(requireContext(), SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Are you sure want to edit?")
+            .setCancelText("No")
+            .setConfirmText("Yes")
+            .showCancelButton(true)
+            .setConfirmClickListener { sDialog ->
+                sDialog.cancel()
+                apiCallDelete(id)
+            }
+            .setCancelClickListener { sDialog ->
+                sDialog.cancel()
+            }
+            .show()
+    }
 
 
 }

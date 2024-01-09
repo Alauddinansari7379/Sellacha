@@ -11,7 +11,7 @@
         <LinearLayout
             android:id="@+id/orderDetailLL"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingStart="@dimen/_3sdp"
             android:paddingEnd="@dimen/_5sdp"
@@ -19,8 +19,8 @@
 
             <RadioButton
                 android:id="@+id/orderRbtn"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:padding="5dp"
                 android:layout_marginEnd="10dp"
                 android:gravity="center"
@@ -28,45 +28,43 @@
 
             <TextView
                 android:id="@+id/orderName"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:text="Order "
-
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/_80sdp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-
                 android:text="Date"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/customer"
-                android:layout_width="150dp"
+                android:layout_width="@dimen/_120sdp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:inputType="textMultiLine"
                 android:textColor="@color/semi_title_font"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/orderTotal"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/_80sdp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:text="Order Total"
                 android:textColor="@color/semi_title_font"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <LinearLayout
                 android:layout_width="@dimen/_100sdp"
@@ -76,7 +74,7 @@
                 <TextView
                     android:id="@+id/payment"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_22sdp"
                     android:layout_marginStart="@dimen/_10ssp"
                     android:layout_marginEnd="@dimen/_10ssp"
                     android:background="@drawable/green_10_bg"
@@ -97,7 +95,7 @@
                 <TextView
                     android:id="@+id/Fulfillment"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_22sdp"
                     android:layout_marginStart="@dimen/_10ssp"
                     android:layout_marginEnd="@dimen/_10ssp"
                     android:background="@drawable/green_10_bg"
@@ -113,13 +111,13 @@
 
             <TextView
                 android:id="@+id/items"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/_80sdp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:text="Item(S)"
                 android:textColor="@color/semi_title_font"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <ImageView
                 android:id="@+id/printInvoice"

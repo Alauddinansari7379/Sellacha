@@ -3,6 +3,7 @@ package com.android.sellacha.LogIn
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
@@ -16,10 +17,11 @@ import com.android.sellacha.activity.StoreInformationActivity
 import com.android.sellacha.app.SellAchaApplication
 import com.android.sellacha.databinding.ActivityLoginBinding
 import com.android.sellacha.helper.PreferenceManger
+import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.TextUtils
 import com.android.sellacha.utils.Validations
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,6 +38,17 @@ class LoginActivity : BaseActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this)
+
+        val redurl=intent.getStringExtra("redurl")
+        val pay=intent.getStringExtra("pay")
+
+        Log.e("URL",redurl.toString())
+        Log.e("pay",pay.toString())
+
+        if (pay=="1"){
+            val browse = Intent(Intent.ACTION_VIEW, Uri.parse("$redurl"))
+            startActivity(browse)
+        }
 
 
 
@@ -88,12 +101,75 @@ class LoginActivity : BaseActivity() {
                 binding.passwordEdt.requestFocus()
                 return@setOnClickListener
             }
-            apiCallLogin()
+            login()
 
         }
     }
-private fun apiCallLogin(){
+
+    private fun login() {
+
+        AppProgressBar.showLoaderDialog(this@LoginActivity)
+        ApiClient.apiService.login(
+            binding.emailEdt.text.toString().trim(),
+            binding.passwordEdt.text.toString().trim(),
+        ).enqueue(object :
+            Callback<ModelLogin> {
+            @SuppressLint("LogNotTimber")
+            override fun onResponse(
+                call: Call<ModelLogin>,
+                response: Response<ModelLogin>
+            ) {
+                try {
+                    if (response.code() == 500) {
+                        myToast(this@LoginActivity, "Server Error")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 404) {
+                        myToast(this@LoginActivity, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+                    } else if (response.body()!!.success) {
+                        sessionManager.isLogin = true
+                        myToast(this@LoginActivity, "Login Successfully")
+                        sessionManager.authToken = "Bearer "+response.body()!!.data.token
+                        sessionManager.email = response.body()!!.data.email
+                        sessionManager.customerName = response.body()!!.data.name
+                        sessionManager.baseURL ="https://sellacha.com/api/"
+                        SellAchaApplication.getPreferenceManger().putString(PreferenceManger.AUTH_TOKEN, "Bearer " +response.body()!!.data.token)
+                        Log.e("email",sessionManager.email.toString())
+                        Log.e("customerName",sessionManager.customerName.toString())
+                        Log.e("authToken",sessionManager.authToken.toString())
+
+                        val intent = Intent(applicationContext, HomeDashBoard::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        finish()
+                        startActivity(intent)
+                        AppProgressBar.hideLoaderDialog()
+                    } else {
+                        myToast(this@LoginActivity, "Wrong Email or Password")
+                        AppProgressBar.hideLoaderDialog()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    myToast(this@LoginActivity, "Something went wrong")
+                    AppProgressBar.hideLoaderDialog()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<ModelLogin>, t: Throwable) {
+                myToast(this@LoginActivity, "Something went wrong")
+                AppProgressBar.hideLoaderDialog()
+
+            }
+
+        })
+    }
+
+/*
+    private fun apiCallLogin(){
     AppProgressBar.showLoaderDialog(this)
+    errorSnackBar(binding.root,"  went  ")
 
     val emailEdt = binding.emailEdt.text.toString().trim()
     val password = binding.passwordEdt.text.toString().trim()
@@ -108,7 +184,7 @@ private fun apiCallLogin(){
                 sessionManager.authToken = "Bearer "+response.body()!!.data.token
                 sessionManager.email = response.body()!!.data.email
                 sessionManager.customerName = response.body()!!.data.name
-                sessionManager.baseURL ="https://footwear.thedemostore.in/"
+                sessionManager.baseURL ="https://sellacha.com/api/"
                 SellAchaApplication.getPreferenceManger().putString(PreferenceManger.AUTH_TOKEN, "Bearer " +response.body()!!.data.token)
                 Log.e("email",sessionManager.email.toString())
                 Log.e("customerName",sessionManager.customerName.toString())
@@ -137,6 +213,7 @@ private fun apiCallLogin(){
     })
 
 }
+*/
 
 //    fun openLink(str: String?, text: TextView?) {
 //        val link: Link = Link(str!!)

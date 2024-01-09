@@ -161,8 +161,8 @@
                         app:tint="@color/heading_font" />
                     <ImageView
                         android:id="@+id/password_toggleOff"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:padding="@dimen/_3sdp"
                         android:background="?actionBarItemBackground"
                          android:src="@drawable/ic_baseline_visibility_off_24"

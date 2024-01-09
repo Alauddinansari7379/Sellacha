@@ -72,26 +72,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                     android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        >
+                      android:orientation="horizontal">
 
-                        <WebView
-                            android:id="@+id/webView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="#028be5"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:visibility="gone"
-                         app:cardCornerRadius="@dimen/_8sdp">
+                          app:cardCornerRadius="@dimen/_8sdp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -159,6 +148,7 @@
                                         android:text="Chat Now"
                                         android:textColor="#028be5"
                                         android:textStyle="bold"
+                                        android:textSize="@dimen/_11sdp"
                                         tools:layout_editor_absoluteX="282dp"
                                         tools:layout_editor_absoluteY="376dp" />
 

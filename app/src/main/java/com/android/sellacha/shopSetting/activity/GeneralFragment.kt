@@ -1,15 +1,9 @@
 package com.android.sellacha.shopSetting.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.ContentResolver
 import android.content.ContentValues
-import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.provider.OpenableColumns
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,31 +11,17 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
-import com.android.sellacha.OfferAndAds.model.ModelCreateAd
 import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
-import com.android.sellacha.Registration.StoreInformation
-import com.android.sellacha.databinding.FragmentCreateBannerAdBinding
-import com.android.sellacha.databinding.FragmentCreateBumpAdBinding
 import com.android.sellacha.databinding.FragmentGeneralBinding
-import com.android.sellacha.databinding.FragmentInstamojoBinding
-import com.android.sellacha.databinding.FragmentPaymentOptionsBinding
-import com.android.sellacha.databinding.FragmentPaypalBinding
-import com.android.sellacha.databinding.FragmentSubscriptionBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
-import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 
 class GeneralFragment : Fragment() {
     lateinit var binding: FragmentGeneralBinding

@@ -1,4 +1,4 @@
-package com.example.ehcf.sharedpreferences
+package com.android.sellacha.sharedpreferences
 
 import android.content.Context
 import android.preference.PreferenceManager
@@ -33,6 +33,7 @@ class SessionManager(context: Context?) {
         private const val WALLET="wallet"
         private const val BOOKING_TYPE="bookingType"
         private const val PRICE="pricing"
+        private const val DEVICEID="deviceId"
 
         private const val SELECTED_DATE="selected_date"
     }
@@ -71,6 +72,12 @@ class SessionManager(context: Context?) {
         get() = prefs.getString(BOOKING_TYPE, "")
         set(bookingType) {
             prefs.edit().putString(BOOKING_TYPE, bookingType).apply()
+        }
+
+    var deviceId: String?
+        get() = prefs.getString(DEVICEID, "")
+        set(deviceId) {
+            prefs.edit().putString(DEVICEID, deviceId).apply()
         }
     var pricing: String?
         get() = prefs.getString(PRICE, "")

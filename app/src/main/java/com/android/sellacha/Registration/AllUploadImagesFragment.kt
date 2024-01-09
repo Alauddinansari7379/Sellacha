@@ -15,11 +15,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.sellacha.databinding.FragmentAllUploadImageBinding
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 
 
-class AllUploadImagesFragment : Fragment(),UploadRequestBody.UploadCallback {
+class AllUploadImagesFragment : Fragment(), UploadRequestBody.UploadCallback {
     var binding: FragmentAllUploadImageBinding? = null
     private lateinit var sessionManager: SessionManager
     private var image = 0

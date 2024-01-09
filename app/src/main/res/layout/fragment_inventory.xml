@@ -129,7 +129,7 @@
                                     android:gravity="center"
                                     android:text="@string/product"
                                     android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_10sdp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -139,17 +139,35 @@
                                     android:gravity="center"
                                     android:text="@string/sku"
                                     android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_10sdp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="0.8"
+                                    android:layout_weight="1"
                                     android:fontFamily="@font/noto_sans_bold"
                                     android:gravity="center"
                                     android:text="@string/stock_manage"
                                     android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_10sdp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Status"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans_bold"
+                                    android:gravity="center"
+                                    android:text="Edit QTY"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp" />
 
                             </LinearLayout>
 

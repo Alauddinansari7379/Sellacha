@@ -33,7 +33,7 @@ class AdapterCategory(val context: Context, private val list: ArrayList<DataX>,v
         // holder.SrNo.text= "${position+1}"
         holder.nameTvCat.text = list[position].name
         if (list[position].preview != null) {
-            Picasso.get().load("https://thedemostore.in/"+list[position].preview!!.content)
+            Picasso.get().load("https://sellacha.com/"+list[position].preview!!.content)
                 .placeholder(R.drawable.placeholder_n).error(R.drawable.error_placeholder)
                 .into(holder.categoryImg)
 

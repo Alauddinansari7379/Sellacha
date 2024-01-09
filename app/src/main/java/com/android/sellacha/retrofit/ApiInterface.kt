@@ -9,6 +9,7 @@ import com.android.sellacha.Order.Model.*
 import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
 import com.android.sellacha.Products.Coupons.MOdel.ModelCoupons
 import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
+import com.android.sellacha.Products.Inventory.Model.ModelUpdateInv
 import com.android.sellacha.Products.Inventory.Model.Modelinventory
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
@@ -27,6 +28,8 @@ import com.android.sellacha.marketingTools.model.ModelGoolgeAna
 import com.android.sellacha.marketingTools.model.ModelTagManager
 import com.android.sellacha.marketingTools.model.ModelWhatsaap
 import com.android.sellacha.setting.model.ModelSubscription
+import com.android.sellacha.shopSetting.model.ModelGetSlider
+import com.android.sellacha.shopSetting.model.ModelSlider
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -47,8 +50,7 @@ interface ApiInterface {
     @POST("forgeot_pass")
     fun forgotPass(
         @Query("email") email: String,
-     ): Call<ModelCoupon>
-
+    ): Call<ModelCoupon>
 
 
     @Multipart
@@ -67,6 +69,22 @@ interface ApiInterface {
         @Header("Authorization") authHeader: String?,
         @Query("id") id: String,
         @Query("type") featured: String,
+    ): Call<ModelCreCatogoryJava>
+
+    @Headers("Accept: application/json")
+    @POST("edit_location")
+    fun editLocation(
+        @Header("Authorization") authHeader: String?,
+        @Query("id") id: String,
+        @Query("title") title: String,
+    ): Call<ModelCreCatogoryJava>
+
+    @Headers("Accept: application/json")
+    @POST("destroy_location")
+    fun deleteLocation(
+        @Header("Authorization") authHeader: String?,
+        @Query("ids") id: String,
+        @Query("method") method: String,
     ): Call<ModelCreCatogoryJava>
 
     @Multipart
@@ -122,6 +140,7 @@ interface ApiInterface {
         @Query("type") type: String,
         @Query("src") src: String,
     ): Call<ModelCategory>
+
     @Headers("content-type: application/json")
     @POST("destroy_customer")
     fun deleteCustomer(
@@ -192,10 +211,33 @@ interface ApiInterface {
     ): Call<ModelBumpAd>
 
     @Headers("content-type: application/json")
+    @POST("delete_slider")
+    fun deleteSlider(
+        @Header("Authorization") authHeader: String?,
+        @Query("id") addid: String?,
+    ): Call<ModelSlider>
+
+    @Headers("content-type: application/json")
     @GET("banner_ads")
     fun bannerAds(
         @Header("Authorization") authHeader: String?,
     ): Call<ModelBumpAd>
+
+    @Headers("content-type: application/json")
+    @POST("get_slider")
+    fun getSlider(
+        @Header("Authorization") authHeader: String?,
+    ): Call<ModelGetSlider>
+
+    @Multipart
+    @POST("add_slider")
+    fun addSlider(
+        @Header("Authorization") authHeader: String?,
+        @Query("url") url: String?,
+        @Query("title") title: String?,
+        @Query("btn_text") btn_text: String?,
+        @Part file: MultipartBody.Part
+    ): Call<ModelSlider>
 
     @Headers("content-type: application/json")
     @POST("dashboard/order_statics")
@@ -265,7 +307,7 @@ interface ApiInterface {
 
 
     @Headers("content-type: application/json")
-    @Multipart
+   // @Multipart
     @POST("seller_register/1")
     fun registration(
         @Query("name") name: String?,
@@ -279,15 +321,13 @@ interface ApiInterface {
         @Query("mob") mob: String?,
         @Query("business_name") business_name: String?,
         @Query("shop_type") shop_type: String?,
-        @Part logo: MultipartBody.Part,
-        @Part favicon: MultipartBody.Part,
+//        @Part logo: MultipartBody.Part,
+//        @Part favicon: MultipartBody.Part,
         @Query("theme_color") theme_color: String?,
         @Query("url") url: ArrayList<String>?,
-//        @Query("icon[]") icon: String,
-        //@Part icon: Array<Part?>?,
         @Query("cname") cname: String?,
         @Query("p_id") p_id: String?,
-        @Part file: MultipartBody.Part,
+      //  @Part file: MultipartBody.Part,
         @Query("featured") featured: String?,
         @Query("menu_status") menu_status: String?,
         @Query("title") title: String?,
@@ -309,6 +349,8 @@ interface ApiInterface {
         @Query("shop_page_pretext") shop_page_pretext: String?,
         @Query("other_page_pretext") other_page_pretext: String?,
         @Query("wstatus") wstatus: String?,
+        @Query("plnt") plnt: String?,
+        @Query("plan_id") plan_id: String?,
     ): Call<ModelRegJava>
 
 //    @FormUrlEncoded
@@ -340,7 +382,6 @@ interface ApiInterface {
     ): Call<ModelCreateShow>
 
 
-
     @Headers("content-type: application/json")
     @GET("get_cart")
     fun getCart(
@@ -362,7 +403,7 @@ interface ApiInterface {
         @Query("title") title: String?,
         @Query("price") price: String?,
         @Query("locations") locations: String?,
-       // @Query("locations") locations: ArrayList<String>
+        // @Query("locations") locations: ArrayList<String>
     ): Call<ModelCreateShipping>
 
     @Headers("content-type: application/json")
@@ -463,7 +504,7 @@ interface ApiInterface {
     @POST("get_shipping_city")
     fun getShippingCity(
         @Header("Authorization") authHeader: String?,
-        @Query("id") id:String
+        @Query("id") id: String
     ): Call<ModelShippingCiry>
 
     @Headers("content-type: application/json")
@@ -493,7 +534,7 @@ interface ApiInterface {
         @Query("src") src: String?,
     ): Call<ModelTransaction>
 
-    @Headers("content-type: application/json")
+    @Multipart
     @POST("store")
     fun createProduct(
         @Header("Authorization") authHeader: String?,
@@ -504,7 +545,13 @@ interface ApiInterface {
         @Query("special_price_start") special_price_start: String?,
         @Query("special_price_end") special_price_end: String?,
         @Query("type") type: String,
+        @Query("stock_manage") stock_manage: String,
+        @Query("stock_qty") stock_qty: String,
+        @Query("sku") sku: String,
+        @Query("stock_status") stock_status: String,
+        @Part media: MultipartBody.Part,
     ): Call<ModelCreatePro>
+
 
     @Headers("content-type: application/json")
     @POST("add_to_cart")
@@ -526,7 +573,8 @@ interface ApiInterface {
     fun cartRemove(
         @Header("Authorization") authHeader: String?,
         @Query("id") id: String?,
-    ): Call<ModelCoupon>
+         @Query("device_id") device_id: String?,
+    ): Call<ModelGetCart>
 
     @Headers("content-type: application/json")
     @POST("user_profile_update")
@@ -536,6 +584,17 @@ interface ApiInterface {
         @Query("email") email: String?,
         @Query("mob") mob: String?,
     ): Call<ModelCoupon>
+
+    @Headers("content-type: application/json")
+    @POST("update_inventory")
+    fun updateInventory(
+        @Header("Authorization") authHeader: String?,
+        @Query("id") id: String?,
+        @Query("stock_status") stock_status: String?,
+        @Query("stock_qty") stock_qty: String?,
+        @Query("sku") sku: String?,
+        @Query("stock_manage") stock_manage: String?,
+    ): Call<ModelUpdateInv>
 
     @Headers("content-type: application/json")
     @POST("make_order")
@@ -554,6 +613,9 @@ interface ApiInterface {
         @Query("address") address: String?,
         @Query("zip_code") zip_code: String?,
         @Query("location") location: String?,
+        @Query("total")total:String?,
+        @Query("discount")discount:String?,
+        @Query("tax")tax:String?,
     ): Call<ModelCoupon>
 
     @Multipart
@@ -606,26 +668,28 @@ interface ApiInterface {
     fun marketingGetAnalytics(
         @Header("Authorization") authHeader: String?,
         @Query("param") param: String?,
-     ): Call<ModelGoolgeAna>
+    ): Call<ModelGoolgeAna>
+
     @Headers("content-type: application/json")
     @POST("get_marketing")
     fun marketingGetWhatsapp(
         @Header("Authorization") authHeader: String?,
         @Query("param") param: String?,
-     ): Call<ModelWhatsaap>
+    ): Call<ModelWhatsaap>
 
     @Headers("content-type: application/json")
     @POST("get_marketing")
     fun marketingGetGoogleTab(
         @Header("Authorization") authHeader: String?,
         @Query("param") param: String?,
-     ): Call<ModelTagManager>
+    ): Call<ModelTagManager>
+
     @Headers("content-type: application/json")
     @POST("get_marketing")
     fun marketingGetFaceBook(
         @Header("Authorization") authHeader: String?,
         @Query("param") param: String?,
-     ): Call<ModelFacebookPixel>
+    ): Call<ModelFacebookPixel>
 
     @Headers("content-type: application/json")
     @POST("theme_settings")
@@ -639,7 +703,7 @@ interface ApiInterface {
         @Query("currency_position") currency_position: String?,
         @Query("currency_name") currency_name: String?,
         @Query("currency_icon") currency_icon: String?,
-         @Query("order_receive_method") order_receive_method: String?,
+        @Query("order_receive_method") order_receive_method: String?,
         @Query("shop_type") shop_type: String?,
         @Query("tax") tax: String?,
     ): Call<ModelCoupon>
@@ -657,6 +721,6 @@ interface ApiInterface {
         @Query("email") email: String?,
         @Query("phone") phone: String?,
         @Query("invoice_description") invoice_description: String?,
-     ): Call<ModelCoupon>
+    ): Call<ModelCoupon>
 
 }

@@ -23,19 +23,16 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.android.sellacha.Products.Attributes.activity.AttributeFragment
-import com.android.sellacha.Products.categories.CategoryFragment
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.Products.categories.Model.ModelGender
 import com.android.sellacha.R
 import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateBrandBinding
-import com.android.sellacha.databinding.FragmentCreateCategoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MultipartBody
@@ -76,8 +73,8 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
         binding = FragmentCreateBrandBinding.bind(view)
         sessionManager = SessionManager(requireContext())
 
-        if (BrandFragment.edit =="2"){
-            binding!!.btnSave.text="Update"
+        if (BrandFragment.edit == "2") {
+            binding!!.btnSave.text = "Update"
             binding!!.txtName.setText(BrandFragment.brandName)
         }
 
@@ -92,9 +89,9 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
                 binding.txtName.requestFocus()
                 return@setOnClickListener
             }
-            if(BrandFragment.edit =="2") {
+            if (BrandFragment.edit == "2") {
                 uploadImageEdit()
-            } else{
+            } else {
                 uploadImage()
 
             }
@@ -136,7 +133,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
     private fun uploadImage() {
         if (selectedImageUri == null) {
             myToast(requireActivity(), "Select an Thumbnail First")
-             return
+            return
         }
 
         val parcelFileDescriptor = activity?.contentResolver?.openFileDescriptor(
@@ -161,11 +158,12 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
         Log.e("type", type)
         Log.e("featured", featured)
         Log.e("menu_status", menu_status)
+
         ApiClient.apiService.createBrand(
             sessionManager.authToken,
             name,
-             featured,
-             MultipartBody.Part.createFormData("file", file.name, body),
+            featured,
+            MultipartBody.Part.createFormData("file", file.name, body),
         ).enqueue(object : Callback<ModelCreCatogoryJava> {
             override fun onResponse(
                 call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
@@ -189,7 +187,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
                     //  binding.progressBar.progress = 100
 
-                }catch (e:java.lang.Exception){
+                } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                     AppProgressBar.hideLoaderDialog()
 
@@ -197,7 +195,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
             }
 
             override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
-               // binding.layoutRoot.snackbar(t.message!!)
+                // binding.layoutRoot.snackbar(t.message!!)
                 // binding.progressBar.progress = 0
                 myToast(requireActivity(), "Something went wrong")
                 AppProgressBar.hideLoaderDialog()
@@ -206,6 +204,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
         })
     }
+
     private fun uploadImageEdit() {
         if (selectedImageUri == null) {
             myToast(requireActivity(), "Select an Thumbnail First")
@@ -239,7 +238,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
             name,
             featured,
             BrandFragment.idNew,
-           MultipartBody.Part.createFormData("file", file.name, body),
+            MultipartBody.Part.createFormData("file", file.name, body),
         ).enqueue(object : Callback<ModelCreCatogoryJava> {
             override fun onResponse(
                 call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
@@ -251,7 +250,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
                     } else if (response.code() == 200) {
                         myToast(requireActivity(), response.body()!!.data)
-                        BrandFragment.edit ="1"
+                        BrandFragment.edit = "1"
                         Navigation.findNavController(binding!!.root).navigate(R.id.brandFragment)
 
                         AppProgressBar.hideLoaderDialog()
@@ -265,7 +264,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
                     //  binding.progressBar.progress = 100
 
-                }catch (e:java.lang.Exception){
+                } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                     myToast(requireActivity(), "Something went wrong")
 
@@ -308,7 +307,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
-                     binding.txtNoFile.text="Thumbnail Selected"
+                    binding.txtNoFile.text = "Thumbnail Selected"
                     binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
                     //   imageView?.setImageURI(selectedImageUri)
                 }
@@ -318,7 +317,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
     companion object {
         const val REQUEST_CODE_IMAGE = 101
-     }
+    }
 
     override fun onProgressUpdate(percentage: Int) {
         //   binding.progressBar.progress = percentage
@@ -349,7 +348,7 @@ class CreateBrand : Fragment(), UploadRequestBody.UploadCallback {
 
     override fun onDestroy() {
         super.onDestroy()
-        BrandFragment.edit ="1"
+        BrandFragment.edit = "1"
     }
 
 }

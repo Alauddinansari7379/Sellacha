@@ -3,209 +3,213 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:id="@+id/headerLayout"
-      android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/white"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="match_parent">
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/storeInfoLb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/store_information"
+            android:textColor="#0191B5"
+            android:textSize="@dimen/_22sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/logoLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Logo"
+                android:textColor="@color/heading_font"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                app:layout_constraintTop_toBottomOf="@+id/txtThemeColr" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chooseLogo"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/light_white_10sdp"
+                    android:elevation="1dp"
+                    android:padding="@dimen/_6sdp"
+                    android:text="Choose file"
+                    android:textAlignment="center"
+                    android:textColor="#9F757C7C"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintStart_toStartOf="@+id/logoLb"
+                    app:layout_constraintTop_toBottomOf="@+id/logoLb" />
+
+
+                <TextView
+                    android:id="@+id/logotxtNoFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="No file chosen"
+                    android:textColor="#9F757C7C"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
+                    app:layout_constraintStart_toEndOf="@+id/chooseLogo"
+                    app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/faviconLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Favicon"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/chooseFavicon"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/light_white_10sdp"
+                        android:elevation="1dp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Choose file"
+                        android:textAlignment="center"
+                        android:textColor="#9F757C7C"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="@+id/logoLb"
+                        app:layout_constraintTop_toBottomOf="@+id/logoLb" />
 
 
                     <TextView
-                        android:id="@+id/storeInfoLb"
+                        android:id="@+id/favtxtNoFile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:text="@string/store_information"
-                        android:textColor="#0191B5"
-                        android:textSize="@dimen/_22sdp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_marginStart="15dp"
+                        android:text="No file chosen"
+                        android:textColor="#9F757C7C"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
+                        app:layout_constraintStart_toEndOf="@+id/chooseLogo"
+                        app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/thumbnailLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Thumbnail"
+                    android:textColor="@color/heading_font"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/themeColorLb"
+                    app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/linearLayout2"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/chooseThumbnail"
+                        android:layout_width="@dimen/_80sdp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_25sdp"
-                        android:orientation="vertical">
+                        android:background="@drawable/light_white_10sdp"
+                        android:elevation="1dp"
+                        android:padding="@dimen/_6sdp"
+                        android:text="Choose file"
+                        android:textAlignment="center"
+                        android:textColor="#9F757C7C"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="@+id/logoLb"
+                        app:layout_constraintTop_toBottomOf="@+id/logoLb" />
 
 
-                        <TextView
-                            android:id="@+id/logoLb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:text="Logo"
-                            android:textColor="@color/heading_font"
-                            android:textSize="@dimen/_12sdp"
-                            app:layout_constraintStart_toStartOf="@+id/themeColorLb"
-                            app:layout_constraintTop_toBottomOf="@+id/txtThemeColr" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/chooseLogo"
-                                android:layout_width="@dimen/_80sdp"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/logoLb"
-                                app:layout_constraintTop_toBottomOf="@+id/logoLb" />
+                    <TextView
+                        android:id="@+id/ThumbnailNoFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="No file chosen"
+                        android:textColor="#9F757C7C"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
+                        app:layout_constraintStart_toEndOf="@+id/chooseLogo"
+                        app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
+                </LinearLayout>
+            </LinearLayout>
 
 
-                            <TextView
-                                android:id="@+id/logotxtNoFile"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
-                                app:layout_constraintStart_toEndOf="@+id/chooseLogo"
-                                app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
-                        </LinearLayout>
+        </LinearLayout>
 
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/faviconLb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="Favicon"
-        android:textColor="@color/heading_font"
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
-        app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/chooseFavicon"
-            android:layout_width="@dimen/_80sdp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_white_10sdp"
-            android:elevation="1dp"
-            android:padding="@dimen/_6sdp"
-            android:text="Choose file"
-            android:textAlignment="center"
-            android:textColor="#9F757C7C"
-            android:textSize="12dp"
-            app:layout_constraintStart_toStartOf="@+id/logoLb"
-            app:layout_constraintTop_toBottomOf="@+id/logoLb" />
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/btn_background"
+                android:gravity="center"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
 
-        <TextView
-            android:id="@+id/favtxtNoFile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="No file chosen"
-            android:textColor="#9F757C7C"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
-            app:layout_constraintStart_toEndOf="@+id/chooseLogo"
-            app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
-    </LinearLayout>
-</LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/thumbnailLb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="Thumbnail"
-        android:textColor="@color/heading_font"
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintStart_toStartOf="@+id/themeColorLb"
-        app:layout_constraintTop_toBottomOf="@+id/chooseLogo" />
+                app:layout_constraintStart_toStartOf="parent" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/chooseThumbnail"
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/light_white_10sdp"
-            android:elevation="1dp"
-            android:padding="@dimen/_6sdp"
-            android:text="Choose file"
-            android:textAlignment="center"
-            android:textColor="#9F757C7C"
-            android:textSize="12dp"
-            app:layout_constraintStart_toStartOf="@+id/logoLb"
-            app:layout_constraintTop_toBottomOf="@+id/logoLb" />
-
-
-        <TextView
-            android:id="@+id/ThumbnailNoFile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="No file chosen"
-            android:textColor="#9F757C7C"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/chooseLogo"
-            app:layout_constraintStart_toEndOf="@+id/chooseLogo"
-            app:layout_constraintTop_toTopOf="@+id/chooseLogo" />
-    </LinearLayout>
-</LinearLayout>
-
-
-                    </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_gravity="center_vertical"
-    android:gravity="center_vertical"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:background="@drawable/btn_background"
-        android:gravity="center"
-        android:text="Save"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-</LinearLayout>
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -1,21 +1,16 @@
 package com.android.sellacha.LogIn
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.android.sellacha.LogIn.Model.ModelLogin
 import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.R
 import com.android.sellacha.activity.BaseActivity
-import com.android.sellacha.activity.OtpActivity
-import com.android.sellacha.databinding.ActivityForgotPasswordBinding
+ import com.android.sellacha.databinding.ActivityForgotPasswordBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.StatusBarUtils
 import com.android.sellacha.utils.TextUtils
-import com.android.sellacha.utils.Validations
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

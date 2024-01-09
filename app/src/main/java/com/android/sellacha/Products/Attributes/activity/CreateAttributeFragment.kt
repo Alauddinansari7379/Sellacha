@@ -12,16 +12,13 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.android.sellacha.Order.Model.ModelCoupon
-import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
 import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
-import com.android.sellacha.Products.Coupons.activity.CouponsFragment
-import com.android.sellacha.Products.categories.CategoryFragment
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.R
 import com.android.sellacha.databinding.FragmentCreateAttributeBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -112,7 +109,7 @@ class CreateAttributeFragment : Fragment() {
                         myToast(requireActivity(), "Server Error")
 
                     } else if (response.code() == 401) {
-                        myToast(requireActivity(), "Maximum Attribute limit exceeded")
+                        myToast(requireActivity(), "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
                     } else {

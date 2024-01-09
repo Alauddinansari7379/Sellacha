@@ -62,9 +62,10 @@ class OrderAdapter(var context: Context, orderList: List<OrderItem>, selected: I
             findNavController(mHolder.binding.root).navigate(R.id.orderDetailsFragment, bundle)
         }
         mHolder.binding.printInvoice.setOnClickListener { view: View? ->
+           val id = orderList[position].id
             val browserIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("http://thedemostore.in/seller/orders/invoicenew/21/22")
+                Uri.parse("https://storefront.sellacha.com/seller/orders/invoice/${orderList[position].id}")
             )
             context.startActivity(browserIntent)
         }
@@ -131,8 +132,12 @@ class OrderAdapter(var context: Context, orderList: List<OrderItem>, selected: I
             binding.orderName.text = TextUtils.getString(orders.orderNo.toString())
             binding.date.text = TextUtils.getString(orders.createdAt).substringBefore("T")
 
-            if (orders.customer != null) {
+            if (orders.customer == null) {
+                binding.customer.text = "Guest User"
+
+            } else{
                 binding.customer.text = TextUtils.getString(orders.customer.name)
+
             }
             if (TextUtils.getString(orders.status) == "completed") {
                 binding.Fulfillment.text = "Competed"
@@ -160,16 +165,19 @@ class OrderAdapter(var context: Context, orderList: List<OrderItem>, selected: I
 //                binding.Fulfillment.setText("Awaiting processing");
 //                binding.Fulfillment.setBackgroundResource(R.drawable.red_10bg);
 //            }
-            binding.orderTotal.text = TextUtils.getString(orders.total.toString())
+            binding.orderTotal.text = TextUtils.getString("₹"+orders.total.toString())
             binding.items.text = TextUtils.getString(orders.orderItemsCount.toString())
+
+
             if (TextUtils.getString(orders.paymentStatus).equals("1", ignoreCase = true)) {
                 binding.payment.setBackgroundResource(R.drawable.green_10_bg)
                 binding.payment.text = "Completed"
             } else if (TextUtils.getString(orders.paymentStatus).equals("2", ignoreCase = true)) {
                 binding.payment.setBackgroundResource(R.drawable.yellow_10_bg)
-                //  binding.payment.setPadding(0, 0, 0, 0);
-                binding.payment.text = "Pending"
+                 binding.payment.text = "Pending"
             }
+            
+
             if (currentPos == position) {
                 binding.orderRbtn.isChecked = true
             } else {

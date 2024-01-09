@@ -27,7 +27,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:text="Singer"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
         </LinearLayout>
 
@@ -74,7 +74,7 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="100"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
             </LinearLayout>
@@ -94,7 +94,7 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="X"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
             </LinearLayout>
             <LinearLayout
@@ -114,7 +114,7 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="100"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="="
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
 
             </LinearLayout>
@@ -145,7 +145,7 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="100"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
 
             </LinearLayout>
 

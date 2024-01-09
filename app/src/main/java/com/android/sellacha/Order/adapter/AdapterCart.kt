@@ -38,7 +38,7 @@ class AdapterCart(
         holder.subtotal.text = "₹" + list[position].subtotal.toInt()
          removeCart.totalAmount(list[position].final_total)
 
-        Picasso.get()!!.load("${"http:" + list[position].preview}")
+        Picasso.get()!!.load("${"https:" + list[position].preview}")
             .placeholder(R.drawable.placeholder_n)
             .error(R.drawable.error_placeholder)
             .into(holder.imgItem)

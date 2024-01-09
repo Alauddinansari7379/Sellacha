@@ -22,7 +22,7 @@ import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.databinding.FragmentSellerAddCategoryBinding
 import com.android.sellacha.helper.myToast
-import com.example.ehcf.Fragment.test.UploadRequestBody
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -67,11 +67,11 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
 
 
         binding!!.saveBtn.setOnClickListener { view: View? ->
-            if (binding!!.txtName.text.isEmpty()) {
-                binding!!.txtName.error = "Enter Title"
-                binding!!.txtName.requestFocus()
-                return@setOnClickListener
-            }
+//            if (binding!!.txtName.text.isEmpty()) {
+//                binding!!.txtName.error = "Enter Title"
+//                binding!!.txtName.requestFocus()
+//                return@setOnClickListener
+//            }
             if (binding!!.spinnerCategory.selectedItemPosition==0) {
                 myToast(requireActivity(),"Select Parent Category")
                 return@setOnClickListener
@@ -182,31 +182,31 @@ class SellerAddCategoryFragment : Fragment(), UploadRequestBody.UploadCallback {
         return binding!!.root
     }
     private fun uploadImage() {
-        if (StoreInformation.RegistrationData.thumbnail == null) {
-            myToast(requireActivity(),"Select Thumbnail")
-            return
-        }
-        val parcelFileDescriptorLogo =
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.thumbnail!!, "r", null)
-                ?: return
-
-
-        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
-        var thumbnail = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!))
-
-
-        val outputStreamLogo = FileOutputStream(thumbnail)
-        inputStreamLogo.copyTo(outputStreamLogo)
-
-
-
-       // StoreInformation.RegistrationData.file= thumbnail.toString()
-
+//        if (StoreInformation.RegistrationData.thumbnail == null) {
+//            myToast(requireActivity(),"Select Thumbnail")
+//            return
+//        }
+//        val parcelFileDescriptorLogo =
+//            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.thumbnail!!, "r", null)
+//                ?: return
+//
+//
+//        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
+//        var thumbnail = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!))
+//
+//
+//        val outputStreamLogo = FileOutputStream(thumbnail)
+//        inputStreamLogo.copyTo(outputStreamLogo)
+//
+//
+//
+//       // StoreInformation.RegistrationData.file= thumbnail.toString()
+//
         findNavController(binding!!.root).navigate(R.id.addProduct2Fragment)
-
-        val body = UploadRequestBody(thumbnail, "image", this)
-        MultipartBody.Part.createFormData("image", thumbnail.name, body)
-        "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
+//
+//        val body = UploadRequestBody(thumbnail, "image", this)
+//        MultipartBody.Part.createFormData("image", thumbnail.name, body)
+//        "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
 
     }
 

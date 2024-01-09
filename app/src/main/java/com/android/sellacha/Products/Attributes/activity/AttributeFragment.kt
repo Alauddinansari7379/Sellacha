@@ -2,7 +2,6 @@ package com.android.sellacha.Products.Attributes.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,23 +9,16 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.android.sellacha.Products.Attributes.activity.MOdel.Data
 import com.android.sellacha.Products.Attributes.activity.MOdel.ModelAttributes
 import com.android.sellacha.Products.Attributes.activity.MOdel.Post
 import com.android.sellacha.Products.Attributes.adapter.AdapterAttribute
 import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
-import com.android.sellacha.Products.Coupons.activity.CouponsFragment
-import com.android.sellacha.Products.categories.Model.ModelCategory
-import com.android.sellacha.Products.categories.adapter.AdapterCategory
 import com.android.sellacha.R
 import com.android.sellacha.databinding.FragmentAttributeBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

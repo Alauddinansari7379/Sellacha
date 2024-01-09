@@ -1,10 +1,12 @@
 package com.android.sellacha.activity
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -20,11 +22,12 @@ import com.android.sellacha.databinding.ActivityHomeDashBoardBinding
 import com.android.sellacha.helper.CbnMenuItem
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.support.CustomerSupport
-import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.KeyboardListenerUtils
 import com.android.sellacha.utils.StatusBarUtils
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
+ import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,6 +49,11 @@ open class HomeDashBoard : BaseActivity() {
         navController = findNavController(this, R.id.nav_host_main)
 
         sessionManager = SessionManager(this@HomeDashBoard)
+
+        if (sessionManager.deviceId!!.isEmpty()) {
+            val deviceID = getDeviceId(this@HomeDashBoard)
+            sessionManager.deviceId = deviceID
+        }
         cbnMenuItems.add(
             CbnMenuItem(
                 R.drawable.icn_home,
@@ -84,7 +92,10 @@ open class HomeDashBoard : BaseActivity() {
 
         apiCallGetLogo()
         if (sessionManager.profilePic != "") {
-            Picasso.get().load("${sessionManager.profilePic}")
+            Picasso.get().load("${sessionManager.profilePic}").networkPolicy(
+                NetworkPolicy.NO_CACHE)
+                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                .placeholder(R.drawable.user).stableKey("id")
                 .into(binding.mainLayout.headerLayout.profileBtn)
             Log.e("pofile", "${sessionManager.profilePic}")
         }
@@ -227,6 +238,8 @@ open class HomeDashBoard : BaseActivity() {
             //handler.postDelayed(() ->
             navController!!.navigate(R.id.couponFragment, null, navOptions)
         }
+
+
         binding.drawerLayout.dashboardll.setOnClickListener { view: View? ->
             drawerLock()
             navController!!.navigate(R.id.homeFragment)
@@ -272,11 +285,24 @@ open class HomeDashBoard : BaseActivity() {
             navController!!.navigate(R.id.GeneralFragment, null, navOptions)
         }
 
+        binding.drawerLayout.Slider.setOnClickListener {
+            drawerLock()
+            navController!!.navigate(R.id.SliderFragment)
+            // handler.postDelayed(() ->
+            navController!!.navigate(R.id.SliderFragment, null, navOptions)
+        }
+
         binding.drawerLayout.LocationShop.setOnClickListener { view: View? ->
             drawerLock()
             navController!!.navigate(R.id.LocationShopFragment)
             // handler.postDelayed(() ->
             navController!!.navigate(R.id.LocationShopFragment, null, navOptions)
+        }
+
+        binding.drawerLayout.Nimbus.setOnClickListener { view: View? ->
+            drawerLock()
+            navController!!.navigate(R.id.NimbusFragment)
+             navController!!.navigate(R.id.NimbusFragment, null, navOptions)
         }
 
         binding.drawerLayout.CustomerSupport.setOnClickListener { view: View? ->
@@ -358,6 +384,10 @@ open class HomeDashBoard : BaseActivity() {
                 binding.mainLayout.headerLayout.txtLogo.text = "General"
             } else if (destination.id == R.id.LocationShopFragment) {
                 binding.mainLayout.headerLayout.txtLogo.text = "Location"
+            } else if (destination.id == R.id.SliderFragment) {
+                binding.mainLayout.headerLayout.txtLogo.text = "Slider"
+            } else if (destination.id == R.id.NimbusFragment) {
+                binding.mainLayout.headerLayout.txtLogo.text = "Nimbus Shipping"
             }
         }
         binding.drawerLayout.productsrl.setOnClickListener { view: View? ->
@@ -461,6 +491,10 @@ open class HomeDashBoard : BaseActivity() {
             binding!!.mainDrawerLayout.openDrawer(Gravity.LEFT)
         }
     }
+    private fun getDeviceId(context: Context): String? {
+        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+
+    }
 
     private fun apiCallGetLogo() {
 
@@ -482,11 +516,22 @@ open class HomeDashBoard : BaseActivity() {
                             //   AppProgressBar.hideLoaderDialog()
 
                         } else {
-                            sessionManager.profilePic = response.body()!!.data.logo
-                            Picasso.get().load("${response.body()!!.data.logo}")
+                           // sessionManager.profilePic = response.body()!!.data.logo
+
+//                            Glide
+//                                .with(this@HomeDashBoard)
+//                                .load("${response.body()!!.data.logo}")
+//                                .centerCrop()
+//                                .placeholder(R.drawable.user)
+//                                .into(binding.mainLayout.headerLayout.profileBtn)
+                            Picasso.get().load("${response.body()!!.data.logo}").networkPolicy(
+                                NetworkPolicy.NO_CACHE)
+                                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                .placeholder(R.drawable.user).stableKey("id")
                                 .into(binding.mainLayout.headerLayout.profileBtn)
                             Log.e("URL", response.body()!!.data.logo)
-                            Log.e("URLs", sessionManager.profilePic.toString())
+                            sessionManager.profilePic=response.body()!!.data.logo
+                            Log.e("sessionManager", sessionManager.profilePic.toString())
                             //  AppProgressBar.hideLoaderDialog()
                         }
                     } catch (e: Exception) {
@@ -504,7 +549,7 @@ open class HomeDashBoard : BaseActivity() {
             })
     }
 
-    protected val navOptions: NavOptions
+    private val navOptions: NavOptions
         get() = NavOptions.Builder()
             .setEnterAnim(R.anim.wait)
             .setExitAnim(R.anim.slide_nav)

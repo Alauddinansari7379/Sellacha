@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.android.sellacha.databinding.FragmentColorSchemeBinding
 import com.android.sellacha.helper.myToast
-import com.example.ehcf.Fragment.test.UploadRequestBody
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -30,7 +30,7 @@ import java.io.FileInputStream
 import java.io.FileOutputStream
 
 
-class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
+class ColorSchemeFragment : Fragment(), UploadRequestBody.UploadCallback {
     var binding: FragmentColorSchemeBinding? = null
     private var image=0
     var urlList = ArrayList<String>()
@@ -62,12 +62,12 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
 
 
         binding!!.saveBtn.setOnClickListener { view: View? ->
-
-            if (binding!!.txtThemeColr.text.isEmpty()) {
-                binding!!.txtThemeColr.error = "Enter Theme Color"
-                binding!!.txtThemeColr.requestFocus()
-                return@setOnClickListener
-            }
+//
+//            if (binding!!.txtThemeColr.text.isEmpty()) {
+//                binding!!.txtThemeColr.error = "Enter Theme Color"
+//                binding!!.txtThemeColr.requestFocus()
+//                return@setOnClickListener
+//            }
 
            // StoreInformation.RegistrationData.url= binding!!.urlLink.text.toString()
           //  StoreInformation.RegistrationData.icon= binding!!.orderStatus.text.toString()
@@ -145,15 +145,15 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
 
     @SuppressLint("SuspiciousIndentation")
     private fun uploadImage() {
-        if (StoreInformation.RegistrationData.logo == null) {
-            myToast(requireActivity(),"Select Logo")
-            return
-        }
-
-        if (StoreInformation.RegistrationData.favicon == null) {
-            myToast(requireActivity(),"Select Favicon")
-            return
-        }
+//        if (StoreInformation.RegistrationData.logo == null) {
+//            myToast(requireActivity(),"Select Logo")
+//            return
+//        }
+//
+//        if (StoreInformation.RegistrationData.favicon == null) {
+//            myToast(requireActivity(),"Select Favicon")
+//            return
+//        }
         val file: File = File(
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
                 .absolutePath + "/myAppImages/")
@@ -162,27 +162,27 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
         }
 
 
-        val parcelFileDescriptorLogo =
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.logo!!, "r", null)
-                ?: return
-
-        val parcelFileDescriptorFavicon =
-            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.favicon!!, "r", null)
-                ?: return
-
-        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
-
-        var logo = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!))
-
-        val inputStreamFavicon = FileInputStream(parcelFileDescriptorFavicon.fileDescriptor)
-        var logoFavicon = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!))
-
-        val outputStreamLogo = FileOutputStream(logo)
-        inputStreamLogo.copyTo(outputStreamLogo)
-
-
-        val outputStreamFavicon = FileOutputStream(logoFavicon)
-        inputStreamFavicon.copyTo(outputStreamFavicon)
+//        val parcelFileDescriptorLogo =
+//            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.logo!!, "r", null)
+//                ?: return
+//
+//        val parcelFileDescriptorFavicon =
+//            activity?.contentResolver?.openFileDescriptor(StoreInformation.RegistrationData.favicon!!, "r", null)
+//                ?: return
+//
+//        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
+//
+//        var logo = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!))
+//
+//        val inputStreamFavicon = FileInputStream(parcelFileDescriptorFavicon.fileDescriptor)
+//        var logoFavicon = File(requireActivity().cacheDir, activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!))
+//
+//        val outputStreamLogo = FileOutputStream(logo)
+//        inputStreamLogo.copyTo(outputStreamLogo)
+//
+//
+//        val outputStreamFavicon = FileOutputStream(logoFavicon)
+//        inputStreamFavicon.copyTo(outputStreamFavicon)
 
 
 //        StoreInformation.RegistrationData.logo  = logo.toString()
@@ -191,11 +191,11 @@ class ColorSchemeFragment : Fragment(),UploadRequestBody.UploadCallback {
         findNavController(binding!!.root).navigate(com.android.sellacha.R.id.addCategoryFragment)
 
 
-        val body = UploadRequestBody(logo, "image", this)
-
-        MultipartBody.Part.createFormData("image", logo.name, body)
-
-        "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
+//        val body = UploadRequestBody(logo, "image", this)
+//
+//        MultipartBody.Part.createFormData("image", logo.name, body)
+//
+//        "json".toRequestBody("multipart/form-data".toMediaTypeOrNull())
 
    }
 

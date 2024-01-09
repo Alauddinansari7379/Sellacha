@@ -7,6 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primary_bg">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parentLayout"
@@ -122,7 +135,7 @@
             <Spinner
                 android:id="@+id/txtSatus"
                 android:layout_width="0dp"
-                android:layout_height="35dp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:backgroundTint="@color/light_gray"
                 android:drawableEnd="@drawable/icn_drop_arrow"
@@ -151,8 +164,7 @@
                 android:text="Choose file"
                 android:textAlignment="center"
                 android:textColor="#9F757C7C"
-                android:textSize="12dp"
-
+                android:textSize="@dimen/_11sdp"
                 app:layout_constraintStart_toStartOf="@+id/servicAccLb"
                 app:layout_constraintTop_toBottomOf="@+id/servicAccLb" />
 
@@ -163,7 +175,7 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:text="No file chosen"
                 android:textColor="#9F757C7C"
-                android:textSize="15dp"
+                android:textSize="@dimen/_11sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
                 app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
                 app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
@@ -180,7 +192,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintEnd_toEndOf="parent"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtSatus" />
 
@@ -200,4 +211,7 @@ After 5 Minutes"
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

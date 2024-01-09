@@ -1,5 +1,7 @@
 package com.android.sellacha.Products.Inventory.Model
 
+import com.android.sellacha.Order.Model.Media
+
 data class Term(
     val answer1: Any,
     val answer2: Any,
@@ -10,7 +12,7 @@ data class Term(
     val featured: String,
     val id: Int,
     val is_admin: String,
-    val preview: Any,
+    val preview: Preview,
     val question1: Any,
     val question2: Any,
     val question3: Any,

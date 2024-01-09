@@ -71,7 +71,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="60dp"
+                            android:layout_height="@dimen/_50sdp"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:background="@drawable/top_curve_heading"
                             android:orientation="horizontal"
@@ -95,7 +95,7 @@
                                     android:gravity="center"
                                     android:text="ORDER "
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:id="@+id/date"
@@ -106,7 +106,7 @@
 
                                     android:text="NAME"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:id="@+id/customer"
@@ -116,7 +116,7 @@
                                     android:gravity="center"
                                     android:text="PURCHASE DATE"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:id="@+id/orderTotal"
@@ -126,7 +126,7 @@
                                     android:gravity="center"
                                     android:text="EXPIRY DATE"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:layout_width="100dp"
@@ -135,7 +135,7 @@
                                     android:gravity="center"
                                     android:text="TOTAL"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:layout_width="100dp"
@@ -144,7 +144,7 @@
                                     android:gravity="center"
                                     android:text="TAX"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:id="@+id/payment"
@@ -156,7 +156,7 @@
                                     android:paddingEnd="@dimen/_10sdp"
                                     android:text="PAYMENT METHOD"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:layout_width="@dimen/_120sdp"
@@ -167,7 +167,7 @@
                                     android:paddingEnd="@dimen/_10sdp"
                                     android:text="PAYMENT STATUS"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                                 <TextView
                                     android:id="@+id/items"
@@ -177,7 +177,7 @@
                                     android:gravity="center"
                                     android:text="FULFILLMENT"
                                     android:textColor="@color/primary_bg"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_11sdp" />
 
                             </LinearLayout>
 

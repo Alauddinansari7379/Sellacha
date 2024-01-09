@@ -81,6 +81,7 @@
                             android:paddingStart="@dimen/_10sdp"
                             android:paddingEnd="@dimen/_10sdp"
                             android:text="Installed"
+                            android:textSize="@dimen/_11sdp"
                             android:textColor="@color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +127,7 @@
                             android:background="@drawable/seleceted_item_bg"
                             android:fontFamily="@font/noto_sans_regular"
                             android:paddingStart="@dimen/_10sdp"
-
+                            android:textSize="@dimen/_11sdp"
                             android:paddingEnd="@dimen/_10sdp"
                             android:text="Active"
                             android:textColor="@color/white"

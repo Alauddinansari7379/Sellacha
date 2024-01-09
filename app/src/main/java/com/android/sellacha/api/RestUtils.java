@@ -4,7 +4,8 @@ public class RestUtils {
 
     public static String getEndPoint(String URL_Type) {
 
-        String STG = "http://thedemostore.in/api/";
+       // String STG = "http://thedemostore.in/api/";
+        String STG = "https://sellacha.com/api/";
 
         //        switch (URL_Type) {
 //            case Constants.GOOD_API_DEFAULT:

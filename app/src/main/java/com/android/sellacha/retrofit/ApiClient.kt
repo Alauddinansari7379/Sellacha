@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
-  //  private const val BASE_URL = "https://ehcf.thedemostore.in/api/customer/"
-  private const val BASE_URL = "http://thedemostore.in/api/"
+   private const val BASE_URL = "https://sellacha.com/api/"
+  // private const val BASE_URL = "http://thedemostore.in/api/"
 
     //const val Auth_key = "$2a$08$4BsgX5lRtC5/fZar6OBSf.zRDr.HpYenJ5yR8.gov4VSM/7dIIPle"
     private var retrofit: Retrofit? = null

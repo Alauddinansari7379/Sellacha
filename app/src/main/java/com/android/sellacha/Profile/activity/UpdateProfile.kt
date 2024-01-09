@@ -2,17 +2,14 @@ package com.android.sellacha.Profile.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.Profile.activity.ProfileActivity.Companion.value
-import com.android.sellacha.R
-import com.android.sellacha.activity.HomeDashBoard
 import com.android.sellacha.databinding.ActivityUpdateProfileBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

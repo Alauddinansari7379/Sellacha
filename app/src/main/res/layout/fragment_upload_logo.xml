@@ -90,7 +90,8 @@
                     android:text="Tagline"
                     android:textColor="@color/heading_font"
                     android:textSize="@dimen/_12sdp"
-                    app:layout_constraintStart_toStartOf="@+id/txtName"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
                 <TextView
@@ -111,7 +112,6 @@
                     android:id="@+id/txtName"
                     android:layout_width="378dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:backgroundTint="@color/light_gray"
                     android:fontFamily="@font/noto_sans_regular"
                     android:hint="Your Brand"
@@ -120,7 +120,6 @@
                     android:textColor="#946A6363"
                     android:textCursorDrawable="@drawable/search_cursor"
                     android:textSize="@dimen/_12sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/nameLb"
                     app:layout_constraintTop_toBottomOf="@+id/nameLb" />
 

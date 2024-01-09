@@ -93,11 +93,12 @@
                         android:id="@+id/referralNoLbn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
                         android:text="(Optional)"
                         android:textColor="@color/heading_font"
                         android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/referralNoLb"
                         app:layout_constraintStart_toEndOf="@+id/referralNoLb"
                         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
@@ -235,7 +236,7 @@
                     <Spinner
                         android:id="@+id/txtselectshoptp"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
@@ -272,7 +273,7 @@
                     <Spinner
                         android:id="@+id/txtPassword"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_marginTop="6dp"
                         android:backgroundTint="@color/light_gray"
                         android:ems="10"

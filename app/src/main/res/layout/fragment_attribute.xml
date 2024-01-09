@@ -55,6 +55,7 @@
                     android:padding="@dimen/_10sdp"
                     android:text="@string/create_attribute"
                     android:textAllCaps="false"
+                    android:textSize="@dimen/_11sdp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleTv" />
@@ -131,7 +132,7 @@
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="60dp"
+                            android:layout_height="@dimen/_50sdp"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:background="#BFEBEBEB"
                             android:orientation="horizontal"
@@ -146,7 +147,8 @@
                                 android:gravity="center"
                                 android:text="Name"
                                 android:textColor="@color/_324754"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp"
+                                />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -156,7 +158,8 @@
                                 android:gravity="center"
                                 android:text="@string/variations"
                                 android:textColor="@color/_324754"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp"
+                                />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -174,7 +177,8 @@
                                 android:gravity="center"
                                 android:text="Edit"
                                 android:textColor="@color/_324754"
-                                android:textSize="14sp" />
+                                android:textSize="@dimen/_11sdp"
+                                />
 
                         </LinearLayout>
 

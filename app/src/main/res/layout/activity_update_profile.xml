@@ -79,6 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textSize="@dimen/_11sdp"
                      android:text="Name">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -96,12 +97,13 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtName"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/corner"
                     android:hint="Name"
                     android:inputType="text"
                     android:padding="10dp"
-                    android:textSize="15dp">
+                    android:textSize="@dimen/_11sdp"
+                    >
 
                 </androidx.appcompat.widget.AppCompatEditText>
 
@@ -118,6 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="15dp"
+                    android:textSize="@dimen/_11sdp"
                     android:layout_marginEnd="15dp"
                      android:text="Email">
 
@@ -136,13 +139,13 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-
+                    android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/corner"
                     android:hint="Email"
                     android:inputType="text"
                     android:padding="10dp"
-                    android:textSize="15dp">
+                    android:textSize="@dimen/_11sdp"
+                    >
 
                 </androidx.appcompat.widget.AppCompatEditText>
 
@@ -159,7 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                     android:text="Mobile Number">
+                    android:textSize="@dimen/_11sdp"
+                    android:text="Mobile Number">
 
                 </androidx.appcompat.widget.AppCompatTextView>
 
@@ -176,13 +180,14 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtMobileNumber"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/corner"
                     android:hint="Mobile"
                     android:maxLength="12"
                     android:inputType="number"
                     android:padding="10dp"
-                    android:textSize="15dp">
+                    android:textSize="@dimen/_11sdp"
+                    >
 
                 </androidx.appcompat.widget.AppCompatEditText>
 
@@ -195,7 +200,7 @@
                 android:gravity="center">
                 <Button
                     android:id="@+id/btnUpdate"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_60sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:background="@drawable/custom_btn"

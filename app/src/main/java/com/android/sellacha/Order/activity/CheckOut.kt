@@ -2,7 +2,6 @@ package com.android.sellacha.Order.activity
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +9,6 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import com.android.sellacha.Order.Model.*
 import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
@@ -21,7 +19,7 @@ import com.android.sellacha.databinding.ActivityCheckOutBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.StatusBarUtils
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,6 +35,7 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
     var customerType = ""
     var location = ""
     var shipping = ""
+    var totalAmt = ""
     private var paymentMethod = ""
     var paymentStatues = ""
     private var mainData = ArrayList<DataX>()
@@ -455,6 +454,9 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
             binding!!.addressLb.text.toString(),
             binding!!.zipLb.text.toString(),
             location,
+            totalAmt,
+            "00",
+            "00",
         )
             .enqueue(object : Callback<ModelCoupon> {
                 @SuppressLint("LogNotTimber")
@@ -469,7 +471,9 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
                         myToast(this@CheckOut, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
-                    } else {
+                    } else if(response.body()!!.data=="Sorry, Customer Not Exist") {
+                        myToast(this@CheckOut, response.body()!!.data)
+                    }else{
                         myToast(this@CheckOut, response.body()!!.data)
                         apiCallDestroyCart()
                         AppProgressBar.hideLoaderDialog()
@@ -491,12 +495,13 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
         AppProgressBar.showLoaderDialog(this@CheckOut)
         ApiClient.apiService.cartRemove(
             sessionManager.authToken,
-            id
+            id,
+            sessionManager.deviceId
         )
-            .enqueue(object : Callback<ModelCoupon> {
+            .enqueue(object : Callback<ModelGetCart> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelCoupon>, response: Response<ModelCoupon>
+                    call: Call<ModelGetCart>, response: Response<ModelGetCart>
                 ) {
                     if (response.code() == 500) {
                         myToast(this@CheckOut, "Server Error")
@@ -507,14 +512,16 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
-                        myToast(this@CheckOut, response.body()!!.data)
-                        refresh()
-                        AppProgressBar.hideLoaderDialog()
+                        myToast(this@CheckOut, "Item Removed")
+                        apiGetCart()
+                       // myToast(this@CheckOut, response.body()!!.data)
+                         AppProgressBar.hideLoaderDialog()
                     }
                 }
 
-                override fun onFailure(call: Call<ModelCoupon>, t: Throwable) {
-                    removeCart(id)
+                override fun onFailure(call: Call<ModelGetCart>, t: Throwable) {
+                  //  removeCart(id)
+                    myToast(this@CheckOut, "Try Again")
                     AppProgressBar.hideLoaderDialog()
 
 
@@ -526,6 +533,7 @@ class CheckOut : AppCompatActivity(), AdapterCart.RemoveCart {
     @SuppressLint("SetTextI18n")
     override fun totalAmount(finerTotal: String) {
         binding!!.finleTotal.text = "₹$finerTotal"
+        totalAmt = finerTotal
      }
 
     private fun refresh() {

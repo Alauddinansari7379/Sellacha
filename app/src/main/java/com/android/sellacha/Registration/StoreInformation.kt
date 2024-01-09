@@ -73,8 +73,8 @@ import com.android.sellacha.Registration.StoreInformation.RegistrationData.Compa
 import com.android.sellacha.Registration.StoreInformation.RegistrationData.Companion.wstatusValue
 import com.android.sellacha.databinding.FragmentStoreInformationBinding
 import com.android.sellacha.fragment.BaseFragment
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import kotlin.collections.ArrayList
 
 class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
@@ -226,6 +226,7 @@ class StoreInformation : BaseFragment(), UploadRequestBody.UploadCallback {
         serviceList.add(ModelProductType("Purses", 1))
         serviceList.add(ModelProductType("Shoes", 1))
         serviceList.add(ModelProductType("Cosmetics", 1))
+        serviceList.add(ModelProductType("Electronic", 1))
         binding!!.txtselectshoptp.adapter = ArrayAdapter<ModelProductType>(
             requireContext(),
             R.layout.simple_list_item_1,

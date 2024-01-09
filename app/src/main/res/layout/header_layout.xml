@@ -33,7 +33,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:src="@drawable/sample_profile"
+                android:src="@drawable/user"
                 app:layout_constraintBottom_toBottomOf="@+id/txtLogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/txtLogo"

@@ -136,17 +136,16 @@
                     <EditText
                         android:id="@+id/emailEdt"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/noto_sans_medium"
-                        android:textCursorDrawable="@drawable/search_cursor"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"                        android:fontFamily="@font/noto_sans_medium"
                         android:hint="@string/enter_your_email"
                         android:padding="5dp"
-                        android:textColor="@color/heading_font"
+                         android:textColor="@color/heading_font"
+                        android:textCursorDrawable="@drawable/search_cursor"
                         android:textSize="@dimen/_12sdp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/emailTv"
                         app:layout_constraintTop_toBottomOf="@+id/emailTv" />
 
                     <TextView
@@ -165,9 +164,9 @@
                     <EditText
                         android:id="@+id/passwordEdt"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:drawablePadding="1dp"
                         android:textCursorDrawable="@drawable/search_cursor"
                         android:fontFamily="@font/noto_sans_medium"
@@ -180,8 +179,8 @@
 
                     <ImageView
                         android:id="@+id/menuBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
                         android:padding="@dimen/_3sdp"
                         android:src="@drawable/icn_hide_password"
                         app:layout_constraintBottom_toBottomOf="@+id/passwordEdt"

@@ -15,13 +15,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/categoryImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
@@ -36,7 +37,7 @@
                     android:gravity="center"
                     android:text="Singer"
                     android:textColor="@color/primary_bg"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
             </LinearLayout>
 
 
@@ -44,17 +45,17 @@
                 android:id="@+id/skuTv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:text="Singer"
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
                 android:text="Yes"
@@ -72,8 +73,87 @@
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="Yes"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/_11sdp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvinStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="out Of stock"
+                    android:textColor="@color/primary_bg"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    android:id="@+id/tvinStockNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="out Of stock"
+                    android:visibility="gone"
+                    android:textColor="@color/primary_bg"
+                    android:textSize="@dimen/_9sdp" />
+
+
+                <Spinner
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:fontFamily="@font/noto_sans_regular"
+                android:gravity="center"
+                android:text="Yes"
+                android:textColor="@color/primary_bg"
+                android:textSize="14sp">
+
+                <EditText
+                    android:id="@+id/edtQty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9sdp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/primary_bg"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9sdp">
+
+            </Button>
 
         </LinearLayout>
 

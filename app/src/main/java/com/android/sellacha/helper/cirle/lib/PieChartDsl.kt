@@ -1,4 +1,7 @@
-package com.faskn.lib
+package com.android.sellacha.helper.cirle.lib
+
+import com.faskn.lib.Arc
+import com.faskn.lib.Slice
 
 /**
  * Created by turkergoksu on 30-Aug-20

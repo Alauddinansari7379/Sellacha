@@ -2,25 +2,20 @@ package com.android.sellacha.marketingTools
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
-import com.android.sellacha.Registration.StoreInformation
 import com.android.sellacha.databinding.FragmentGoogleTapManagerBinding
-import com.android.sellacha.databinding.FragmentHomeBinding
 import com.android.sellacha.helper.myToast
-import com.android.sellacha.marketingTools.model.ModelGoolgeAna
 import com.android.sellacha.marketingTools.model.ModelTagManager
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

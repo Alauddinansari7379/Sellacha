@@ -47,7 +47,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="55dp"
+                            android:layout_height="@dimen/_50sdp"
                             android:background="@color/primary_bg"
                             android:backgroundTint="#32a7c6"
                             app:cardCornerRadius="20dp">
@@ -65,6 +65,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
                                     android:gravity="center"
+                                    android:textSize="@dimen/_11sdp"
                                     android:text="Total Space"
                                     android:textColor="#013148"
                                     android:textStyle="bold">
@@ -80,8 +81,8 @@
                                 android:orientation="horizontal">
 
                                 <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:layout_marginEnd="3dp"
                                      android:background="@drawable/dot"
                                     android:backgroundTint="#dbff00">
@@ -93,6 +94,7 @@
                                     android:layout_height="wrap_content"
                                      android:gravity="center"
                                     android:text="2 TB"
+                                    android:textSize="@dimen/_11sdp"
                                     android:textColor="@color/white"
                                     android:textStyle="bold">
 
@@ -115,7 +117,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="55dp"
+                            android:layout_height="@dimen/_50sdp"
                             android:background="@color/primary_bg"
                             android:backgroundTint="#32a7c6"
                             app:cardCornerRadius="20dp">
@@ -135,6 +137,7 @@
                                     android:gravity="center"
                                     android:text="Space used"
                                     android:textColor="#013148"
+                                    android:textSize="@dimen/_11sdp"
                                     android:textStyle="bold">
 
                                 </androidx.appcompat.widget.AppCompatTextView>
@@ -148,8 +151,8 @@
                                 android:orientation="horizontal">
 
                                 <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:layout_marginEnd="3dp"
                                      android:background="@drawable/dot"
                                     android:backgroundTint="#fe0100">
@@ -161,6 +164,7 @@
                                     android:layout_height="wrap_content"
                                      android:gravity="center"
                                     android:text="1.8 TB"
+                                    android:textSize="@dimen/_11sdp"
                                     android:textColor="@color/white"
                                     android:textStyle="bold">
 
@@ -182,9 +186,9 @@
     android:layout_marginTop="15dp"
     android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="35dp"
+        android:layout_width="@dimen/_30sdp"
         android:background="@drawable/image"
-        android:layout_height="35dp">
+        android:layout_height="@dimen/_30sdp">
 
     </androidx.appcompat.widget.AppCompatImageView>
     <LinearLayout
@@ -197,6 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Images"
+            android:textSize="@dimen/_11sdp"
             android:textStyle="bold"
             android:textColor="@color/black">
 
@@ -205,7 +210,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3.15 GB"
-             android:textColor="@color/black">
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/black">
 
         </androidx.appcompat.widget.AppCompatTextView>
     </LinearLayout>
@@ -223,9 +229,9 @@
     android:layout_marginTop="15dp"
     android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="35dp"
+        android:layout_width="@dimen/_30sdp"
         android:background="@drawable/dashboards"
-        android:layout_height="35dp">
+        android:layout_height="@dimen/_30sdp">
 
     </androidx.appcompat.widget.AppCompatImageView>
     <LinearLayout
@@ -237,6 +243,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/others"
+            android:textSize="@dimen/_11sdp"
             android:textStyle="bold"
             android:textColor="@color/black">
 
@@ -245,7 +252,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4.80 GB used of 4.85 GB"
-             android:textColor="@color/black">
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/black">
 
         </androidx.appcompat.widget.AppCompatTextView>
         <ProgressBar

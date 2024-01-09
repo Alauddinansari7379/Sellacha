@@ -1,6 +1,5 @@
 package com.android.sellacha.Products
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
@@ -15,8 +14,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.sellacha.Costomer.adapter.AdapterCustomer
-import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.R
 import com.android.sellacha.adapter.ProductAdapter
 import com.android.sellacha.adapter.ProductFilterSelector
@@ -28,15 +25,10 @@ import com.android.sellacha.api.service.MainService
 import com.android.sellacha.databinding.FragmentProductBinding
 import com.android.sellacha.dialog.AppDialog
 import com.android.sellacha.fragment.BaseFragment
-import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
-import com.example.myrecyview.apiclient.ApiClient
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.google.gson.Gson
 import com.google.gson.JsonNull
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import androidx.core.widget.addTextChangedListener
 
 import java.util.*
@@ -46,7 +38,7 @@ class ProductFragment : BaseFragment() {
     var filterNameAdapter: ProductFilterSelector? = null
     var productAdapter: ProductAdapter? = null
     private var productList: MutableList<DataItem?> = ArrayList()
-    lateinit var sessionManager:SessionManager
+    lateinit var sessionManager: SessionManager
     var filterSelector = 0
     var selectedPosition = 0
     override fun onCreateView(
@@ -56,7 +48,7 @@ class ProductFragment : BaseFragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
 
-        sessionManager=SessionManager(requireContext())
+        sessionManager= SessionManager(requireContext())
 
         binding!!.orderList.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -318,7 +310,7 @@ class ProductFragment : BaseFragment() {
             }
         }
 
-    fun getFilterList(orderResponse: GetAllProduct) {
+    private fun getFilterList(orderResponse: GetAllProduct) {
         val myListData = arrayOf(
             filterItemsDM("Publish", orderResponse.actives),
             filterItemsDM("Draft", orderResponse.drafts),
@@ -355,13 +347,13 @@ class ProductFragment : BaseFragment() {
         }
     }
 
-    fun selectFulfilment(textView: TextView) {
+    private fun selectFulfilment(textView: TextView) {
         val builderSingle = AlertDialog.Builder(context)
-        builderSingle.setTitle("Select fulfillment")
+        builderSingle.setTitle("Filter Product")
         val arrayAdapter = ArrayAdapter<String>(activity!!, R.layout.dialog_txt_item)
-        arrayAdapter.add("Publish Now")
+        arrayAdapter.add("Published")
         arrayAdapter.add("Draft")
-        arrayAdapter.add("Move to Trash")
+        arrayAdapter.add("Trash")
         builderSingle.setNegativeButton("cancel") { dialog, which -> dialog.dismiss() }
         builderSingle.setAdapter(arrayAdapter) { dialog, which ->
             val strName = arrayAdapter.getItem(which)

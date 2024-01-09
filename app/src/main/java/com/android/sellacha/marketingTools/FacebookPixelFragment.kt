@@ -12,12 +12,10 @@ import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.databinding.FragmentFacebookPixelBinding
-import com.android.sellacha.databinding.FragmentGoogleTapManagerBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.marketingTools.model.ModelFacebookPixel
-import com.android.sellacha.marketingTools.model.ModelTagManager
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

@@ -201,8 +201,8 @@
 
     <Button
         android:id="@+id/redeenBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_35sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:background="@drawable/custom_btn"
         android:text="Redeem"
@@ -348,7 +348,7 @@
                         <Spinner
                             android:id="@+id/customerTypeLb"
                             android:layout_width="0dp"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/noto_sans_regular"
                             android:textCursorDrawable="@drawable/search_cursor"
@@ -373,7 +373,7 @@
                         <Spinner
                             android:id="@+id/deliveryTypeLb"
                             android:layout_width="0dp"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_marginStart="@dimen/_13sdp"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/noto_sans_regular"
@@ -429,7 +429,7 @@
                         <Spinner
                             android:id="@+id/locationLb"
                             android:layout_width="0dp"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:fontFamily="@font/noto_sans_regular"
                             android:inputType="text"
@@ -476,7 +476,7 @@
                                 <Spinner
                                     android:id="@+id/shippingSpinner"
                                     android:layout_width="match_parent"
-                                    android:layout_height="35dp"
+                                    android:layout_height="@dimen/_30sdp"
                                     android:clickable="false"
                                      android:fontFamily="@font/noto_sans_regular"
                                     android:textCursorDrawable="@drawable/search_cursor"
@@ -555,20 +555,22 @@
                                 android:orientation="horizontal">
 
                                 <RadioButton
-                                    android:id="@+id/radioPaySCom"
+                                    android:id="@+id/radioPaySPen"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1.5"
                                     android:checked="true"
+                                    android:textSize="@dimen/_11sdp"
                                     android:text="Pending">
 
                                 </RadioButton>
 
                                 <RadioButton
-                                    android:id="@+id/radioPaySPen"
+                                    android:id="@+id/radioPaySCom"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textSize="@dimen/_11sdp"
                                     android:text="Complete">
 
                                 </RadioButton>
@@ -615,6 +617,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1.5"
                                     android:checked="true"
+                                    android:textSize="@dimen/_11sdp"
                                     android:text="Mobile">
 
                                 </RadioButton>
@@ -624,6 +627,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textSize="@dimen/_11sdp"
                                     android:text="Cash On Delivery (COD)">
 
                                 </RadioButton>

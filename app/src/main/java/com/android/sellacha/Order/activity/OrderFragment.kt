@@ -58,6 +58,7 @@ class OrderFragment : BaseFragment() {
             filterDialog = Dialog(mContext)
             binding!!.orderList.layoutManager = LinearLayoutManager(
                 activity, LinearLayoutManager.VERTICAL, false)
+
             binding!!.searchTxt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     charSequence: CharSequence,
@@ -142,8 +143,7 @@ class OrderFragment : BaseFragment() {
                     } else {
                         if (response.data !is JsonNull) {
                             if (response.data != null) {
-                                val orderResponse =
-                                    Gson().fromJson(response.data, OrderResponse::class.java)
+                                val orderResponse = Gson().fromJson(response.data, OrderResponse::class.java)
                                 orderList.clear()
                                 orderList.addAll(orderResponse.orders.data)
                                 getFilterList(orderResponse)

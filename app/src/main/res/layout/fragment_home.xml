@@ -22,10 +22,10 @@
         android:background="@drawable/search_bg"
         android:drawablePadding="@dimen/_10sdp"
         android:elevation="1dp"
-        android:inputType="text"
         android:gravity="center_vertical"
         android:hint="Search here.."
-         android:maxLines="1"
+        android:inputType="text"
+        android:maxLines="1"
         android:paddingStart="@dimen/_15sdp"
         android:paddingEnd="@dimen/_35sdp"
         android:textCursorDrawable="@drawable/search_cursor"
@@ -43,8 +43,8 @@
         android:background="@drawable/search_btn_bg"
         android:elevation="@dimen/_1sdp"
         android:padding="@dimen/_4sdp"
-        android:visibility="gone"
         android:src="@drawable/search_btn"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/search"
         app:layout_constraintEnd_toEndOf="@+id/search"
         app:layout_constraintTop_toTopOf="@+id/search" />
@@ -128,8 +128,8 @@
 
                     <Spinner
                         android:id="@+id/monthSelect"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_26sdp"
                         android:spinnerMode="dropdown"
                         app:layout_constraintBottom_toBottomOf="@+id/title"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -351,8 +351,8 @@
                             <com.android.sellacha.helper.view.LineView
                                 android:id="@+id/lineView"
                                 android:layout_width="match_parent"
-                                android:clickable="false"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent"
+                                android:clickable="false" />
                         </HorizontalScrollView>
 
 
@@ -421,8 +421,8 @@
                             <com.android.sellacha.helper.view.LineView
                                 android:id="@+id/lineView2"
                                 android:layout_width="match_parent"
-                                android:clickable="false"
-                                android:layout_height="match_parent" />
+                                android:layout_height="match_parent"
+                                android:clickable="false" />
                         </HorizontalScrollView>
 
 

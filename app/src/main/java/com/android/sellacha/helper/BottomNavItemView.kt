@@ -81,7 +81,7 @@ class BottomNavItemView @JvmOverloads constructor(
             .apply {
                 duration = time
                 addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationStart(animation: Animator?) {
+                    override fun onAnimationStart(animation: Animator, isReverse: Boolean) {
                         isAnimating = true
                     }
                 })
@@ -100,7 +100,7 @@ class BottomNavItemView @JvmOverloads constructor(
             .apply {
                 duration = time
                 addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationStart(animation: Animator?) {
+                    override fun onAnimationStart(animation: Animator, isReverse: Boolean) {
                         isAnimating = true
                     }
                 })

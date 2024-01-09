@@ -87,6 +87,7 @@ public class OrderFilterSelector extends RecyclerView.Adapter<RecyclerView.ViewH
                  binding.mainLayout.setBackgroundResource(R.drawable.unselected_item_bg);
                 binding.itemNameTv.setTextColor(context.getColor(R.color._6E7D86));
             }
+
             binding.mainLayout.setOnClickListener(view -> {
                 currentPos = position;
                 orderFragment.filterSelector(position);

@@ -2,7 +2,6 @@ package com.android.sellacha.Profile.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.ContentResolver
 import android.content.Intent
 import android.net.Uri
@@ -11,7 +10,6 @@ import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
-import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.LogIn.LoginActivity
 import com.android.sellacha.Profile.model.ModelLogo
 import com.android.sellacha.Profile.model.ModelUpdateProfile
@@ -28,12 +26,13 @@ import com.android.sellacha.dialog.AppDialog.WayremAlertDialogListener
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.StatusBarUtils
-import com.bumptech.glide.Glide
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.JsonNull
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -67,17 +66,17 @@ class ProfileActivity : BaseActivity(), UploadRequestBody.UploadCallback {
         binding.layoutProfileSetting.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, UpdateProfile::class.java))
         }
-
+        apiCallGetLogo()
         binding.email.text = sessionManager.email
         binding.name.text = sessionManager.customerName
 
         Log.e("tah", sessionManager.email.toString())
         Log.e("tah", sessionManager.customerName.toString())
 
-        if (sessionManager.profilePic!!.isNotEmpty()) {
-            Picasso.get().load("${sessionManager.profilePic}").into(binding.userProfile)
-            Log.e("pofile", "${sessionManager.profilePic}")
-        }
+//        if (sessionManager.profilePic!!.isNotEmpty()) {
+//            Picasso.get().load("${sessionManager.profilePic}").into(binding.userProfile)
+//            Log.e("pofile", "${sessionMa nager.profilePic}")
+//        }
 
         binding.layoutUerDetails.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, UserDetails::class.java))
@@ -167,13 +166,29 @@ class ProfileActivity : BaseActivity(), UploadRequestBody.UploadCallback {
                             //   AppProgressBar.hideLoaderDialog()
 
                         } else {
-
                           //  sessionManager.profilePic = response.body()!!.data.logo
-                            Picasso.get().load("${response.body()!!.data.logo}")
+
+//                            Glide
+//                                .with(this@ProfileActivity)
+//                                .load("${response.body()!!.data.logo}")
+//                                .centerCrop()
+//                                .placeholder(R.drawable.user)
+//                                .into(binding.userProfile)
+//                            Picasso.with(getContext()).load(data.get(pos).getFeed_thumb_image()).memoryPolicy(
+//                                MemoryPolicy.NO_CACHE).into(image);
+
+                            Picasso.get().load("${response.body()!!.data.logo}").networkPolicy(NetworkPolicy.NO_CACHE)
+                                .memoryPolicy(MemoryPolicy.NO_CACHE)
+                                .placeholder(R.drawable.user).stableKey("id")
                                 .into(binding.userProfile)
-                            Log.e("URL",response.body()!!.data.logo)
-                            Log.e("URLs",sessionManager.profilePic.toString())
-                            AppProgressBar.hideLoaderDialog()
+
+
+//                          Picasso.get().load("${response.body()!!.data.logo}")
+//                              .memoryPolicy(MemoryPolicy.NO_CACHE)
+//                              .placeholder(R.drawable.user)
+//                              .into(binding.userProfile)
+//                            Log.e("URL",response.body()!!.data.logo)
+                             AppProgressBar.hideLoaderDialog()
                           //  refresh()
                         }
                     } catch (e: Exception) {
@@ -184,6 +199,8 @@ class ProfileActivity : BaseActivity(), UploadRequestBody.UploadCallback {
 
                 override fun onFailure(call: Call<ModelLogo>, t: Throwable) {
                     //  myToast(this@HomeFragment, t.message.toString())
+
+                    apiCallGetLogo()
                     AppProgressBar.hideLoaderDialog()
 
                 }
@@ -210,7 +227,7 @@ class ProfileActivity : BaseActivity(), UploadRequestBody.UploadCallback {
         val body = UploadRequestBody(file, "image", this)
         ApiClient.apiService.updateProfilePic(
             sessionManager.authToken.toString(),
-            MultipartBody.Part.createFormData("reg_cer", file.name, body),
+            MultipartBody.Part.createFormData("logo", file.name, body),
             RequestBody.create("multipart/form-data".toMediaTypeOrNull(), "json")
         )
             .enqueue(object : Callback<ModelUpdateProfile> {

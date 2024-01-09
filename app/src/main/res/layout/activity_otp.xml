@@ -52,15 +52,20 @@
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_margin="@dimen/_20sdp"
+                android:layout_marginBottom="272dp"
                 android:background="@drawable/btn_background"
                 android:gravity="center"
                 android:text="Submit"
+
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toTopOf="@+id/resendOtp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.581"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otpCounter"
+                app:layout_constraintVertical_bias="1.0"
                 tools:ignore="UnknownIdInLayout" />
 
             <com.mukesh.OtpView
@@ -102,8 +107,8 @@
                 android:textColor="@color/primary_bg"
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="@+id/submit"
+                app:layout_constraintStart_toStartOf="@+id/submit" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

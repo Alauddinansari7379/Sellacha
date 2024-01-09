@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import com.android.sellacha.Home.model.ModelMonth
 import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.R
@@ -22,17 +21,14 @@ import com.android.sellacha.helper.currentMonth
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.helper.view.LineView
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.faskn.lib.Arc
-import com.faskn.lib.PieChart
+import com.android.sellacha.helper.cirle.lib.PieChart
 import com.faskn.lib.Slice
-import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : BaseFragment() {
@@ -42,6 +38,7 @@ class HomeFragment : BaseFragment() {
     var slices = ArrayList<Slice>()
     private var randomint = 9
      var monthName = ""
+     var totalSeal = ""
     private lateinit var sessionManager: SessionManager
     private var mCountryList = ArrayList<ModelMonth>()
 
@@ -61,6 +58,18 @@ class HomeFragment : BaseFragment() {
 
 
 
+
+
+//        if (sessionManager.profilePic != "") {
+//          //  val profileBtn: ImageView = view.findViewById(R.id.profileBtn)
+//
+//            Picasso.get().load("${sessionManager.profilePic}").networkPolicy(
+//                NetworkPolicy.NO_CACHE)
+//                .memoryPolicy(MemoryPolicy.NO_CACHE)
+//                .placeholder(R.drawable.user).stableKey("id")
+//                .into(profileBtn)
+//            Log.e("pofile", "${sessionManager.profilePic}")
+//        }
 
 
         when (currentMonth) {
@@ -227,6 +236,7 @@ class HomeFragment : BaseFragment() {
                             binding.yellowTxt.text = response.body()!!.data.total_processing
                             binding.circleCount.text = response.body()!!.data.total_orders
                             binding.sellCount.text = response.body()!!.data.total_earnings
+                            totalSeal=response.body()!!.data.total_orders
                             binding.sellCount2.text = response.body()!!.data.total_orders
                              Log.e("total_pending", response.body()!!.data.total_orders)
                             Log.e("total_completed", response.body()!!.data.total_completed)
@@ -238,6 +248,8 @@ class HomeFragment : BaseFragment() {
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
                     }
                 }
 
@@ -290,14 +302,14 @@ class HomeFragment : BaseFragment() {
         dataList.add(0)
         dataList.add(0)
         dataList.add(0)
-        dataList.add(24)
         dataList.add(0)
         dataList.add(0)
         dataList.add(0)
-        dataList.add(24)
-        dataList.add(64)
-        dataList.add(104)
-        dataList.add(46)
+        dataList.add(0)
+        dataList.add(0)
+        dataList.add(3)
+        dataList.add(5)
+        dataList.add(0)
 
 //
 //        ArrayList<Integer> dataList2 = new ArrayList<>();

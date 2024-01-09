@@ -47,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:text="Skip"
+                    android:textSize="@dimen/_12sdp"
                     android:textColor="#48C260"
                     app:layout_constraintBottom_toBottomOf="@+id/addProductLb"
                     app:layout_constraintEnd_toEndOf="parent"

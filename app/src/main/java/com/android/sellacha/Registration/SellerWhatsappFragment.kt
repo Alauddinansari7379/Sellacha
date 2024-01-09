@@ -15,24 +15,19 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.android.sellacha.LogIn.LoginActivity
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.Registration.Model.ModelRegJava
-import com.android.sellacha.Registration.Model.ModelRegistration
 import com.android.sellacha.databinding.FragmentSellerWhatsappBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.bumptech.glide.load.engine.Resource
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
-import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 
 class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
     var binding: FragmentSellerWhatsappBinding? = null
@@ -193,61 +188,61 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
     @SuppressLint("SuspiciousIndentation")
     private fun apiCallRegistration() {
         AppProgressBar.showLoaderDialog(requireContext())
-
-
-        if (StoreInformation.RegistrationData.thumbnail == null) {
-            StoreInformation.RegistrationData.thumbnail = StoreInformation.RegistrationData.logo
-        }
-        val parcelFileDescriptorLogo =
-            activity?.contentResolver?.openFileDescriptor(
-                StoreInformation.RegistrationData.logo!!,
-                "r",
-                null
-            )
-                ?: return
-
-        val parcelFileDescriptorFavicon =
-            activity?.contentResolver?.openFileDescriptor(
-                StoreInformation.RegistrationData.favicon!!,
-                "r",
-                null
-            )
-                ?: return
-        val parcelFileDescriptorThumbnail =
-            activity?.contentResolver?.openFileDescriptor(
-                StoreInformation.RegistrationData.thumbnail!!,
-                "r",
-                null
-            )
-                ?: return
-
-        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
-        var logo = File(
-            requireActivity().cacheDir,
-            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!)
-        )
-
-        val inputStreamFavicon = FileInputStream(parcelFileDescriptorFavicon.fileDescriptor)
-        var logoFavicon = File(
-            requireActivity().cacheDir,
-            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!)
-        )
-
-        val inputStreamThumbnail = FileInputStream(parcelFileDescriptorThumbnail.fileDescriptor)
-        var thumbnail = File(
-            requireActivity().cacheDir,
-            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!!!)
-        )
-
-        val outputStreamLogo = FileOutputStream(logo)
-        inputStreamLogo.copyTo(outputStreamLogo)
-
-
-        val outputStreamFavicon = FileOutputStream(logoFavicon)
-        inputStreamFavicon.copyTo(outputStreamFavicon)
-
-        val outputStreamThumbnail = FileOutputStream(thumbnail)
-        inputStreamThumbnail.copyTo(outputStreamThumbnail)
+//
+//
+//        if (StoreInformation.RegistrationData.thumbnail == null) {
+//            StoreInformation.RegistrationData.thumbnail = StoreInformation.RegistrationData.logo
+//        }
+//        val parcelFileDescriptorLogo =
+//            activity?.contentResolver?.openFileDescriptor(
+//                StoreInformation.RegistrationData.logo!!,
+//                "r",
+//                null
+//            )
+//                ?: return
+//
+//        val parcelFileDescriptorFavicon =
+//            activity?.contentResolver?.openFileDescriptor(
+//                StoreInformation.RegistrationData.favicon!!,
+//                "r",
+//                null
+//            )
+//                ?: return
+//        val parcelFileDescriptorThumbnail =
+//            activity?.contentResolver?.openFileDescriptor(
+//                StoreInformation.RegistrationData.thumbnail!!,
+//                "r",
+//                null
+//            )
+//                ?: return
+//
+//        val inputStreamLogo = FileInputStream(parcelFileDescriptorLogo.fileDescriptor)
+//        var logo = File(
+//            requireActivity().cacheDir,
+//            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.logo!!)
+//        )
+//
+//        val inputStreamFavicon = FileInputStream(parcelFileDescriptorFavicon.fileDescriptor)
+//        var logoFavicon = File(
+//            requireActivity().cacheDir,
+//            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.favicon!!)
+//        )
+//
+//        val inputStreamThumbnail = FileInputStream(parcelFileDescriptorThumbnail.fileDescriptor)
+//        var thumbnail = File(
+//            requireActivity().cacheDir,
+//            activity?.contentResolver!!.getFileName(StoreInformation.RegistrationData.thumbnail!!!!)
+//        )
+//
+//        val outputStreamLogo = FileOutputStream(logo)
+//        inputStreamLogo.copyTo(outputStreamLogo)
+//
+//
+//        val outputStreamFavicon = FileOutputStream(logoFavicon)
+//        inputStreamFavicon.copyTo(outputStreamFavicon)
+//
+//        val outputStreamThumbnail = FileOutputStream(thumbnail)
+//        inputStreamThumbnail.copyTo(outputStreamThumbnail)
 
 //
 //          = logo.toString()
@@ -256,10 +251,10 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
         // Navigation.findNavController(binding!!.root).navigate(com.android.sellacha.R.id.addCategoryFragment)
 
 
-        val bodyLogo = UploadRequestBody(logo, "image", this)
-        val bodyFavicon = UploadRequestBody(logoFavicon, "image", this)
-        val bodyThumbnail = UploadRequestBody(thumbnail, "image", this)
-
+//        val bodyLogo = UploadRequestBody(logo, "image", this)
+//        val bodyFavicon = UploadRequestBody(logoFavicon, "image", this)
+//        val bodyThumbnail = UploadRequestBody(thumbnail, "image", this)
+//
 //        MultipartBody.Part.createFormData("image", logo.name, bodyLogo)
 //        MultipartBody.Part.createFormData("image", logoFavicon.name, bodyFavicon)
 //        MultipartBody.Part.createFormData("image", thumbnail.name, bodyThumbnail)
@@ -475,13 +470,13 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
             StoreInformation.RegistrationData.mob,
             StoreInformation.RegistrationData.business_name,
             StoreInformation.RegistrationData.shop_type,
-            MultipartBody.Part.createFormData("logo", logo.name, bodyLogo),
-            MultipartBody.Part.createFormData("favicon", logoFavicon.name, bodyFavicon),
+//            MultipartBody.Part.createFormData("logo", logo.name, bodyLogo),
+//            MultipartBody.Part.createFormData("favicon", logoFavicon.name, bodyFavicon),
             StoreInformation.RegistrationData.theme_color,
             StoreInformation.RegistrationData.url,
             StoreInformation.RegistrationData.cname,
             StoreInformation.RegistrationData.p_id,
-            MultipartBody.Part.createFormData("file", thumbnail.name, bodyThumbnail),
+         //   MultipartBody.Part.createFormData("file", thumbnail.name, bodyThumbnail),
             StoreInformation.RegistrationData.featured,
             StoreInformation.RegistrationData.menu_status,
             StoreInformation.RegistrationData.title,
@@ -503,6 +498,8 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
             StoreInformation.RegistrationData.shop_page_pretext,
             StoreInformation.RegistrationData.other_page_pretext,
             StoreInformation.RegistrationData.wstatus,
+            "1",
+            "1",
         )
             .enqueue(object : Callback<ModelRegJava> {
                 @SuppressLint("LogNotTimber")
@@ -515,75 +512,32 @@ class SellerWhatsappFragment : Fragment(), UploadRequestBody.UploadCallback {
                             AppProgressBar.hideLoaderDialog()
                         }
                         else if (!response.body()!!.success) {
-                            //   var jsonObject: JSONObject? = null
-//                            Log.e("response", response.body()!!.toString())
-//                            Log.e("success", response.body()!!.success.toString())
-//                            Log.e("data", response.body()!!.data.toString())
-                       //     myToast(requireActivity(), response.body()!!.data.errors)
                             Log.e("Error",response.body()!!.data.errors)
                             Log.e("Error",response.body()!!.data.errors)
                             myToast(requireActivity(), response.body()!!.data.errors)
-                         //   Resource.ErrorResponse(Constant.getErrorResponse(response.errorBody()!!.string()))
-
                             AppProgressBar.hideLoaderDialog()
-
-//                            jsonObject =  JSONObject(response.body().toString());
-//                            val result = jsonObject.getString("success")
-                            //    val errors = jsonObject.getString("errors")
-// ruko hit nhi hu abhi data filll kr raha hun
-
-                            //  print("error"+errors);
-                            //  Log.e("errors", result.toString())
-                            //  myToast(requireActivity(),errors)
-                            //run kro ok run krna run kro run  kro run kro
-
-                            //   myToast(requireActivity(), "Something went wrong")
-                            //  Log.e("sds", response.body()!!.data.errors)
-//           run kro ok bahut data form hi fill karne me time la                  myToast(requireActivity(), response.body()!!.data!!.errors!!)
-//                           // response.body()!!.data!!.errors?.let { myToast(requireActivity(), it) }
-//                            AppProgressBar.hideLoaderDialog()
-//
-//
-//                            var map1: Map<String?, ModelRegetration?> = HashMap<String?, ModelRegetration?>()
-//                            map1 = response.body()!!.data.errors as Map<String?, ModelRegetration?>
-//
-//                            for (keys in map1.keys) {
-//
-//                                // myCode;
-//                            }
-//
-//                            var map: Map<String, String> = HashMap<String, String>()
-//                            map = response.body()!!.data!!.errors!!;
-
-
-                            // println("First name is " + response.body()!!.("booking")["firstname"])
-
-                            //val jsonMap: Map<String, dynamic> = json.decode(response.body)
-                            //  val status = jsonMap["routes"].get(0).get("legs").get(0).get("distance").get("text")
-                            // print(status)
-
-
-                            //           }
-
-//                        else if (response.body()!!.success.toString()=="false") {
-//                            myToast(requireActivity(), response.body()!!.data.errors)
-
-//{"success":true,"data":{"errors":"","domain":"http:\/\/dchcy.thedemostore.in\/login","redirect":true,"msg":"Successfully Registered"}}
-//{"success":false,"data":{"errors":"The email has already been taken.","domain":"","redirect":false,"msg":"Faild"}}
 
                         } else if (response.body()!!.success) {
-                            //  myToast(requireActivity(), response.body()!!.message)
-                            //myToast(requireActivity(), "Registered Successfully")
                             myToast(requireActivity(), response.body()!!.data.msg)
                             Log.e("Error",response.body()!!.data.errors)
-
                             Domain=response.body()!!.data.domain
-
-                            val intent = Intent(context as Activity, RegistrationSucess::class.java)
-                                .putExtra("domain", response.body()!!.data.domain)
-                            (context as Activity).startActivity(intent)
-                             activity!!.overridePendingTransition(R.anim.bottom_anim, R.anim.bottom_out_anim)
                             AppProgressBar.hideLoaderDialog()
+
+//                            val browse = Intent(Intent.ACTION_VIEW, Uri.parse("${response.body()!!.data.redurl}"))
+//                            startActivity(browse)
+
+                            val i = Intent(context as Activity, LoginActivity::class.java)
+                                .putExtra("redurl", response.body()!!.data.redurl)
+                                .putExtra("pay", "1")
+                             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(i)
+                          //  activity!!.overridePendingTransition(R.anim.bottom_anim, R.anim.bottom_out_anim)
+
+//                            val intent = Intent(context as Activity, LoginActivity::class.java)
+//                                .putExtra("domain", response.body()!!.data.domain)
+//                            (context as Activity).startActivity(intent)
+//                             activity!!.overridePendingTransition(R.anim.bottom_anim, R.anim.bottom_out_anim)
+//                            AppProgressBar.hideLoaderDialog()
 
                         }
                     } catch (e: Exception) {

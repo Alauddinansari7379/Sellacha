@@ -23,6 +23,6 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/_12sdp"
         tools:text="1648 ziyaret" />
 </RelativeLayout>

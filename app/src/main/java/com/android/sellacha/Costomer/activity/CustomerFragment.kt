@@ -11,7 +11,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.android.sellacha.Costomer.adapter.AdapterCustomer
-import com.android.sellacha.Products.Brands.activity.BrandFragment
 import com.android.sellacha.Products.categories.Model.DataX
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
@@ -22,7 +21,7 @@ import com.android.sellacha.api.model.inventoryTypeDM
 import com.android.sellacha.databinding.FragmentCustomerBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

@@ -23,7 +23,6 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.android.sellacha.Products.Attributes.activity.AttributeFragment
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.Products.categories.Model.ModelGender
@@ -32,8 +31,8 @@ import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateCategoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.Fragment.test.UploadRequestBody
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MultipartBody

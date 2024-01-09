@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/orderName"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:gravity="center"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_baseline_no_photography_24"
@@ -39,7 +39,7 @@
                 android:inputType="textMultiLine"
                 android:text=""
                 android:textColor="@color/primary_bg"
-                android:textSize="14sp"
+                android:textSize="@dimen/_11sdp"
                 app:layout_constraintEnd_toEndOf="@+id/name"
                 app:layout_constraintStart_toStartOf="@+id/name"
                 app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -51,10 +51,9 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="start"
-
                 android:inputType="textMultiLine"
                 android:textColor="@color/_324754"
-                android:textSize="14sp"
+                android:textSize="@dimen/_11sdp"
                 app:layout_constraintStart_toEndOf="@+id/orderName"
                 app:layout_constraintTop_toTopOf="@+id/orderName" />
 
@@ -67,7 +66,7 @@
 
                 android:inputType="textMultiLine"
                 android:textColor="@color/_324754"
-                android:textSize="14sp"
+                android:textSize="@dimen/_11sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editBtn"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -94,7 +93,7 @@
                     android:paddingStart="@dimen/_10sdp"
                     android:paddingEnd="@dimen/_10sdp"
                     android:text="Payment"
-                    android:textColor="@color/white"
+                     android:textColor="@color/white"
                     android:textSize="@dimen/_7sdp" />
             </LinearLayout>
 
@@ -104,8 +103,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_regular"
                 android:gravity="center"
-
-                android:layout_marginStart="@dimen/_10sdp"
+                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:inputType="textMultiLine"
                 android:textColor="@color/_324754"

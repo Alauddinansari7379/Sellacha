@@ -32,7 +32,7 @@ class AdapterBumpAd(val context: Context, private val list: ModelBumpAd,val dele
         // holder.SrNo.text= "${position+1}"
         holder.urlBump.text = list.data.data[position].slug
         if (list.data.data[position].name != null) {
-            Picasso.get().load("https://thedemostore.in/"+list.data.data[position].name)
+             Picasso.get().load("https://storefront.sellacha.com/"+list.data.data[position].name)
                 .placeholder(R.drawable.placeholder_n)
                 .error(R.drawable.error_placeholder)
                 .into(holder.img)

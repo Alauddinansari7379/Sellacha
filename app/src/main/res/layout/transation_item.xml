@@ -8,7 +8,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -21,7 +21,7 @@
                 android:gravity="center"
                 android:text="@string/amount"
                 android:textColor="@color/_324754"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <LinearLayout
                 android:layout_width="@dimen/_100sdp"
@@ -50,7 +50,7 @@
                 android:gravity="center"
                 android:text="@string/method"
                 android:textColor="@color/_324754"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/orderNum"
@@ -60,7 +60,7 @@
                 android:gravity="center"
                 android:text="@string/order_no"
                 android:textColor="@color/_324754"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
             <TextView
                 android:id="@+id/tansNum"
@@ -70,7 +70,7 @@
                 android:gravity="center"
                 android:text="@string/transaction_id"
                 android:textColor="@color/_324754"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_11sdp" />
 
         </LinearLayout>
 

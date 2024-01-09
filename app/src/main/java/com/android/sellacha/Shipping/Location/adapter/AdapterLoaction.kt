@@ -13,7 +13,7 @@ import com.android.sellacha.R
 import com.bumptech.glide.Glide
 
 
-class AdapterLoaction(val context: Context,  val list: ArrayList<DataX>) :
+class AdapterLoaction(val context: Context,  val list: ArrayList<DataX>,val delete: Delete) :
     RecyclerView.Adapter<AdapterLoaction.MyViewHolder>() {
 
 
@@ -28,6 +28,16 @@ class AdapterLoaction(val context: Context,  val list: ArrayList<DataX>) :
 
         holder.nameTvCat.text = list[position].name
 
+        holder.imgDeleteLocation.setOnClickListener {
+            delete.delete(list[position].id.toString())
+        }
+
+        holder.imgEditLocation.setOnClickListener {
+            delete.edit(list[position].id.toString(),list[position].name)
+        }
+
+
+
       //   Glide.with(holder.categoryImg).load(list.data.posts.data[position].preview).into(holder.categoryImg)
 
     }
@@ -39,8 +49,15 @@ class AdapterLoaction(val context: Context,  val list: ArrayList<DataX>) :
     }
 
     open class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-          val nameTvCat: TextView = itemView.findViewById(R.id.nameLocation)
+          val nameTvCat: TextView = itemView.findViewById(R.id.LocationName)
+          val imgDeleteLocation: ImageView = itemView.findViewById(R.id.imgDeleteLocation)
+          val imgEditLocation: ImageView = itemView.findViewById(R.id.imgEditLocation)
 
 
+    }
+
+    interface Delete{
+        fun delete(id:String)
+        fun edit(id:String,title:String)
     }
 }

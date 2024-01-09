@@ -9,14 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.android.sellacha.Costomer.model.ModelCreateCus
-import com.android.sellacha.Products.Brands.activity.BrandFragment
-import com.android.sellacha.Products.categories.CategoryFragment
 import com.android.sellacha.R
 import com.android.sellacha.adapter.OrderFilterSelector
 import com.android.sellacha.databinding.FragmentAddNewCustomerBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback

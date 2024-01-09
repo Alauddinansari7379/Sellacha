@@ -24,27 +24,28 @@ class UploadLogoFragment : Fragment() {
         binding!!.txtTagline.setText(StoreInformation.RegistrationData.tag_idName)
         binding!!.txtName.setText(StoreInformation.RegistrationData.name)
 
-        binding!!.saveBtn.setOnClickListener { view: View? ->
+        binding!!.saveBtn.setOnClickListener {
 
-            if (binding!!.txtName.text.isEmpty()) {
-                binding!!.txtName.error = "Enter Brand Name"
-                binding!!.txtName.requestFocus()
-                return@setOnClickListener
-            }
-
-            if (binding!!.txtTagline.text.isEmpty()) {
-                binding!!.txtTagline.error = "Enter Tagline"
-                binding!!.txtTagline.requestFocus()
-                return@setOnClickListener
-            }
+//            if (binding!!.txtName.text.isEmpty()) {
+//                binding!!.txtName.error = "Enter Brand Name"
+//                binding!!.txtName.requestFocus()
+//                return@setOnClickListener
+//            }
+//
+//            if (binding!!.txtTagline.text.isEmpty()) {
+//                binding!!.txtTagline.error = "Enter Tagline"
+//                binding!!.txtTagline.requestFocus()
+//                return@setOnClickListener
+//            }
             StoreInformation.RegistrationData.tag_idName = binding!!.txtTagline.text.toString()
             StoreInformation.RegistrationData.name = binding!!.txtName.text.toString().trim()
-            findNavController(binding!!.getRoot()).navigate(R.id.colorSchemeFragment)
+            findNavController(binding!!.root).navigate(R.id.colorSchemeFragment)
         }
 
         binding!!.linearLayout4.setOnClickListener {
             val httpIntent = Intent(Intent.ACTION_VIEW)
-            httpIntent.data = Uri.parse("http://thedemostore.in/logo.html")
+           // httpIntent.data = Uri.parse("https://sellacha.com/logo.html")
+            httpIntent.data = Uri.parse("https://sellacha.com/logo/")
             startActivity(httpIntent)
         }
 

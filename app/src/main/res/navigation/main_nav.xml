@@ -274,4 +274,23 @@
         android:label="T Fragment"
         tools:layout="@layout/fragment_loaction_shop" />
 
+    <fragment
+        android:id="@+id/SliderFragment"
+        android:name="com.android.sellacha.shopSetting.activity.SliderFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_slider" />
+
+
+    <fragment
+        android:id="@+id/SliderCreateFragment"
+        android:name="com.android.sellacha.shopSetting.activity.CreateSliderFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_slider" />
+
+    <fragment
+        android:id="@+id/NimbusFragment"
+        android:name="com.android.sellacha.Shipping.Nimbus.NimbusFragment"
+        android:label="T Fragment"
+        tools:layout="@layout/fragment_slider" />
+
 </navigation>

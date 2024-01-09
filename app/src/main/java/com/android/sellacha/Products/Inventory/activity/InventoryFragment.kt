@@ -5,29 +5,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import com.android.sellacha.Order.Model.ModelCoupon
 import com.android.sellacha.Products.Inventory.Model.DataInverntor
+import com.android.sellacha.Products.Inventory.Model.ModelUpdateInv
 import com.android.sellacha.Products.Inventory.adapter.AdapterInventory
 import com.android.sellacha.Products.Inventory.Model.Modelinventory
-import com.android.sellacha.Products.Inventory.Model.Posts
 import com.android.sellacha.Products.Inventory.Model.Term
 import com.android.sellacha.R
-import com.android.sellacha.api.response.Product.DataItem
+import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.databinding.FragmentInventoryBinding
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
-import androidx.core.widget.addTextChangedListener
 
 
-
-class InventoryFragment : Fragment() {
+class InventoryFragment : Fragment(),AdapterInventory.UpdateInventory {
     var binding: FragmentInventoryBinding? = null
     private lateinit var sessionManager: SessionManager
     private lateinit var inventoryList: Array<Term>
@@ -54,6 +54,13 @@ class InventoryFragment : Fragment() {
                 )
             } as ArrayList<DataInverntor>)
         }
+
+
+
+
+
+
+
 
         apiCallInventory()
 
@@ -83,7 +90,7 @@ class InventoryFragment : Fragment() {
                             binding!!.inventoryRv.adapter =
                                 activity?.let {
 
-                                    AdapterInventory(it, response.body()!!.data.posts.data)
+                                    AdapterInventory(it, response.body()!!.data.posts.data,this@InventoryFragment)
                                 }
                             binding!!.inventoryRv.adapter!!.notifyDataSetChanged()
                             myToast(requireActivity(), "No Data Found")
@@ -92,7 +99,7 @@ class InventoryFragment : Fragment() {
                         } else {
                             binding!!.inventoryRv.adapter =
                                 activity?.let {
-                                    AdapterInventory(it, response.body()!!.data.posts.data)
+                                    AdapterInventory(it, response.body()!!.data.posts.data,this@InventoryFragment)
 
                                 }
                             AppProgressBar.hideLoaderDialog()
@@ -115,11 +122,63 @@ class InventoryFragment : Fragment() {
             })
     }
 
+    companion object{
+    }
+
     private fun setRecyclerViewAdapter(data: ArrayList<DataInverntor>) {
         binding!!.inventoryRv.apply {
-            adapter = context?.let { AdapterInventory(requireContext(), data) }
+            adapter = context?.let { AdapterInventory(requireContext(), data,this@InventoryFragment) }
          }
     }
+
+    override fun updateInventory(id:String,ststus:String,qty:String) {
+        AppProgressBar.showLoaderDialog(requireContext())
+
+        ApiClient.apiService.updateInventory(
+            sessionManager.authToken,
+            id,
+            ststus,
+            qty,
+            "",
+            "")
+            .enqueue(object : Callback<ModelUpdateInv> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelUpdateInv>, response: Response<ModelUpdateInv>
+                ) {
+                    try {
+                        if (response.code() == 404) {
+                            myToast(requireActivity(), "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        }
+                        if (response.code() == 500) {
+                            myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else  {
+                            myToast(requireActivity(), response.body()!!.data.message)
+                            AppProgressBar.hideLoaderDialog()
+                            apiCallInventory()
+
+
+                        }
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelUpdateInv>, t: Throwable) {
+                    // myToast(requireActivity(),t.message.toString())
+                    // myToast(requireActivity(), "Something went wrong")
+                    updateInventory(id,ststus,qty)
+
+                    AppProgressBar.hideLoaderDialog()
+
+
+                }
+
+            })    }
 
 //    private fun filter(text: String) {
 //        // creating a new array list to filter our data.
@@ -150,5 +209,6 @@ class InventoryFragment : Fragment() {
 //////            AdapterOrderAllocation.filterList(filteredlist)
 ////        }
 //    }
+
 
 }

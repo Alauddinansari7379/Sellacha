@@ -13,6 +13,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:gravity="end"
+        android:textSize="@dimen/_11sdp"
         android:text="@string/app_name"
         android:textStyle="bold" />
 

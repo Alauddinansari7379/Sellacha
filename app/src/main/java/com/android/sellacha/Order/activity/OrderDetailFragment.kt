@@ -26,7 +26,7 @@ import com.android.sellacha.fragment.BaseFragment
 import com.android.sellacha.helper.myToast
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.TextUtils
-import com.example.ehcf.sharedpreferences.SessionManager
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.gson.Gson
 import com.google.gson.JsonNull

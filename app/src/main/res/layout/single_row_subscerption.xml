@@ -21,7 +21,7 @@
             android:fontFamily="@font/noto_sans_regular"
             android:textColor="@color/semi_title_font"
             android:text="ORDER "
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/nameS"
@@ -30,9 +30,8 @@
             android:fontFamily="@font/noto_sans_regular"
             android:textColor="@color/semi_title_font"
             android:gravity="center"
-
             android:text="NAME"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/PURCHASE"
@@ -42,7 +41,7 @@
             android:textColor="@color/semi_title_font"
             android:gravity="center"
             android:text="PURCHASE DATE"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/EXPIRY"
@@ -52,7 +51,7 @@
             android:textColor="@color/semi_title_font"
             android:gravity="center"
             android:text="EXPIRY DATE"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
         <TextView
             android:id="@+id/totalSub"
             android:layout_width="100dp"
@@ -61,7 +60,7 @@
             android:textColor="@color/semi_title_font"
             android:gravity="center"
             android:text="TOTAL"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
         <TextView
             android:id="@+id/TAX"
             android:layout_width="100dp"
@@ -70,7 +69,7 @@
             android:textColor="@color/semi_title_font"
             android:gravity="center"
             android:text="TAX"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
 
         <TextView
@@ -83,7 +82,7 @@
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
             android:text="PAYMENT METHOD"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/PAYMENTS"
@@ -95,7 +94,7 @@
             android:paddingStart="@dimen/_10sdp"
             android:paddingEnd="@dimen/_10sdp"
             android:text="PAYMENT STATUS"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:id="@+id/FULFILLMENT"
@@ -106,7 +105,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:text="FULFILLMENT"
-             android:textSize="14sp" />
+             android:textSize="@dimen/_11sdp" />
 
     </LinearLayout>
 
