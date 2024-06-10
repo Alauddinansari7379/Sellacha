@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
         android:name=".app.SellAchaApplication"
@@ -39,9 +41,7 @@
         <activity
             android:name=".activity.CreateForgotPasswordActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.OtpActivity"
-            android:exported="false" />
+
         <activity
             android:name=".LogIn.ForgotPassword"
             android:windowSoftInputMode="adjustResize"
@@ -80,6 +80,24 @@
         <activity
             android:name=".activity.StoreInformationActivity"
             android:exported="true" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/app_logo" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel"
+            android:value="@string/channel_id" />
+        <service
+            android:name=".Notification.MyFirebaseMessagingService"
+            android:exported="false">
+
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

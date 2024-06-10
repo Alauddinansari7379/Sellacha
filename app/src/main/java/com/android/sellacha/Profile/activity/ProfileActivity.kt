@@ -113,7 +113,7 @@ class ProfileActivity : BaseActivity(), UploadRequestBody.UploadCallback {
 
     private fun logOut() {
         AppProgressBar.showLoaderDialog(this)
-        MainService.logout(this).observe(this) { response: ApiResponse? ->
+        MainService.logout(this,sessionManager.fcmToken,"android").observe(this) { response: ApiResponse? ->
             if (response == null) {
                 errorSnackBar(binding!!.root, getString(R.string.something_wrong))
             } else {

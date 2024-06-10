@@ -1,8 +1,14 @@
 package com.android.sellacha.activity
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +16,10 @@ import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -26,7 +36,10 @@ import com.android.sellacha.utils.KeyboardListenerUtils
 import com.android.sellacha.utils.StatusBarUtils
 import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
- import com.squareup.picasso.MemoryPolicy
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseApp
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import retrofit2.Call
@@ -40,7 +53,11 @@ open class HomeDashBoard : BaseActivity() {
     var isLoad = false
     val handler = Handler(Looper.getMainLooper())
     lateinit var sessionManager: SessionManager
+    private val NOTIFICATION_PERMISSION_CODE = 123
 
+    private val notificationManager: NotificationManager by lazy {
+        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    }
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +70,36 @@ open class HomeDashBoard : BaseActivity() {
         if (sessionManager.deviceId!!.isEmpty()) {
             val deviceID = getDeviceId(this@HomeDashBoard)
             sessionManager.deviceId = deviceID
+        }
+
+        requestNotificationPermission()
+        //   getCurrentFCMToken()
+
+        when {
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED -> {
+                // You can use the API that requires the permission.
+                Log.e("Notification", "onCreate: PERMISSION GRANTED")
+                // sendNotification(this)
+            }
+            shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
+                Snackbar.make(
+                    findViewById<View>(android.R.id.content).rootView, "Notification blocked", Snackbar.LENGTH_LONG
+                ).setAction("Settings") {
+                    // Responds to click on the action
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    val uri: Uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                }.show()
+            }
+            else -> {
+                // The registered ActivityResultCallback gets the result of this request
+                requestPermissionLauncher.launch(
+                    Manifest.permission.POST_NOTIFICATIONS
+                )
+            }
         }
         cbnMenuItems.add(
             CbnMenuItem(
@@ -483,7 +530,107 @@ open class HomeDashBoard : BaseActivity() {
         }
         // navController.navigate(R.id.homeFragment);
     }
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission())
+    {
+            isGranted: Boolean ->
+        if (isGranted) {
+            // Permission is granted. Continue the action or workflow in your
+            // app.
+            //  sendNotification(this)
+            // myToast(this@MainActivity,"Permission granted")
+        } else {
+            // Explain to the user that the feature is unavailable because the
+            // features requires a permission that the user has denied. At the
+            // same time, respect the user's decision. Don't link to system
+            // settings in an effort to convince the user to change their
+            // decision.
+        }
+    }
+    private fun requestNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NOTIFICATION_POLICY) == PackageManager.PERMISSION_GRANTED
+        ) return
+        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                this,
+                Manifest.permission.ACCESS_NOTIFICATION_POLICY
+            )
+        ) {
+        }
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf<String>(Manifest.permission.ACCESS_NOTIFICATION_POLICY),
+            NOTIFICATION_PERMISSION_CODE
+        )
+    }
+    private val notificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+                isGranted ->
+            hasNotificationPermissionGranted = isGranted
+            if (!isGranted) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (Build.VERSION.SDK_INT >= 33) {
+                        if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
+                            showNotificationPermissionRationale()
+                        } else {
+                            showSettingDialog()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(applicationContext, "notification permission granted", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    var hasNotificationPermissionGranted = false
+    private val isNotificationListenerEnabled: Boolean
+        get() {
+            val pkgName = packageName
+            val cn = ComponentName(pkgName, "$pkgName.NotificationListener")
+            val flat = Settings.Secure.getString(contentResolver, "enabled_notification_listeners")
+            return flat != null && flat.contains(cn.flattenToString())
+        }
+    private fun showSettingDialog() {
+        MaterialAlertDialogBuilder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
+            .setTitle("Notification Permission")
+            .setMessage("Notification permission is required, Please allow notification permission from setting")
+            .setPositiveButton("Ok") { _, _ ->
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                intent.data = Uri.parse("package:$packageName")
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    private fun showNotificationPermissionRationale() {
 
+        MaterialAlertDialogBuilder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
+            .setTitle("Alert")
+            .setMessage("Notification permission is required, to show notification")
+            .setPositiveButton("Ok") { _, _ ->
+                if (Build.VERSION.SDK_INT >= 33) {
+                    notificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String>, grantResults: IntArray
+    ) {
+        // Checking the request code of our request
+        if (requestCode == NOTIFICATION_PERMISSION_CODE) {
+            // If permission is granted
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Displaying a toast
+                Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show()
+            } else {
+                // Displaying another toast if permission is not granted
+                Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions!!, grantResults)
+    }
     private fun drawerLock() {
         if (binding!!.mainDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
             binding!!.mainDrawerLayout.closeDrawer(Gravity.LEFT)

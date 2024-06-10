@@ -22,6 +22,7 @@ import retrofit2.Response;
 
 public class MainService {
 
+
     private static final APIInterface apiService = BaseService.getAPIClient(Constants.GOOD_API_DEFAULT).create(APIInterface.class);
 
     public MainService() {
@@ -149,12 +150,12 @@ public class MainService {
     }
 
 
-    public static LiveData<ApiResponse> logout(final Context context) {
+    public static LiveData<ApiResponse> logout(final Context context, String device_token, String device_type) {
         final MutableLiveData<ApiResponse> data = new MutableLiveData<>();
         if (!SellAchaApplication.getInstance().isInternetConnected(context)) {
             return data;
         }
-        Call<ApiResponse> call = apiService.logOut(SellAchaApplication.getDefaultHeaders());
+        Call<ApiResponse> call = apiService.logOut(SellAchaApplication.getDefaultHeaders(),device_token,device_type);
         call.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(@NonNull Call<ApiResponse> call, @NonNull Response<ApiResponse> response) {

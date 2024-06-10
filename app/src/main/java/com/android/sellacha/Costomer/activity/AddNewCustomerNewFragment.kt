@@ -62,7 +62,11 @@ class AddNewCustomerNewFragment : Fragment() {
                 val name = binding.nameTxt.text.toString().trim()
                 val email = binding.emailTxt.text.toString().trim()
                 val password = binding.passwordTxt.text.toString().trim()
-
+             if (!isValidEmail(email)) {
+                 binding.emailTxt.error = "Enter a Valid Email"
+                 binding.emailTxt.requestFocus()
+                 return@setOnClickListener
+             }
                 if (CustomerFragment.edit == "2") {
                     apiCallEditCustmor(name, email, password)
                 } else {
@@ -71,7 +75,10 @@ class AddNewCustomerNewFragment : Fragment() {
                 }
             }
     }
-
+    fun isValidEmail(email: String): Boolean {
+        val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
+        return email.matches(emailRegex)
+    }
     private fun apiCallCreateCustmor(name: String, email: String, password: String) {
         AppProgressBar.showLoaderDialog(requireContext())
 

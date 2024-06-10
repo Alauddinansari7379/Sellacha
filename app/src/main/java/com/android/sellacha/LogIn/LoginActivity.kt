@@ -3,6 +3,7 @@ package com.android.sellacha.LogIn
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
@@ -32,18 +33,32 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sessionManager: SessionManager
     private val context: Context = this@LoginActivity
+    private val PREF_NAME = "MyPrefs"
+    private val PREF_USERNAME = "username"
+    private val PREF_PASSWORD = "password"
+    private val FCM_TOKEN = "fcmtoken"
+    private lateinit var sharedPreferences: SharedPreferences
+    private var fcmTokenNew = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this)
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
         val redurl=intent.getStringExtra("redurl")
         val pay=intent.getStringExtra("pay")
 
         Log.e("URL",redurl.toString())
         Log.e("pay",pay.toString())
+
+        if(sessionManager.fcmToken!!.isNotEmpty()){
+            saveFCM(sessionManager.fcmToken.toString())
+        }
+        fcmTokenNew = sharedPreferences.getString(FCM_TOKEN, "").toString()
+
+        Log.e("FCMNewSession",fcmTokenNew)
 
         if (pay=="1"){
             val browse = Intent(Intent.ACTION_VIEW, Uri.parse("$redurl"))
@@ -105,13 +120,18 @@ class LoginActivity : BaseActivity() {
 
         }
     }
-
+    private fun saveFCM(fcmToken: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString(FCM_TOKEN, fcmToken)
+        editor.apply()
+    }
     private fun login() {
 
         AppProgressBar.showLoaderDialog(this@LoginActivity)
         ApiClient.apiService.login(
             binding.emailEdt.text.toString().trim(),
             binding.passwordEdt.text.toString().trim(),
+            fcmTokenNew,"android"
         ).enqueue(object :
             Callback<ModelLogin> {
             @SuppressLint("LogNotTimber")

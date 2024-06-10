@@ -3,7 +3,13 @@ package com.android.sellacha.api
 import com.android.sellacha.LogIn.Model.ModelLogin
 import com.android.sellacha.api.request.LoginRequest
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface APIInterface {
     @POST("login")
@@ -17,7 +23,7 @@ interface APIInterface {
     fun userLogin(
         @Body model: LoginRequest?
 
-   ): Call<ApiResponse?>?
+    ): Call<ApiResponse?>?
 
     //All Order APi's
     @Headers("content-type: application/json")
@@ -46,7 +52,9 @@ interface APIInterface {
     @Headers("content-type: application/json")
     @GET("logout")
     fun logOut(
-        @Header("Authorization") authHeader: String?
+        @Header("Authorization") authHeader: String?,
+        @Query("device_token") device_token: String?,
+        @Query("device_type") device_type: String?
     ): Call<ApiResponse?>?
 
     @Headers("content-type: application/json")

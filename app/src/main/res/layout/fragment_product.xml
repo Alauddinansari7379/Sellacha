@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:fillViewport="true"
-                android:paddingTop="@dimen/_10sdp"
+                android:paddingTop="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -32,17 +32,17 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_12sdp"
-                        android:layout_marginEnd="@dimen/_12sdp"
-                        android:layout_marginBottom="@dimen/_12sdp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="15dp"
                         android:orientation="vertical">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/filterRv"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_55sdp"
-                            android:paddingStart="@dimen/_8sdp"
-                            android:paddingEnd="@dimen/_8sdp"
+                            android:layout_height="55dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="8dp"
                             android:visibility="gone"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -53,68 +53,67 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp">
+                            android:layout_marginTop="15dp">
 
                             <Button
                                 android:id="@+id/addNewBtn"
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_35sdp"
-                                android:layout_marginStart="@dimen/_8ssp"
-                                android:layout_marginTop="@dimen/_3sdp"
+                                android:layout_height="35dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginBottom="2dp"
                                 android:background="@drawable/seleceted_item_bg"
-                                android:fontFamily="@font/noto_sans_regular"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:gravity="center"
-                                android:paddingStart="@dimen/_10sdp"
-                                android:paddingTop="@dimen/_5sdp"
-                                android:paddingEnd="@dimen/_10sdp"
-                                android:paddingBottom="@dimen/_5sdp"
+                                android:paddingStart="15dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="15dp"
+                                android:paddingBottom="5dp"
                                 android:text="Add New"
-                                android:textSize="@dimen/_11sdp"
                                 android:textAllCaps="false"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/white"
+                                android:textSize="11sp" />
 
                             <Button
                                 android:id="@+id/importBtn"
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_35sdp"
-                                android:layout_marginStart="@dimen/_8ssp"
-                                android:layout_marginTop="@dimen/_3sdp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="10dp"
                                 android:background="@drawable/seleceted_item_bg"
                                 android:backgroundTint="@color/green"
-                                android:fontFamily="@font/noto_sans_regular"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:gravity="center"
-                                android:visibility="gone"
-                                android:paddingStart="@dimen/_10sdp"
-                                android:paddingTop="@dimen/_5sdp"
-                                android:paddingEnd="@dimen/_10sdp"
-                                android:paddingBottom="@dimen/_5sdp"
+                                android:paddingStart="15dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="15dp"
+                                android:paddingBottom="5dp"
                                 android:text="Import"
                                 android:textAllCaps="false"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/white"
+                                android:visibility="gone" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginTop="15dp"
                             android:background="@drawable/card_bg"
                             android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_35sdp"
+                                android:layout_height="40dp"
                                 android:layout_margin="25dp"
                                 android:background="@drawable/fields_bg"
                                 android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:layout_gravity="center"
-                                    android:layout_margin="@dimen/_5sdp"
-                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:layout_margin="5dp"
+                                    android:layout_marginStart="5dp"
 
-                                    android:padding="@dimen/_5sdp"
+                                    android:padding="5dp"
                                     android:src="@drawable/search_btn"
                                     app:tint="@color/_6E7D86" />
 
@@ -131,14 +130,14 @@
                                     android:maxLines="1"
                                     android:singleLine="true"
                                     android:textCursorDrawable="@drawable/search_cursor"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="12sp" />
 
                                 <ImageView
                                     android:id="@+id/filterBtn"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:layout_gravity="center"
-                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_marginEnd="15dp"
                                     android:background="@drawable/search_btn_bg"
                                     android:padding="5dp"
                                     android:src="@drawable/filter_btn"
@@ -146,10 +145,10 @@
 
                                 <ImageView
                                     android:id="@+id/searchCloseBtn"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:layout_gravity="center"
-                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_marginEnd="15dp"
                                     android:padding="5dp"
                                     android:src="@drawable/met_ic_close"
                                     android:visibility="gone"
@@ -159,7 +158,7 @@
                             <LinearLayout
 
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_60sdp"
+                                android:layout_height="50dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginRight="25dp"
                                 android:background="@drawable/fields_bg"
@@ -170,35 +169,35 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center"
-                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:layout_marginLeft="5dp"
                                     android:layout_weight="5"
                                     android:background="@color/white"
                                     android:gravity="center_vertical"
                                     android:hint="Select Fulfillment"
-                                    android:paddingStart="@dimen/_5sdp"
-                                    android:textSize="@dimen/_12sdp" />
+                                    android:paddingStart="5dp"
+                                    android:textSize="14sp" />
 
                                 <ImageView
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:layout_gravity="center"
-                                    android:padding="@dimen/_5sdp"
+                                    android:padding="5dp"
                                     android:src="@drawable/selection_arrow"
                                     app:tint="@color/_6E7D86" />
 
                                 <Button
                                     android:id="@+id/btnSubmit"
-                                    android:layout_width="@dimen/_65sdp"
-                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_width="100dp"
+                                    android:layout_height="35dp"
                                     android:layout_gravity="center"
-                                    android:layout_margin="@dimen/_7sdp"
+                                    android:layout_margin="10dp"
                                     android:background="@drawable/seleceted_item_bg"
-                                    android:fontFamily="@font/noto_sans_regular"
-                                    android:padding="@dimen/_5sdp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:padding="5dp"
                                     android:text="Submit"
-                                    android:textSize="@dimen/_11sdp"
                                     android:textAllCaps="false"
-                                    android:textColor="@color/white" />
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp" />
 
                             </LinearLayout>
 
@@ -218,15 +217,12 @@
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="@dimen/_55sdp"
-                                        android:layout_marginTop="@dimen/_15sdp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="15dp"
                                         android:background="@drawable/top_curve_heading"
                                         android:orientation="horizontal"
-                                        android:paddingStart="@dimen/_6ssp"
-
+                                        android:paddingStart="8dp"
                                         >
-
-
                                         <androidx.constraintlayout.widget.ConstraintLayout
                                             android:id="@+id/orderDetailLL"
                                             android:layout_width="match_parent"
@@ -237,12 +233,12 @@
 
                                             <ImageView
                                                 android:id="@+id/orderName"
-                                                android:layout_width="@dimen/_80sdp"
-                                                android:layout_height="wrap_content"
-                                                android:fontFamily="@font/noto_sans_regular"
+                                                android:layout_width="80dp"
+                                                android:layout_height="60dp"
+                                                android:fontFamily="@font/montserrat_bold"
                                                 android:gravity="center"
-                                                android:padding="@dimen/_10sdp"
-                                                android:src="@drawable/icn_image"
+                                                android:padding="15dp"
+                                                android:src="@drawable/image"
                                                 app:layout_constraintBottom_toBottomOf="parent"
                                                 app:layout_constraintStart_toStartOf="parent"
                                                 app:layout_constraintTop_toTopOf="parent"
@@ -250,34 +246,34 @@
 
                                             <TextView
                                                 android:id="@+id/name"
-                                                android:layout_width="@dimen/_150sdp"
+                                                android:layout_width="150dp"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginStart="@dimen/_15sdp"
-                                                android:fontFamily="@font/noto_sans_regular"
+                                                android:layout_marginStart="10dp"
+                                                android:fontFamily="@font/montserrat_bold"
                                                 android:gravity="start"
                                                 android:text="Name"
                                                 android:textColor="@color/primary_bg"
-                                                android:textSize="@dimen/_11sdp"
+                                                android:textSize="12sp"
                                                 app:layout_constraintBottom_toBottomOf="@+id/orderName"
                                                 app:layout_constraintStart_toEndOf="@+id/orderName"
                                                 app:layout_constraintTop_toTopOf="@+id/orderName" />
 
                                             <TextView
                                                 android:id="@+id/totalSale"
-                                                android:layout_width="@dimen/_100sdp"
+                                                android:layout_width="130dp"
                                                 android:layout_height="wrap_content"
-                                                android:fontFamily="@font/noto_sans_regular"
+                                                android:fontFamily="@font/montserrat_bold"
                                                 android:gravity="center"
                                                 android:text="Total Sales"
                                                 android:textColor="@color/primary_bg"
-                                                android:textSize="@dimen/_11sdp"
+                                                android:textSize="12sp"
                                                 app:layout_constraintBottom_toBottomOf="parent"
                                                 app:layout_constraintStart_toEndOf="@+id/name"
                                                 app:layout_constraintTop_toTopOf="parent" />
 
                                             <LinearLayout
                                                 android:id="@+id/status"
-                                                android:layout_width="@dimen/_100sdp"
+                                                android:layout_width="150dp"
                                                 android:layout_height="match_parent"
                                                 android:gravity="center"
                                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -288,26 +284,26 @@
                                                     android:id="@+id/payment"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="match_parent"
-                                                    android:layout_marginStart="@dimen/_10ssp"
-                                                    android:layout_marginEnd="@dimen/_10ssp"
+                                                    android:layout_marginStart="15dp"
+                                                    android:layout_marginEnd="15dp"
                                                     android:gravity="center"
-                                                    android:paddingStart="@dimen/_10sdp"
-                                                    android:paddingEnd="@dimen/_10sdp"
+                                                    android:fontFamily="@font/montserrat_bold"
+                                                    android:paddingStart="15dp"
+                                                    android:paddingEnd="15dp"
                                                     android:text="Status"
                                                     android:textColor="@color/primary_bg"
-                                                    android:textSize="@dimen/_11sdp"
-                                                    />
+                                                    android:textSize="12sp" />
                                             </LinearLayout>
 
                                             <TextView
                                                 android:id="@+id/lastUpdate"
-                                                android:layout_width="@dimen/_100sdp"
+                                                android:layout_width="150dp"
                                                 android:layout_height="wrap_content"
-                                                android:fontFamily="@font/noto_sans_regular"
+                                                android:fontFamily="@font/montserrat_bold"
                                                 android:gravity="center"
                                                 android:text="Last Update"
                                                 android:textColor="@color/primary_bg"
-                                                android:textSize="@dimen/_11sdp"
+                                                android:textSize="12sp"
                                                 app:layout_constraintBottom_toBottomOf="parent"
                                                 app:layout_constraintEnd_toEndOf="parent"
                                                 app:layout_constraintStart_toEndOf="@+id/status"
@@ -316,7 +312,7 @@
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="@dimen/_1sdp"
+                                            android:layout_height="1dp"
                                             android:background="@color/table_titlebg" />
                                     </LinearLayout>
 
@@ -324,7 +320,7 @@
                                         android:id="@+id/orderList"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:padding="@dimen/_6sdp"
+                                        android:padding="8dp"
                                         tools:listitem="@layout/product_item" />
                                 </LinearLayout>
                             </HorizontalScrollView>

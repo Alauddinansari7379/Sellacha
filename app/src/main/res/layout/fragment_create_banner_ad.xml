@@ -112,12 +112,21 @@
                     android:text="No file chosen"
                     android:textColor="#9F757C7C"
                     android:textSize="@dimen/_11sdp"
-
-
                     app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
                     app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
                     app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max Size 1 MB"
+                    android:textColor="#9F757C7C"
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtNoFile"
+                    app:layout_constraintStart_toEndOf="@+id/txtNoFile"
+                    app:layout_constraintTop_toTopOf="@+id/txtNoFile" />
                 <Button
                     android:id="@+id/saveBtn"
                     android:layout_width="@dimen/_250sdp"

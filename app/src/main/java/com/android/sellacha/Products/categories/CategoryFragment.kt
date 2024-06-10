@@ -94,6 +94,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
                         }
                         if (response.code() == 500) {
                             myToast(requireActivity(), "Server Error")
+                            AppProgressBar.hideLoaderDialog()
 
                         } else if (response.body()!!.data.posts.data.isEmpty()) {
                             binding.recyclerView.adapter =
@@ -111,6 +112,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
                         }
                     }catch (e:Exception){
                         e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
                     }
                 }
 

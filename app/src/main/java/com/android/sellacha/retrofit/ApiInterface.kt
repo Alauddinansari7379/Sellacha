@@ -44,6 +44,8 @@ interface ApiInterface {
     fun login(
         @Field("email") email: String,
         @Field("password") password: String,
+        @Field("device_token") device_token: String,
+        @Field("device_type") device_type: String,
     ): Call<ModelLogin>
 
     @Headers("Accept: application/json")
@@ -108,6 +110,14 @@ interface ApiInterface {
         @Query("id") id: String,
     ): Call<ModelCreCatogoryJava>
 
+    @Headers("Accept: application/json")
+    @POST("edit_category")
+    fun editCategoryWithOutImg(
+        @Header("Authorization") authHeader: String?,
+        @Query("name") name: String,
+         @Query("id") id: String,
+    ): Call<ModelCreCatogoryJava>
+
     @Multipart
     @Headers("Accept: application/json")
     @POST("create_category")
@@ -119,6 +129,16 @@ interface ApiInterface {
         @Query("menu_status") menu_status: String,
         @Part file: MultipartBody.Part,
     ): Call<ModelCreCatogoryJava>
+
+    @Headers("Accept: application/json")
+    @POST("create_category")
+    fun createCategoryWithOutImg(
+        @Header("Authorization") authHeader: String?,
+        @Query("name") name: String,
+        @Query("type") type: String,
+        @Query("featured") featured: String,
+        @Query("menu_status") menu_status: String,
+     ): Call<ModelCreCatogoryJava>
 
     @Headers("content-type: application/json")
     @GET("get_category")

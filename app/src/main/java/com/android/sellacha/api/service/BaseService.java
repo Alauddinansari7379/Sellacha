@@ -1,7 +1,8 @@
 package com.android.sellacha.api.service;
 
-import com.android.sellacha.BuildConfig;
-import com.android.sellacha.api.HostSelectionInterceptor;
+ import androidx.multidex.BuildConfig;
+
+ import com.android.sellacha.api.HostSelectionInterceptor;
 import com.android.sellacha.api.RestUtils;
 import com.android.sellacha.api.SslUtils;
 import com.android.sellacha.app.SellAchaApplication;

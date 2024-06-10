@@ -128,7 +128,7 @@ class ClickablePieChart @JvmOverloads constructor(
         )
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         val centerX = (measuredWidth / 2).toFloat()

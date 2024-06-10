@@ -30,9 +30,9 @@ import com.android.sellacha.R
 import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateCategoryBinding
 import com.android.sellacha.helper.myToast
+import com.android.sellacha.sharedpreferences.SessionManager
 import com.android.sellacha.utils.AppProgressBar
 import com.android.sellacha.utils.ImageUploadClass.UploadRequestBody
-import com.android.sellacha.sharedpreferences.SessionManager
 import com.example.myrecyview.apiclient.ApiClient
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.MultipartBody
@@ -73,8 +73,8 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
         binding = FragmentCreateCategoryBinding.bind(view)
         sessionManager = SessionManager(requireContext())
 
-        if (CategoryFragment.edit =="2"){
-            binding!!.btnSave.text="Update"
+        if (CategoryFragment.edit == "2") {
+            binding!!.btnSave.text = "Update"
             binding!!.txtName.setText(CategoryFragment.cateogoryName)
         }
 //        binding.btnSelectImage.setOnClickListener {
@@ -91,10 +91,19 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 binding.txtName.requestFocus()
                 return@setOnClickListener
             }
-            if(CategoryFragment.edit =="2") {
-                uploadImageEdit()
-            } else{
-                uploadImage()
+            if (CategoryFragment.edit == "2") {
+                if (selectedImageUri == null) {
+                    apiCallEditWithOutImg()
+                } else {
+                    apiCallEdit()
+                }
+            } else {
+                if (selectedImageUri == null) {
+                    apiCallCreateWithOutImg()
+                } else {
+                    apiCallCreate()
+
+                }
 
             }
 
@@ -109,8 +118,8 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
             categoryList
         )
 
-        featuredList.add(ModelFeatured("Yes", "1"))
-        featuredList.add(ModelFeatured("No", "0"))
+        featuredList.add(ModelFeatured("No", "1"))
+        featuredList.add(ModelFeatured("Yes", "0"))
         binding.spinnerFeatured.adapter = ArrayAdapter<ModelFeatured>(
             requireContext(),
             android.R.layout.simple_list_item_1,
@@ -176,7 +185,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
     }
 
-    private fun uploadImage() {
+    private fun apiCallCreate() {
         if (selectedImageUri == null) {
             binding.layoutRoot.snackbar("Select an Thumbnail First")
             return
@@ -233,7 +242,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
                     //  binding.progressBar.progress = 100
 
-                }catch (e:java.lang.Exception){
+                } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                     AppProgressBar.hideLoaderDialog()
 
@@ -241,7 +250,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
             }
 
             override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
-               // binding.layoutRoot.snackbar(t.message!!)
+                // binding.layoutRoot.snackbar(t.message!!)
                 // binding.progressBar.progress = 0
                 myToast(requireActivity(), "Something went wrong")
                 AppProgressBar.hideLoaderDialog()
@@ -250,7 +259,65 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
         })
     }
-    private fun uploadImageEdit() {
+
+    private fun apiCallCreateWithOutImg() {
+        AppProgressBar.showLoaderDialog(requireContext())
+
+
+        val name = binding.txtName.text.toString().trim()
+        Log.e("sessionManager.authToken", sessionManager.authToken.toString())
+        Log.e("name", name)
+        Log.e("type", type)
+        Log.e("featured", featured)
+        Log.e("menu_status", menu_status)
+        ApiClient.apiService.createCategoryWithOutImg(
+            sessionManager.authToken,
+            name,
+            type,
+            featured,
+            menu_status,
+        ).enqueue(object : Callback<ModelCreCatogoryJava> {
+            override fun onResponse(
+                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+            ) {
+                try {
+                    if (response.code() == 401) {
+                        myToast(requireActivity(), "Maximum category limit exceeded")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 200) {
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.categoryFragment)
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else {
+                        myToast(requireActivity(), response.body()!!.message)
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                    // apiCallGetPrePending1()
+
+                    //  binding.progressBar.progress = 100
+
+                } catch (e: java.lang.Exception) {
+                    e.printStackTrace()
+                    AppProgressBar.hideLoaderDialog()
+
+                }
+            }
+
+            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
+                // binding.layoutRoot.snackbar(t.message!!)
+                // binding.progressBar.progress = 0
+                myToast(requireActivity(), "Something went wrong")
+                AppProgressBar.hideLoaderDialog()
+
+            }
+
+        })
+    }
+
+    private fun apiCallEdit() {
         if (selectedImageUri == null) {
             binding.layoutRoot.snackbar("Select an Thumbnail First")
             return
@@ -281,7 +348,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.editCategory(
             sessionManager.authToken,
             name,
-           MultipartBody.Part.createFormData("file", file.name, body),CategoryFragment.idNew
+            MultipartBody.Part.createFormData("file", file.name, body), CategoryFragment.idNew
         ).enqueue(object : Callback<ModelCreCatogoryJava> {
             override fun onResponse(
                 call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
@@ -292,7 +359,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                         AppProgressBar.hideLoaderDialog()
 
                     } else if (response.code() == 200) {
-                        CategoryFragment.edit ="1"
+                        CategoryFragment.edit = "1"
                         myToast(requireActivity(), response.body()!!.data)
                         Navigation.findNavController(binding!!.root).navigate(R.id.categoryFragment)
 
@@ -307,7 +374,63 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
                     //  binding.progressBar.progress = 100
 
-                }catch (e:java.lang.Exception){
+                } catch (e: java.lang.Exception) {
+                    e.printStackTrace()
+                    myToast(requireActivity(), "Something went wrong")
+
+                    AppProgressBar.hideLoaderDialog()
+
+                }
+            }
+
+            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
+                binding.layoutRoot.snackbar(t.message!!)
+                // binding.progressBar.progress = 0
+                AppProgressBar.hideLoaderDialog()
+
+            }
+
+        })
+    }
+
+    private fun apiCallEditWithOutImg() {
+
+        val name = binding.txtName.text.toString().trim()
+        Log.e("sessionManager.authToken", sessionManager.authToken.toString())
+        Log.e("name", name)
+        Log.e("type", type)
+        Log.e("featured", featured)
+        Log.e("menu_status", menu_status)
+        ApiClient.apiService.editCategoryWithOutImg(
+            sessionManager.authToken,
+            name,
+            CategoryFragment.idNew
+        ).enqueue(object : Callback<ModelCreCatogoryJava> {
+            override fun onResponse(
+                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+            ) {
+                try {
+                    if (response.code() == 401) {
+                        myToast(requireActivity(), "Maximum category limit exceeded")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 200) {
+                        CategoryFragment.edit = "1"
+                        myToast(requireActivity(), response.body()!!.data)
+                        Navigation.findNavController(binding!!.root).navigate(R.id.categoryFragment)
+
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else {
+                        myToast(requireActivity(), response.body()!!.message)
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                    // apiCallGetPrePending1()
+
+                    //  binding.progressBar.progress = 100
+
+                } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                     myToast(requireActivity(), "Something went wrong")
 
@@ -350,7 +473,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
-                     binding.txtNoFile.text="Thumbnail Selected"
+                    binding.txtNoFile.text = "Thumbnail Selected"
                     binding!!.txtNoFile.setTextColor(Color.parseColor("#FF4CAF50"));
                     //   imageView?.setImageURI(selectedImageUri)
                 }
@@ -391,7 +514,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
 
     override fun onDestroy() {
         super.onDestroy()
-        CategoryFragment.edit ="1"
+        CategoryFragment.edit = "1"
     }
 
 }

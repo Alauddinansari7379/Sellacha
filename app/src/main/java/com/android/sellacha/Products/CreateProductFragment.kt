@@ -205,27 +205,30 @@ class CreateProductFragment : Fragment(), UploadRequestBody.UploadCallback {
                 binding!!.txtPrice.requestFocus()
                 return@setOnClickListener
             }
-            if (binding!!.txtSpecialPrice.text.isEmpty()) {
-                binding!!.txtSpecialPrice.error = "Enter Special Price"
-                binding!!.txtSpecialPrice.requestFocus()
-                return@setOnClickListener
-            }
-            if (binding!!.location.text.isEmpty()) {
-                binding!!.location.error = "Select Special Price Start Date"
-                binding!!.location.requestFocus()
-                return@setOnClickListener
-            }
-            if (binding!!.txtSpecialPriceEnd.text.isEmpty()) {
-                binding!!.txtSpecialPriceEnd.error = "Select Special Price End Date"
-                binding!!.txtSpecialPriceEnd.requestFocus()
-                return@setOnClickListener
+//            if (binding!!.txtSpecialPrice.text.isEmpty()) {
+//                binding!!.txtSpecialPrice.error = "Enter Special Price"
+//                binding!!.txtSpecialPrice.requestFocus()
+//                return@setOnClickListener
+//            }
+//            if (binding!!.location.text.isEmpty()) {
+//                binding!!.location.error = "Select Special Price Start Date"
+//                binding!!.location.requestFocus()
+//                return@setOnClickListener
+//            }
+//            if (binding!!.txtSpecialPriceEnd.text.isEmpty()) {
+//                binding!!.txtSpecialPriceEnd.error = "Select Special Price End Date"
+//                binding!!.txtSpecialPriceEnd.requestFocus()
+//                return@setOnClickListener
+//            }
+
+            if (binding!!.switch1.isChecked){
+                if (binding!!.txtStockQuantity.text.isEmpty()) {
+                    binding!!.txtStockQuantity.error = "Enter Stock Qty"
+                    binding!!.txtStockQuantity.requestFocus()
+                    return@setOnClickListener
+                }  
             }
 
-            if (binding!!.txtStockQuantity.text.isEmpty()) {
-                binding!!.txtStockQuantity.error = "Enter Stoch Qty"
-                binding!!.txtStockQuantity.requestFocus()
-                return@setOnClickListener
-            }
 
             if (binding!!.txtSku.text.isEmpty()) {
                 binding!!.txtSku.error = "Enter Sku"
