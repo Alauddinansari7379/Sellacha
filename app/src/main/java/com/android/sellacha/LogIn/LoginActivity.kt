@@ -39,6 +39,7 @@ class LoginActivity : BaseActivity() {
     private val FCM_TOKEN = "fcmtoken"
     private lateinit var sharedPreferences: SharedPreferences
     private var fcmTokenNew = ""
+    var count=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -178,11 +179,16 @@ class LoginActivity : BaseActivity() {
             }
 
             override fun onFailure(call: Call<ModelLogin>, t: Throwable) {
-                myToast(this@LoginActivity, "Something went wrong")
+                count++
+                if (count <= 3) {
+                    Log.e("count", count.toString())
+                    login()
+                } else {
+                    myToast(this@LoginActivity, t.message.toString())
+                }
+
                 AppProgressBar.hideLoaderDialog()
-
             }
-
         })
     }
 

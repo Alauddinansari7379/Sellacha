@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="com.android.sellacha.fragment.NotificationFragment"
+        android:name="com.android.sellacha.Notification.fragment.NotificationFragment"
         android:label="Notification Fragment"
         tools:layout="@layout/fragment_notification" />
 
@@ -212,7 +212,7 @@
 
     <fragment
         android:id="@+id/PaymentOption"
-        android:name="com.android.sellacha.setting.PaymentOptionsFragment"
+        android:name="com.android.sellacha.setting.Payment.PaymentOptionsFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_payment_options" />
 
@@ -224,7 +224,7 @@
 
     <fragment
         android:id="@+id/DomainSetting"
-        android:name="com.android.sellacha.setting.DomainSettingFragment"
+        android:name="com.android.sellacha.setting.Domain.DomainSettingFragment"
         android:label="T Fragment"
         tools:layout="@layout/fragment_domain_setting" />
 

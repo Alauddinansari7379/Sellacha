@@ -3,6 +3,7 @@ package com.example.ehcf.retrofit
 import com.android.sellacha.Costomer.model.ModelCreateCus
 import com.android.sellacha.Home.model.ModelOrderCount
 import com.android.sellacha.LogIn.Model.ModelLogin
+import com.android.sellacha.Notification.Model.ModelNotification
 import com.android.sellacha.OfferAndAds.model.ModelBumpAd
 import com.android.sellacha.OfferAndAds.model.ModelCreateAd
 import com.android.sellacha.Order.Model.*
@@ -21,12 +22,17 @@ import com.android.sellacha.Profile.model.ModelUserDetial
 import com.android.sellacha.Registration.Model.ModelRegJava
 import com.android.sellacha.Report.model.ModelReort
 import com.android.sellacha.Shipping.Location.ModelCreateLocation
+import com.android.sellacha.Shipping.Nimbus.Model.ModelLoginNimbus
+import com.android.sellacha.Shipping.Nimbus.Model.ModelNimbusToken
 import com.android.sellacha.Shipping.ShippingPrice.model.ModelCreateShipping
 import com.android.sellacha.Transaction.Model.ModelTransaction
 import com.android.sellacha.marketingTools.model.ModelFacebookPixel
 import com.android.sellacha.marketingTools.model.ModelGoolgeAna
 import com.android.sellacha.marketingTools.model.ModelTagManager
 import com.android.sellacha.marketingTools.model.ModelWhatsaap
+import com.android.sellacha.setting.Domain.model.ModelDomain
+import com.android.sellacha.setting.Domain.model.ModelUpdateDomain
+import com.android.sellacha.setting.Payment.Model.ModelPaymentList
 import com.android.sellacha.setting.model.ModelSubscription
 import com.android.sellacha.shopSetting.model.ModelGetSlider
 import com.android.sellacha.shopSetting.model.ModelSlider
@@ -742,5 +748,44 @@ interface ApiInterface {
         @Query("phone") phone: String?,
         @Query("invoice_description") invoice_description: String?,
     ): Call<ModelCoupon>
+
+    @Headers("content-type: application/json")
+    @POST("domain_details?")
+    fun domainDetails(
+        @Header("Authorization") authHeader: String?,
+    ): Call<ModelDomain>
+
+    @Headers("content-type: application/json")
+    @POST("domain_update_popup?")
+    fun domainUpdate(
+        @Header("Authorization") authHeader: String?,
+        @Query("domain") domain:String
+    ): Call<ModelUpdateDomain>
+
+    @Headers("content-type: application/json")
+    @POST("authorise_nimbus?")
+    fun getNimbusToken(
+        @Header("Authorization") authHeader: String?,
+     ): Call<ModelNimbusToken>
+
+    @Headers("content-type: application/json")
+    @POST("login_nimbus?")
+    fun loginNimbus(
+        @Header("Authorization") authHeader: String?,
+        @Query("email") email:String,
+        @Query("password") password:String,
+     ): Call<ModelLoginNimbus>
+
+    @Headers("content-type: application/json")
+    @POST("payment_list?")
+    fun paymentList(
+        @Header("Authorization") authHeader: String?,
+     ): Call<ModelPaymentList>
+
+    @Headers("content-type: application/json")
+    @POST("noti_list?")
+    fun notiList(
+        @Header("Authorization") authHeader: String?,
+     ): Call<ModelNotification>
 
 }

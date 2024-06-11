@@ -6,8 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -22,8 +22,8 @@
                 android:id="@+id/parentLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:background="@drawable/top_curve_bg"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
@@ -34,11 +34,11 @@
                     android:id="@+id/addCatgLb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
                     android:text="Payment Option"
                     android:textColor="#0191B5"
-                    android:textSize="@dimen/_22sdp"
+                    android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,27 +46,29 @@
                     android:id="@+id/nameLb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:padding="@dimen/_6sdp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp"
                     android:text="Setting"
-                    android:layout_marginStart="@dimen/_20sdp"
+                    android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/heading_font"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/addCatgLb"
                     app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
 
                 <Button
                     android:id="@+id/btnManual"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp"                    android:background="@drawable/btn_background"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/btn_background"
                     android:gravity="center"
                     android:text="Manual Payment"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
 
                     app:layout_constraintEnd_toEndOf="parent"
@@ -75,19 +77,20 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtNoFile"
                     app:layout_constraintVertical_bias="0.083"
                     tools:ignore="UnknownIdInLayout" />
+
                 <Button
                     android:id="@+id/btnAlternative"
-                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                     android:background="@drawable/btn_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/btn_background"
                     android:gravity="center"
                     android:text="Alternative Payments"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
 
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,286 +105,64 @@
                     android:id="@+id/layoutCOD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
                     <TextView
                         android:id="@+id/skipLb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                         android:text="COD"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="COD"
+                        android:fontFamily="@font/montserrat_bold"
                         android:textColor="@color/black"
-                  />
+                        android:textSize="14sp"
+                   />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                 android:layout_weight="1"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="1"
                                 android:text="description"
-                                android:layout_marginStart="@dimen/_20sdp"
-                                android:textSize="@dimen/_12sdp"
                                 android:textColor="@color/black"
-                                />
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="5dp"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                android:background="@color/green">
-                                <LinearLayout
-                                    android:layout_width="35dp"
-                                    android:layout_height="35dp"
-                                    android:gravity="center"
-                                    android:background="@color/green">
+                                android:textSize="14sp" />
 
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="25dp"
-                                        android:background="@drawable/ic_baseline_edit_24"
-                                        android:backgroundTint="@color/white"
-                                        android:layout_height="25dp">
-
-                                    </androidx.appcompat.widget.AppCompatImageView>
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_20sdp"
-                              android:text="installed"
-                            android:layout_marginStart="@dimen/_20sdp"
-                            android:textSize="@dimen/_11sdp"
-                            android:textColor="@color/black"
-                            />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/layoutAlternative"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="vertical">
-                    <TextView
-                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                         android:text="INSTAMOJO"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black"
-                  />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                 android:layout_weight="1"
-                                android:text="description"
-                                android:layout_marginStart="@dimen/_20sdp"
-                                android:textSize="@dimen/_12sdp"
-                                android:textColor="@color/black"
-                                />
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/cardInstamojo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="5dp"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                android:background="@color/green">
-                                <LinearLayout
-                                    android:layout_width="35dp"
-                                    android:layout_height="35dp"
-                                    android:gravity="center"
-                                    android:background="@color/green">
-
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="25dp"
-                                        android:background="@drawable/ic_baseline_edit_24"
-                                        android:backgroundTint="@color/white"
-                                        android:layout_height="25dp">
-
-                                    </androidx.appcompat.widget.AppCompatImageView>
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_20sdp"
-                              android:text="installed"
-                            android:layout_marginStart="@dimen/_20sdp"
-                            android:textSize="@dimen/_11sdp"
-                            android:textColor="@color/black"
-                            />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="vertical">
-                    <TextView
-                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                         android:text="RAZORPAY"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black"
-                  />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                 android:layout_weight="1"
-                                android:text="description"
-                                android:layout_marginStart="@dimen/_20sdp"
-                                android:textSize="@dimen/_12sdp"
-                                android:textColor="@color/black"
-                                />
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/cardRazorpay"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:cardCornerRadius="5dp"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                android:background="@color/green">
-                                <LinearLayout
-                                    android:layout_width="35dp"
-                                    android:layout_height="35dp"
-                                    android:gravity="center"
-                                    android:background="@color/green">
-
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="25dp"
-                                        android:background="@drawable/ic_baseline_edit_24"
-                                        android:backgroundTint="@color/white"
-                                        android:layout_height="25dp">
-
-                                    </androidx.appcompat.widget.AppCompatImageView>
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_20sdp"
-                              android:text="installed"
-                            android:layout_marginStart="@dimen/_20sdp"
-                            android:textSize="@dimen/_11sdp"
-                            android:textColor="@color/black"
-                            />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="vertical">
-                    <TextView
-                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                         android:text="PAYPAL"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black"
-                  />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                 android:layout_weight="1"
-                                android:text="description"
-                                android:layout_marginStart="@dimen/_20sdp"
-                                android:textSize="@dimen/_12sdp"
-                                android:textColor="@color/black"
-                                />
                             <androidx.cardview.widget.CardView
                                 android:id="@+id/cardPaypal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="5dp"
-                                android:layout_marginEnd="@dimen/_20sdp"
-                                android:background="@color/green">
+                                android:layout_marginEnd="20dp"
+                                android:background="@color/green"
+                                app:cardCornerRadius="5dp">
+
                                 <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    >
+                                    android:gravity="center">
 
                                     <androidx.appcompat.widget.AppCompatButton
                                         android:layout_width="wrap_content"
+                                        android:layout_height="25dp"
                                         android:background="@drawable/btn_background"
-                                         android:layout_height="@dimen/_25sdp"
                                         android:text="Install"
-                                        android:textColor="@color/white"
-                                        android:textAllCaps="false">
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white">
 
                                     </androidx.appcompat.widget.AppCompatButton>
                                 </LinearLayout>
@@ -392,18 +173,260 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/_20sdp"
-                              android:text="installed"
-                            android:layout_marginStart="@dimen/_20sdp"
-                            android:textSize="@dimen/_11sdp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="installed"
                             android:textColor="@color/black"
-                            />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
-                </LinearLayout>
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgQR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
 
+                         >
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/layoutAlternative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="INSTAMOJO"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:text="description"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardInstamojo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="20dp"
+                                    android:background="@color/green"
+                                    app:cardCornerRadius="5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@color/green"
+                                        android:gravity="center">
+
+                                        <androidx.appcompat.widget.AppCompatImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/ic_baseline_edit_24"
+                                            android:backgroundTint="@color/white">
+
+                                        </androidx.appcompat.widget.AppCompatImageView>
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="installed"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="RAZORPAY"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:text="description"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardRazorpay"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="20dp"
+                                    android:background="@color/green"
+                                    app:cardCornerRadius="5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@color/green"
+                                        android:gravity="center">
+
+                                        <androidx.appcompat.widget.AppCompatImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/ic_baseline_edit_24"
+                                            android:backgroundTint="@color/white">
+
+                                        </androidx.appcompat.widget.AppCompatImageView>
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="installed"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="PAYPAL"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:text="description"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <androidx.cardview.widget.CardView
+                                     android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="20dp"
+                                    android:background="@color/green"
+                                    app:cardCornerRadius="5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@color/green"
+                                        android:gravity="center">
+
+                                        <androidx.appcompat.widget.AppCompatImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/ic_baseline_edit_24"
+                                            android:backgroundTint="@color/white">
+
+                                        </androidx.appcompat.widget.AppCompatImageView>
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:text="installed"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
             </LinearLayout>

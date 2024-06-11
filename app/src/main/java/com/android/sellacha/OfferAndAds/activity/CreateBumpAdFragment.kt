@@ -48,7 +48,6 @@ class CreateBumpAdFragment : Fragment(), UploadRequestBody.UploadCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCreateBumpAdBinding.bind(view)
-
         sessionManager = SessionManager(requireContext())
 
          binding!!.btnchoosefile.setOnClickListener {
@@ -69,7 +68,6 @@ class CreateBumpAdFragment : Fragment(), UploadRequestBody.UploadCallback {
 
         val parcelFileDescriptor = activity?.contentResolver?.openFileDescriptor(
             selectedImageUri!!, "r", null
-
         ) ?: return
 
         val inputStream = FileInputStream(parcelFileDescriptor.fileDescriptor)
@@ -106,9 +104,7 @@ class CreateBumpAdFragment : Fragment(), UploadRequestBody.UploadCallback {
                 }catch (e:Exception){
                     e.printStackTrace()
                 }
-
             }
-
             override fun onFailure(call: Call<ModelCreateAd>, t: Throwable) {
                 myToast(requireActivity(),"Something went Wrong")
                 AppProgressBar.hideLoaderDialog()

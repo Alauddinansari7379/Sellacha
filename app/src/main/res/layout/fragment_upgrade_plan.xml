@@ -3,11 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+         android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Coming Soon"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/black">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -306,6 +326,7 @@
 
         </LinearLayout>
 
+    </LinearLayout>
 
     </LinearLayout>
 

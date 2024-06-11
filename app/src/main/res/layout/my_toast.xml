@@ -46,10 +46,11 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
+                    android:fontFamily="@font/noto_sans_regular"
                     android:text="This is a custom Toast"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp"
+               />
 
             </RelativeLayout>
 
