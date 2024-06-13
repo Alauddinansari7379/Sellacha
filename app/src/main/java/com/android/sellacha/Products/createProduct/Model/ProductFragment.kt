@@ -1,4 +1,4 @@
-package com.android.sellacha.Products
+package com.android.sellacha.Products.createProduct.Model
 
 import android.app.AlertDialog
 import android.os.Bundle

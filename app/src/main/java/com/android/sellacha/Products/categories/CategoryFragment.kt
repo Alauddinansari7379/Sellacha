@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
-import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.adapter.AdapterCategory
 import com.android.sellacha.R
 import com.android.sellacha.api.model.categoriesDM
@@ -26,6 +25,7 @@ import androidx.core.widget.addTextChangedListener
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.android.sellacha.Products.Coupons.MOdel.ModelCreateCoupon
 import com.android.sellacha.Products.categories.Model.DataX
+import com.android.sellacha.Products.categories.ModelGetCategory.ModelGetCategory
 
 
 class CategoryFragment : Fragment() ,AdapterCategory.Delete{
@@ -33,7 +33,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
     private lateinit var sessionManager: SessionManager
     var navController: NavController? = null
     val handler = Handler(Looper.getMainLooper())
-    private var mainData = java.util.ArrayList<DataX>()
+    private var mainData = java.util.ArrayList<com.android.sellacha.Products.categories.ModelGetCategory.DataX>()
     var categoriesArr = ArrayList<categoriesDM>()
 
     override fun onCreateView(
@@ -56,7 +56,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
                     str.toString(),
                     ignoreCase = true
                 )
-            } as java.util.ArrayList<DataX>)
+            } as java.util.ArrayList<com.android.sellacha.Products.categories.ModelGetCategory.DataX>)
         }
 
 
@@ -81,31 +81,27 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
         AppProgressBar.showLoaderDialog(requireContext())
 
         ApiClient.apiService.getCategory(sessionManager.authToken,"category")
-            .enqueue(object : Callback<ModelCategory> {
-                @SuppressLint("LogNotTimber")
+            .enqueue(object : Callback<ModelGetCategory> {
+                @SuppressLint("LogNotTimber", "NotifyDataSetChanged")
                 override fun onResponse(
-                    call: Call<ModelCategory>, response: Response<ModelCategory>
+                    call: Call<ModelGetCategory>, response: Response<ModelGetCategory>
                 ) {
                     try {
-                        if (response.code() == 200) {
-                            mainData = response.body()!!.data.posts.data
-                            AppProgressBar.hideLoaderDialog()
-
-                        }
                         if (response.code() == 500) {
                             myToast(requireActivity(), "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.data.posts.data.isEmpty()) {
-                            binding.recyclerView.adapter =
-                                activity?.let { AdapterCategory(it, response.body()!!.data.posts.data,this@CategoryFragment) }
+                        } else if (response.body()!!.data.data.isEmpty()) {
+                            binding.recyclerView.adapter = activity?.let { AdapterCategory(it, response.body()!!.data.data,this@CategoryFragment) }
                             binding.recyclerView.adapter!!.notifyDataSetChanged()
                             myToast(requireActivity(), "No Category Found")
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
+                            mainData = response.body()!!.data.data
+                            AppProgressBar.hideLoaderDialog()
                             binding.recyclerView.adapter =
-                                activity?.let { AdapterCategory(it,response.body()!!.data.posts.data,this@CategoryFragment) }
+                                activity?.let { AdapterCategory(it,response.body()!!.data.data,this@CategoryFragment) }
                             AppProgressBar.hideLoaderDialog()
 
 
@@ -116,7 +112,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
                     }
                 }
 
-                override fun onFailure(call: Call<ModelCategory>, t: Throwable) {
+                override fun onFailure(call: Call<ModelGetCategory>, t: Throwable) {
                     //myToast(requireActivity(), "Something went wrong")
                     apiCallCategory()
                     AppProgressBar.hideLoaderDialog()
@@ -126,7 +122,7 @@ class CategoryFragment : Fragment() ,AdapterCategory.Delete{
 
             })
     }
-    private fun setRecyclerViewAdapter(data: java.util.ArrayList<DataX>) {
+    private fun setRecyclerViewAdapter(data: java.util.ArrayList<com.android.sellacha.Products.categories.ModelGetCategory.DataX>) {
         binding!!.recyclerView.apply {
             adapter = context?.let { AdapterCategory(requireContext(), data,this@CategoryFragment) }
         }

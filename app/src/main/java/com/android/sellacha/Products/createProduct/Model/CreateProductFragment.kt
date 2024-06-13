@@ -1,4 +1,4 @@
-package com.android.sellacha.Products
+package com.android.sellacha.Products.createProduct.Model
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -22,7 +22,6 @@ import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.sellacha.OfferAndAds.activity.CreateBannerAdFragment
-import com.android.sellacha.Products.createProduct.Model.ModelCreatePro
 import com.android.sellacha.R
 import com.android.sellacha.Registration.Model.ModelProductType
 import com.android.sellacha.Registration.StoreInformation

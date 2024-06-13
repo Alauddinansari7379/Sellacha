@@ -46,14 +46,14 @@ class PaymentOptionsFragment : Fragment() {
         sessionManager = SessionManager(requireContext())
 
         with(binding!!) {
-            cardInstamojo.setOnClickListener {
+            editInstamojo.setOnClickListener {
                 Navigation.findNavController(binding!!.root).navigate(R.id.Instamojo)
             }
-            cardPaypal.setOnClickListener {
+            editPaypal.setOnClickListener {
                 Navigation.findNavController(binding!!.root).navigate(R.id.Paypal)
             }
 
-            cardRazorpay.setOnClickListener {
+            editRazorPay.setOnClickListener {
                 Navigation.findNavController(binding!!.root).navigate(R.id.Razorpay)
             }
 

@@ -14,6 +14,8 @@ import com.android.sellacha.Products.Inventory.Model.ModelUpdateInv
 import com.android.sellacha.Products.Inventory.Model.Modelinventory
 import com.android.sellacha.Products.categories.Model.ModelCategory
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
+import com.android.sellacha.Products.categories.ModelCreCat.ModelCreateCat
+import com.android.sellacha.Products.categories.ModelGetCategory.ModelGetCategory
 import com.android.sellacha.Products.createProduct.Model.ModelCreatePro
 import com.android.sellacha.Profile.model.ModelChangePass
 import com.android.sellacha.Profile.model.ModelLogo
@@ -33,6 +35,7 @@ import com.android.sellacha.marketingTools.model.ModelWhatsaap
 import com.android.sellacha.setting.Domain.model.ModelDomain
 import com.android.sellacha.setting.Domain.model.ModelUpdateDomain
 import com.android.sellacha.setting.Payment.Model.ModelPaymentList
+import com.android.sellacha.setting.Payment.ModelAddPayment.ModelAddPayment
 import com.android.sellacha.setting.model.ModelSubscription
 import com.android.sellacha.shopSetting.model.ModelGetSlider
 import com.android.sellacha.shopSetting.model.ModelSlider
@@ -125,7 +128,7 @@ interface ApiInterface {
     ): Call<ModelCreCatogoryJava>
 
     @Multipart
-    @Headers("Accept: application/json")
+    @Headers("content-type: application/json")
     @POST("create_category")
     fun createCategory(
         @Header("Authorization") authHeader: String?,
@@ -134,9 +137,9 @@ interface ApiInterface {
         @Query("featured") featured: String,
         @Query("menu_status") menu_status: String,
         @Part file: MultipartBody.Part,
-    ): Call<ModelCreCatogoryJava>
+    ): Call<ModelCreateCat>
 
-    @Headers("Accept: application/json")
+    @Headers("content-type: application/json")
     @POST("create_category")
     fun createCategoryWithOutImg(
         @Header("Authorization") authHeader: String?,
@@ -144,14 +147,14 @@ interface ApiInterface {
         @Query("type") type: String,
         @Query("featured") featured: String,
         @Query("menu_status") menu_status: String,
-     ): Call<ModelCreCatogoryJava>
+     ): Call<ModelCreateCat>
 
     @Headers("content-type: application/json")
     @GET("get_category")
     fun getCategory(
         @Header("Authorization") authHeader: String?,
         @Query("type") type: String?
-    ): Call<ModelCategory>
+    ): Call<ModelGetCategory>
 
     @Headers("content-type: application/json")
     @GET("get_customer")
@@ -787,5 +790,35 @@ interface ApiInterface {
     fun notiList(
         @Header("Authorization") authHeader: String?,
      ): Call<ModelNotification>
+
+    @Headers("content-type: application/json")
+    @POST("payment_getway_page")
+    fun addPaymentDetail(
+        @Header("Authorization") authHeader: String?,
+        @Query("id") id:String,
+        @Query("file") file:String,
+        @Query("name") name:String,
+        @Query("additional_details") additional_details:String,
+        @Query("private_api_key") private_api_key:String,
+        @Query("private_auth_token") private_auth_token:String,
+        @Query("purpose") purpose:String,
+        @Query("key_id") key_id:String,
+        @Query("key_secret") key_secret:String,
+        @Query("description") description:String,
+        @Query("currency") currency:String,
+        @Query("ClientID") ClientID:String,
+        @Query("ClientSecret") ClientSecret:String,
+        @Query("stripe_key") stripe_key:String,
+        @Query("stripe_secret") stripe_secret:String,
+        @Query("user_secretkey") user_secretkey:String,
+        @Query("category_code") category_code:String,
+        @Query("api_key") api_key:String,
+        @Query("public_key") public_key:String,
+        @Query("secret_key") secret_key:String,
+        @Query("access_token") access_token:String,
+        @Query("status") status:String,
+     ): Call<ModelAddPayment>
+
+
 
 }

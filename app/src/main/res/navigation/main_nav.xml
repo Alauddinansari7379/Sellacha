@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/productFragment"
-        android:name="com.android.sellacha.Products.ProductFragment"
+        android:name="com.android.sellacha.Products.createProduct.Model.ProductFragment"
         android:label="Product Fragment"
         tools:layout="@layout/fragment_product" />
 
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/createProductFragmnet"
-        android:name="com.android.sellacha.Products.CreateProductFragment"
+        android:name="com.android.sellacha.Products.createProduct.Model.CreateProductFragment"
         android:label="Create Order Fragment"
         tools:layout="@layout/fragment_create_product" />
 

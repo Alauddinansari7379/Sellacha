@@ -238,7 +238,7 @@
                                     android:textSize="14sp" />
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/cardInstamojo"
+                                    android:id="@+id/editInstamojo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="20dp"
@@ -314,8 +314,8 @@
                                     android:textSize="14sp" />
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/cardRazorpay"
-                                    android:layout_width="wrap_content"
+                                    android:id="@+id/editRazorPay"
+                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="20dp"
                                     android:background="@color/green"
@@ -390,7 +390,8 @@
                                     android:textSize="14sp" />
 
                                 <androidx.cardview.widget.CardView
-                                     android:layout_width="wrap_content"
+                                    android:id="@+id/editPaypal"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="20dp"
                                     android:background="@color/green"

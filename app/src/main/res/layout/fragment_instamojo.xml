@@ -61,10 +61,12 @@
          app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
 
      <androidx.appcompat.widget.AppCompatEditText
+         android:id="@+id/edtTitle"
          android:layout_width="match_parent"
          android:layout_height="@dimen/_35sdp"
          android:layout_marginTop="@dimen/_5sdp"
          android:hint="instamojo"
+         android:textSize="12sp"
          android:padding="@dimen/_5sdp"
          android:background="@drawable/corner">
 
@@ -98,10 +100,12 @@
                         app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtPrivateKey"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:padding="@dimen/_5sdp"
+                        android:textSize="12sp"
                         android:background="@drawable/corner">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -125,10 +129,12 @@
                         app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtAuthKey"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:padding="@dimen/_5sdp"
+                        android:textSize="12sp"
                         android:background="@drawable/corner">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -152,10 +158,12 @@
                         app:layout_constraintTop_toBottomOf="@+id/addCatgLb" />
 
                     <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edrPurpose"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:padding="@dimen/_5sdp"
+                        android:textSize="12sp"
                         android:background="@drawable/corner">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -170,6 +178,7 @@
     android:layout_marginEnd="@dimen/_20sdp"
     android:orientation="horizontal">
     <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchTestMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/_5sdp"
@@ -215,6 +224,7 @@
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:orientation="horizontal">
                     <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/SwitchEna"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/_5sdp"

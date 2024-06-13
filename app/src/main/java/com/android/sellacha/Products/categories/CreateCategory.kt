@@ -26,6 +26,7 @@ import androidx.navigation.Navigation
 import com.android.sellacha.Products.categories.Model.ModelCreCatogoryJava
 import com.android.sellacha.Products.categories.Model.ModelFeatured
 import com.android.sellacha.Products.categories.Model.ModelGender
+import com.android.sellacha.Products.categories.ModelCreCat.ModelCreateCat
 import com.android.sellacha.R
 import com.android.sellacha.api.model.categoriesDM
 import com.android.sellacha.databinding.FragmentCreateCategoryBinding
@@ -50,6 +51,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
     val handler = Handler(Looper.getMainLooper())
     private var selectedImageUri: Uri? = null
     val REQUEST_CODE_IMAGE = 101
+    var count = 0
     var image_viewAddRe: ImageView? = null
     var progressDialog: ProgressDialog? = null
     var categoryList = ArrayList<ModelGender>()
@@ -216,12 +218,12 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.createCategory(
             sessionManager.authToken,
             name,
-            type,
+            "category",
             featured,
             menu_status, MultipartBody.Part.createFormData("file", file.name, body),
-        ).enqueue(object : Callback<ModelCreCatogoryJava> {
+        ).enqueue(object : Callback<ModelCreateCat> {
             override fun onResponse(
-                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+                call: Call<ModelCreateCat>, response: Response<ModelCreateCat>
             ) {
                 try {
                     if (response.code() == 401) {
@@ -234,7 +236,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
-                        myToast(requireActivity(), response.body()!!.message)
+                        myToast(requireActivity(), response.body()!!.data)
                         AppProgressBar.hideLoaderDialog()
 
                     }
@@ -249,11 +251,16 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 }
             }
 
-            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
-                // binding.layoutRoot.snackbar(t.message!!)
-                // binding.progressBar.progress = 0
-                myToast(requireActivity(), "Something went wrong")
+            override fun onFailure(call: Call<ModelCreateCat>, t: Throwable) {
+                count++
+                if (count <= 3) {
+                    Log.e("count", count.toString())
+                    apiCallCreate()
+                } else {
+                    activity?.let { myToast(it, t.message.toString()) }
+                }
                 AppProgressBar.hideLoaderDialog()
+
 
             }
 
@@ -273,12 +280,12 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.createCategoryWithOutImg(
             sessionManager.authToken,
             name,
-            type,
+            "category",
             featured,
             menu_status,
-        ).enqueue(object : Callback<ModelCreCatogoryJava> {
+        ).enqueue(object : Callback<ModelCreateCat> {
             override fun onResponse(
-                call: Call<ModelCreCatogoryJava>, response: Response<ModelCreCatogoryJava>
+                call: Call<ModelCreateCat>, response: Response<ModelCreateCat>
             ) {
                 try {
                     if (response.code() == 401) {
@@ -291,7 +298,7 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                         AppProgressBar.hideLoaderDialog()
 
                     } else {
-                        myToast(requireActivity(), response.body()!!.message)
+                        myToast(requireActivity(), response.body()!!.data)
                         AppProgressBar.hideLoaderDialog()
 
                     }
@@ -306,10 +313,16 @@ class CreateCategory : Fragment(), UploadRequestBody.UploadCallback {
                 }
             }
 
-            override fun onFailure(call: Call<ModelCreCatogoryJava>, t: Throwable) {
+            override fun onFailure(call: Call<ModelCreateCat>, t: Throwable) {
                 // binding.layoutRoot.snackbar(t.message!!)
                 // binding.progressBar.progress = 0
-                myToast(requireActivity(), "Something went wrong")
+                count++
+                if (count <= 3) {
+                    Log.e("count", count.toString())
+                    apiCallCreateWithOutImg()
+                } else {
+                    activity?.let { myToast(it, t.message.toString()) }
+                }
                 AppProgressBar.hideLoaderDialog()
 
             }
